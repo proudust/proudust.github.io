@@ -2,6 +2,7 @@
   "name": "proudust.github.io",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://proudust.github.io",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
@@ -24,6 +25,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.17.0",
+    "gh-pages": "^2.1.1",
     "prettier": "^1.19.1"
   },
   "scripts": {
@@ -31,7 +33,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx src/**"
+    "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx src/**",
+    "deploy": "gh-pages -d build -b master"
   },
   "browserslist": {
     "production": [
