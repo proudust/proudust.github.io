@@ -4,6 +4,7 @@ import {
   AppBar,
   Avatar,
   Button,
+  CssBaseline,
   Card,
   CardActions,
   CardContent,
@@ -39,6 +40,7 @@ const App: React.FC = () => {
 
   return (
     <>
+      <CssBaseline />
       <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h6" noWrap>
