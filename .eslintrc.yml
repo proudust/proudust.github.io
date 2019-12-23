@@ -4,28 +4,15 @@ env:
   node: true
 
 extends:
-  - plugin:@typescript-eslint/recommended
-  - prettier/@typescript-eslint
+  - plugin:prettier/recommended
   - plugin:react/recommended
   - react-app
 
-parser: "@typescript-eslint/parser"
-parserOptions:
-  ecmaFeatures:
-    jsx: true
-  ecmaVersion: 2018
-  sourceType: module
-  project: tsconfig.json
-
 plugins:
-  - "@typescript-eslint"
   - prettier
   - react
 
 rules:
-  "@typescript-eslint/explicit-function-return-type":
-    - warn
-    - allowExpressions: true
   prettier/prettier:
     - error
     - singleQuote: true
@@ -33,3 +20,24 @@ rules:
       printWidth: 100
   react/prop-types:
     - off
+
+overrides:
+  - files: ["**/*.ts"]
+    parser: "@typescript-eslint/parser"
+    parserOptions:
+      ecmaFeatures:
+        jsx: true
+      ecmaVersion: 2018
+      sourceType: module
+      project: tsconfig.json
+
+    extends:
+      - plugin:@typescript-eslint/recommended
+      - prettier/@typescript-eslint
+    plugins:
+      - "@typescript-eslint"
+
+    rules:
+      "@typescript-eslint/explicit-function-return-type":
+        - warn
+        - allowExpressions: true
