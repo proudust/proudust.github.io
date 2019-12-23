@@ -31,11 +31,6 @@ const useStyles = makeStyles((theme: Theme) =>
     content: {
       padding: theme.spacing(3),
     },
-    products: {
-      '& .MuiCardMedia-root': {
-        height: 200,
-      },
-    },
   }),
 );
 
