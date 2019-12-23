@@ -2,23 +2,16 @@ import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import {
   AppBar,
-  Avatar,
   Button,
-  CssBaseline,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
   Container,
+  CssBaseline,
   Grid,
-  IconButton,
   Toolbar,
   Typography,
 } from '@material-ui/core';
-import { GitHub as GitHubIcon, Twitter as TwitterIcon } from '@material-ui/icons';
 
 import { ProductCard } from './Products';
-import { QiitaIcon, SteamIcon } from './Icons';
+import { Profile } from './Profile';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -51,43 +44,7 @@ const App: React.FC = () => {
           <Typography variant="h5" className={classes.header}>
             プロフィール
           </Typography>
-          <Card>
-            <CardHeader
-              avatar={
-                <Avatar
-                  alt="Proudust"
-                  src="http://www.gravatar.com/avatar/7c5f546f80eeb2c158c8699d2f8bbc4f"
-                />
-              }
-              title="Proudust"
-            />
-            <CardContent>
-              <Typography variant="body2" component="p">
-                {`
-                  TypeScript(React, GAS), Kotlin(Android), C#(ASP,NET, WinForms), Python2(Ren'Py)な無職鶏。
-                  一応FE(基本情報), AP(応用情報)持ってる。
-                `}
-              </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-              <IconButton aria-label="twitter" component="a" href="https://twitter.com/proudust">
-                <TwitterIcon />
-              </IconButton>
-              <IconButton aria-label="github" component="a" href="https://github.com/proudust">
-                <GitHubIcon />
-              </IconButton>
-              <IconButton aria-label="qiita" component="a" href="https://qiita.com/proudust">
-                <QiitaIcon />
-              </IconButton>
-              <IconButton
-                aria-label="qiita"
-                component="a"
-                href="https://steamcommunity.com/id/proudust/"
-              >
-                <SteamIcon />
-              </IconButton>
-            </CardActions>
-          </Card>
+          <Profile />
           <Typography variant="h5" className={classes.header}>
             作ったもの
           </Typography>
