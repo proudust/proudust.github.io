@@ -1,12 +1,6 @@
 import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import {
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Typography,
-} from '@material-ui/core';
+import { Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,11 +21,7 @@ export const ProductCard: React.FC<ProductsCardProps> = props => {
 
   return (
     <Card>
-      <CardMedia
-        className={classes.media}
-        image={props.image}
-        title={props.title}
-      />
+      <CardMedia className={classes.media} image={props.image} title={props.title} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
           {props.title}

@@ -15,10 +15,7 @@ import {
   Toolbar,
   Typography,
 } from '@material-ui/core';
-import {
-  GitHub as GitHubIcon,
-  Twitter as TwitterIcon,
-} from '@material-ui/icons';
+import { GitHub as GitHubIcon, Twitter as TwitterIcon } from '@material-ui/icons';
 
 import { ProductCard } from './Products';
 import { QiitaIcon, SteamIcon } from './Icons';
@@ -73,25 +70,13 @@ const App: React.FC = () => {
               </Typography>
             </CardContent>
             <CardActions disableSpacing>
-              <IconButton
-                aria-label="twitter"
-                component="a"
-                href="https://twitter.com/proudust"
-              >
+              <IconButton aria-label="twitter" component="a" href="https://twitter.com/proudust">
                 <TwitterIcon />
               </IconButton>
-              <IconButton
-                aria-label="github"
-                component="a"
-                href="https://github.com/proudust"
-              >
+              <IconButton aria-label="github" component="a" href="https://github.com/proudust">
                 <GitHubIcon />
               </IconButton>
-              <IconButton
-                aria-label="qiita"
-                component="a"
-                href="https://qiita.com/proudust"
-              >
+              <IconButton aria-label="qiita" component="a" href="https://qiita.com/proudust">
                 <QiitaIcon />
               </IconButton>
               <IconButton

@@ -30,5 +30,6 @@ rules:
     - error
     - singleQuote: true
       trailingComma: "all"
+      printWidth: 100
   react/prop-types:
     - off
