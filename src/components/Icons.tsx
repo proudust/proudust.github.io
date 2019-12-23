@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
-import QiitaFavicon from './images/qiita-favicon.png';
-import SteamFavicon from './images/steam-favicon.png';
+import QiitaFavicon from '../images/qiita-favicon.png';
+import SteamFavicon from '../images/steam-favicon.png';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
