@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { Helmet } from 'react-helmet';
 import { makeStyles, Theme, createStyles, useTheme } from '@material-ui/core/styles';
 import { AppBar, Container, CssBaseline, Toolbar, Typography } from '@material-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -19,15 +20,20 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = props => {
   const classes = useStyles();
   const theme = useTheme();
-  const data = useStaticQuery<LayoutQuery>(query);
+  const { site } = useStaticQuery<LayoutQuery>(query);
+  const title = props.title ?? site?.siteMetadata?.title;
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{title}</title>
+      </Helmet>
       <CssBaseline />
       <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h6" noWrap>
-            {props.title ?? data.site?.siteMetadata?.title}
+            {title}
           </Typography>
         </Toolbar>
       </AppBar>
