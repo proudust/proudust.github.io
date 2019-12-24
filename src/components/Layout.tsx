@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { makeStyles, Theme, createStyles, useTheme } from '@material-ui/core/styles';
 import { AppBar, Container, CssBaseline, Toolbar, Typography } from '@material-ui/core';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -8,9 +9,15 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export const Layout: React.FC = props => {
+interface LayoutProps {
+  children: ReactNode;
+  title?: string;
+}
+
+export const Layout: React.FC<LayoutProps> = props => {
   const classes = useStyles();
   const theme = useTheme();
+  const data = useStaticQuery(query);
 
   return (
     <>
@@ -18,7 +25,7 @@ export const Layout: React.FC = props => {
       <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h6" noWrap>
-            proudust.github.io
+            {props.title ?? data.site.siteMetadata.title}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -29,3 +36,13 @@ export const Layout: React.FC = props => {
     </>
   );
 };
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;
