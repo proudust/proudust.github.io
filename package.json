@@ -39,7 +39,7 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "lint": "eslint --fix src/**.ts",
-    "deploy": "gh-pages -d build -b master"
+    "deploy": "gh-pages -d public -b master"
   },
   "browserslist": {
     "production": [
