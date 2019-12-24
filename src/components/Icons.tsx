@@ -1,24 +1,32 @@
 import React from 'react';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-
-import QiitaFavicon from '../images/qiita-favicon.png';
-import SteamFavicon from '../images/steam-favicon.png';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    icon: {
-      height: 24,
-      width: 24,
-    },
-  }),
-);
+import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 
 export const QiitaIcon: React.FC = () => {
-  const classes = useStyles();
-  return <img alt="qiita" src={QiitaFavicon} className={classes.icon} />;
+  const data = useStaticQuery(query);
+  return <Img alt="qiita" fixed={data.QiitaFavicon.childImageSharp.fixed} />;
 };
 
 export const SteamIcon: React.FC = () => {
-  const classes = useStyles();
-  return <img alt="qiita" src={SteamFavicon} className={classes.icon} />;
+  const data = useStaticQuery(query);
+  return <Img alt="steam" fixed={data.SteamFavicon.childImageSharp.fixed} />;
 };
+
+export const query = graphql`
+  query {
+    QiitaFavicon: file(relativePath: { eq: "qiita-favicon.png" }) {
+      childImageSharp {
+        fixed(width: 24, height: 24) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    SteamFavicon: file(relativePath: { eq: "steam-favicon.png" }) {
+      childImageSharp {
+        fixed(width: 24, height: 24) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }
+`;
