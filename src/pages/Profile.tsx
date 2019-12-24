@@ -16,7 +16,8 @@ import { GitHub as GitHubIcon, Twitter as TwitterIcon } from '@material-ui/icons
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { Layout } from '../components/Layout';
-import { QiitaIcon, SteamIcon } from '../components/Icons';
+import { QiitaIcon } from '../components/QiitaIcon';
+import { SteamIcon } from '../components/SteamIcon';
 import { ProfileQuery } from '../../types/query';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -106,6 +107,8 @@ export const Profile: React.FC<ProfileProps> = () => {
     </Layout>
   );
 };
+
+export default Profile;
 
 const query = graphql`
   query Profile {
