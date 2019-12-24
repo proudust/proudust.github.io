@@ -13,7 +13,15 @@ module.exports = {
         path: path.join(__dirname, 'src', 'images'),
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'data',
+        path: path.join(__dirname, 'lib'),
+      },
+    },
     `gatsby-transformer-sharp`,
+    `gatsby-transformer-yaml`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
