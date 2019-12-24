@@ -2,18 +2,20 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
+import { IconsQuery } from '../../types/query';
+
 export const QiitaIcon: React.FC = () => {
-  const data = useStaticQuery(query);
-  return <Img alt="qiita" fixed={data.QiitaFavicon.childImageSharp.fixed} />;
+  const data = useStaticQuery<IconsQuery>(query);
+  return <Img alt="qiita" fixed={data.QiitaFavicon?.childImageSharp?.fixed} />;
 };
 
 export const SteamIcon: React.FC = () => {
-  const data = useStaticQuery(query);
-  return <Img alt="steam" fixed={data.SteamFavicon.childImageSharp.fixed} />;
+  const data = useStaticQuery<IconsQuery>(query);
+  return <Img alt="steam" fixed={data.SteamFavicon?.childImageSharp?.fixed} />;
 };
 
 export const query = graphql`
-  query {
+  query Icons {
     QiitaFavicon: file(relativePath: { eq: "qiita-favicon.png" }) {
       childImageSharp {
         fixed(width: 24, height: 24) {

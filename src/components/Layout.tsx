@@ -3,6 +3,8 @@ import { makeStyles, Theme, createStyles, useTheme } from '@material-ui/core/sty
 import { AppBar, Container, CssBaseline, Toolbar, Typography } from '@material-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 
+import { LayoutQuery } from '../../types/query';
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     toolbar: theme.mixins.toolbar,
@@ -17,7 +19,7 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = props => {
   const classes = useStyles();
   const theme = useTheme();
-  const data = useStaticQuery(query);
+  const data = useStaticQuery<LayoutQuery>(query);
 
   return (
     <>
@@ -25,7 +27,7 @@ export const Layout: React.FC<LayoutProps> = props => {
       <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h6" noWrap>
-            {props.title ?? data.site.siteMetadata.title}
+            {props.title ?? data.site?.siteMetadata?.title}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -38,7 +40,7 @@ export const Layout: React.FC<LayoutProps> = props => {
 };
 
 export const query = graphql`
-  query {
+  query Layout {
     site {
       siteMetadata {
         title

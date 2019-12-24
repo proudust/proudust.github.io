@@ -17,5 +17,11 @@ module.exports = {
     `gatsby-plugin-sharp`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
+    {
+      resolve: 'gatsby-plugin-graphql-codegen',
+      options: {
+        fileName: path.join('types', 'query.d.ts'),
+      },
+    },
   ],
 };
