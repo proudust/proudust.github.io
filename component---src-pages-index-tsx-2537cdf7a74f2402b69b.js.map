@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/pages/index.tsx"],"names":["App"],"mappings":"2FAAA,4CAMeA,UAFO,kBAAM,kBAAC,UAAD","file":"component---src-pages-index-tsx-2537cdf7a74f2402b69b.js","sourcesContent":["import React from 'react';\n\nimport { Profile } from './Profile';\n\nconst App: React.FC = () => <Profile />;\n\nexport default App;\n"],"sourceRoot":""}
