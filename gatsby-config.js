@@ -31,5 +31,6 @@ module.exports = {
         fileName: path.join('types', 'query.d.ts'),
       },
     },
+    'gatsby-plugin-material-ui',
   ],
 };
