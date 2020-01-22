@@ -1,4 +1,4 @@
-const path = require(`path`);
+const path = require('path');
 
 module.exports = {
   siteMetadata: {
@@ -20,9 +20,15 @@ module.exports = {
         path: path.join(__dirname, 'lib'),
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-transformer-yaml`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: ['gatsby-remark-images'],
+      },
+    },
+    'gatsby-transformer-sharp',
+    'gatsby-transformer-yaml',
+    'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
     {
