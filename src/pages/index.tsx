@@ -11,7 +11,7 @@ import {
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { CardActionAreaLink } from '../components/CardActionAreaLink';
+import { CardActionAreaLink } from '../components/SmartLink';
 import { Layout } from '../components/Layout';
 import { IndexQuery } from '../../types/query';
 

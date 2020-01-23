@@ -37,7 +37,7 @@ const BlogPost: React.FC<BlogPostProps> = props => {
   const { frontmatter, html } = props.data?.markdownRemark ?? {};
 
   return (
-    <Layout>
+    <Layout backref="/">
       <Paper className={classes.content}>
         <Typography variant="subtitle1">{frontmatter?.createat}</Typography>
         <Typography variant="h4">{frontmatter?.title}</Typography>

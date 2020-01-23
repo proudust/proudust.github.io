@@ -14,10 +14,15 @@ import {
   Toolbar,
   Typography,
 } from '@material-ui/core';
-import { GitHub as GitHubIcon, Twitter as TwitterIcon } from '@material-ui/icons';
+import {
+  ArrowBack as ArrowBackIcon,
+  GitHub as GitHubIcon,
+  Twitter as TwitterIcon,
+} from '@material-ui/icons';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { QiitaIcon } from '../components/QiitaIcon';
+import { IconLink } from './SmartLink';
 import { SteamIcon } from '../components/SteamIcon';
 import { LayoutQuery } from '../../types/query';
 
@@ -33,6 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
 interface LayoutProps {
   children: ReactNode;
   title?: string;
+  backref?: string;
 }
 
 export const Layout: React.FC<LayoutProps> = props => {
@@ -40,6 +46,17 @@ export const Layout: React.FC<LayoutProps> = props => {
   const theme = useTheme();
   const { site, profileYaml } = useStaticQuery<LayoutQuery>(query);
   const title = props.title ?? site?.siteMetadata?.title;
+
+  const backButton = (
+    <IconLink
+      edge="start"
+      aria-label="back"
+      style={{ color: 'inherit', marginRight: theme.spacing(2) }}
+      href={props.backref ?? ''}
+    >
+      <ArrowBackIcon color="inherit" />
+    </IconLink>
+  );
 
   return (
     <>
@@ -50,6 +67,7 @@ export const Layout: React.FC<LayoutProps> = props => {
       <CssBaseline />
       <AppBar position="fixed">
         <Toolbar>
+          {props.backref ? backButton : undefined}
           <Typography variant="h6" noWrap>
             {title}
           </Typography>
