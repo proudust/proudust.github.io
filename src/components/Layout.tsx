@@ -1,13 +1,31 @@
 import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
 import { makeStyles, Theme, createStyles, useTheme } from '@material-ui/core/styles';
-import { AppBar, Container, CssBaseline, Toolbar, Typography } from '@material-ui/core';
+import {
+  AppBar,
+  Avatar,
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  Container,
+  CssBaseline,
+  IconButton,
+  Toolbar,
+  Typography,
+} from '@material-ui/core';
+import { GitHub as GitHubIcon, Twitter as TwitterIcon } from '@material-ui/icons';
 import { graphql, useStaticQuery } from 'gatsby';
 
+import { QiitaIcon } from '../components/QiitaIcon';
+import { SteamIcon } from '../components/SteamIcon';
 import { LayoutQuery } from '../../types/query';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    header: {
+      padding: theme.spacing(3, 0),
+    },
     toolbar: theme.mixins.toolbar,
   }),
 );
@@ -20,7 +38,7 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = props => {
   const classes = useStyles();
   const theme = useTheme();
-  const { site } = useStaticQuery<LayoutQuery>(query);
+  const { site, profileYaml } = useStaticQuery<LayoutQuery>(query);
   const title = props.title ?? site?.siteMetadata?.title;
 
   return (
@@ -37,10 +55,41 @@ export const Layout: React.FC<LayoutProps> = props => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <main style={{ padding: theme.spacing(3) }}>
-        <div className={classes.toolbar} />
-        <Container maxWidth="md">{props.children}</Container>
-      </main>
+      <div className={classes.toolbar} />
+      <Container component="main" maxWidth="md" style={{ marginTop: theme.spacing(3) }}>
+        {props.children}
+      </Container>
+      <hr style={{ marginTop: theme.spacing(3) }} />
+      <Container component="footer" maxWidth="md" style={{ marginBottom: theme.spacing(3) }}>
+        <Typography variant="h5" className={classes.header}>
+          プロフィール
+        </Typography>
+        <Card>
+          <CardHeader
+            avatar={<Avatar alt={profileYaml?.name ?? ''} src={profileYaml?.avatar ?? ''} />}
+            title={profileYaml?.name}
+          />
+          <CardContent>
+            <Typography variant="body2" component="p">
+              {profileYaml?.description}
+            </Typography>
+          </CardContent>
+          <CardActions disableSpacing>
+            <IconButton aria-label="twitter" component="a" href={profileYaml?.links?.twitter ?? ''}>
+              <TwitterIcon />
+            </IconButton>
+            <IconButton aria-label="github" component="a" href={profileYaml?.links?.github ?? ''}>
+              <GitHubIcon />
+            </IconButton>
+            <IconButton aria-label="qiita" component="a" href={profileYaml?.links?.qiita ?? ''}>
+              <QiitaIcon />
+            </IconButton>
+            <IconButton aria-label="steam" component="a" href={profileYaml?.links?.steam ?? ''}>
+              <SteamIcon />
+            </IconButton>
+          </CardActions>
+        </Card>
+      </Container>
     </>
   );
 };
@@ -50,6 +99,17 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    profileYaml {
+      name
+      avatar
+      description
+      links {
+        twitter
+        github
+        qiita
+        steam
       }
     }
   }
