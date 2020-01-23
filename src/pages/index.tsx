@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Button,
   Card,
-  CardActionArea,
   CardActions,
   CardContent,
   CardMedia,
@@ -10,8 +9,9 @@ import {
   Typography,
 } from '@material-ui/core';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
+import { CardActionAreaLink } from '../components/CardActionAreaLink';
 import { Layout } from '../components/Layout';
 import { IndexQuery } from '../../types/query';
 
@@ -34,7 +34,25 @@ export const Index: React.FC<ProfileProps> = () => {
   const classes = useStyles();
   const data = useStaticQuery<IndexQuery>(query);
 
-  const posts = data.allMarkdownRemark?.edges;
+  const posts = (() => {
+    const selfposts = data.allMarkdownRemark?.edges.map(({ node }) => ({
+      title: node.frontmatter?.title ?? '',
+      excerpt: node.excerpt ?? '',
+      createat: node.frontmatter?.createat ?? '',
+      thumbnail: node.frontmatter?.thumbnail?.childImageSharp?.fluid?.src ?? '',
+      url: node.fields?.slug ?? '',
+    }));
+    const guides = data.allSteamGuidesYaml?.nodes.map(node => ({
+      title: node.title ?? '',
+      excerpt: node.excerpt ?? '',
+      createat: node.createat ?? '',
+      thumbnail: node.thumbnail ?? '',
+      url: node.url ?? '',
+    }));
+    return [...selfposts, ...guides].sort(
+      (a, b) => Date.parse(b.createat) - Date.parse(a.createat),
+    );
+  })();
   const products = data.profileYaml?.products ?? [];
 
   return (
@@ -43,26 +61,20 @@ export const Index: React.FC<ProfileProps> = () => {
         投稿
       </Typography>
       <Grid container spacing={2}>
-        {posts.map(({ node }, index) => (
+        {posts.map((post, index) => (
           <Grid item sm={6} xs={12} key={index}>
             <Card>
-              <CardActionArea component="div" disableRipple>
-                <Link to={node.fields?.slug ?? ''} style={{ textDecoration: 'none' }}>
-                  <CardMedia
-                    className={classes.media}
-                    image={node.frontmatter?.thumbnail?.childImageSharp?.fluid?.src ?? ''}
-                    title={node.frontmatter?.title ?? ''}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {node.frontmatter?.title}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                      {node.excerpt}
-                    </Typography>
-                  </CardContent>
-                </Link>
-              </CardActionArea>
+              <CardActionAreaLink href={post.url}>
+                <CardMedia className={classes.media} image={post.thumbnail} title={post.title} />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {post.title}
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                    {post.excerpt}
+                  </Typography>
+                </CardContent>
+              </CardActionAreaLink>
             </Card>
           </Grid>
         ))}
@@ -115,6 +127,7 @@ const query = graphql`
           }
           frontmatter {
             title
+            createat
             thumbnail {
               childImageSharp {
                 fluid(maxHeight: 200) {
@@ -124,6 +137,15 @@ const query = graphql`
             }
           }
         }
+      }
+    }
+    allSteamGuidesYaml {
+      nodes {
+        title
+        createat
+        excerpt
+        url
+        thumbnail
       }
     }
     profileYaml {
