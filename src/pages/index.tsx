@@ -86,26 +86,28 @@ export const Index: React.FC<ProfileProps> = () => {
         {products.map((node, index) => (
           <Grid item sm={6} xs={12} key={index}>
             <Card>
-              <CardMedia
-                className={classes.media}
-                image={node?.image?.childImageSharp?.fluid?.src ?? ''}
-                title={node?.title ?? ''}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {node?.title}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  {node?.description}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                {node?.links?.map(link => (
-                  <Button size="small" color="primary" component="a" href={link?.href ?? ''}>
-                    {link?.name ?? ''}
-                  </Button>
-                ))}
-              </CardActions>
+              <CardActionAreaLink href={node?.links?.[0]?.href ?? ''}>
+                <CardMedia
+                  className={classes.media}
+                  image={node?.image?.childImageSharp?.fluid?.src ?? ''}
+                  title={node?.title ?? ''}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {node?.title}
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                    {node?.description}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  {node?.links?.map(link => (
+                    <Button size="small" color="primary" component="a" href={link?.href ?? ''}>
+                      {link?.name ?? ''}
+                    </Button>
+                  ))}
+                </CardActions>
+              </CardActionAreaLink>
             </Card>
           </Grid>
         ))}
