@@ -1,6 +1,7 @@
 ---
 title: PAYDAY2 CRIME SPREE メモ
 createat: "2020-01-22"
+updateat: "2020-01-28"
 thumbnail: screenshots.jpg
 ---
 
@@ -32,7 +33,7 @@ INTERCEPTION や SANTA'S WORKSHOP などの定点防衛 JOB のためにセン�
 
 CS 1 当たり 1分 くらいのレートで、それより短いか同じくらいでクリアできるなら当たり。  
 ぼっち Heister なので ECM ラッシュ (SWING VOTE など) や人手不足がダイレクトに響くの (AIR PORT など) は除外。  
-HOTLINE MIAMI や BIRTH OF SKY も工夫すればソロでも早いかもしれない。  
+BIRTH OF SKY も工夫すればソロでも早いかもしれない。  
 とても楽で CS 高かった CLUB HOUSE 返して  
 
 [ENGINE PROBLEM 計算機](https://proudust.github.io/payday2-bigoil/)
@@ -44,11 +45,12 @@ HOTLINE MIAMI や BIRTH OF SKY も工夫すればソロでも早いかもしれ�
 | TRANSPORT         | 中央 |    5 | C4 and SAW and ドリル  |                                        |
 | STEALING XMAS     | 中央 |    7 | C4                     | 金庫以外は SAW や ECM で代用可能       |
 | WHITE XMAS        | 中央 |    7 |                        |                                        |
-| ALASKAN DEAL      | 中央 |    8 |                        |                                        |
+| ALASKAN DEAL      | 中央 |    8 | ドリル                 |                                        |
 | BROOKLYN BANK     | 中央 |    8 | ドリル                 |                                        |
 | HIGHLAND MORTUARY | 中央 |    8 |                        |                                        |
 | SANTA'S WORKSHOP  | 中央 |    8 |                        |                                        |
 | COUNTERFEIT       | 右   |    9 | C4 and ドリル          |                                        |
+| HOTLINE MIAMI     | 右   |   10 | C4                     |                                        |
 | THE BREAKOUT      | 右   |   10 | ドリル                 | ドリルはごく稀に必要になる程度         |
 | GREEN BRIDGE      | 右   |   12 | ドリル                 |                                        |
 | COOK OFF          | 右   |   13 |                        |                                        |
@@ -115,6 +117,18 @@ C4 x4 で逃走車両の時短、x8 で稀に即脱出可、x12 で即脱出可�
 ### COUNTERFEIT
 
 どうやっても 9 分以上かかるが、途中までステルスで進行できるため楽。
+
+### HOTLINE MIAMI (HOTLINE MIAMI DAY1)
+
+最速なら9分半くらい。ガソスタ爆破後とセーフハウス侵入後に言う行き先を聞き逃さないように。
+
+| 行き先       | バーコード |
+| ------------ | ---------- |
+| Shaw         | 毛皮製品   |
+| Foggy Bottom | ウォッカ   |
+| Down town    | タバコ     |
+| West End     | 薬品       |
+| George town  | ロケット弾 |
 
 ### THE BREAKOUT (HOXTON BREAKOUT DAY1)
 
