@@ -1,0 +1,40 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "13.x"
+
+      - run: npm ci
+
+      - uses: shimataro/ssh-key-action@v1
+        with:
+          private-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+
+      - run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git config --global url.ssh://git@github.com/.insteadOf https://github.com/
+          npm run deploy --if-present
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
