@@ -42,7 +42,11 @@ const BlogPost: React.FC<BlogPostProps> = props => {
       <Paper className={classes.content}>
         <Typography variant="subtitle1">{post.frontmatter?.createat}</Typography>
         <Typography variant="h4">{post.frontmatter?.title}</Typography>
-        <Typography dangerouslySetInnerHTML={{ __html: post.html ?? '' }} />
+        <Typography
+          component="div"
+          variant="body1"
+          dangerouslySetInnerHTML={{ __html: post.html ?? '' }}
+        />
       </Paper>
     </Layout>
   );
