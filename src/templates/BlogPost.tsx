@@ -34,14 +34,15 @@ interface BlogPostProps extends PageRendererProps {
 
 const BlogPost: React.FC<BlogPostProps> = props => {
   const classes = useStyles();
-  const { frontmatter, html } = props.data?.markdownRemark ?? {};
+  const post = props.data?.markdownRemark;
+  if (!post) throw Error('post is not found.');
 
   return (
     <Layout backref="/">
       <Paper className={classes.content}>
-        <Typography variant="subtitle1">{frontmatter?.createat}</Typography>
-        <Typography variant="h4">{frontmatter?.title}</Typography>
-        <Typography dangerouslySetInnerHTML={{ __html: html ?? '' }} />
+        <Typography variant="subtitle1">{post.frontmatter?.createat}</Typography>
+        <Typography variant="h4">{post.frontmatter?.title}</Typography>
+        <Typography dangerouslySetInnerHTML={{ __html: post.html ?? '' }} />
       </Paper>
     </Layout>
   );
