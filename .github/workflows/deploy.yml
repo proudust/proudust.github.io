@@ -36,5 +36,3 @@ jobs:
           git config --local user.name "GitHub Action"
           git config --global url.ssh://git@github.com/.insteadOf https://github.com/
           npm run deploy --if-present
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
