@@ -101,8 +101,14 @@ export const Index: React.FC<ProfileProps> = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  {node?.links?.map(link => (
-                    <Button size="small" color="primary" component="a" href={link?.href ?? ''}>
+                  {node?.links?.map((link, index) => (
+                    <Button
+                      size="small"
+                      color="primary"
+                      component="a"
+                      href={link?.href ?? ''}
+                      key={index}
+                    >
                       {link?.name ?? ''}
                     </Button>
                   ))}
