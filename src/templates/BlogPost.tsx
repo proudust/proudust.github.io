@@ -38,7 +38,7 @@ const BlogPost: React.FC<BlogPostProps> = props => {
   if (!post) throw Error('post is not found.');
 
   return (
-    <Layout backref="/">
+    <Layout backref="/" title={post.frontmatter?.title}>
       <Paper className={classes.content}>
         <Typography variant="subtitle1">{post.frontmatter?.createat}</Typography>
         <Typography variant="h4">{post.frontmatter?.title}</Typography>

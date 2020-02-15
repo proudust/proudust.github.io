@@ -45,7 +45,8 @@ export const Layout: React.FC<LayoutProps> = props => {
   const classes = useStyles();
   const theme = useTheme();
   const { site, profileYaml } = useStaticQuery<LayoutQuery>(query);
-  const title = props.title ?? site?.siteMetadata?.title;
+  const siteTitle = site?.siteMetadata?.title ?? '';
+  const title = props.title ? `${props.title} - ${siteTitle}` : siteTitle;
 
   const backButton = (
     <IconLink
