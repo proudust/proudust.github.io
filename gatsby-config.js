@@ -23,7 +23,13 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: ['gatsby-remark-autolink-headers', 'gatsby-remark-images'],
+        plugins: [
+          {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: { offsetY: 100, maintainCase: true },
+          },
+          'gatsby-remark-images',
+        ],
       },
     },
     'gatsby-transformer-sharp',
