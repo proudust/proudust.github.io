@@ -38,24 +38,24 @@ BIRTH OF SKY も工夫すればソロでも早いかもしれない。
 
 [ENGINE PROBLEM 計算機](https://proudust.github.io/payday2-bigoil/)
 
-| JOB 名                                  | 位置 |   CS | 装備                   | 備考                                   |
-| --------------------------------------- | ---- | ---: | ---------------------- | -------------------------------------- |
-| [INTERCEPTION](#INTERCEPTION)           | 左   |    3 |                        |                                        |
-| [FBI SERVER](#FBI-SERVER)               | 左   |    5 | (ECM or C4) and ドリル | ECM ラッシュ or ドアこじ開け           |
-| [TRANSPORT](#TRANSPORT)                 | 中央 |    5 | C4 and SAW and ドリル  |                                        |
-| [STEALING XMAS](#STEALING-XMAS)         | 中央 |    7 | C4                     | 金庫以外は SAW や ECM で代用可能       |
-| [WHITE XMAS](#WHITE-XMAS)               | 中央 |    7 |                        |                                        |
-| [ALASKAN DEAL](#ALASKAN-DEAL)           | 中央 |    8 | ドリル                 |                                        |
-| [BROOKLYN BANK](#BROOKLYN-BANK)         | 中央 |    8 | ドリル                 |                                        |
-| [HIGHLAND MORTUARY](#HIGHLAND-MORTUARY) | 中央 |    8 |                        |                                        |
-| [SANTA'S WORKSHOP](#SANTA'S-WORKSHOP)   | 中央 |    8 |                        |                                        |
-| [COUNTERFEIT](#COUNTERFEIT)             | 右   |    9 | C4 and ドリル          |                                        |
-| [HOTLINE MIAMI](#HOTLINE-MIAMI)         | 右   |   10 | C4                     |                                        |
-| [THE BREAKOUT](#THE-BREAKOUT)           | 右   |   10 | ドリル                 | ドリルはごく稀に必要になる程度         |
-| [GREEN BRIDGE](#GREEN-BRIDGE)           | 右   |   12 | ドリル                 |                                        |
-| [COOK OFF](#COOK-OFF)                   | 右   |   13 |                        |                                        |
-| [ENGINE PROBLEM](#ENGINE-PROBLEM)       | 右   |   14 | ECM                    | ステルスを狙わないなら C4、SAW でも OK |
-| [THE SEARCH](#THE-SEARCH)               | 右   |   15 | C4                     | カードキーが見つからない場合の保険     |
+| JOB 名                                                      | 位置 |   CS | 装備                   | 備考                                   |
+| ----------------------------------------------------------- | ---- | ---: | ---------------------- | -------------------------------------- |
+| [INTERCEPTION](#INTERCEPTION)                               | 左   |    3 |                        |                                        |
+| [FBI SERVER](#FBI-SERVER)                                   | 左   |    5 | (ECM or C4) and ドリル | ECM ラッシュ or ドアこじ開け           |
+| [TRANSPORT](#TRANSPORT)                                     | 中央 |    5 | C4 and SAW and ドリル  |                                        |
+| [STEALING XMAS](#STEALING-XMAS)                             | 中央 |    7 | C4                     | 金庫以外は SAW や ECM で代用可能       |
+| [WHITE XMAS](#WHITE-XMAS)                                   | 中央 |    7 |                        |                                        |
+| [ALASKAN DEAL](#ALASKAN-DEAL)                               | 中央 |    8 | ドリル                 |                                        |
+| [BROOKLYN BANK](#BROOKLYN-BANK)                             | 中央 |    8 | ドリル                 |                                        |
+| [HIGHLAND MORTUARY](#HIGHLAND-MORTUARY-RESERVOIR-DOGS-DAY2) | 中央 |    8 |                        |                                        |
+| [SANTA'S WORKSHOP](#SANTA'S-WORKSHOP)                       | 中央 |    8 |                        |                                        |
+| [COUNTERFEIT](#COUNTERFEIT)                                 | 右   |    9 | C4 and ドリル          |                                        |
+| [HOTLINE MIAMI](#HOTLINE-MIAMI-HOTLINE-MIAMI-DAY1)          | 右   |   10 | C4                     |                                        |
+| [THE BREAKOUT](#THE-BREAKOUT-HOXTON-BREAKOUT-DAY1)          | 右   |   10 | ドリル                 | ドリルはごく稀に必要になる程度         |
+| [GREEN BRIDGE](#GREEN-BRIDGE)                               | 右   |   12 | ドリル                 |                                        |
+| [COOK OFF](#COOK-OFF)                                       | 右   |   13 |                        |                                        |
+| [ENGINE PROBLEM](#ENGINE-PROBLEM-BIG-OIL-DAY2)              | 右   |   14 | ECM                    | ステルスを狙わないなら C4、SAW でも OK |
+| [THE SEARCH](#THE-SEARCH-HOXTON-BREAKOUT-DAY2)              | 右   |   15 | C4                     | カードキーが見つからない場合の保険     |
 
 ### INTERCEPTION
 
