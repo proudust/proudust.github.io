@@ -12,7 +12,7 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { Layout } from '../components/Layout';
-import { PostCard } from '../components/PostCard';
+import { PostList } from '../components/PostList';
 import { CardActionAreaLink } from '../components/SmartLink';
 import { IndexQuery } from '../../types/query';
 
@@ -34,34 +34,6 @@ interface ProfileProps {
 export const Index: React.FC<ProfileProps> = () => {
   const classes = useStyles();
   const data = useStaticQuery<IndexQuery>(query);
-
-  const posts = (() => {
-    const selfposts = data.allMarkdownRemark?.edges.map(
-      ({ node }) =>
-        ({
-          type: 'inside',
-          title: node.frontmatter?.title ?? '',
-          excerpt: node.excerpt ?? '',
-          createat: node.frontmatter?.createat ?? '',
-          thumbnail: node.frontmatter?.thumbnail?.childImageSharp?.fluid?.src ?? '',
-          url: node.fields?.slug ?? '',
-        } as const),
-    );
-    const guides = data.allSteamGuidesYaml?.nodes.map(
-      node =>
-        ({
-          type: 'steam-guide',
-          title: node.title ?? '',
-          excerpt: node.excerpt ?? '',
-          createat: node.createat ?? '',
-          thumbnail: node.thumbnail ?? '',
-          url: node.url ?? '',
-        } as const),
-    );
-    return [...selfposts, ...guides].sort(
-      (a, b) => Date.parse(b.createat) - Date.parse(a.createat),
-    );
-  })();
   const products = data.profileYaml?.products ?? [];
 
   return (
@@ -70,11 +42,7 @@ export const Index: React.FC<ProfileProps> = () => {
         <Typography variant="h5" className={classes.header}>
           投稿
         </Typography>
-        <ul style={{ padding: 0 }}>
-          {posts.map((post, index) => (
-            <PostCard key={index} {...post} />
-          ))}
-        </ul>
+        <PostList limit={5} />
       </section>
       <section>
         <Typography variant="h5" className={classes.header}>
@@ -125,36 +93,6 @@ export default Index;
 
 const query = graphql`
   query Index {
-    allMarkdownRemark {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            createat
-            thumbnail {
-              childImageSharp {
-                fluid(maxHeight: 200) {
-                  src
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    allSteamGuidesYaml {
-      nodes {
-        title
-        createat
-        excerpt
-        url
-        thumbnail
-      }
-    }
     profileYaml {
       products {
         title
