@@ -1,12 +1,17 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import Img, { FixedObject } from 'gatsby-image';
 
 import { SteamIconQuery } from '../../types/query';
 
-export const SteamIcon: React.FC = () => {
+interface IconProps {
+  children?: never;
+}
+
+export const SteamIcon: React.FC<IconProps> = () => {
   const { file } = useStaticQuery<SteamIconQuery>(query);
-  return <Img alt="steam" fixed={file?.childImageSharp?.fixed} />;
+  const fixed = file?.childImageSharp?.fixed as FixedObject | undefined;
+  return <Img alt="steam" fixed={fixed} />;
 };
 
 export const query = graphql`

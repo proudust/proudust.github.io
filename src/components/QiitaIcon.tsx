@@ -1,12 +1,17 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import Img, { FixedObject } from 'gatsby-image';
 
 import { QiitaIconQuery } from '../../types/query';
 
-export const QiitaIcon: React.FC = () => {
+interface IconProps {
+  children?: never;
+}
+
+export const QiitaIcon: React.FC<IconProps> = () => {
   const { file } = useStaticQuery<QiitaIconQuery>(query);
-  return <Img alt="qiita" fixed={file?.childImageSharp?.fixed} />;
+  const fixed = file?.childImageSharp?.fixed as FixedObject | undefined;
+  return <Img alt="qiita" fixed={fixed} />;
 };
 
 export const query = graphql`
