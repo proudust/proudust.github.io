@@ -4,16 +4,17 @@ on:
   push:
     branches-ignore:
       - master
-      - develop
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - uses: actions/cache@v1
+      - name: Use npm cache
+        uses: actions/cache@v1
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -22,12 +23,30 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - uses: actions/setup-node@v1
+      - name: Setup Node.js 13
+        uses: actions/setup-node@v1
         with:
           node-version: "13.x"
 
-      - run: npm ci
+      - name: Restore node modules
+        run: npm ci
 
-      - run: npm run lint --if-present
+      - name: Lint
+        run: npm run lint --if-present
 
-      - run: npm run build --if-present
+      - name: Build
+        run: npm run build --if-present
+
+      - name: Setup SSH
+        if: github.ref == 'refs/heads/develop'
+        uses: shimataro/ssh-key-action@v1
+        with:
+          private-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+
+      - name: Deploy
+        if: github.ref == 'refs/heads/develop'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git config --global url.ssh://git@github.com/.insteadOf https://github.com/
+          npm run deploy --if-present

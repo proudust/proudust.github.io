@@ -43,7 +43,7 @@
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build",
-    "lint": "eslint --fix src/**.ts",
+    "lint": "eslint --fix --ignore-path .gitignore --ext .js,.jsx,.ts,.tsx .",
     "deploy": "npm run build && gh-pages -d public -b master"
   },
   "browserslist": {
