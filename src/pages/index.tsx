@@ -9,7 +9,8 @@ import {
   Typography,
 } from '@material-ui/core';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { graphql, useStaticQuery } from 'gatsby';
+import { ArrowForward as ArrowForwardIcon } from '@material-ui/icons';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 
 import { Layout } from '../components/Layout';
 import { PostList } from '../components/PostList';
@@ -18,14 +19,50 @@ import { IndexQuery } from '../../types/query';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    header: {
-      padding: theme.spacing(3, 0),
+    headerLink: {
+      textDecoration: 'none',
+    },
+    headerButton: {
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'space-between',
+      margin: theme.spacing(1, 0),
+      padding: theme.spacing(1, 0),
+    },
+    headerText: {
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'space-between',
+      padding: theme.spacing(1, 0),
+    },
+    headerIcon: {
+      margin: theme.spacing(1),
     },
     media: {
       height: 200,
     },
   }),
 );
+
+interface SectionHeaderProps {
+  children: string;
+  href: string;
+}
+
+const SectionHeader: React.FC<SectionHeaderProps> = props => {
+  const classes = useStyles();
+
+  return (
+    <Link to={props.href} className={classes.headerLink}>
+      <Button className={classes.headerButton} component="div" style={{}}>
+        <Typography variant="h5" color="textPrimary">
+          {props.children}
+        </Typography>
+        <ArrowForwardIcon className={classes.headerIcon} />
+      </Button>
+    </Link>
+  );
+};
 
 interface ProfileProps {
   children?: never;
@@ -39,15 +76,11 @@ export const Index: React.FC<ProfileProps> = () => {
   return (
     <Layout>
       <section>
-        <Typography variant="h5" className={classes.header}>
-          投稿
-        </Typography>
+        <SectionHeader href="/posts">投稿</SectionHeader>
         <PostList limit={5} />
       </section>
       <section>
-        <Typography variant="h5" className={classes.header}>
-          作ったもの
-        </Typography>
+        <SectionHeader href="/">作ったもの</SectionHeader>
         <Grid container spacing={2}>
           {products.map((node, index) => (
             <Grid item sm={6} xs={12} key={index}>
