@@ -42,18 +42,26 @@ export const IconLink: React.FC<IconLinkProps> = props => {
     );
   }
 };
-export const CardActionAreaLink: React.FC<SmartLinkProps> = props => {
+
+interface CardActionAreaLinkProps extends SmartLinkProps {
+  component?: React.ElementType;
+}
+
+export const CardActionAreaLink: React.FC<CardActionAreaLinkProps> = props => {
   const classes = useStyles();
+  const component = props.component ?? 'div';
 
   if (props.href.substring(0, 4) === 'http') {
     return (
-      <CardActionArea component="a" href={props.href} className={classes.link}>
-        {props.children}
+      <CardActionArea component={component}>
+        <a href={props.href} className={classes.link}>
+          {props.children}
+        </a>
       </CardActionArea>
     );
   } else {
     return (
-      <CardActionArea component="div">
+      <CardActionArea component={component}>
         <Link to={props.href} className={classes.link}>
           {props.children}
         </Link>
