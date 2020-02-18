@@ -5,6 +5,7 @@ import { Container, CssBaseline, Typography } from '@material-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { DefaultAppBar } from './AppBar';
+import { ApplyTheme } from './ApplyTheme';
 import { Profile } from './Profile';
 import { LayoutQuery } from '../../../types/query';
 
@@ -31,7 +32,7 @@ export const Layout: React.FC<LayoutProps> = props => {
   const title = props.title ? `${props.title} - ${siteTitle}` : siteTitle;
 
   return (
-    <>
+    <ApplyTheme>
       <Helmet>
         <html lang="jp" />
         <meta charSet="utf-8" />
@@ -50,7 +51,7 @@ export const Layout: React.FC<LayoutProps> = props => {
         </Typography>
         <Profile />
       </Container>
-    </>
+    </ApplyTheme>
   );
 };
 
