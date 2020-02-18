@@ -18,8 +18,8 @@ interface SmartLinkProps {
 }
 
 interface IconLinkProps extends SmartLinkProps {
-  edge: 'start' | 'end' | false;
-  style: React.CSSProperties;
+  edge?: 'start' | 'end' | false;
+  style?: React.CSSProperties;
 }
 
 export const IconLink: React.FC<IconLinkProps> = props => {
