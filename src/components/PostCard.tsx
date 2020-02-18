@@ -36,6 +36,13 @@ const useStyles = makeStyles(theme =>
       flex: 1,
       paddingTop: 0,
     },
+    omitMoreThenTwoLine: {
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      display: '-webkit-box',
+      WebkitLineClamp: 2,
+      WebkitBoxOrient: 'vertical',
+    },
   }),
 );
 
@@ -63,9 +70,19 @@ export const PostCard: React.FC<PostListProps> = ({
       <Card className={classes.root}>
         <CardMedia className={classes.media} image={thumbnail} title={title} />
         <div className={classes.detail}>
-          <CardHeader avatar={icon} title={title} subheader={createat.slice(0, 10)} />
+          <CardHeader
+            avatar={icon}
+            title={title}
+            titleTypographyProps={{ className: classes.omitMoreThenTwoLine }}
+            subheader={createat.slice(0, 10)}
+          />
           <CardContent className={classes.excerpt}>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography
+              className={classes.omitMoreThenTwoLine}
+              variant="body2"
+              color="textSecondary"
+              component="p"
+            >
               {excerpt}
             </Typography>
           </CardContent>
