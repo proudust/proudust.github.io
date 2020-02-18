@@ -3,7 +3,7 @@ import { Typography, Paper } from '@material-ui/core';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { graphql, PageRendererProps } from 'gatsby';
 
-import { Layout } from '../components/Layout';
+import { Layout } from '../components/layout';
 import { BlogPostBySlugQuery } from '../../types/query';
 
 const useStyles = makeStyles((theme: Theme) =>

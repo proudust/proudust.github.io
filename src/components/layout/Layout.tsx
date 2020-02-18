@@ -21,10 +21,10 @@ import {
 } from '@material-ui/icons';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { QiitaIcon } from '../components/QiitaIcon';
-import { IconLink } from './SmartLink';
-import { SteamIcon } from '../components/SteamIcon';
-import { LayoutQuery } from '../../types/query';
+import { QiitaIcon } from '../QiitaIcon';
+import { IconLink } from '../SmartLink';
+import { SteamIcon } from '../SteamIcon';
+import { LayoutQuery } from '../../../types/query';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

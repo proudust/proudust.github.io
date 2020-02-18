@@ -4,7 +4,7 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { ArrowForward as ArrowForwardIcon } from '@material-ui/icons';
 import { Link } from 'gatsby';
 
-import { Layout } from '../components/Layout';
+import { Layout } from '../components/layout';
 import { PostList } from '../components/PostList';
 import { ProductList } from '../components/ProductList';
 
