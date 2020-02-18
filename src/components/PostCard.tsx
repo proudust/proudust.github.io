@@ -1,12 +1,10 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardMedia, Typography } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import { graphql, useStaticQuery } from 'gatsby';
 
 import { CardActionAreaLink } from './SmartLink';
 import { SteamIcon } from './SteamIcon';
 import { QiitaIcon } from './QiitaIcon';
-import { QiitaThumbnailQuery } from '../../types/query';
 
 interface PostListProps {
   children?: never;
@@ -54,10 +52,6 @@ export const PostCard: React.FC<PostListProps> = ({
   thumbnail,
   url,
 }) => {
-  const { file } = useStaticQuery<QiitaThumbnailQuery>(query);
-  if (type === 'qiita' && !thumbnail) {
-    thumbnail = file?.childImageSharp?.fixed?.src ?? '';
-  }
   const classes = useStyles();
   const icon = {
     inside: undefined,
@@ -91,15 +85,3 @@ export const PostCard: React.FC<PostListProps> = ({
     </CardActionAreaLink>
   );
 };
-
-export const query = graphql`
-  query QiitaThumbnail {
-    file(relativePath: { eq: "qiita-square.png" }) {
-      childImageSharp {
-        fixed(width: 151, height: 151) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`;

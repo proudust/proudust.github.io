@@ -32,7 +32,10 @@ export const PostList: React.FC<PostListProps> = props => {
           excerpt:
             (node.body?.length ?? 0) > 140 ? node.body?.slice(0, 140) + '...' : node.body ?? '',
           createat: node.created_at ?? '',
-          thumbnail: '',
+          thumbnail:
+            node.body?.match(/!\[[^\]]+\]\(([^)]+)\)/)?.[1] ??
+            data.file?.childImageSharp?.fixed?.src ??
+            '',
           url: node.url ?? '',
         } as const),
     );
@@ -105,20 +108,10 @@ const query = graphql`
         thumbnail
       }
     }
-    profileYaml {
-      products {
-        title
-        description
-        image {
-          childImageSharp {
-            fluid(maxHeight: 200) {
-              src
-            }
-          }
-        }
-        links {
-          name
-          href
+    file(relativePath: { eq: "qiita-square.png" }) {
+      childImageSharp {
+        fixed(width: 151, height: 151) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
