@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import striptags from 'striptags';
 
 import { PostCard } from './PostCard';
 import { PostListQuery } from '../../types/query';
@@ -24,21 +25,20 @@ export const PostList: React.FC<PostListProps> = props => {
           url: node.fields?.slug ?? '',
         } as const),
     );
-    const qiita = data.allQiitaPost?.edges.map(
-      ({ node }) =>
-        ({
-          type: 'qiita',
-          title: node.title ?? '',
-          excerpt:
-            (node.body?.length ?? 0) > 140 ? node.body?.slice(0, 140) + '...' : node.body ?? '',
-          createat: node.created_at ?? '',
-          thumbnail:
-            node.body?.match(/!\[[^\]]+\]\(([^)]+)\)/)?.[1] ??
-            data.file?.childImageSharp?.fixed?.src ??
-            '',
-          url: node.url ?? '',
-        } as const),
-    );
+    const qiita = data.allQiitaPost?.edges.map(({ node }) => {
+      const body = striptags(node.rendered_body ?? '').replace(/\r?\n/g, ' ');
+      return {
+        type: 'qiita',
+        title: node.title ?? '',
+        excerpt: (body.length ?? 0) > 140 ? body.slice(0, 140) + '...' : body ?? '',
+        createat: node.created_at ?? '',
+        thumbnail:
+          node.body?.match(/!\[[^\]]+\]\(([^)]+)\)/)?.[1] ??
+          data.file?.childImageSharp?.fixed?.src ??
+          '',
+        url: node.url ?? '',
+      } as const;
+    });
     const guides = data.allSteamGuidesYaml?.nodes.map(
       node =>
         ({
@@ -93,6 +93,7 @@ const query = graphql`
       edges {
         node {
           title
+          rendered_body
           body
           created_at
           url
