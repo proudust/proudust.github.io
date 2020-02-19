@@ -52,6 +52,7 @@ module.exports = {
         fileName: path.join('types', 'query.d.ts'),
       },
     },
+    'gatsby-plugin-catch-links',
     'gatsby-plugin-material-ui',
   ],
 };
