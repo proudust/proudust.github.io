@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardMedia, Typography } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 
-import { CardActionAreaLink } from './SmartLink';
+import { CardActionAreaLink } from './Link';
 import { SteamIcon } from './SteamIcon';
 import { QiitaIcon } from './QiitaIcon';
 

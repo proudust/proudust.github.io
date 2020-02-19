@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
 
-import { IconLink } from '../SmartLink';
+import { IconLink } from '../Link';
 
 // BackButton
 

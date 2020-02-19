@@ -8,7 +8,7 @@ import {
 } from '@material-ui/icons';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { CardActionAreaLink, IconLink } from '../components/SmartLink';
+import { CardActionAreaLink, IconLink } from './Link';
 import { ProductListQuery } from '../../types/query';
 
 const useStyles = makeStyles((theme: Theme) =>
