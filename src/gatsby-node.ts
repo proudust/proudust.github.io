@@ -1,23 +1,26 @@
 import path from 'path';
 import { GatsbyNode } from 'gatsby';
+import { createFilePath } from 'gatsby-source-filesystem';
+import { Query } from '../types/query';
 
-interface Restlt {
-  allMarkdownRemark: {
-    edges: {
-      id: number;
-      node: {
-        fields: {
-          slug: string;
-        };
-        frontmatter: {
-          title: string;
-        };
-      };
-    }[];
-  };
-}
+// onCreateNode
 
-const query = `
+export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    });
+  }
+};
+
+// createPages
+
+const createPagesQuery = `
   query BlogPosts {
     allMarkdownRemark {
       edges {
@@ -37,17 +40,18 @@ const query = `
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const result = await graphql<Restlt>(query);
+  const result = await graphql<Query>(createPagesQuery);
   if (result.errors) throw result.errors;
 
   const template = path.resolve(`src/templates/BlogPost.tsx`);
   const posts = result.data?.allMarkdownRemark.edges ?? [];
   posts.forEach(post => {
+    const slug = post.node.fields?.slug ?? '';
     createPage({
-      path: post.node.fields.slug,
+      path: slug,
       component: template,
       context: {
-        slug: post.node.fields.slug,
+        slug: slug,
       },
     });
   });

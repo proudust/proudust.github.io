@@ -6,5 +6,8 @@ require('ts-node').register({
   },
 });
 
-exports.onCreateNode = require('./src/onCreateNode').onCreateNode;
-exports.createPages = require('./src/createPages').createPages;
+const gatsbyNode = require('./src/gatsby-node');
+
+for (const method in gatsbyNode) {
+  exports[method] = gatsbyNode[method];
+}
