@@ -52,7 +52,12 @@ module.exports = {
         fileName: path.join('types', 'query.d.ts'),
       },
     },
-    'gatsby-plugin-catch-links',
+    {
+      resolve: 'gatsby-plugin-catch-links',
+      options: {
+        excludePattern: /^\/payday2-bigoil\/$/,
+      },
+    },
     'gatsby-plugin-material-ui',
   ],
 };
