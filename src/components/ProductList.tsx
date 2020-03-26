@@ -9,7 +9,7 @@ import {
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { CardActionAreaLink, IconLink } from './Link';
-import { ProductListQuery } from '../../types/query';
+import type { ProductListQuery } from '../../types/query';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

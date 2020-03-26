@@ -5,7 +5,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 import { QiitaIcon } from '../QiitaIcon';
 import { SteamIcon } from '../SteamIcon';
-import { ProfileQuery } from '../../../types/query';
+import type { ProfileQuery } from '../../../types/query';
 
 interface ProfileProps {
   children?: never;

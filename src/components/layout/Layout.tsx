@@ -7,7 +7,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { DefaultAppBar } from './AppBar';
 import { ApplyTheme } from './ApplyTheme';
 import { Profile } from './Profile';
-import { LayoutQuery } from '../../../types/query';
+import type { LayoutQuery } from '../../../types/query';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

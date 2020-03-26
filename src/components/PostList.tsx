@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import striptags from 'striptags';
 
 import { PostCard } from './PostCard';
-import { PostListQuery } from '../../types/query';
+import type { PostListQuery } from '../../types/query';
 
 interface PostListProps {
   children?: never;

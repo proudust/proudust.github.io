@@ -4,7 +4,7 @@ import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { graphql, PageRendererProps } from 'gatsby';
 
 import { Layout } from '../components/layout';
-import { BlogPostBySlugQuery } from '../../types/query';
+import type { BlogPostBySlugQuery } from '../../types/query';
 
 const useStyles = makeStyles(theme =>
   createStyles({

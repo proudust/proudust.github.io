@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img, { FixedObject } from 'gatsby-image';
 
-import { SteamIconQuery } from '../../types/query';
+import type { SteamIconQuery } from '../../types/query';
 
 interface IconProps {
   children?: never;

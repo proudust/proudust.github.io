@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img, { FixedObject } from 'gatsby-image';
 
-import { QiitaIconQuery } from '../../types/query';
+import type { QiitaIconQuery } from '../../types/query';
 
 interface IconProps {
   children?: never;
