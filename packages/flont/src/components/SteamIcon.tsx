@@ -19,7 +19,11 @@ export const query = graphql`
     file(relativePath: { eq: "steam-favicon.png" }) {
       childImageSharp {
         fixed(width: 24, height: 24) {
-          ...GatsbyImageSharpFixed
+          base64
+          width
+          height
+          src
+          srcSet
         }
       }
     }

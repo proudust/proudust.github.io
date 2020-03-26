@@ -19,7 +19,11 @@ export const query = graphql`
     file(relativePath: { eq: "qiita-favicon.png" }) {
       childImageSharp {
         fixed(width: 24, height: 24) {
-          ...GatsbyImageSharpFixed
+          base64
+          width
+          height
+          src
+          srcSet
         }
       }
     }
