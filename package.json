@@ -48,6 +48,7 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "lint": "eslint --fix --ignore-path .gitignore --ext .js,.jsx,.ts,.tsx .",
+    "lint:ci": "eslint --ignore-path .gitignore --ext .js,.jsx,.ts,.tsx .",
     "deploy": "gh-pages -d public -b master"
   },
   "browserslist": {
