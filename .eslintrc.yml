@@ -15,9 +15,10 @@ plugins:
 rules:
   prettier/prettier:
     - error
-    - singleQuote: true
-      trailingComma: "all"
+    - arrowParens: avoid
       printWidth: 100
+      singleQuote: true
+      trailingComma: all
   react/prop-types:
     - off
 
