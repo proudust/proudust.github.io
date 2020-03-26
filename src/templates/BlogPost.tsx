@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Paper } from '@material-ui/core';
-import { makeStyles, createStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { graphql, PageRendererProps } from 'gatsby';
 
 import { Layout } from '../components/layout';
@@ -40,7 +40,6 @@ interface BlogPostProps extends PageRendererProps {
 
 const BlogPost: React.FC<BlogPostProps> = props => {
   const classes = useStyles();
-  const theme = useTheme();
   const post = props.data?.markdownRemark;
   if (!post) throw Error('post is not found.');
 
