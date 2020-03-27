@@ -14,7 +14,7 @@ src
 |  └─ c.txt
 └─ templates.ts
 ```
-こういうディレクトリ構造のとき、templateフォルダのファイルを
+こういうディレクトリ構造のとき、template フォルダのファイルを
 
 ```ts
 [
@@ -39,16 +39,16 @@ src
 
 ### 1. パッケージのインストール
 
-- `raw-loader` ... webpackでtxtファイルを読み込むため
-- `@types/webpack-env` ... この後使用する`require.context`の型定義を読み込むため
+- `raw-loader` ... webpack で txt ファイルを読み込むため
+- `@types/webpack-env` ... この後使用する `require.context` の型定義を読み込むため
 
 ```bash
 npm i -D raw-loader @types/webpack-env
 ```
 
-### 2. `webpack.config.js`に`raw-loader`を設定
-読み込ませたい拡張子が複数ある場合は`/\.txt$/`のところを変更する。
-この方法で読み込む場合、TypeScriptでは必要だった`declare module '*.txt'`のような宣言も必要無さそう。
+### 2. `webpack.config.js`に `raw-loader` を設定
+読み込ませたい拡張子が複数ある場合は `/\.txt$/` のところを変更する。
+この方法で読み込む場合、TypeScript では必要だった `declare module '*.txt'` のような宣言も必要無さそう。
 
 ```webpack.config.js
 module.exports = {

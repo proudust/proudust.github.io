@@ -7,7 +7,7 @@ qiita: https://qiita.com/proudust/items/98c50480fc7d39845a69
 
 Kotlin には `String#trimMargin` や `String#trimIndent` という便利なメソッドがあり、*raw strings* (JS のテンプレートリテラルに近いもの) を使いやすくしています。
 
-`String#trimMargin` は各行の第2引数に指定した文字列(省略した場合は`|`) までの空白を削除し、`String#trimIndent` は各行の左側の空白を一番少ない行に合わせて削除します。
+`String#trimMargin`は各行の第 2 引数に指定した文字列(省略した場合は `|` ) までの空白を削除し、`String#trimIndent`は各行の左側の空白を一番少ない行に合わせて削除します。
 ついでに最初と最後の行が空白のみ場合はその行を削除してくれます。
 
 ``` kotlin:Kotlin

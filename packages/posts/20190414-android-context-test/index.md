@@ -5,7 +5,7 @@ updateat: "2019-06-18T15:46:51+09:00"
 qiita: https://qiita.com/proudust/items/cf8488e676cc892e9514
 ---
 
-コンストラクタで`Context`を受け取って、`Context.openFileInput`や`Context.openFileOutput`を利用するクラスのテストコードの書き方にハマったので書いておきます。
+コンストラクタで `Context` を受け取って、`Context.openFileInput`や `Context.openFileOutput` を利用するクラスのテストコードの書き方にハマったので書いておきます。
 
 ## テスト対象のクラス
 
@@ -37,7 +37,7 @@ public class BooleanRepository {
 
 
 ## 結論 *Robolectric*を使う
-*Robolectric*を使うことで、Androidに依存するテストもJVM上で実行することができます。
+*Robolectric*を使うことで、Android に依存するテストも JVM 上で実行することができます。
 
 ``` build.gradle
 android {
@@ -99,13 +99,13 @@ public class MemoRepositorySpec {
 
 ## 以下蛇足
 
-### 試したこと1 `BufferedReader`と`PrintWriter`をモックする
-最初にメソッド内でnewしている`BufferedReader`と`PrintWriter`を`PowerMock`でモックすれば良いのでは？と考えた。
+### 試したこと1 `BufferedReader`と `PrintWriter` をモックする
+最初にメソッド内で new している `BufferedReader` と `PrintWriter` を `PowerMock` でモックすれば良いのでは？と考えた。
 しかし、`PowerMock`の使い方がわからずうまく置き換わらず断念。
 
-### 試したこと2 `Context.openFileInput`や`Context.openFileOutput`をモックする
-次に`Context.openFileInput`や`Context.openFileOutput`が`ByteArrayInputStream`、`ByteArrayOutputStream`を返すようにモックできれば良いのでは？と考えた。
-しかし`Context.openFileInput`や`Context.openFileOutput`の戻り値はそれぞれ`FileInputStream`、`FileOutputStream`なので戻り値が合わないので無理。
+### 試したこと2 `Context.openFileInput`や `Context.openFileOutput` をモックする
+次に `Context.openFileInput` や `Context.openFileOutput` が `ByteArrayInputStream` 、`ByteArrayOutputStream`を返すようにモックできれば良いのでは？と考えた。
+しかし `Context.openFileInput` や `Context.openFileOutput` の戻り値はそれぞれ `FileInputStream` 、`FileOutputStream`なので戻り値が合わないので無理。
 
 ### 試したこと3 `InputStream`、`OutputStream`を返すメソッドを作り、それをモックする
 `InputStream`、`OutputStream`を返すメソッドを作って、
@@ -128,9 +128,9 @@ public class MemoRepositorySpec {
         try (final OutputStream os = getOutputStream();
 ```
 
-そのメソッドを`Mockito`でモックし、それぞれ`ByteArrayInputStream`、`ByteArrayOutputStream`を返すようにする。
-`ByteArrayInputStream`にはファイルの内容のbyte配列をコンストラクタに渡せる。
-`ByteArrayOutputStream`なら`.toByteArray()`すると出力内容をbyte[]で読み取れる。
+そのメソッドを `Mockito` でモックし、それぞれ `ByteArrayInputStream` 、`ByteArrayOutputStream`を返すようにする。
+`ByteArrayInputStream`にはファイルの内容の byte 配列をコンストラクタに渡せる。
+`ByteArrayOutputStream`なら `.toByteArray()` すると出力内容を byte[]で読み取れる。
 
 ```BooleanRepositorySpec.java
 public class MemoRepositorySpec {

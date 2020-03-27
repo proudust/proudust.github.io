@@ -6,12 +6,12 @@ qiita: https://qiita.com/proudust/items/8af4677a9986ed51f77f
 ---
 
 # [Truth](//truth.dev/) とは
-*Hamcrest* や *AssertJ* と同じアサーションライブラリの一つ。Google製。
+*Hamcrest* や *AssertJ* と同じアサーションライブラリの一つ。Google 製。
 拡張ライブラリが作りやすいらしく、AssertJ の Android 向け拡張だった [*AssertJ Android*](https://github.com/square/assertj-android) でもその代替として挙げられている。
 また同じ Google 製ライブラリである [*Google Guava*](//github.com/google/guava) を標準でサポートしており、専用の検証メソッドが用意されていたり、検証メソッドの引数として用いることができる。
-一方、メソッドチェーンが使えないので Java だと若干冗長なこと、ggラビリティの低い名前なので `google truth` とか `java truth` で検索しないと出ないことが欠点。
+一方、メソッドチェーンが使えないので Java だと若干冗長なこと、gg ラビリティの低い名前なので `google truth` とか `java truth` で検索しないと出ないことが欠点。
 
-2019年7月8日に `1.0` が正式リリースされた。
+2019 年 7 月 8 日に `1.0` が正式リリースされた。
 
 
 
@@ -63,7 +63,7 @@ but was : 2
 assertThat(1 + 1).isEqualTo(500);
 ```
 
-また、 `Truth.assertWithMessage(String)` でエラーメッセージに追加の文字列を指定することもできる。
+また、 `Truth.assertWithMessage(String)`でエラーメッセージに追加の文字列を指定することもできる。
 その場合は続けて `that` に検証対象を渡すと `Truth.assertThat` と同様の検証メソッドを呼び出せる。
 
 ``` java
@@ -76,7 +76,7 @@ but was : 2
 	at sample.truth.SampleTest.test(SampleTest.java:9)
 ```
 
-拡張ライブラリの検証メソッドを呼び出す場合は少々面倒だが、`about(Subject.Factory)` に対応する `Subject.Factory` を渡すことで呼び出せるようになる。
+拡張ライブラリの検証メソッドを呼び出す場合は少々面倒だが、`about(Subject.Factory)`に対応する `Subject.Factory` を渡すことで呼び出せるようになる。
 本当に面倒なので代替手段が欲しいところ。
 
 ``` java
@@ -113,28 +113,28 @@ but was absent
 
 
 ## 値
-`Truth.assertThat` の引数が `Comparable`インターフェース を実装している場合に使用できる。
+`Truth.assertThat`の引数が `Comparable` インターフェースを実装している場合に使用できる。
 `Integer`, `Long`, `Float`, `Double`, `BigDecimal`, `String`などが対象。
 
 - 指定の範囲内 (`isIn(Range)`)
 - 指定の範囲外 (`isNotIn(Range)`)
   + 引数には *Google Guava* の `com.google.common.collect.Range` を渡す
-- `Comparable#compareTo` で指定値と等しい (`isEquivalentAccordingToCompareTo(T)`)
-- `Comparable#compareTo` で指定値より大きい (`isGreaterThan(T)`)
-- `Comparable#compareTo` で指定値より小さい (`isLessThan(T)`)
-- `Comparable#compareTo` で指定値以上 (`isAtLeast(T)`)
-- `Comparable#compareTo` で指定値以下 (`isAtMost(T)`)
+- `Comparable#compareTo`で指定値と等しい (`isEquivalentAccordingToCompareTo(T)`)
+- `Comparable#compareTo`で指定値より大きい (`isGreaterThan(T)`)
+- `Comparable#compareTo`で指定値より小さい (`isLessThan(T)`)
+- `Comparable#compareTo`で指定値以上 (`isAtLeast(T)`)
+- `Comparable#compareTo`で指定値以下 (`isAtMost(T)`)
 
 
 ## 真偽値
-`Truth.assertThat(Boolean)` で使用できる。
+`Truth.assertThat(Boolean)`で使用できる。
 
 - 値が True (`isTrue()`)
 - 値が False (`isFalse()`)
 
 
 ## 文字列
-`Truth.assertThat(String)` で使用できる。
+`Truth.assertThat(String)`で使用できる。
 
 - 空 (`isEmpty()`)
 - 空ではない (`isNotEmpty()`)
@@ -153,7 +153,7 @@ but was absent
 
 
 ## 文字列 (大文字・小文字を無視)
-`Truth.assertThat(String).ignoringCase()` で使用できる。
+`Truth.assertThat(String).ignoringCase()`で使用できる。
 
 - 等しい (`isEqualTo(String)`)
 - 等しくない (`isNotEqualTo(String)`)
@@ -162,8 +162,8 @@ but was absent
 
 
 ## 配列
-`Truth.assertThat(T[])` で使用できる。(プリミティブ配列版も用意されている。)
-最低限のAPIしか用意されておらず、配列の中身については `asList()` で Iterable 用の API を利用する必要がある。
+`Truth.assertThat(T[])`で使用できる。(プリミティブ配列版も用意されている。)
+最低限の API しか用意されておらず、配列の中身については `asList()` で Iterable 用の API を利用する必要がある。
 
 - 空 (`isEmpty()`)
 - 空ではない (`isNotEmpty()`)
@@ -171,7 +171,7 @@ but was absent
 
 
 ## Iterable
-`Truth.assertThat(Iterable<?>)` または `Truth.assertThat(T[]).asList()` で使用できる。
+`Truth.assertThat(Iterable<?>)`または `Truth.assertThat(T[]).asList()` で使用できる。
 
 - 空 (`isEmpty()`)
 - 空ではない (`isNotEmpty()`)
@@ -179,9 +179,9 @@ but was absent
 - 指定のオブジェクトを含む (`contains(Object)`)
 - 指定のオブジェクトを含まない (`doesNotContain(Object)`)
 - 重複しているオブジェクトを含まない (`containsNoDuplicates()`)
-- 指定のオブジェクトを1つ以上含む (`containsAnyOf(Object...)`)
-- 中身のオブジェクトを1つ以上含む (`containsAnyIn(Iterable<?>)`)
-- 中身のオブジェクトを1つ以上含む (`containsAnyIn(Object[])`)
+- 指定のオブジェクトを 1 つ以上含む (`containsAnyOf(Object...)`)
+- 中身のオブジェクトを 1 つ以上含む (`containsAnyIn(Iterable<?>)`)
+- 中身のオブジェクトを 1 つ以上含む (`containsAnyIn(Object[])`)
 - 指定のオブジェクトを全て含む (`containsAtLeastElementsIn(Object...)`)
 - 中身のオブジェクトを全て含む (`containsAtLeastElementsIn(Iterable<?>)`)
 - 中身のオブジェクトを全て含む (`containsAtLeastElementsIn(Object[])`)
@@ -206,7 +206,7 @@ but was absent
 
 
 ## Optional (*Google Guava* または *Java8*)
-`Truth.assertThat(com.google.common.base.Optional)` または `Truth8.assertThat(java.util.Optional)` で使用できる。
+`Truth.assertThat(com.google.common.base.Optional)`または `Truth8.assertThat(java.util.Optional)` で使用できる。
 *Java8* 版 Optional を使う場合は Java8 用拡張が必要。
 
 - Optional またはその中身が null ではない (`isPresent()`)
@@ -215,8 +215,8 @@ but was absent
 
 
 ## Stream (*Java8*)
-`Truth.assertThat(Stream<?>)` で使用できる。Java8 用拡張が必要。
-基本的に Iterable と同じだが、`isEqualTo` や `Object[]` 版のメソッドが無いので注意。
+`Truth.assertThat(Stream<?>)`で使用できる。Java8 用拡張が必要。
+基本的に Iterable と同じだが、`isEqualTo`や `Object[]` 版のメソッドが無いので注意。
 
 - 空 (`isEmpty()`)
 - 空ではない (`isNotEmpty()`)
@@ -224,8 +224,8 @@ but was absent
 - 指定のオブジェクトを含む (`contains(Object)`)
 - 指定のオブジェクトを含まない (`doesNotContain(Object)`)
 - 重複しているオブジェクトを含まない (`containsNoDuplicates()`)
-- 指定のオブジェクトを1つ以上含む (`containsAnyOf(Object...)`)
-- 中身のオブジェクトを1つ以上含む (`containsAnyIn(Iterable<?>)`)
+- 指定のオブジェクトを 1 つ以上含む (`containsAnyOf(Object...)`)
+- 中身のオブジェクトを 1 つ以上含む (`containsAnyIn(Iterable<?>)`)
 - 指定のオブジェクトを全て含む (`containsAtLeast(Object...)`)
 - 中身のオブジェクトを全て含む (`containsAtLeastElementsIn(Iterable<?>)`)
 - 中身が完全に等しい (`containsExactly(Object...)`)
@@ -251,14 +251,14 @@ but was absent
 
 
 ## 例外
-`Truth.assertThat(Throwable)` で使用できる。
+`Truth.assertThat(Throwable)`で使用できる。
 
-- `Throwable#getMessage()` の戻り値を検証対象にする (`hasMessageThat()`)
-- `Throwable#getCause()` の戻り値を検証対象にする (`hasCauseThat()`)
+- `Throwable#getMessage()`の戻り値を検証対象にする (`hasMessageThat()`)
+- `Throwable#getCause()`の戻り値を検証対象にする (`hasCauseThat()`)
 
 
 ## クラス
-`Truth.assertThat(Class)` で使用できる。
+`Truth.assertThat(Class)`で使用できる。
 
 - 指定のクラスを継承している (`isAssignableTo(Class)`)
 

@@ -12,8 +12,8 @@ qiita: https://qiita.com/proudust/items/acd798e08b47ff5030bd
 
 ## *Android Studio* について
 *Android Studio* とは Google が無償で提供している、Android アプリケーション開発に特化した IDE です。
-全て Google が開発したものではなく、JetBrains が提供している汎用IDE *IntelliJ IDEA* をベースに、Android向けの機能を足したものになります。
-そのため、Androidに依存しない機能について検索するときは `android studio` ではなく `idea` で検索すると出ることがあります。
+全て Google が開発したものではなく、JetBrains が提供している汎用 IDE *IntelliJ IDEA* をベースに、Android 向けの機能を足したものになります。
+そのため、Android に依存しない機能について検索するときは `android studio` ではなく `idea` で検索すると出ることがあります。
 
 
 
@@ -34,7 +34,7 @@ qiita: https://qiita.com/proudust/items/acd798e08b47ff5030bd
 
 ![color-themes.png](color-themes.png)
 
-ダウンロードした`.jar`ファイルはメニューバーの`ファイル>設定のインポート`から読み込むことができます。
+ダウンロードした `.jar` ファイルはメニューバーの `ファイル>設定のインポート` から読み込むことができます。
 読み込み後は再起動すると反映されます。
 
 ### シンタックスハイライトのカスタマイズ
@@ -50,8 +50,8 @@ qiita: https://qiita.com/proudust/items/acd798e08b47ff5030bd
 
 ## 選択した行のコメントアウト
 *Visual Studio* だと上部のボタンにコメントアウト・コメント解除のボタンがありましたが、*Android Studio* にはありません。
-ですがコメントアウトの機能が無いわけではなく、`ctrl + /` でコメントアウト・コメント解除ができます。
-`ctrl + shift + /` にすると `/* */` でコメントアウトしてくれます。
+ですがコメントアウトの機能が無いわけではなく、`ctrl + /`でコメントアウト・コメント解除ができます。
+`ctrl + shift + /`にすると `/* */` でコメントアウトしてくれます。
 
 
 

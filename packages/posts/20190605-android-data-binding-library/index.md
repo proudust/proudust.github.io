@@ -6,9 +6,9 @@ qiita: https://qiita.com/proudust/items/cf66592296814e55c5b6
 ---
 
 ## 概要
-[*Android Jetpack*](https://developer.android.com/topic/libraries/data-binding/?hl=JA) のコンポーネントの一つ、[*Data Binding Library*](https://developer.android.com/topic/libraries/data-binding/?hl=JA) を活用し、ソースコード内から`findViewById`によるViewの取得を一掃した備忘録。
+[*Android Jetpack*](https://developer.android.com/topic/libraries/data-binding/?hl=JA) のコンポーネントの一つ、[*Data Binding Library*](https://developer.android.com/topic/libraries/data-binding/?hl=JA) を活用し、ソースコード内から `findViewById` による View の取得を一掃した備忘録。
 
-## 1. `build.gradle` から *Data Binding Library* を有効化する
+## 1. `build.gradle`から *Data Binding Library* を有効化する
 ```gradle:app/build.gradle
 android { 
     // 中略
@@ -19,7 +19,7 @@ android {
 ```
 以上を追記
 
-## 2. `layout/*.xml`ファイルのレイアウト設定を`<layout></layout>`で囲う
+## 2. `layout/*.xml`ファイルのレイアウト設定を `<layout></layout>` で囲う
 ```xml:layout/*.xml
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -38,9 +38,9 @@ android {
 
 </layout>
 ```
-頭と尻に `<layout></layout>` を書き加え、`xmlns:` だけ `<layout>` に移動する。
-すると`layout/*.xml`を元に `ViewDataBinding` を継承した `*Binding` クラスが自動生成される。
-クラスの名前はxmlの名前をUpperCamelCaseに変換したものが使われる。
+頭と尻に `<layout></layout>` を書き加え、`xmlns:`だけ `<layout>` に移動する。
+すると `layout/*.xml` を元に `ViewDataBinding` を継承した `*Binding` クラスが自動生成される。
+クラスの名前は xml の名前を UpperCamelCase に変換したものが使われる。
 自動生成されない場合は一回ビルドし直すと出るかも。
 
 ## 4. Binding クラスを使用する
@@ -80,7 +80,7 @@ android {
 +    binding.textView.setText("HogeFuga");
  }
 ```
-BindingクラスからViewを生成するパターン。フィールドにBindingクラスを持つ必要があるのがイマイチか。
+Binding クラスから View を生成するパターン。フィールドに Binding クラスを持つ必要があるのがイマイチか。
 
 ### Fragment の場合 (パターン2)
 ``` diff:Fragment.java
@@ -101,7 +101,7 @@ BindingクラスからViewを生成するパターン。フィールドにBindin
 +    binding.textView.setText("HogeFuga");
  }
 ```
-Viewを先に生成し、それを元にBindingインスタンスを生成するパターン。この場合はフィールドに持つ必要はない。
+View を先に生成し、それを元に Binding インスタンスを生成するパターン。この場合はフィールドに持つ必要はない。
 
 ### RecyclerView.Adapter の場合
 ``` diff:RecyclerView.Adapter.java
@@ -142,5 +142,5 @@ Viewを先に生成し、それを元にBindingインスタンスを生成する
 
 ## 気になる点
 
-- Fragment に使う場合はパターン1、2のどちらが適切なのか
+- Fragment に使う場合はパターン 1、2 のどちらが適切なのか
   + [ドキュメント](https://developer.android.com/topic/libraries/data-binding/generated-binding.html?hl=JA)読む限りはどっちでも良さそう？

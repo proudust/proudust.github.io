@@ -9,7 +9,7 @@ qiita: https://qiita.com/proudust/items/0f7aa74ade8f7f946223
 
 # Ren'Py 製ゲームであることの確認方法
 
-PC 版の場合、`exe` と同じ階層に `renpy` フォルダがあります。
+PC 版の場合、`exe`と同じ階層に `renpy` フォルダがあります。
 
 ```
 [Ren'Py Game]
@@ -24,20 +24,20 @@ PC 版の場合、`exe` と同じ階層に `renpy` フォルダがあります�
 
 ## 1. UnRen.bat を配置
 
-[UnRen.bat](https://f95zone.to/threads/unren-bat-v0-7-rpa-extractor-rpyc-decompiler-console-developer-menu-enabler.3083/) をダウンロードし、 `game` フォルダに配置します。
+[UnRen.bat](https://f95zone.to/threads/unren-bat-v0-7-rpa-extractor-rpyc-decompiler-console-developer-menu-enabler.3083/) をダウンロードし、 `game`フォルダに配置します。
 この時、PowerShell が無い、または `..\lib\windows-i686\python.exe` が存在しない場合、エラーとなるので注意してください。
 
 
-## 2. `.rpa` ファイルをアンパック
+## 2. `.rpa`ファイルをアンパック
 
-UnRen.bat を起動し、`Enter a number:` が表示されたら、`1` を入力して `Enter` を押します。
+UnRen.bat を起動し、`Enter a number:`が表示されたら、`1`を入力して `Enter` を押します。
 すると `game` フォルダ内の `.rpa` ファイルがアンパックされ、中の `.rpyc` ファイルやリソースファイルが展開されます。
 
 
-## 3. `.rpyc` ファイルをデコンパイル
+## 3. `.rpyc`ファイルをデコンパイル
 
--続けて `key to exit:` で `1` を入力し、`Enter a number:` が表示されたら、`2` を入力して `Enter` を押します。
-すると `game` フォルダ内の `.rpyc` ファイルがデコンパイルされ、`.rpy` ファイルが展開されます。
+-続けて `key to exit:` で `1` を入力し、`Enter a number:`が表示されたら、`2`を入力して `Enter` を押します。
+すると `game` フォルダ内の `.rpyc` ファイルがデコンパイルされ、`.rpy`ファイルが展開されます。
 
 
 
@@ -48,7 +48,7 @@ UnRen.bat を起動し、`Enter a number:` が表示されたら、`1` を入力
 [Shizmob/rpatool](https://github.com/Shizmob/rpatool) と [CensoredUsername/unrpyc](https://github.com/CensoredUsername/unrpyc) をダウンロードします。
 
 
-## 2. `.rpa` ファイルをアンパック
+## 2. `.rpa`ファイルをアンパック
 
 以下のようなコマンドで rpatool を実行します。
 
@@ -61,7 +61,7 @@ python rpatool -x アンパックするrpaファイル
 - rpatool に path を通していない場合は相対パスに直してください。
 
 
-### 3. `.rpyc` ファイルをデコンパイル
+### 3. `.rpyc`ファイルをデコンパイル
 
 同様に unrpyc も実行します。
 
@@ -78,7 +78,7 @@ python un.rpyc [デコンパイルしたいrpycファイル]
 
 # ソースコードを覗く
 
-`.rpy` ファイルは普通のテキストファイルなので、好きなエディタで編集できます。
+`.rpy`ファイルは普通のテキストファイルなので、好きなエディタで編集できます。
  Ren'Py 用の拡張機能がある以下のエディタがおすすめです。
 
 - [Atom](https://atom.io/) - [language-renpy](https://atom.io/packages/language-renpy)

@@ -8,16 +8,16 @@ qiita: https://qiita.com/proudust/items/516c142655aec63c4ea4
 
 ## 概要
 
-友人が「天気予報をDiscordに流してくれると便利かも」と言っていたのでGoogleAppScript(以下GAS)を利用して作成してみた。
+友人が「天気予報を Discord に流してくれると便利かも」と言っていたので GoogleAppScript(以下 GAS)を利用して作成してみた。
 朝には今日の天気予報を、夕方には明日の天気予報を投稿する。
 リポジトリは[proudust/weather-bot-for-discord](https://github.com/proudust/weather-bot-for-discord)。
 
 ## 環境設定
 
-GASなので当然[howdy39/gas-clasp-starter](https://github.com/howdy39/gas-clasp-starter)をベースに作成を始める。
+GAS なので当然[howdy39/gas-clasp-starter](https://github.com/howdy39/gas-clasp-starter)をベースに作成を始める。
 
-折角なので(？)TSLintを削除して[@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint)に切り替えた。
-まだ対応が完全ではないのか、@types/google-apps-scriptで宣言されているグローバル変数`declare var UrlFetchApp`などを認識してくれないようなので、[selectnull/eslint-plugin-googleappsscript](https://github.com/selectnull/eslint-plugin-googleappsscript)を入れてお茶を濁す。
+折角なので(？)TSLint を削除して[@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint)に切り替えた。
+まだ対応が完全ではないのか、@types/google-apps-script で宣言されているグローバル変数 `declare var UrlFetchApp` などを認識してくれないようなので、[selectnull/eslint-plugin-googleappsscript](https://github.com/selectnull/eslint-plugin-googleappsscript)を入れてお茶を濁す。
 
 ```bash
 npm uninstall tslint tslint-config-prettier tslint-plugin-prettier
@@ -62,8 +62,8 @@ npm i --save-dev eslint eslint-config-prettier eslint-plugin-prettier @typescrip
 
 ## 天気予報の取得
 
-[気象情報API比較してみた](https://qiita.com/Barbara/items/93ae7969691164c7c2bc)を参考に、最高気温と最低気温がちゃんと取れる[Dark Sky API](https://darksky.net/dev)(元Forecast)を採用した。
-さくっとアカウント登録を済ませ、試しにAPIを叩く。
+[気象情報API比較してみた](https://qiita.com/Barbara/items/93ae7969691164c7c2bc)を参考に、最高気温と最低気温がちゃんと取れる[Dark Sky API](https://darksky.net/dev)(元 Forecast)を採用した。
+さくっとアカウント登録を済ませ、試しに API を叩く。
 
 ```bash
 curl --request GET \
@@ -71,11 +71,11 @@ curl --request GET \
 ```
 
 **パラメータの意味**
-- `$KEY` アカウント登録後に表示されるSecret Key
-- `$LATITUDE,$LONGITUDE` 緯度、経度
-- `?exclude=currently,minutely,hourly,flags` レスポンスから除外する情報を指定する（これらを除外すると1週間分の天気予報だけが残る）
-- `&lang=ja` 解説などに使用される言語を日本語に設定
-- `&units=si` 単位を摂氏・メートル法に設定
+- `$KEY`アカウント登録後に表示される Secret Key
+- `$LATITUDE,$LONGITUDE`緯度、経度
+- `?exclude=currently,minutely,hourly,flags`レスポンスから除外する情報を指定する（これらを除外すると 1 週間分の天気予報だけが残る）
+- `&lang=ja`解説などに使用される言語を日本語に設定
+- `&units=si`単位を摂氏・メートル法に設定
 
 ### 型定義の作成
 
@@ -149,8 +149,8 @@ interface DarkSkyApiResponse {
 }
 ```
 
-GASでRESTAPIを叩く場合は`UrlFetchApp.fetch()`を用いる。
-SECRETKEYはソースコードに含めず、スクリプトのプロパティから読み込む。
+GAS で RESTAPI を叩く場合は `UrlFetchApp.fetch()` を用いる。
+SECRETKEY はソースコードに含めず、スクリプトのプロパティから読み込む。
 
 ``` ts:darksky.ts
 const key = PropertiesService.getScriptProperties().getProperty('SECRETKEY');
@@ -167,7 +167,7 @@ try {
 ## Webhookを叩いてDiscordに投稿
 
 [URLの払い出しは公式を見てもらう](https://support.discordapp.com/hc/ja/articles/228383668-%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB-Webhooks%E3%81%B8%E3%81%AE%E5%BA%8F%E7%AB%A0)として、データを投稿用に加工する。
-Webhookで渡すパラメータは[DiscordにWebhookでいろいろ投稿する](https://qiita.com/Eai/items/1165d08dce9f183eac74)を参考にした。
+Webhook で渡すパラメータは[DiscordにWebhookでいろいろ投稿する](https://qiita.com/Eai/items/1165d08dce9f183eac74)を参考にした。
 
 ``` ts
 interface DiscordWebhookPayload {
@@ -244,8 +244,8 @@ const payload: Discord.DiscordWebhookPayload = {
 };
 ```
 
-変換したデータをでWebhookにPOSTする。WebhookのURLもスクリプトのプロパティから読み込む。
-`URLFetchRequestOptions.payload`は`object`も入れられるが、勝手にjsonに変換してくれるわけではないので変換してから渡す。
+変換したデータをで Webhook に POST する。Webhook の URL もスクリプトのプロパティから読み込む。
+`URLFetchRequestOptions.payload`は `object` も入れられるが、勝手に json に変換してくれるわけではないので変換してから渡す。
 また、`content-type`の設定を間違えると意味不明なエラーしか返してくれないので要注意。
 
 ``` ts
@@ -266,8 +266,8 @@ const payload: Discord.DiscordWebhookPayload = {
 ## GASにソースコードをアップロード
 
 [G Suite Developer Hub](https://script.google.com/home)にアクセスし、新しいスクリプトを作成する。
-`UrlFetchApp.fetch`には`https://www.googleapis.com/auth/script.external_request`の権限が必要なので`appsscript.json`に追記しておく。
-claspの扱いは[Google Apps Script をローカル環境で快適に開発するためのテンプレートを作りました](https://qiita.com/howdy39/items/0e799a9bfc1d3bccf6e5)を参考にした。
+`UrlFetchApp.fetch`には `https://www.googleapis.com/auth/script.external_request` の権限が必要なので `appsscript.json` に追記しておく。
+clasp の扱いは[Google Apps Script をローカル環境で快適に開発するためのテンプレートを作りました](https://qiita.com/howdy39/items/0e799a9bfc1d3bccf6e5)を参考にした。
 
 ```json:appsscript.json
 {
@@ -283,14 +283,14 @@ claspの扱いは[Google Apps Script をローカル環境で快適に開発す�
 ## トリガーの設定
 
 [AppScriptダッシュボード](https://script.google.com/home)から作成したスクリプトの右端にある**︙**ボタンをクリックし、トリガーを選ぶと管理画面が開く。
-右下の**トリガーを追加**を選ぶと新しいトリガーの追加ができるので、毎日6~7時と18時~19時に設定する。
+右下の**トリガーを追加**を選ぶと新しいトリガーの追加ができるので、毎日 6~7 時と 18 時~19 時に設定する。
 
 ![trigger.png](trigger.png)
 
 ## 完成品
 
 ちょっと寂しい気もするが、最低限欲しい情報は得られるので良しとした。
-またテンプレートに含まれていたJestを全く使っていないので、次何か作るときは活用するようにしたい。
+またテンプレートに含まれていた Jest を全く使っていないので、次何か作るときは活用するようにしたい。
 ソースコードはこちら[proudust/weather-bot-for-discord](https://github.com/proudust/weather-bot-for-discord)
 ![preview.png](preview.png)
 
