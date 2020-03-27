@@ -56,9 +56,11 @@ export const PostList: React.FC<PostListProps> = props => {
   })();
 
   return (
-    <ul style={{ padding: 0 }}>
+    <ul style={{ padding: 0, listStyle: 'none' }}>
       {posts.map((post, index) => (
-        <PostCard key={index} {...post} />
+        <li key={index}>
+          <PostCard {...post} />
+        </li>
       ))}
     </ul>
   );

@@ -60,7 +60,7 @@ export const PostCard: React.FC<PostListProps> = ({
   }[type];
 
   return (
-    <CardActionAreaLink component="li" href={url}>
+    <CardActionAreaLink href={url}>
       <Card className={classes.root}>
         <CardMedia className={classes.media} image={thumbnail} title={title} />
         <div className={classes.detail}>
