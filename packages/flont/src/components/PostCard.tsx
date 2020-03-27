@@ -62,7 +62,11 @@ export const PostCard: React.FC<PostListProps> = ({
   return (
     <CardActionAreaLink href={url}>
       <Card className={classes.root}>
-        <CardMedia className={classes.media} image={thumbnail} title={title} />
+        {thumbnail ? (
+          <CardMedia className={classes.media} image={thumbnail} title={title} />
+        ) : (
+          <div className={classes.media} />
+        )}
         <div className={classes.detail}>
           <CardHeader
             avatar={icon}
