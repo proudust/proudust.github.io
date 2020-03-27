@@ -4,8 +4,8 @@
   "scripts": {
     "start": "yarn workspace flont start",
     "build": "yarn workspace flont build",
-    "lint": "yarn workspace flont lint",
-    "lint:ci": "yarn workspace flont lint:ci",
+    "lint": "yarn workspace flont lint && yarn workspace posts lint",
+    "lint:ci": "yarn workspace flont lint:ci && yarn workspace posts lint:ci",
     "deploy": "yarn workspace flont deploy"
   },
   "workspaces": [

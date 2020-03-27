@@ -1,0 +1,12 @@
+{
+  "name": "posts",
+  "version": "0.1.0",
+  "dependencies": {
+    "textlint": "^11.6.3",
+    "textlint-rule-preset-ja-spacing": "^2.0.1"
+  },
+  "scripts": {
+    "lint": "textlint --fix .",
+    "lint:ci": "textlint ."
+  }
+}
