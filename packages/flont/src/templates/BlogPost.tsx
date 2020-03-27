@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography, Paper } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { graphql, PageRendererProps } from 'gatsby';
+import 'prismjs/themes/prism-tomorrow.css';
 
 import { Layout } from '../components/layout';
 import type { BlogPostBySlugQuery } from '../../types/query';

@@ -38,6 +38,7 @@ module.exports = {
             options: { offsetY: 100, maintainCase: true },
           },
           'gatsby-remark-images',
+          'gatsby-remark-prismjs',
         ],
       },
     },
