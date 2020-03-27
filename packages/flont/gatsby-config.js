@@ -1,5 +1,4 @@
 const path = require('path');
-require('dotenv').config();
 
 /** @type import('gatsby').GatsbyConfig */
 module.exports = {
@@ -40,13 +39,6 @@ module.exports = {
           },
           'gatsby-remark-images',
         ],
-      },
-    },
-    {
-      resolve: `gatsby-source-qiita`,
-      options: {
-        accessToken: process.env.QIITA_ACCESS_TOKEN,
-        userName: 'proudust',
       },
     },
     'gatsby-transformer-sharp',

@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import striptags from 'striptags';
 
 import { PostCard } from './PostCard';
 import type { PostListQuery } from '../../types/query';
@@ -25,20 +24,6 @@ export const PostList: React.FC<PostListProps> = props => {
           url: node.fields?.slug ?? '',
         } as const),
     );
-    const qiita = data.allQiitaPost?.edges.map(({ node }) => {
-      const body = striptags(node.rendered_body ?? '').replace(/\r?\n/g, ' ');
-      return {
-        type: 'qiita',
-        title: node.title ?? '',
-        excerpt: (body.length ?? 0) > 140 ? body.slice(0, 140) + '...' : body ?? '',
-        createat: node.created_at ?? '',
-        thumbnail:
-          node.body?.match(/!\[[^\]]+\]\(([^)]+)\)/)?.[1] ??
-          data.file?.childImageSharp?.fixed?.src ??
-          '',
-        url: node.url ?? '',
-      } as const;
-    });
     const guides = data.allSteamGuidesYaml?.nodes.map(
       node =>
         ({
@@ -50,7 +35,7 @@ export const PostList: React.FC<PostListProps> = props => {
           url: node.url ?? '',
         } as const),
     );
-    return [...selfposts, ...qiita, ...guides]
+    return [...selfposts, ...guides]
       .sort((a, b) => Date.parse(b.createat) - Date.parse(a.createat))
       .slice(0, props.limit === 0 ? Number.MAX_VALUE : props.limit);
   })();
@@ -88,17 +73,6 @@ const query = graphql`
               }
             }
           }
-        }
-      }
-    }
-    allQiitaPost {
-      edges {
-        node {
-          title
-          rendered_body
-          body
-          created_at
-          url
         }
       }
     }
