@@ -13,10 +13,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Use npm cache
+      - name: Use yarn cache
         uses: actions/cache@v1
         with:
-          path: ~/.npm
+          path: ~/.cache/yarn
           key: ${{ runner.os }}-node-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
