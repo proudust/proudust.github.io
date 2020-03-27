@@ -4,11 +4,10 @@ import { makeStyles, createStyles } from '@material-ui/core/styles';
 
 import { CardActionAreaLink } from './Link';
 import { SteamIcon } from './SteamIcon';
-import { QiitaIcon } from './QiitaIcon';
 
 interface PostListProps {
   children?: never;
-  type: 'inside' | 'qiita' | 'steam-guide';
+  type: 'inside' | 'steam-guide';
   title: string;
   excerpt: string;
   createat: string;
@@ -55,7 +54,6 @@ export const PostCard: React.FC<PostListProps> = ({
   const classes = useStyles();
   const icon = {
     inside: undefined,
-    qiita: <QiitaIcon />,
     'steam-guide': <SteamIcon />,
   }[type];
 

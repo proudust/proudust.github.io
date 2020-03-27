@@ -3,7 +3,6 @@ import { Avatar, Card, CardActions, CardHeader, IconButton } from '@material-ui/
 import { GitHub as GitHubIcon, Twitter as TwitterIcon } from '@material-ui/icons';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { QiitaIcon } from '../QiitaIcon';
 import { SteamIcon } from '../SteamIcon';
 import type { ProfileQuery } from '../../../types/query';
 
@@ -29,9 +28,6 @@ export const Profile: React.FC<ProfileProps> = () => {
         <IconButton aria-label="github" component="a" href={links?.github ?? ''}>
           <GitHubIcon />
         </IconButton>
-        <IconButton aria-label="qiita" component="a" href={links?.qiita ?? ''}>
-          <QiitaIcon />
-        </IconButton>
         <IconButton aria-label="steam" component="a" href={links?.steam ?? ''}>
           <SteamIcon />
         </IconButton>
@@ -49,7 +45,6 @@ export const query = graphql`
       links {
         twitter
         github
-        qiita
         steam
       }
     }

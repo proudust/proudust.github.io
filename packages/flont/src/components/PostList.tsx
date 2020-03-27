@@ -111,16 +111,5 @@ const query = graphql`
         thumbnail
       }
     }
-    file(relativePath: { eq: "qiita-square.png" }) {
-      childImageSharp {
-        fixed(width: 151, height: 151) {
-          base64
-          width
-          height
-          src
-          srcSet
-        }
-      }
-    }
   }
 `;
