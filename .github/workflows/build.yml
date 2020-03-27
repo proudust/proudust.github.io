@@ -17,7 +17,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
@@ -29,13 +29,13 @@ jobs:
           node-version: "13.x"
 
       - name: Restore node modules
-        run: npm ci
+        run: yarn --frozen-lockfile
 
       - name: Lint
-        run: npm run lint:ci
+        run: yarn lint:ci
 
       - name: Build
-        run: npm run build
+        run: yarn build
         env:
           QIITA_ACCESS_TOKEN: ${{ secrets.QIITA_ACCESS_TOKEN }}
 
@@ -51,4 +51,4 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git config --global url.ssh://git@github.com/.insteadOf https://github.com/
-          npm run deploy
+          yarn deploy
