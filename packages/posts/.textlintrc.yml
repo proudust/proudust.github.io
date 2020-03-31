@@ -7,6 +7,11 @@ rules:
     preferInList: ""
     strict: true
 
+  # 一文に利用できる"、"の数を 3 つまでに制限する
+  # https://github.com/azu/textlint-rule-max-ten
+  max-ten:
+    max: 3
+
   # https://github.com/textlint-ja/textlint-rule-spacing
   preset-ja-spacing:
     # カタカナ語間は中黒または半角スペースを用いてカタカナ語を区切る
