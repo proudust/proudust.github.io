@@ -2,11 +2,14 @@
   "name": "posts",
   "version": "0.1.0",
   "dependencies": {
+    "markdownlint-cli": "^0.22.0",
     "textlint": "^11.6.3",
     "textlint-rule-preset-ja-spacing": "^2.0.1"
   },
   "scripts": {
-    "lint": "textlint --fix .",
-    "lint:ci": "textlint ."
+    "lint": "yarn lint:txtlint --fix && yarn lint:mdlint --fix",
+    "lint:ci": "yarn lint:txtlint && yarn lint:mdlint",
+    "lint:txtlint": "textlint .",
+    "lint:mdlint": "markdownlint ."
   }
 }
