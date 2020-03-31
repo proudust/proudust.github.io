@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="jp"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.131b48b25a50eff60b34.css">code[class*=language-],pre[class*=language-]{color:#ccc;background:none;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><meta name="generator" content="Gatsby 2.20.7"/><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 100)
+          }), 0)
+        }
+      }
+    })
+  </script><title data-react-helmet="true">タグを push したら GitHub Actions でリリースの下書きを作成+α - proudust.github.io</title><meta data-react-helmet="true" charSet="utf-8"/><style id="jss-server-side">.MuiPaper-root{color:rgba(0,0,0,.87);transition:box-shadow .3s cubic-bezier(.4,0,.2,1) 0s;background-color:#fff}.MuiPaper-rounded{border-radius:4px}.MuiPaper-outlined{border:1px solid rgba(0,0,0,.12)}.MuiPaper-elevation0{box-shadow:none}.MuiPaper-elevation1{box-shadow:0 2px 1px -1px rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 1px 3px 0 rgba(0,0,0,.12)}.MuiPaper-elevation2{box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}.MuiPaper-elevation3{box-shadow:0 3px 3px -2px rgba(0,0,0,.2),0 3px 4px 0 rgba(0,0,0,.14),0 1px 8px 0 rgba(0,0,0,.12)}.MuiPaper-elevation4{box-shadow:0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12)}.MuiPaper-elevation5{box-shadow:0 3px 5px -1px rgba(0,0,0,.2),0 5px 8px 0 rgba(0,0,0,.14),0 1px 14px 0 rgba(0,0,0,.12)}.MuiPaper-elevation6{box-shadow:0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12)}.MuiPaper-elevation7{box-shadow:0 4px 5px -2px rgba(0,0,0,.2),0 7px 10px 1px rgba(0,0,0,.14),0 2px 16px 1px rgba(0,0,0,.12)}.MuiPaper-elevation8{box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)}.MuiPaper-elevation9{box-shadow:0 5px 6px -3px rgba(0,0,0,.2),0 9px 12px 1px rgba(0,0,0,.14),0 3px 16px 2px rgba(0,0,0,.12)}.MuiPaper-elevation10{box-shadow:0 6px 6px -3px rgba(0,0,0,.2),0 10px 14px 1px rgba(0,0,0,.14),0 4px 18px 3px rgba(0,0,0,.12)}.MuiPaper-elevation11{box-shadow:0 6px 7px -4px rgba(0,0,0,.2),0 11px 15px 1px rgba(0,0,0,.14),0 4px 20px 3px rgba(0,0,0,.12)}.MuiPaper-elevation12{box-shadow:0 7px 8px -4px rgba(0,0,0,.2),0 12px 17px 2px rgba(0,0,0,.14),0 5px 22px 4px rgba(0,0,0,.12)}.MuiPaper-elevation13{box-shadow:0 7px 8px -4px rgba(0,0,0,.2),0 13px 19px 2px rgba(0,0,0,.14),0 5px 24px 4px rgba(0,0,0,.12)}.MuiPaper-elevation14{box-shadow:0 7px 9px -4px rgba(0,0,0,.2),0 14px 21px 2px rgba(0,0,0,.14),0 5px 26px 4px rgba(0,0,0,.12)}.MuiPaper-elevation15{box-shadow:0 8px 9px -5px rgba(0,0,0,.2),0 15px 22px 2px rgba(0,0,0,.14),0 6px 28px 5px rgba(0,0,0,.12)}.MuiPaper-elevation16{box-shadow:0 8px 10px -5px rgba(0,0,0,.2),0 16px 24px 2px rgba(0,0,0,.14),0 6px 30px 5px rgba(0,0,0,.12)}.MuiPaper-elevation17{box-shadow:0 8px 11px -5px rgba(0,0,0,.2),0 17px 26px 2px rgba(0,0,0,.14),0 6px 32px 5px rgba(0,0,0,.12)}.MuiPaper-elevation18{box-shadow:0 9px 11px -5px rgba(0,0,0,.2),0 18px 28px 2px rgba(0,0,0,.14),0 7px 34px 6px rgba(0,0,0,.12)}.MuiPaper-elevation19{box-shadow:0 9px 12px -6px rgba(0,0,0,.2),0 19px 29px 2px rgba(0,0,0,.14),0 7px 36px 6px rgba(0,0,0,.12)}.MuiPaper-elevation20{box-shadow:0 10px 13px -6px rgba(0,0,0,.2),0 20px 31px 3px rgba(0,0,0,.14),0 8px 38px 7px rgba(0,0,0,.12)}.MuiPaper-elevation21{box-shadow:0 10px 13px -6px rgba(0,0,0,.2),0 21px 33px 3px rgba(0,0,0,.14),0 8px 40px 7px rgba(0,0,0,.12)}.MuiPaper-elevation22{box-shadow:0 10px 14px -6px rgba(0,0,0,.2),0 22px 35px 3px rgba(0,0,0,.14),0 8px 42px 7px rgba(0,0,0,.12)}.MuiPaper-elevation23{box-shadow:0 11px 14px -7px rgba(0,0,0,.2),0 23px 36px 3px rgba(0,0,0,.14),0 9px 44px 8px rgba(0,0,0,.12)}.MuiPaper-elevation24{box-shadow:0 11px 15px -7px rgba(0,0,0,.2),0 24px 38px 3px rgba(0,0,0,.14),0 9px 46px 8px rgba(0,0,0,.12)}.MuiAppBar-root{width:100%;display:flex;z-index:1100;box-sizing:border-box;flex-shrink:0;flex-direction:column}.MuiAppBar-positionFixed{top:0;left:auto;right:0;position:fixed}@media print{.MuiAppBar-positionFixed{position:absolute}}.MuiAppBar-positionAbsolute{top:0;left:auto;right:0;position:absolute}.MuiAppBar-positionSticky{top:0;left:auto;right:0;position:-webkit-sticky;position:sticky}.MuiAppBar-positionStatic{position:static;transform:translateZ(0)}.MuiAppBar-positionRelative{position:relative}.MuiAppBar-colorDefault{color:rgba(0,0,0,.87);background-color:#f5f5f5}.MuiAppBar-colorPrimary{color:#fff;background-color:#3f51b5}.MuiAppBar-colorSecondary{color:#fff;background-color:#f50057}.MuiAppBar-colorInherit{color:inherit}.MuiAppBar-colorTransparent{color:inherit;background-color:transparent}.MuiSvgIcon-root{fill:currentColor;width:1em;height:1em;display:inline-block;font-size:1.5rem;transition:fill .2s cubic-bezier(.4,0,.2,1) 0s;flex-shrink:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.MuiSvgIcon-colorPrimary{color:#3f51b5}.MuiSvgIcon-colorSecondary{color:#f50057}.MuiSvgIcon-colorAction{color:rgba(0,0,0,.54)}.MuiSvgIcon-colorError{color:#f44336}.MuiSvgIcon-colorDisabled{color:rgba(0,0,0,.26)}.MuiSvgIcon-fontSizeInherit{font-size:inherit}.MuiSvgIcon-fontSizeSmall{font-size:1.25rem}.MuiSvgIcon-fontSizeLarge{font-size:2.1875rem}.MuiAvatar-root{width:40px;height:40px;display:flex;overflow:hidden;position:relative;font-size:1.25rem;align-items:center;flex-shrink:0;font-family:Roboto,Helvetica,Arial,sans-serif;line-height:1;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border-radius:50%;justify-content:center}.MuiAvatar-colorDefault{color:#fafafa;background-color:#bdbdbd}.MuiAvatar-rounded{border-radius:4px}.MuiAvatar-square{border-radius:0}.MuiAvatar-img{color:transparent;width:100%;height:100%;object-fit:cover;text-align:center;text-indent:10000px}.MuiAvatar-fallback{width:75%;height:75%}.MuiButtonBase-root{color:inherit;border:0;cursor:pointer;margin:0;display:inline-flex;outline:0;padding:0;position:relative;align-items:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border-radius:0;vertical-align:middle;-moz-appearance:none;justify-content:center;text-decoration:none;background-color:transparent;-webkit-appearance:none;-webkit-tap-highlight-color:transparent}.MuiButtonBase-root::-moz-focus-inner{border-style:none}.MuiButtonBase-root.Mui-disabled{cursor:default;pointer-events:none}.MuiTypography-root{margin:0}.MuiTypography-body2{font-size:.875rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.43;letter-spacing:.01071em}.MuiTypography-body1{font-size:1rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.5;letter-spacing:.00938em}.MuiTypography-caption{font-size:.75rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.66;letter-spacing:.03333em}.MuiTypography-button{font-size:.875rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:500;line-height:1.75;letter-spacing:.02857em;text-transform:uppercase}.MuiTypography-h1{font-size:6rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:300;line-height:1.167;letter-spacing:-.01562em}.MuiTypography-h2{font-size:3.75rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:300;line-height:1.2;letter-spacing:-.00833em}.MuiTypography-h3{font-size:3rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.167;letter-spacing:0}.MuiTypography-h4{font-size:2.125rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.235;letter-spacing:.00735em}.MuiTypography-h5{font-size:1.5rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.334;letter-spacing:0}.MuiTypography-h6{font-size:1.25rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:500;line-height:1.6;letter-spacing:.0075em}.MuiTypography-subtitle1{font-size:1rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.75;letter-spacing:.00938em}.MuiTypography-subtitle2{font-size:.875rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:500;line-height:1.57;letter-spacing:.00714em}.MuiTypography-overline{font-size:.75rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:2.66;letter-spacing:.08333em;text-transform:uppercase}.MuiTypography-srOnly{width:1px;height:1px;overflow:hidden;position:absolute}.MuiTypography-alignLeft{text-align:left}.MuiTypography-alignCenter{text-align:center}.MuiTypography-alignRight{text-align:right}.MuiTypography-alignJustify{text-align:justify}.MuiTypography-noWrap{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.MuiTypography-gutterBottom{margin-bottom:.35em}.MuiTypography-paragraph{margin-bottom:16px}.MuiTypography-colorInherit{color:inherit}.MuiTypography-colorPrimary{color:#3f51b5}.MuiTypography-colorSecondary{color:#f50057}.MuiTypography-colorTextPrimary{color:rgba(0,0,0,.87)}.MuiTypography-colorTextSecondary{color:rgba(0,0,0,.54)}.MuiTypography-colorError{color:#f44336}.MuiTypography-displayInline{display:inline}.MuiTypography-displayBlock{display:block}.MuiCard-root{overflow:hidden}.MuiCardActions-root{display:flex;padding:8px;align-items:center}.MuiCardActions-spacing>:not(:first-child){margin-left:8px}.MuiCardHeader-root{display:flex;padding:16px;align-items:center}.MuiCardHeader-avatar{flex:0 0 auto;margin-right:16px}.MuiCardHeader-action{flex:0 0 auto;align-self:flex-start;margin-top:-8px;margin-right:-8px}.MuiCardHeader-content{flex:1 1 auto}.MuiIconButton-root{flex:0 0 auto;color:rgba(0,0,0,.54);padding:12px;overflow:visible;font-size:1.5rem;text-align:center;transition:background-color 150ms cubic-bezier(.4,0,.2,1) 0s;border-radius:50%}.MuiIconButton-root:hover{background-color:rgba(0,0,0,.04)}.MuiIconButton-root.Mui-disabled{color:rgba(0,0,0,.26);background-color:transparent}@media (hover:none){.MuiIconButton-root:hover{background-color:transparent}}.MuiIconButton-edgeStart{margin-left:-12px}.MuiIconButton-sizeSmall.MuiIconButton-edgeStart{margin-left:-3px}.MuiIconButton-edgeEnd{margin-right:-12px}.MuiIconButton-sizeSmall.MuiIconButton-edgeEnd{margin-right:-3px}.MuiIconButton-colorInherit{color:inherit}.MuiIconButton-colorPrimary{color:#3f51b5}.MuiIconButton-colorPrimary:hover{background-color:rgba(63,81,181,.04)}@media (hover:none){.MuiIconButton-colorPrimary:hover{background-color:transparent}}.MuiIconButton-colorSecondary{color:#f50057}.MuiIconButton-colorSecondary:hover{background-color:rgba(245,0,87,.04)}@media (hover:none){.MuiIconButton-colorSecondary:hover{background-color:transparent}}.MuiIconButton-sizeSmall{padding:3px;font-size:1.125rem}.MuiIconButton-label{width:100%;display:flex;align-items:inherit;justify-content:inherit}.MuiContainer-root{width:100%;display:block;box-sizing:border-box;margin-left:auto;margin-right:auto;padding-left:16px;padding-right:16px}@media (min-width:600px){.MuiContainer-root{padding-left:24px;padding-right:24px}}.MuiContainer-disableGutters{padding-left:0;padding-right:0}@media (min-width:600px){.MuiContainer-fixed{max-width:600px}}@media (min-width:960px){.MuiContainer-fixed{max-width:960px}}@media (min-width:1280px){.MuiContainer-fixed{max-width:1280px}}@media (min-width:1920px){.MuiContainer-fixed{max-width:1920px}}@media (min-width:0px){.MuiContainer-maxWidthXs{max-width:444px}}@media (min-width:600px){.MuiContainer-maxWidthSm{max-width:600px}}@media (min-width:960px){.MuiContainer-maxWidthMd{max-width:960px}}@media (min-width:1280px){.MuiContainer-maxWidthLg{max-width:1280px}}@media (min-width:1920px){.MuiContainer-maxWidthXl{max-width:1920px}}html{box-sizing:border-box;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}*,::after,::before{box-sizing:inherit}b,strong{font-weight:700}body{color:rgba(0,0,0,.87);margin:0;font-size:.875rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.43;letter-spacing:.01071em;background-color:#fafafa}@media print{body{background-color:#fff}}body::-webkit-backdrop{background-color:#fafafa}body::backdrop{background-color:#fafafa}.MuiToolbar-root{display:flex;position:relative;align-items:center}.MuiToolbar-gutters{padding-left:16px;padding-right:16px}@media (min-width:600px){.MuiToolbar-gutters{padding-left:24px;padding-right:24px}}.MuiToolbar-regular{min-height:56px}@media (min-width:0px) and (orientation:landscape){.MuiToolbar-regular{min-height:48px}}@media (min-width:600px){.MuiToolbar-regular{min-height:64px}}.MuiToolbar-dense{min-height:48px}.jss48{color:inherit;text-decoration:none}.jss3{padding:24px 0}.jss4{min-height:56px}@media (min-width:0px) and (orientation:landscape){.jss4{min-height:48px}}@media (min-width:600px){.jss4{min-height:64px}}.jss1{padding:24px 0}.jss2{padding:24px}.jss2 a{color:#ff4081}.jss2 a:visited{color:#c51162}.jss2 th{padding:8px;font-size:.875rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.43;border-bottom:1px solid rgba(0,0,0,.12);letter-spacing:.01071em}.jss2 td{padding:8px;font-size:.875rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.43;border-bottom:1px solid rgba(0,0,0,.12);letter-spacing:.01071em}</style><link as="script" rel="preload" href="/webpack-runtime-9fd44774b4f8071796ed.js"/><link as="script" rel="preload" href="/framework-684400df191194796b39.js"/><link as="script" rel="preload" href="/app-4f429968b29198e98cfb.js"/><link as="script" rel="preload" href="/styles-aa38160d44fbf727d69a.js"/><link as="script" rel="preload" href="/commons-ab38a9b009ddcfa9a52e.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-tsx-6c0b12ec846241244749.js"/><link as="fetch" rel="preload" href="/page-data/20191220-create-release-with-ghactions/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed MuiPaper-elevation4"><div class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters" style="min-height:58px"><a class="MuiButtonBase-root MuiIconButton-root jss48 MuiIconButton-edgeStart" tabindex="0" aria-disabled="false" aria-label="back" style="color:inherit;margin-right:16px" href="/"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg></span></a><h6 class="MuiTypography-root MuiTypography-h6 MuiTypography-noWrap">タグを push したら GitHub Actions でリリースの下書きを作成+α - proudust.github.io</h6></div></header><div class="jss4"></div><main class="MuiContainer-root MuiContainer-maxWidthMd" style="margin-top:24px"><div class="MuiPaper-root jss2 MuiPaper-elevation1 MuiPaper-rounded"><h6 class="MuiTypography-root MuiTypography-subtitle1">2019/12/20</h6><h4 class="MuiTypography-root MuiTypography-h4">タグを push したら GitHub Actions でリリースの下書きを作成+α</h4><div class="MuiTypography-root MuiTypography-body1"><h1 id="はじめに" style="position:relative;"><a href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB" aria-label="はじめに permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>はじめに</h1>
+<p>この記事は<a href="https://qiita.com/advent-calendar/2019/github-actions">GitHub Actions Advent Calendar 2019</a> 24 日目の記事です。</p>
+<p>今回はタグをリモートに push したら、リリースを作成とビルドの成果物を添付を自動で行う Workflow の実装例を紹介します。
+なお今回の例ではビルドの処理を省略し、<code class="language-text">touch artifact</code>で作成した空の <code class="language-text">artifact</code> ファイルをビルド成果物として記述しています。</p>
+<h2 id="1-タグを-push-したら自動でリリースの下書きを作成する" style="position:relative;"><a href="#1-%E3%82%BF%E3%82%B0%E3%82%92-push-%E3%81%97%E3%81%9F%E3%82%89%E8%87%AA%E5%8B%95%E3%81%A7%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%AE%E4%B8%8B%E6%9B%B8%E3%81%8D%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B" aria-label="1 タグを push したら自動でリリースの下書きを作成する permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. タグを push したら自動でリリースの下書きを作成する</h2>
+<p>リリースの作成には <a href="https://github.com/actions/create-release">actions/create-release</a> を使用します。
+<code class="language-text">${{ github.ref }}</code>は厳密には <code class="language-text">refs/tags/(タグ名)</code> が入りますが、アクション側で <code class="language-text">refs/tags/</code> は取り除かれるので問題ありません。</p>
+<div class="gatsby-highlight" data-language="yml"><pre class="language-yml"><code class="language-yml"><span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/create<span class="token punctuation">-</span>release@master
+  <span class="token key atrule">env</span><span class="token punctuation">:</span>
+    <span class="token key atrule">GITHUB_TOKEN</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.GITHUB_TOKEN <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  <span class="token key atrule">with</span><span class="token punctuation">:</span>
+    <span class="token comment"># リリースのタグ (必須)</span>
+    <span class="token key atrule">tag_name</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> github.ref <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    <span class="token comment"># リリースのタイトル (必須)</span>
+    <span class="token key atrule">release_name</span><span class="token punctuation">:</span> 1. タグを push したら自動でリリースの下書きを作成する
+    <span class="token comment"># リリースのタイトル (省略可能)</span>
+    <span class="token key atrule">body</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+      リリースの作成テストです。
+      下書きかつプレリリースの状態で作成されます。</span>
+    <span class="token comment"># 下書き状態で作成する場合は true (省略時 false)</span>
+    <span class="token key atrule">draft</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token comment"># プレリリース表示を付ける場合は true (省略時 false)</span>
+    <span class="token key atrule">prerelease</span><span class="token punctuation">:</span> <span class="token boolean important">true</span></code></pre></div>
+<p><a href="https://github.com/proudust/example-github-actions-release/blob/1/.github/workflows/release.yml">ソースコード全文</a></p>
+<p>このワークフローにより、以下のようなリリースが下書きで作成されます。</p>
+<p><a href="https://github.com/proudust/example-github-actions-release/releases/tag/1"><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 650px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 46.62576687116564%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABNklEQVQoz42Sa27DIBCEfdSerH97lR6hUqVIrZooDxtjjG1g2Z0uOKkSNa2CNOKx8C2z0Dw9b/Hy2gEQsKD2/7c1PjiHzhhQijh1HZy18MaiqVEKEG/ARAiJYSfCuGTMMWOJDK/j45BgPOk81z1TYPRTxq5P8EE0lqGhFciUEMceMWV8doS9TSpC60jhufbv+4CPNsLNCosKGAkH3fe2C9h2EZtDqMmbYoAyK4zUgsXmy0A4qwicV4mqOC3rWZNTSnX9XmtE5KcuVuvQng5oO6PwHs6NmOcZ87JUq8VBUtgqTSSl7nLT1xvKeVI2mt4qeID3viYoYzeOCCH8fp7zuWs1l0FpBTgpSJjvHmC+1U3sL+Cpn3C0UV/2bEnhFSAPiPlSw3Kb8jgZbooY9NuUryLyIOjKwTcDBMCsy98OcgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="下書きリリース"
+        title="下書きリリース"
+        src="/static/761b77b2d0fcfd673a7ff4f946114979/a6d36/1.png"
+        srcset="/static/761b77b2d0fcfd673a7ff4f946114979/222b7/1.png 163w,
+/static/761b77b2d0fcfd673a7ff4f946114979/ff46a/1.png 325w,
+/static/761b77b2d0fcfd673a7ff4f946114979/a6d36/1.png 650w,
+/static/761b77b2d0fcfd673a7ff4f946114979/d125e/1.png 737w"
+        sizes="(max-width: 650px) 100vw, 650px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+    </span></a></p>
+<h2 id="2-更にビルドの成果物を添付する" style="position:relative;"><a href="#2-%E6%9B%B4%E3%81%AB%E3%83%93%E3%83%AB%E3%83%89%E3%81%AE%E6%88%90%E6%9E%9C%E7%89%A9%E3%82%92%E6%B7%BB%E4%BB%98%E3%81%99%E3%82%8B" aria-label="2 更にビルドの成果物を添付する permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. 更にビルドの成果物を添付する</h2>
+<p>ファイルの添付には <a href="https://github.com/actions/upload-release-asset">actions/upload-release-asset</a> を使用します。
+actions/create-release のステップに id を振り、outputs の upload_url を参照できるようにします。
+圧縮などはしてくれないので、予め <code class="language-text">zip</code> コマンドなどを使用して圧縮する必要があります。</p>
+<div class="gatsby-highlight" data-language="yml"><pre class="language-yml"><code class="language-yml"><span class="token comment"># ビルド処理に置き換える</span>
+<span class="token punctuation">-</span> <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+    touch artifact
+    zip artifact.zip artifact</span>
+
+<span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/create<span class="token punctuation">-</span>release@master
+  <span class="token key atrule">id</span><span class="token punctuation">:</span> create_release <span class="token comment"># ファイルアップロードに outputs の値を使用するため ID が必要</span>
+
+<span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/upload<span class="token punctuation">-</span>release<span class="token punctuation">-</span>asset@master
+  <span class="token key atrule">env</span><span class="token punctuation">:</span>
+    <span class="token key atrule">GITHUB_TOKEN</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.GITHUB_TOKEN <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  <span class="token key atrule">with</span><span class="token punctuation">:</span>
+    <span class="token comment"># リリースのアップロード URL (必須)</span>
+    <span class="token key atrule">upload_url</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> steps.create_release.outputs.upload_url <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    <span class="token comment"># 添付ファイルのパス (必須)</span>
+    <span class="token key atrule">asset_path</span><span class="token punctuation">:</span> ./artifact.zip
+    <span class="token comment"># 添付ファイルの表示名 (必須)</span>
+    <span class="token key atrule">asset_name</span><span class="token punctuation">:</span> artifact.zip
+    <span class="token comment"># 添付ファイルに対応する content-type (必須)</span>
+    <span class="token key atrule">asset_content_type</span><span class="token punctuation">:</span> application/zip</code></pre></div>
+<p><a href="https://github.com/proudust/example-github-actions-release/blob/2/.github/workflows/release.yml">ソースコード全文</a></p>
+<p>このワークフローにより、Assets に artifact.zip が追加されたリリースが下書きで作成されます。
+<a href="https://github.com/proudust/example-github-actions-release/releases/tag/2"><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 650px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 46.62576687116564%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABK0lEQVQoz42SaW7DIBCFc9SerH97lV6gqtRKVdVFcR0bMAY8ZnsdcOIsShdLT4MNfMx7eHNz+4m7+x5ARsqo9T+PVAPaTsBNhK9dBykUxl5iU2cDIRuBnBKUy9AuwlKCmxM6HdAoD2kClI0YeI58WsE5HxsoowrM0cPbAb2QeHztsRWERkxoJeHpw+DhzeB5S3hpHN5bC6kJMYQVVmodszaljoYXKc1Agb5rMSgJPShYaxA9IYV5vyGyi1Bh3hfg0tcBmBcgZ8dWSy2LhFSQrNGYWosGrTFxVpcJn4JW4GnQ3nsYBpUDLjekevC5rgLXl3I3bKWTFmIMFbpC8i/ag4mINR+BtUMG7qRDIz3f9BL6WVc/ANM+thjTAjzYKx8cBf5lIqY5XbX0l74Bpg/BTRe9KNgAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="ssets に artifact.zip が追加されたリリース"
+        title="ssets に artifact.zip が追加されたリリース"
+        src="/static/bcaba0630625085b49ae305f12b83261/a6d36/2.png"
+        srcset="/static/bcaba0630625085b49ae305f12b83261/222b7/2.png 163w,
+/static/bcaba0630625085b49ae305f12b83261/ff46a/2.png 325w,
+/static/bcaba0630625085b49ae305f12b83261/a6d36/2.png 650w,
+/static/bcaba0630625085b49ae305f12b83261/d125e/2.png 737w"
+        sizes="(max-width: 650px) 100vw, 650px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+    </span></a></p>
+<h2 id="3-ブランチの-push-の時はビルドだけする" style="position:relative;"><a href="#3-%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE-push-%E3%81%AE%E6%99%82%E3%81%AF%E3%83%93%E3%83%AB%E3%83%89%E3%81%A0%E3%81%91%E3%81%99%E3%82%8B" aria-label="3 ブランチの push の時はビルドだけする permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. ブランチの push の時はビルドだけする</h2>
+<p>同じ push イベントでも <code class="language-text">github.ref</code> を確認することでタグが push された場合のみの処理を書くことができます。</p>
+<div class="gatsby-highlight" data-language="diff"><pre class="language-diff"><code class="language-diff"><span class="token unchanged">  on:
+    push:
+</span><span class="token inserted-sign inserted">+     branches:
++       - "*"
+</span><span class="token unchanged">      tags:
+        - "*"</span></code></pre></div>
+<div class="gatsby-highlight" data-language="yml"><pre class="language-yml"><code class="language-yml"><span class="token comment"># ビルド処理に置き換える</span>
+<span class="token punctuation">-</span> <span class="token comment"># 略</span>
+
+<span class="token comment"># タグが push された場合のみ実行される</span>
+<span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/create<span class="token punctuation">-</span>release@master
+  <span class="token key atrule">if</span><span class="token punctuation">:</span> startsWith(github.ref<span class="token punctuation">,</span> 'refs/tags/')
+  <span class="token comment"># 略</span>
+
+<span class="token comment"># タグが push された場合のみ実行される</span>
+<span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/upload<span class="token punctuation">-</span>release<span class="token punctuation">-</span>asset@master
+  <span class="token key atrule">if</span><span class="token punctuation">:</span> startsWith(github.ref<span class="token punctuation">,</span> 'refs/tags/')
+  <span class="token comment"># 略</span></code></pre></div>
+<p><a href="https://github.com/proudust/example-github-actions-release/blob/3/.github/workflows/release.yml">ソースコード全文</a></p>
+<p>このワークフローにより、ブランチの push 時はビルド、
+<a href="https://github.com/proudust/example-github-actions-release/runs/357799156"><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 650px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 42.94478527607362%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAAA7klEQVQoz52S2W6DMBBF/SlpwhIWGxswZik0RWrz/19065kGRKIgRXk4GpY7x2ODKOoORd2i7r9gmgGqaqFtz9ens0SQqLUe4xy5aeA+Lyjd4HMd5xJV8fswLSBIqO2AvHQ4yxJxbrgSFFrxYar0XPpspu0K9QRJ8S9U1qGbZigfoiBNs3AnvEHPadItSzbKNISsvXCcGVr9EKYcWpofebZIsBVW7Yjh8oPxm/jFNF/5nHabd6amSlsXuulZaPsJdJ7G36vKvSWMMi+MpeHzC1PF2/2IMma75VeF/FFOsWTBY+OrE25/LUK8I9mTEn9BnQ/sSZ4z+wAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="ブランチの push 時はビルド"
+        title="ブランチの push 時はビルド"
+        src="/static/19b98fee5bf887f1236952a168ae9c1b/a6d36/3-branch.png"
+        srcset="/static/19b98fee5bf887f1236952a168ae9c1b/222b7/3-branch.png 163w,
+/static/19b98fee5bf887f1236952a168ae9c1b/ff46a/3-branch.png 325w,
+/static/19b98fee5bf887f1236952a168ae9c1b/a6d36/3-branch.png 650w,
+/static/19b98fee5bf887f1236952a168ae9c1b/d6331/3-branch.png 702w"
+        sizes="(max-width: 650px) 100vw, 650px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+    </span></a></p>
+<p>タグの push 時は更にリリースの作成が行われます。
+<a href="https://github.com/proudust/example-github-actions-release/runs/357801599"><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 650px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 42.94478527607362%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAAA7UlEQVQoz52S4XKCMBCE8yhtRREhgSAhAmqpM9r3f6Jt9iwZ6pQZxx/fHHPZ29xdUGXTgTT9J2w7wOwPqFwv36utRpKZGD/SAoVt4Y8jaj8EXSe6zOzlfL0roWjGZFF7bHWNtLASCUWRIGZkXgdtXrkIa5KsDIYVlHEe3ekCE0QUspuJP4a/MM9O50zaTW6hdHM3JLz9bb0T0VT8yH+XJNEwdFi2HYbxhtPXNXDD+fIte1osXug6Ghp3wHG8wvVn3PfZh4fxLxqGkVNtZX98IY77vsmF+cjPGsorr1ItBo+Fz3Y4/7WIesVkyZT8ADU8D+ECe4ZZAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="タグの push 時は更にリリースの作成"
+        title="タグの push 時は更にリリースの作成"
+        src="/static/86f9c733fd3f0c7bd5b5d2b6c229b623/a6d36/3-tag.png"
+        srcset="/static/86f9c733fd3f0c7bd5b5d2b6c229b623/222b7/3-tag.png 163w,
+/static/86f9c733fd3f0c7bd5b5d2b6c229b623/ff46a/3-tag.png 325w,
+/static/86f9c733fd3f0c7bd5b5d2b6c229b623/a6d36/3-tag.png 650w,
+/static/86f9c733fd3f0c7bd5b5d2b6c229b623/d6331/3-tag.png 702w"
+        sizes="(max-width: 650px) 100vw, 650px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+    </span></a></p>
+<h2 id="4-ブランチの-push-の時の成果物をダウンロード可能にする" style="position:relative;"><a href="#4-%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE-push-%E3%81%AE%E6%99%82%E3%81%AE%E6%88%90%E6%9E%9C%E7%89%A9%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89%E5%8F%AF%E8%83%BD%E3%81%AB%E3%81%99%E3%82%8B" aria-label="4 ブランチの push の時の成果物をダウンロード可能にする permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. ブランチの push の時の成果物をダウンロード可能にする</h2>
+<p><a href="https://github.com/actions/upload-artifact">actions/upload-artifact</a> にファイルパスを渡すことでそのファイルまたはディレクトリを圧縮して ZIP でダウンロードできるようにしてくれます。
+ただし以下の点に注意してください。</p>
+<ul>
+<li>path に圧縮済みのファイルを指定しても圧縮処理され、zip in zip という無意味なものが生成される (2020 年 1 月中旬リリース予定の v2 では修正される予定とのこと)</li>
+<li>保持期間は push されてから 90 日間、過ぎた場合は削除される</li>
+<li>手動での削除方法が無い</li>
+<li>容量制限がある (1GB までらしい)</li>
+</ul>
+<div class="gatsby-highlight" data-language="yml"><pre class="language-yml"><code class="language-yml"><span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Upload build artifact
+  <span class="token comment"># タグ以外が push された場合のみ実行される</span>
+  <span class="token key atrule">if</span><span class="token punctuation">:</span> <span class="token string">"!startsWith(github.ref, 'refs/tags/')"</span>
+  <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/upload<span class="token punctuation">-</span>artifact@v1
+  <span class="token key atrule">with</span><span class="token punctuation">:</span>
+    <span class="token comment"># 表示名 (必須)</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> artifact.zip
+    <span class="token comment"># アップロードするファイルまたはディレクトリ (必須)</span>
+    <span class="token key atrule">path</span><span class="token punctuation">:</span> ./artifact</code></pre></div>
+<p><a href="https://github.com/proudust/example-github-actions-release/blob/4/.github/workflows/release.yml">ソースコード全文</a></p>
+<p>このワークフローにより、ブランチの push 時はアーティファクト、
+<a href="https://github.com/proudust/example-github-actions-release/runs/357829379"><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 650px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 42.94478527607362%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABaElEQVQoz5VRy07CQBSdX3DjwpiAQgsF2gIt0CKUBIkaFy78JxPjdxhDeBR0qfEn1J0rEyMBZaHhIQY43hmpYQE+bnJy586dc+5j2GQyAbfxeAzv/Jvxd9PpVHjOGwwGaHeexR2r1l1Uay5qbhNu80KgWm+g3jj/vqtQvlyp4fSsjMurawyH73h962E0+hAFuBC3m9s7MEUzEdYMqEkLmmEhFEvAL0chR3QEFQ0hNQlfUMGaX8LK6jr2Dw7x+NTG/UMLrXYHL90uOtRdr9/H0fEJmGpkYFg5BMIqNglcRJqJeeCxHItDjsahUHHTziNFMKy84BqZHMWOaIjpaQtZp4RsvigS80LzCMyKce+XIgsRVHQwLWVhq1CCRYKcsEHjeuRloovAp+DrYvF0FrazDZsEk9ShbtqU/Jm8rJAcJUG+h1xxF05xR6BQ2vvaaSj2b0HRYSRhioWGKfDRHuZH5v4vnXpvJPq0T1uNdPOWhKnEAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="ブランチの push 時はアーティファクト"
+        title="ブランチの push 時はアーティファクト"
+        src="/static/4c5e2e452fe0b716f7a1270b1f93a3c4/a6d36/4-branch.png"
+        srcset="/static/4c5e2e452fe0b716f7a1270b1f93a3c4/222b7/4-branch.png 163w,
+/static/4c5e2e452fe0b716f7a1270b1f93a3c4/ff46a/4-branch.png 325w,
+/static/4c5e2e452fe0b716f7a1270b1f93a3c4/a6d36/4-branch.png 650w,
+/static/4c5e2e452fe0b716f7a1270b1f93a3c4/d6331/4-branch.png 702w"
+        sizes="(max-width: 650px) 100vw, 650px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+    </span></a></p>
+<p>タグの push 時はリリースへビルドの成果物がアップロードされます。
+<a href="https://github.com/proudust/example-github-actions-release/runs/357830908"><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 650px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 42.94478527607362%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAAA+klEQVQoz52R4Y6CMBCE+yqcXgWhpSAFShENxvj+TzS327NEo1zM/ZjQbGc/ZreibBxYBzfBTTOa/ojCWFR2gOF6PyLTB2xSha9dgaJq0Y1n1J2HsQ5V68P9NtP43pcQDDPWk7HDnkCpqiGLKnxZbJa5CQ0srqm6Q07eqB35t1n5C9S2gzvO0GRS9HdO8k4RGJM+Kt7LvCJg0wfgMF1CGjbE5kVvwM9S95ENRE07muYb/OlKo7QLdJPqleZXPSe0lJDS+dMFA4vODF5P8xeQEira4Xi+hlfLyyYs/L9AfhzBL8MHLiYyR0LjJrJYjJ+AHz1irenThNEXOT8n2BESHeBkRQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="タグの push 時はリリース"
+        title="タグの push 時はリリース"
+        src="/static/d97877c00d294bd39aded4c39719c209/a6d36/4-tag.png"
+        srcset="/static/d97877c00d294bd39aded4c39719c209/222b7/4-tag.png 163w,
+/static/d97877c00d294bd39aded4c39719c209/ff46a/4-tag.png 325w,
+/static/d97877c00d294bd39aded4c39719c209/a6d36/4-tag.png 650w,
+/static/d97877c00d294bd39aded4c39719c209/d6331/4-tag.png 702w"
+        sizes="(max-width: 650px) 100vw, 650px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+    </span></a></p>
+<h2 id="参考文献" style="position:relative;"><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE" aria-label="参考文献 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>参考文献</h2>
+<ul>
+<li><a href="https://help.github.com/en/actions">GitHub Actions Documentation - GitHub Help</a> (<a href="https://help.github.com/ja/actions">日本語版</a>)</li>
+<li><a href="https://github.com/actions/upload-artifact/issues/5">How to remove uploaded artifact? · Issue #5 · actions/upload-artifact</a></li>
+</ul></div></div></main><hr style="margin-top:24px"/><footer class="MuiContainer-root MuiContainer-maxWidthMd" style="margin-bottom:80px"><h5 class="MuiTypography-root jss3 MuiTypography-h5">プロフィール</h5><div class="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded"><div class="MuiCardHeader-root"><div class="MuiCardHeader-avatar"><div class="MuiAvatar-root MuiAvatar-circle"><img alt="Proudust" src="https://secure.gravatar.com/avatar/7c5f546f80eeb2c158c8699d2f8bbc4f" class="MuiAvatar-img"/></div></div><div class="MuiCardHeader-content"><span class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock">Proudust</span><span class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock">TypeScript(React, GAS), Kotlin(Android), C#(ASP,NET, WinForms), Python2(Ren&#x27;Py)な無職鶏。 一応FE(基本情報), AP(応用情報), SC(未登録セキュスペ)持ってる。
+</span></div></div><div class="MuiCardActions-root"><a class="MuiButtonBase-root MuiIconButton-root" tabindex="0" aria-disabled="false" aria-label="twitter" href="https://twitter.com/proudust"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></span></a><a class="MuiButtonBase-root MuiIconButton-root" tabindex="0" aria-disabled="false" aria-label="github" href="https://github.com/proudust"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"></path></svg></span></a><a class="MuiButtonBase-root MuiIconButton-root" tabindex="0" aria-disabled="false" aria-label="steam" href="https://steamcommunity.com/id/proudust/"><span class="MuiIconButton-label"><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:24px;height:24px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAAEzElEQVQ4y02UC0wURxjHB+xx3HGHcLuH94TEqjWt1QocID4QfIBgtKhXRDSgh1WKtYrVICKouRJF8XX1tGINWqRRKqCt1DTWpm180GjaWCPBRA3GaDRpKyII7O38O7N3Z5zkl/+3s9/3328ys0PCzQ7Ch4YpI5TH0bHjVJG2Cc7htglNjPsMieFjdDOa2buCKPt4Dc9l9aGagEfQiwchJCZNiXWW+Hk6a/wdvS0RCtZ46KwTFfS2BETFJSlE2hPusbw8Qt7wCLrq7emBLhPdWmsSFCyJUgCZzVOd1UFZTMnw9ySiGyuFChOgt09ieY79QVO1iXWoNk9SlhlmSnarLZOhNiXJalOyjynlhDE0lhRKoj+gw4yJdNpcF11U9DnGJuf6iG6cFGZORbg5xaM0ZEn1d6kypc5TmadAZZokB+Ax5fCPkKgEjHIswF+372JgcIg+evyMypTCU3+ahhqTJV6rNk8u8LdpTlOFmaZ2hpnTwNTH4Eq5qs3T8NaIKdDFZuBB92N03LyDwtIdKNt6AGs27aFgY+eBkz4SkQCNdXo389Izw3RnuHUmK06XGDQAf4bWNhNEl4QVn9bgec9L5K/chn/+6+E+aGv/DRXur2jPi5cQR+dIKlMGy5/hIpFxc5oi7NnQWGZJDBoA4Qx9bBZImAMNTT/iSsff2Os9rZj1vxpQdF2FB0+f/UsdM1ZJRMhAhC3zPDsn0x6oTJnQx82VGZSba23ZiIybixBxBuLTV0GSfHj46CmK1tSir99v9tMvN1C+ox4vevuo+V2nrLZkQ2fP6SSb3ccHx6S4QGKyaKgpm+pHLoBhjBPauA+hiZ2P6zc7ERxt7VexYt0+VNScwOqNB9mHJHiOnafEmEmjRi0Cqx0gLG/g+Ys+nGy+TGcvrqL60XkIsc6HdqQT3oYLihHvUJZlJe592Y/73U+U+FTLr4h6J59GjllMo8Yu4fEgYYkPAw3wXaO/d9yB98RFNP9wFVdudPlfsCMiy8qm4lZnN0orv8bk3Eqo385H1LhCKoxfLhvGu2B4v6iL9PYNtAYMJZkfLr8xenr74T7Uht3H2l8v+fC3lxGTUgoyehm0zMCYXAoh6RNqcJRIYspnEBwlF0hC/hcFa/e0oOP2AynYZXB5fJTvP4trt+5j5Y5GDJu4GtFT12NExkYYp2+AkFZGGVwlMWMz1xL2z2WHD0tdfy86sxKz1x3x3X34DL39A0qXg0MSKo+2Y3fjz1BNKcOInK0wzqmEkLUFYtYWKvrVJ86p4vpYzKyIVv4We35tnmlxHcj0cqmg5gy9+EcXPK3XaHXDJTRd+hOLtjdBm7MNMQtrIOS6OfQNHTLm1fG4WDETnTuVy0FcUrfPtLIeEc5a6aPaFt+us9ewp/U6nV/zHdUs3EXFpXupsKQuwF4w9TGGxBVHeXycexhy3SFEKDwYvH2IweX1GNechLrQi+HLD0n6oi8l9dIDsvjxEWooPsyRGRJHWFUPkeWymuPBemHZfv9tIxR5Ql5Prm0oMG5o7DZWtEKhvBlC2SlGI4RNZyBubmG0Qlj/zROWW/y6LugR7FBweXmsTArbv9cLlS0uoartvKG6rdNQfe6VsO3cINMuQ1XbBfauRKg+p2wAW36Iodir1BmY1//5geRs8NUgwQAAAABJRU5ErkJggg==" alt="steam" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/f7f56ad382e50132ad76e0f28420d813/a6761/steam-favicon.png 1x,
+/static/f7f56ad382e50132ad76e0f28420d813/1d3e6/steam-favicon.png 1.5x,
+/static/f7f56ad382e50132ad76e0f28420d813/aff39/steam-favicon.png 2x" /><img loading="lazy" width="24" height="24" srcset="/static/f7f56ad382e50132ad76e0f28420d813/a6761/steam-favicon.png 1x,
+/static/f7f56ad382e50132ad76e0f28420d813/1d3e6/steam-favicon.png 1.5x,
+/static/f7f56ad382e50132ad76e0f28420d813/aff39/steam-favicon.png 2x" src="/static/f7f56ad382e50132ad76e0f28420d813/a6761/steam-favicon.png" alt="steam" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></span></a></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/20191220-create-release-with-ghactions/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-4f429968b29198e98cfb.js"],"component---src-templates-blog-post-tsx":["/component---src-templates-blog-post-tsx-6c0b12ec846241244749.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-456b10cea796b627b105.js"],"component---src-pages-posts-tsx":["/component---src-pages-posts-tsx-4a5ef42846fea49e5f51.js"],"component---src-pages-products-tsx":["/component---src-pages-products-tsx-3012505b7a3440f670dc.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-tsx-6c0b12ec846241244749.js" async=""></script><script src="/commons-ab38a9b009ddcfa9a52e.js" async=""></script><script src="/styles-aa38160d44fbf727d69a.js" async=""></script><script src="/app-4f429968b29198e98cfb.js" async=""></script><script src="/framework-684400df191194796b39.js" async=""></script><script src="/webpack-runtime-9fd44774b4f8071796ed.js" async=""></script></body></html>
