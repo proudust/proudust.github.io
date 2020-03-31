@@ -106,7 +106,7 @@ curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
 ~~2019 年 11 月現在、`repository_dispatch`や `deployment` トリガーを `event_type` や `environment` などの値でフィルタリングしたり、ワークフロー内で参照したりはできないようです。
 あるいはドキュメントに書かれていないだけかも？~~
 
-(2019 年 2 月 3 日追記) 上記ドキュメントに書かれていないだけであることを [Repository Dispatch · Actions · GitHub Marketplace](https://github.com/marketplace/actions/repository-dispatch) で知ったので記事を大幅に更新しました。
+(2019 年 2 月 3 日追記) 上記ドキュメントに書かれていないだけなことを [Repository Dispatch · Actions · GitHub Marketplace](https://github.com/marketplace/actions/repository-dispatch) で知ったので記事を大幅に更新しました。
 
 ## 元ネタ
 

@@ -26,7 +26,7 @@ GAS では HTTP アクセスを受け付けるウェブアプリ的なものが�
 >
 > [Web Apps | Apps Script | Google Developers](https://developers.google.com/apps-script/guides/web#requirements_for_web_apps)
 
-つまりバイナリである ZIP ファイルを返してダウンロードことはできません。
+つまり HTML ファイルでもプレーンテキストでもない ZIP ファイルを返してダウンロードことはできません。
 
 ## base64 エンコードする
 
