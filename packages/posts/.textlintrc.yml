@@ -1,4 +1,12 @@
 rules:
+  # 「ですます」調と「である」調のどちらか多い方に統一する
+  # https://github.com/textlint-ja/textlint-rule-no-mix-dearu-desumasu
+  no-mix-dearu-desumasu:
+    preferInHeader: ""
+    preferInBody: ""
+    preferInList: ""
+    strict: true
+
   # https://github.com/textlint-ja/textlint-rule-spacing
   preset-ja-spacing:
     # カタカナ語間は中黒または半角スペースを用いてカタカナ語を区切る
