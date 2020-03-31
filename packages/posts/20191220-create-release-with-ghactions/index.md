@@ -6,14 +6,10 @@ thumbnail: 1.png
 qiita: https://qiita.com/proudust/items/a9e02b14acf51b64d172
 ---
 
-# はじめに
-
 この記事は[GitHub Actions Advent Calendar 2019](https://qiita.com/advent-calendar/2019/github-actions) 24 日目の記事です。
 
 今回はタグをリモートに push したら、リリースを作成とビルドの成果物を添付を自動で行う Workflow の実装例を紹介します。
 なお今回の例ではビルドの処理を省略し、`touch artifact`で作成した空の `artifact` ファイルをビルド成果物として記述しています。
-
-
 
 ## 1. タグを push したら自動でリリースの下書きを作成する
 
@@ -44,8 +40,6 @@ qiita: https://qiita.com/proudust/items/a9e02b14acf51b64d172
 このワークフローにより、以下のようなリリースが下書きで作成されます。
 
 [![下書きリリース](1.png)](https://github.com/proudust/example-github-actions-release/releases/tag/1)
-
-
 
 ## 2. 更にビルドの成果物を添付する
 
@@ -80,8 +74,6 @@ actions/create-release のステップに id を振り、outputs の upload_url 
 
 このワークフローにより、Assets に artifact.zip が追加されたリリースが下書きで作成されます。
 [![ssets に artifact.zip が追加されたリリース](2.png)](https://github.com/proudust/example-github-actions-release/releases/tag/2)
-
-
 
 ## 3. ブランチの push の時はビルドだけする
 
@@ -119,10 +111,8 @@ actions/create-release のステップに id を振り、outputs の upload_url 
 タグの push 時は更にリリースの作成が行われます。
 [![タグの push 時は更にリリースの作成](3-tag.png)](https://github.com/proudust/example-github-actions-release/runs/357801599)
 
-
-
-
 ## 4. ブランチの push の時の成果物をダウンロード可能にする
+
 [actions/upload-artifact](https://github.com/actions/upload-artifact) にファイルパスを渡すことでそのファイルまたはディレクトリを圧縮して ZIP でダウンロードできるようにしてくれます。
 ただし以下の点に注意してください。
 
@@ -150,8 +140,6 @@ actions/create-release のステップに id を振り、outputs の upload_url 
 
 タグの push 時はリリースへビルドの成果物がアップロードされます。
 [![タグの push 時はリリース](4-tag.png)](https://github.com/proudust/example-github-actions-release/runs/357830908)
-
-
 
 ## 参考文献
 

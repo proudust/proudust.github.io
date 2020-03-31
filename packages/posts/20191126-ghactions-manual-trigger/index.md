@@ -39,7 +39,7 @@ GitHub Actions は GitHub 内の様々なイベントをトリガーとして実
         # 省略
 ```
 
-### 2. 任意の HTTP クライアントで API を叩く
+### 2. 任意の HTTP クライアントで Repository API を叩く
 
 GitHub の [Create a repository dispatch event](https://developer.github.com/v3/repos/#create-a-repository-dispatch-event) の API を叩きます。
 curl の場合以下のようになります。
@@ -79,7 +79,7 @@ curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
         # 省略
 ```
 
-### 2. 任意の HTTP クライアントで API を叩く
+### 2. 任意の HTTP クライアントで Deployment API を叩く
 
 GitHub の [Create a deployment](https://developer.github.com/v3/repos/deployments/#create-a-deployment) の API を叩きます。
 curl の場合以下のようになります。
@@ -109,5 +109,6 @@ curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
 (2019 年 2 月 3 日追記) 上記ドキュメントに書かれていないだけであることを [Repository Dispatch · Actions · GitHub Marketplace](https://github.com/marketplace/actions/repository-dispatch) で知ったので記事を大幅に更新しました。
 
 ## 元ネタ
+
 - [Solved: GitHub Actions Manual Trigger / Approvals - GitHub Community Forum](https://github.community/t5/GitHub-Actions/GitHub-Actions-Manual-Trigger-Approvals/td-p/31504)
 - [ブログのビルドをCircleCIからGitHub Actionsに変更した](https://blog.x39.dev/post/ci-chenge/)

@@ -6,20 +6,24 @@ qiita: https://qiita.com/proudust/items/cf66592296814e55c5b6
 ---
 
 ## 概要
+
 [*Android Jetpack*](https://developer.android.com/topic/libraries/data-binding/?hl=JA) のコンポーネントの一つ、[*Data Binding Library*](https://developer.android.com/topic/libraries/data-binding/?hl=JA) を活用し、ソースコード内から `findViewById` による View の取得を一掃した備忘録。
 
 ## 1. `build.gradle`から *Data Binding Library* を有効化する
+
 ```gradle:app/build.gradle
-android { 
+android {
     // 中略
     dataBinding {
         enabled = true
     }
 }
 ```
+
 以上を追記
 
 ## 2. `layout/*.xml`ファイルのレイアウト設定を `<layout></layout>` で囲う
+
 ```xml:layout/*.xml
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -38,15 +42,18 @@ android {
 
 </layout>
 ```
+
 頭と尻に `<layout></layout>` を書き加え、`xmlns:`だけ `<layout>` に移動する。
 すると `layout/*.xml` を元に `ViewDataBinding` を継承した `*Binding` クラスが自動生成される。
 クラスの名前は xml の名前を UpperCamelCase に変換したものが使われる。
 自動生成されない場合は一回ビルドし直すと出るかも。
 
 ## 4. Binding クラスを使用する
+
 指定する対象によって方法が若干異なる。
 
 ### Activity の場合
+
 ``` diff:Activity.java
  @Override
  protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,9 +65,11 @@ android {
 -    textView.setText("HogeFuga");
 +    binding.textView.setText("HogeFuga");
 ```
+
 `DataBindingUtil.setContentView`の戻り値の型に注意。（総称型のため、`ViewDataBinding`を継承しているクラスなら何でも受け取れてしまう）
 
 ### Fragment の場合 (パターン1)
+
 ``` diff:Fragment.java
 +private FragmentBinding binding;
 
@@ -80,9 +89,11 @@ android {
 +    binding.textView.setText("HogeFuga");
  }
 ```
+
 Binding クラスから View を生成するパターン。フィールドに Binding クラスを持つ必要があるのがイマイチか。
 
 ### Fragment の場合 (パターン2)
+
 ``` diff:Fragment.java
 +private FragmentBinding binding;
 
@@ -101,9 +112,11 @@ Binding クラスから View を生成するパターン。フィールドに Bi
 +    binding.textView.setText("HogeFuga");
  }
 ```
+
 View を先に生成し、それを元に Binding インスタンスを生成するパターン。この場合はフィールドに持つ必要はない。
 
 ### RecyclerView.Adapter の場合
+
 ``` diff:RecyclerView.Adapter.java
  @NonNull
  @Override
@@ -138,9 +151,10 @@ View を先に生成し、それを元に Binding インスタンスを生成す
      }
  }
 ```
+
 *RecyclerView.Adapter* に使うなら、*groupie*か*epoxy*使ったほうが *RecyclerView.ViewHolder* が不要になって良いと思う。
 
 ## 気になる点
 
 - Fragment に使う場合はパターン 1、2 のどちらが適切なのか
-  + [ドキュメント](https://developer.android.com/topic/libraries/data-binding/generated-binding.html?hl=JA)読む限りはどっちでも良さそう？
+  - [ドキュメント](https://developer.android.com/topic/libraries/data-binding/generated-binding.html?hl=JA)読む限りはどっちでも良さそう？

@@ -70,7 +70,8 @@ curl --request GET \
   --url 'https://api.darksky.net/forecast/$KEY/$LATITUDE,$LONGITUDE?exclude=currently,minutely,hourly,flags&lang=ja&units=si'
 ```
 
-**パラメータの意味**
+### パラメータの意味
+
 - `$KEY`アカウント登録後に表示される Secret Key
 - `$LATITUDE,$LONGITUDE`緯度、経度
 - `?exclude=currently,minutely,hourly,flags`レスポンスから除外する情報を指定する（これらを除外すると 1 週間分の天気予報だけが残る）

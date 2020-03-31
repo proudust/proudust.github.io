@@ -35,8 +35,8 @@ public class BooleanRepository {
 }
 ```
 
-
 ## 結論 *Robolectric*を使う
+
 *Robolectric*を使うことで、Android に依存するテストも JVM 上で実行することができます。
 
 ``` build.gradle
@@ -56,6 +56,7 @@ dependencies {
 }
 
 ```
+
 ``` BooleanRepositorySpec.java
 @RunWith(RobolectricTestRunner.class)
 public class MemoRepositorySpec {
@@ -96,18 +97,20 @@ public class MemoRepositorySpec {
 }
 ```
 
-
 ## 以下蛇足
 
 ### 試したこと1 `BufferedReader`と `PrintWriter` をモックする
+
 最初にメソッド内で new している `BufferedReader` と `PrintWriter` を `PowerMock` でモックすれば良いのでは？と考えた。
 しかし、`PowerMock`の使い方がわからずうまく置き換わらず断念。
 
 ### 試したこと2 `Context.openFileInput`や `Context.openFileOutput` をモックする
+
 次に `Context.openFileInput` や `Context.openFileOutput` が `ByteArrayInputStream` 、`ByteArrayOutputStream`を返すようにモックできれば良いのでは？と考えた。
 しかし `Context.openFileInput` や `Context.openFileOutput` の戻り値はそれぞれ `FileInputStream` 、`FileOutputStream`なので戻り値が合わないので無理。
 
 ### 試したこと3 `InputStream`、`OutputStream`を返すメソッドを作り、それをモックする
+
 `InputStream`、`OutputStream`を返すメソッドを作って、
 
 ```BooleanRepository.java

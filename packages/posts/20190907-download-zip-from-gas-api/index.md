@@ -13,17 +13,17 @@ GAS では HTTP アクセスを受け付けるウェブアプリ的なものが�
 
 > **Requirements for web apps**
 > A script can be published as a web app if it meets these requirements:
-> 
+>
 > - It contains a `doGet(e)` or `doPost(e)` function.
 > - The function returns an HTML service `HtmlOutput` object or a Content service `TextOutput` object.
-> 
+>
 > (雑な日本語訳)
 > **ウェブアプリの要件**
 > 以下の要件を満たしている場合、スクリプトをウェブアプリとして公開できます。
-> 
+>
 > - `doGet(e)`または `doPost(e)` 関数があります。
 > - これらの関数は HTML サービスの `HtmlOutput` オブジェクトまたはコンテンツ・サービスの `TextOutput` オブジェクトを返します。
-> 
+>
 > [Web Apps | Apps Script | Google Developers](https://developers.google.com/apps-script/guides/web#requirements_for_web_apps)
 
 つまりバイナリである ZIP ファイルを返してダウンロードことはできません。

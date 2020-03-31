@@ -106,7 +106,6 @@ function resolveTenplate(literals: TemplateStringsArray, ...placeholders: string
 第一引数が string かどうかでタグとして呼び出されたか関数として呼び出されたかの判別が付きます。
 除去には手っ取り早く正規表現を使用します。
 
-
 ``` ts
 export function trimMargin(string: string, marginPrefix?: string): string;
 export function trimMargin(literals: TemplateStringsArray, ...placeholders: string[]): string;
@@ -128,7 +127,7 @@ export function trimMargin(
 ### trimIndent
 
 こちらも一応関数として使えるようにオーバーロードを用意します。
-正規表現で頭の空白のみを取り出し、その `length` が一番短いものに合わせて `Array#slice` します。 
+正規表現で頭の空白のみを取り出し、その `length` が一番短いものに合わせて `Array#slice` します。
 
 ``` ts
 export function trimIndent(string: string): string;

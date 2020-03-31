@@ -16,7 +16,8 @@ Ren'Py SDK には多言語対応を支援するための機能として、`.rpy`
 翻訳の生成の場合は**翻訳スクリプト**を、台詞の抽出の場合は **TSV** (タブ区切りの CSV ) を生成します。
 `.rpyc`や `.rpa` からは抽出できませんので、予めデコンパイルする必要があります。
 
-## スタイルの翻訳 `translate [言語名] style [style名]` 
+## スタイルの翻訳 `translate [言語名] style [style名]`
+
 ``` overrides.rpy
 translate Japanese style _default:
     font "gui/font/VL-Gothic-Regular.ttf"
@@ -25,7 +26,8 @@ translate Japanese style _default:
 その言語に設定されている間、style の任意のパラメータを上書きすることができます。
 大抵の場合はフォントを置き換えることになると思います。
 
-## 台詞の翻訳 `translate [言語名] [ID]` 
+## 台詞の翻訳 `translate [言語名] [ID]`
+
 ``` script.rpy
 translate Japanese start_00000000:
     e "ゲームを作成しました"
@@ -37,15 +39,15 @@ label 内の台詞を任意の Ren'Py スクリプトに置き換えます。
 ただし、ヒストリーの対応は完全ではなく、**言語を切り替えてもヒストリーは変更前の言語のまま表示されてしまう**ので注意が必要です。
 また台詞中に `[変数名]` で埋め込まれた文字列を翻訳したい場合は、台詞の方では `[変数名!t]` に翻訳し、文字列の翻訳に対応する翻訳を追加することで反映されます。
 
-
 ### ID 名部分について
+
 ID 名は基本的に以下のような規則に従っています。
 
-```
+```sh
 [直近のlabel名]_[MD5の頭8文字]
 ```
 
-**直近の label 名**
+- **直近の label 名**
 最後に定義されたラベル名がそのまま入ります。
 場合によっては台詞が実際に属するラベルと異なるラベル名になる場合があるので注意が必要です。
 
@@ -63,8 +65,7 @@ label hoge:
     return
 ```
 
-
-**MD5 の頭 8 文字**
+- **MD5 の頭 8 文字**
 
 台詞から余計な空白を削除し、省略された属性や改行 (`\n\r`) を加えた文字列の MD5 ハッシュの頭 8 文字のみを取り出したものになります。
 
@@ -100,8 +101,7 @@ menu
 
 の MD5 ハッシュ `deb0e85395ca2a578d34919945c586fd` の頭 8 文字を取り出して `deb0e853` となります。
 
-
-**ID が重複している場合**
+- **ID が重複している場合**
 同じ台詞が連続している場合、ID 名が重複することが多々あります。
 その場合は 2 つ目以降の ID の末尾には `_[1から始まる連番]` が付けられます。
 
@@ -112,8 +112,8 @@ label hoge
     e "hoge label"     # hoge_b4d70893_2
 ```
 
+## 文字列の翻訳 `translate [言語名] strings`
 
-## 文字列の翻訳 `translate [言語名] strings` 
 ```py
 translate Japanese strings:
     old "History"
@@ -145,9 +145,9 @@ sys.modules['renpy.error'].report_exception(__("..."), False)
 流石に Python 組み込みの関数 (スタックトレースの出力やファイルの出力など) には反映されないので、その場合は label の置き換えで該当箇所を `__([原文])` で括る必要があります。
 ※ `__(string)`引数の文字列を翻訳して返す Ren'Py 組み込みの関数。
 
-
 ## 画像や BGM などの翻訳
-```
+
+```sh
 game/
 ├ gui/
 | └ poem_dismiss.png ← これを置き換えたい場合
@@ -156,11 +156,12 @@ game/
     └ gui/
       └ poem_dismiss.png ← ここに置くと反映される
 ```
+
 言語によって画像や BGM を置き換えたい場合、`game/tl/[言語名]/`に画像を配置することで置き換えることができます。
 こちらは Python 組み込みの関数でも置き換わるようです。
 
-
 ## label や screen の置き換え
+
 ```py
 translate None screen:
     screen preferences() tag menu:
