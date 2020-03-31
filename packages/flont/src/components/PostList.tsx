@@ -13,29 +13,20 @@ export const PostList: React.FC<PostListProps> = props => {
   const data = useStaticQuery<PostListQuery>(query);
 
   const posts = (() => {
-    const selfposts = data.allMarkdownRemark?.edges.map(
-      ({ node }) =>
-        ({
-          type: 'inside',
-          title: node.frontmatter?.title ?? '',
-          excerpt: node.excerpt ?? '',
-          createat: node.frontmatter?.createat ?? '',
-          thumbnail: node.frontmatter?.thumbnail?.childImageSharp?.fluid?.src ?? '',
-          url: node.fields?.slug ?? '',
-        } as const),
-    );
-    const guides = data.allSteamGuidesYaml?.nodes.map(
-      node =>
-        ({
-          type: 'steam-guide',
-          title: node.title ?? '',
-          excerpt: node.excerpt ?? '',
-          createat: node.createat ?? '',
-          thumbnail: node.thumbnail ?? '',
-          url: node.url ?? '',
-        } as const),
-    );
-    return [...selfposts, ...guides]
+    return data.allMarkdownRemark?.edges
+      .map(({ node }) => {
+        const type = node.frontmatter?.steam ? 'steam-guide' : 'inside';
+        const title = node.frontmatter?.title ?? '';
+        const createat = node.frontmatter?.createat ?? '';
+        const thumbnail = node.frontmatter?.thumbnail?.childImageSharp?.fluid?.src ?? '';
+        const excerpt = node.excerpt ?? '';
+        const url =
+          {
+            inside: node.fields?.slug,
+            'steam-guide': node.frontmatter?.steam,
+          }[type] ?? '';
+        return { type, title, excerpt, createat, thumbnail, url } as const;
+      })
       .sort((a, b) => Date.parse(b.createat) - Date.parse(a.createat))
       .slice(0, props.limit === 0 ? Number.MAX_VALUE : props.limit);
   })();
@@ -72,17 +63,9 @@ const query = graphql`
                 }
               }
             }
+            steam
           }
         }
-      }
-    }
-    allSteamGuidesYaml {
-      nodes {
-        title
-        createat
-        excerpt
-        url
-        thumbnail
       }
     }
   }
