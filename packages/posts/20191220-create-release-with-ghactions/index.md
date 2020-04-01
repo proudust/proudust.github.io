@@ -1,20 +1,19 @@
 ---
 title: タグを push したら GitHub Actions でリリースの下書きを作成+α
 createat: "2019-12-20T18:35:27+09:00"
-updateat: "2020-02-11T13:24:25+09:00"
+updateat: "2020-04-01"
 thumbnail: 1.png
 qiita: https://qiita.com/proudust/items/a9e02b14acf51b64d172
 ---
 
-この記事は[GitHub Actions Advent Calendar 2019](https://qiita.com/advent-calendar/2019/github-actions) 24 日目の記事です。
+この記事は Qiita の [GitHub Actions Advent Calendar 2019](https://qiita.com/advent-calendar/2019/github-actions) 24 日目の記事でした。
 
 今回はタグをリモートに push したら、リリースを作成とビルドの成果物を添付を自動で行う Workflow の実装例を紹介します。
-なお今回の例ではビルドの処理を省略し、`touch artifact`で作成した空の `artifact` ファイルをビルド成果物として記述しています。
 
 ## 1. タグを push したら自動でリリースの下書きを作成する
 
 リリースの作成には [actions/create-release](https://github.com/actions/create-release) を使用します。
-`${{ github.ref }}`は厳密には `refs/tags/(タグ名)` が入りますが、アクション側で `refs/tags/` は取り除かれるので問題ありません。
+`${{ github.ref }}` は厳密には `refs/tags/(タグ名)` が入りますが、アクション側で `refs/tags/` は取り除かれるので問題ありません。
 
 ``` yml
 - uses: actions/create-release@master
@@ -46,6 +45,8 @@ qiita: https://qiita.com/proudust/items/a9e02b14acf51b64d172
 ファイルの添付には [actions/upload-release-asset](https://github.com/actions/upload-release-asset) を使用します。
 actions/create-release のステップに id を振り、outputs の upload_url を参照できるようにします。
 圧縮などはしてくれないので、予め `zip` コマンドなどを使用して圧縮する必要があります。
+
+なお今回の例ではビルドの処理を省略し、`touch artifact` で作成した空の `artifact` ファイルをビルド成果物として記述しています。
 
 ``` yml
 # ビルド処理に置き換える
@@ -116,7 +117,7 @@ actions/create-release のステップに id を振り、outputs の upload_url 
 [actions/upload-artifact](https://github.com/actions/upload-artifact) にファイルパスを渡すことでそのファイルまたはディレクトリを圧縮して ZIP でダウンロードできるようにしてくれます。
 ただし以下の点に注意してください。
 
-- path に圧縮済みのファイルを指定しても圧縮処理され、zip in zip という無意味なものが生成される (2020 年 1 月中旬リリース予定の v2 では修正される予定とのこと)
+- path に圧縮済みのファイルを指定しても圧縮処理され、zip in zip という無意味なものが生成される (v2-preview では修正済み)
 - 保持期間は push されてから 90 日間、過ぎた場合は削除される
 - 手動での削除方法が無い
 - 容量制限がある (1GB までらしい)
