@@ -4,6 +4,7 @@ createat: "2019-12-20T18:35:27+09:00"
 updateat: "2020-04-01"
 thumbnail: 1.png
 qiita: https://qiita.com/proudust/items/a9e02b14acf51b64d172
+qrunch: https://proudust.qrunch.io/entries/GiLGtTVf5bFYFw3O
 ---
 
 この記事は Qiita の [GitHub Actions Advent Calendar 2019](https://qiita.com/advent-calendar/2019/github-actions) 24 日目の記事でした。
