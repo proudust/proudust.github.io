@@ -1,18 +1,19 @@
 ---
 title: Truth (Java / Android 用アサーションライブラリ) の使い方
 createat: "2019-07-03T12:15:46+09:00"
-updateat: "2020-03-11T10:28:28+09:00"
+updateat: "2020-04-02"
 qiita: https://qiita.com/proudust/items/8af4677a9986ed51f77f
+qrunch: https://proudust.qrunch.io/entries/NFxB9Bfd3VXNsgoG
 ---
 
-## [Truth](//truth.dev/) とは
+## [*Truth*](https://truth.dev/) とは
 
 *Hamcrest* や *AssertJ* と同じアサーションライブラリの一つ。Google 製。
 拡張ライブラリが作りやすいらしく、AssertJ の Android 向け拡張だった [*AssertJ Android*](https://github.com/square/assertj-android) でもその代替として挙げられている。
-また同じ Google 製ライブラリである [*Google Guava*](//github.com/google/guava) を標準でサポートしており、専用の検証メソッドが用意されていたり、検証メソッドの引数として用いることができる。
-一方、メソッドチェーンが使えないので Java だと若干冗長なこと、gg ラビリティの低い名前なので `google truth` とか `java truth` で検索しないと出ないことが欠点。
+また同じ Google 製ライブラリである [*Google Guava*](https://github.com/google/guava) を標準でサポートしており、専用の検証メソッドが用意されていたり、検証メソッドの引数として用いることができたりする。
+一方、メソッドチェーンが使えないので Java だと若干冗長なこと、gg ラビリティの低い名前なので `google truth` や `java truth` などで検索しないと出ないことが欠点。
 
-2019 年 7 月 8 日に `1.0` が正式リリースされた。
+2019 年 7 月 8 日に正式リリースされ、2020 年 3 月時点での最新バージョンは `1.0.1`。
 
 ## 入門
 
@@ -21,13 +22,13 @@ Android/Java でしか試したことがないが、*Kotlin* や Android 以外�
 
 ### インストール
 
-``` build.gradle
+`build.gradle` に以下のように書き足す。
+
+``` groovy
 dependencies {
-    testImplementation 'com.google.truth:truth:1.0-rc2'
-
+    testImplementation 'com.google.truth:truth:1.0.1'
     // Java8 用拡張
-    testImplementation 'com.google.truth.extensions:truth-java8-extension:1.0-rc2'
-
+    testImplementation 'com.google.truth.extensions:truth-java8-extension:1.0.1'
     // Android 用拡張
     testImplementation 'androidx.test.ext:truth:1.2.0'
 }
@@ -44,17 +45,40 @@ import static com.google.common.truth.Truth.assertThat;
 public class SampleTest {
     @Test
     public void sampleTest() {
-        assertThat(1 + 1).isEqualTo(500);
+        Int x = 1 + 1;
+        assertThat(x).isEqualTo(500);
     }
 }
 ```
 
 ### 実行結果
 
-``` sh
+```
 expected: 500
 but was : 2
  at sample.truth.SampleTest.test(SampleTest.java:9)
+```
+
+### Kotlin の場合
+
+Kotlin で書く場合もほぼ変わらない。
+強いて言うなら 1 つの変数に複数の検証をしたい場合に、`apply` などのスコープ関数が少し便利。
+
+``` kotlin
+package sample.truth
+
+import org.junit.Test
+import com.google.common.truth.Truth.assertThat
+
+class SampleTest {
+    @Test
+    fun `sample test`() {
+        val x = 1 + 1
+        assertThat(x).apply {
+            isEqualTo(500)
+        }
+    }
+}
 ```
 
 ## 検証対象の指定
@@ -65,21 +89,21 @@ but was : 2
 assertThat(1 + 1).isEqualTo(500);
 ```
 
-また、 `Truth.assertWithMessage(String)`でエラーメッセージに追加の文字列を指定することもできる。
+また、 `Truth.assertWithMessage(String)` でエラーメッセージに追加の文字列を指定することもできる。
 その場合は続けて `that` に検証対象を渡すと `Truth.assertThat` と同様の検証メソッドを呼び出せる。
 
 ``` java
 assertWithMessage("1 + 1 は 2 じゃない 500 だ").that(1 + 1).isEqualTo(500);
 ```
 
-``` sh
+```
 1 + 1 は 2 じゃない 500 だ
 expected: 500
 but was : 2
  at sample.truth.SampleTest.test(SampleTest.java:9)
 ```
 
-拡張ライブラリの検証メソッドを呼び出す場合は少々面倒だが、`about(Subject.Factory)`に対応する `Subject.Factory` を渡すことで呼び出せるようになる。
+拡張ライブラリの検証メソッドを呼び出す場合は少々面倒だが、`about(Subject.Factory)` に対応する `Subject.Factory` を渡すことで呼び出せるようになる。
 本当に面倒なので代替手段が欲しいところ。
 
 ``` java
@@ -90,7 +114,7 @@ assertWithMessage("value の中身は 500")
         .hasValue(500);
 ```
 
-``` sh
+```
 value の中身は 500
 expected to have value: 500
 but was absent
@@ -116,8 +140,8 @@ but was absent
 
 ### 値
 
-`Truth.assertThat`の引数が `Comparable` インターフェースを実装している場合に使用できる。
-`Integer`, `Long`, `Float`, `Double`, `BigDecimal`, `String`などが対象。
+`Truth.assertThat` の引数が `Comparable` インターフェースを実装している場合に使用できる。
+`Integer`, `Long`, `Float`, `Double`, `BigDecimal`, `String` などが対象。
 
 - 指定の範囲内 (`isIn(Range)`)
 - 指定の範囲外 (`isNotIn(Range)`)
@@ -130,14 +154,14 @@ but was absent
 
 ### 真偽値
 
-`Truth.assertThat(Boolean)`で使用できる。
+`Truth.assertThat(Boolean)` で使用できる。
 
 - 値が True (`isTrue()`)
 - 値が False (`isFalse()`)
 
 ### 文字列
 
-`Truth.assertThat(String)`で使用できる。
+`Truth.assertThat(String)` で使用できる。
 
 - 空 (`isEmpty()`)
 - 空ではない (`isNotEmpty()`)
@@ -156,7 +180,7 @@ but was absent
 
 ### 文字列 (大文字・小文字を無視)
 
-`Truth.assertThat(String).ignoringCase()`で使用できる。
+`Truth.assertThat(String).ignoringCase()` で使用できる。
 
 - 等しい (`isEqualTo(String)`)
 - 等しくない (`isNotEqualTo(String)`)
@@ -165,7 +189,7 @@ but was absent
 
 ### 配列
 
-`Truth.assertThat(T[])`で使用できる。(プリミティブ配列版も用意されている。)
+`Truth.assertThat(T[])` で使用できる。(プリミティブ配列版も用意されている。)
 最低限の API しか用意されておらず、配列の中身については `asList()` で Iterable 用の API を利用する必要がある。
 
 - 空 (`isEmpty()`)
@@ -174,7 +198,7 @@ but was absent
 
 ### Iterable
 
-`Truth.assertThat(Iterable<?>)`または `Truth.assertThat(T[]).asList()` で使用できる。
+`Truth.assertThat(Iterable<?>)` または `Truth.assertThat(T[]).asList()` で使用できる。
 
 - 空 (`isEmpty()`)
 - 空ではない (`isNotEmpty()`)
@@ -211,7 +235,7 @@ but was absent
 
 ### Optional (*Google Guava* または *Java8*)
 
-`Truth.assertThat(com.google.common.base.Optional)`または `Truth8.assertThat(java.util.Optional)` で使用できる。
+`Truth.assertThat(com.google.common.base.Optional)` または `Truth8.assertThat(java.util.Optional)` で使用できる。
 *Java8* 版 Optional を使う場合は Java8 用拡張が必要。
 
 - Optional またはその中身が null ではない (`isPresent()`)
@@ -220,8 +244,8 @@ but was absent
 
 ### Stream (*Java8*)
 
-`Truth.assertThat(Stream<?>)`で使用できる。Java8 用拡張が必要。
-基本的に Iterable と同じだが、`isEqualTo`や `Object[]` 版のメソッドが無いので注意。
+`Truth.assertThat(Stream<?>)` で使用できる。Java8 用拡張が必要。
+基本的に Iterable と同じだが、`isEqualTo` や `Object[]` 版のメソッドが無いので注意。
 
 - 空 (`isEmpty()`)
 - 空ではない (`isNotEmpty()`)
@@ -264,14 +288,14 @@ but was absent
 
 ### 例外
 
-`Truth.assertThat(Throwable)`で使用できる。
+`Truth.assertThat(Throwable)` で使用できる。
 
-- `Throwable#getMessage()`の戻り値を検証対象にする (`hasMessageThat()`)
-- `Throwable#getCause()`の戻り値を検証対象にする (`hasCauseThat()`)
+- `Throwable#getMessage()` の戻り値を検証対象にする (`hasMessageThat()`)
+- `Throwable#getCause()` の戻り値を検証対象にする (`hasCauseThat()`)
 
 ### クラス
 
-`Truth.assertThat(Class)`で使用できる。
+`Truth.assertThat(Class)` で使用できる。
 
 - 指定のクラスを継承している (`isAssignableTo(Class)`)
 
