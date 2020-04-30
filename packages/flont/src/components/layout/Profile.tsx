@@ -13,7 +13,10 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       display: 'flex',
       marginTop: theme.spacing(3),
-      marginBottom: theme.spacing(3),
+      marginBottom: theme.spacing(9),
+      [theme.breakpoints.down('md')]: {
+        flexDirection: 'column',
+      },
     },
     name: {
       flexGrow: 1,
@@ -34,20 +37,24 @@ export const Profile: React.FC<ProfileProps> = () => {
 
   return (
     <Container component="footer" maxWidth="md" classes={{ root: classes.root }}>
-      <Avatar alt={name ?? ''} src={avatar ?? ''} />
-      <div className={classes.name}>
-        <Typography variant="subtitle1">{name}</Typography>
-        <Typography variant="caption">{description}</Typography>
+      <div style={{ display: 'flex' }}>
+        <Avatar alt={name ?? ''} src={avatar ?? ''} />
+        <div className={classes.name}>
+          <Typography variant="subtitle1">{name}</Typography>
+          <Typography variant="caption">{description}</Typography>
+        </div>
       </div>
-      <IconButton aria-label="twitter" component="a" href={links?.twitter ?? ''}>
-        <TwitterIcon />
-      </IconButton>
-      <IconButton aria-label="github" component="a" href={links?.github ?? ''}>
-        <GitHubIcon />
-      </IconButton>
-      <IconButton aria-label="steam" component="a" href={links?.steam ?? ''}>
-        <SteamIcon />
-      </IconButton>
+      <div style={{ display: 'flex' }}>
+        <IconButton aria-label="twitter" component="a" href={links?.twitter ?? ''}>
+          <TwitterIcon />
+        </IconButton>
+        <IconButton aria-label="github" component="a" href={links?.github ?? ''}>
+          <GitHubIcon />
+        </IconButton>
+        <IconButton aria-label="steam" component="a" href={links?.steam ?? ''}>
+          <SteamIcon />
+        </IconButton>
+      </div>
     </Container>
   );
 };
