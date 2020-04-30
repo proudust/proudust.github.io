@@ -36,7 +36,7 @@ interface DefaultAppBarProps {
 }
 
 export const DefaultAppBar: React.FC<DefaultAppBarProps> = ({ title, backref }) => (
-  <AppBar position="fixed">
+  <AppBar color="inherit" position="fixed">
     <Toolbar style={{ minHeight: 58 }}>
       {backref && <BackButton href={backref} />}
       <Typography variant="h6" noWrap>

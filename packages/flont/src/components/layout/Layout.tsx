@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
 import { makeStyles, Theme, createStyles, useTheme } from '@material-ui/core/styles';
-import { Container, CssBaseline, Typography } from '@material-ui/core';
+import { Container, CssBaseline, Divider, Typography } from '@material-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { DefaultAppBar } from './AppBar';
@@ -44,13 +44,15 @@ export const Layout: React.FC<LayoutProps> = props => {
       <Container component="main" maxWidth="md" style={{ marginTop: theme.spacing(3) }}>
         {props.children}
       </Container>
-      <hr style={{ marginTop: theme.spacing(3) }} />
-      <Container component="footer" maxWidth="md" style={{ marginBottom: theme.spacing(10) }}>
-        <Typography variant="h5" className={classes.header}>
-          プロフィール
-        </Typography>
-        <Profile />
-      </Container>
+      <div style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3) }}>
+        <Divider />
+        <Container component="footer" maxWidth="md">
+          <Typography variant="h5" className={classes.header}>
+            プロフィール
+          </Typography>
+          <Profile />
+        </Container>
+      </div>
     </ApplyTheme>
   );
 };
