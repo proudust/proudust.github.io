@@ -1,38 +1,54 @@
 import React from 'react';
-import { Avatar, Card, CardActions, CardHeader, IconButton } from '@material-ui/core';
+import { makeStyles, Theme, createStyles, useTheme } from '@material-ui/core/styles';
+import { Avatar, Container, IconButton, Typography } from '@material-ui/core';
 import { GitHub as GitHubIcon, Twitter as TwitterIcon } from '@material-ui/icons';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { SteamIcon } from '../SteamIcon';
 import type { ProfileQuery } from '../../../types/query';
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      alignItems: 'center',
+      display: 'flex',
+      marginTop: theme.spacing(3),
+      marginBottom: theme.spacing(3),
+    },
+    name: {
+      flexGrow: 1,
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+    },
+  }),
+);
+
 interface ProfileProps {
   children?: never;
 }
 
 export const Profile: React.FC<ProfileProps> = () => {
+  const classes = useStyles();
   const { profileYaml } = useStaticQuery<ProfileQuery>(query);
   const { name, avatar, description, links } = profileYaml ?? {};
 
   return (
-    <Card>
-      <CardHeader
-        avatar={<Avatar alt={name ?? ''} src={avatar ?? ''} />}
-        title={name}
-        subheader={description}
-      />
-      <CardActions disableSpacing>
-        <IconButton aria-label="twitter" component="a" href={links?.twitter ?? ''}>
-          <TwitterIcon />
-        </IconButton>
-        <IconButton aria-label="github" component="a" href={links?.github ?? ''}>
-          <GitHubIcon />
-        </IconButton>
-        <IconButton aria-label="steam" component="a" href={links?.steam ?? ''}>
-          <SteamIcon />
-        </IconButton>
-      </CardActions>
-    </Card>
+    <Container component="footer" maxWidth="md" classes={{ root: classes.root }}>
+      <Avatar alt={name ?? ''} src={avatar ?? ''} />
+      <div className={classes.name}>
+        <Typography variant="subtitle1">{name}</Typography>
+        <Typography variant="caption">{description}</Typography>
+      </div>
+      <IconButton aria-label="twitter" component="a" href={links?.twitter ?? ''}>
+        <TwitterIcon />
+      </IconButton>
+      <IconButton aria-label="github" component="a" href={links?.github ?? ''}>
+        <GitHubIcon />
+      </IconButton>
+      <IconButton aria-label="steam" component="a" href={links?.steam ?? ''}>
+        <SteamIcon />
+      </IconButton>
+    </Container>
   );
 };
 

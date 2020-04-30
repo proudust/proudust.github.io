@@ -44,14 +44,9 @@ export const Layout: React.FC<LayoutProps> = props => {
       <Container component="main" maxWidth="md" style={{ marginTop: theme.spacing(3) }}>
         {props.children}
       </Container>
-      <div style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3) }}>
+      <div style={{ marginTop: theme.spacing(3) }}>
         <Divider />
-        <Container component="footer" maxWidth="md">
-          <Typography variant="h5" className={classes.header}>
-            プロフィール
-          </Typography>
-          <Profile />
-        </Container>
+        <Profile />
       </div>
     </ApplyTheme>
   );
