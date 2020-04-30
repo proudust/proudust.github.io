@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
 import { makeStyles, Theme, createStyles, useTheme } from '@material-ui/core/styles';
-import { Container, CssBaseline, Divider, Typography } from '@material-ui/core';
+import { Container, CssBaseline, Divider } from '@material-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { DefaultAppBar } from './AppBar';
