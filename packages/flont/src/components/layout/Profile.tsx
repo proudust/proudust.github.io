@@ -14,9 +14,13 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       marginTop: theme.spacing(3),
       marginBottom: theme.spacing(9),
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down('xs')]: {
         flexDirection: 'column',
       },
+    },
+    flex: {
+      display: 'flex',
+      alignItems: 'center',
     },
     name: {
       flexGrow: 1,
@@ -37,14 +41,14 @@ export const Profile: React.FC<ProfileProps> = () => {
 
   return (
     <Container component="footer" maxWidth="md" classes={{ root: classes.root }}>
-      <div style={{ display: 'flex' }}>
+      <div className={classes.flex}>
         <Avatar alt={name ?? ''} src={avatar ?? ''} />
         <div className={classes.name}>
           <Typography variant="subtitle1">{name}</Typography>
           <Typography variant="caption">{description}</Typography>
         </div>
       </div>
-      <div style={{ display: 'flex' }}>
+      <div className={classes.flex}>
         <IconButton aria-label="twitter" component="a" href={links?.twitter ?? ''}>
           <TwitterIcon />
         </IconButton>
