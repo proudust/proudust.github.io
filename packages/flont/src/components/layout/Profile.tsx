@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { Avatar, Container, IconButton, Typography } from '@material-ui/core';
+import { Avatar, Container, IconButton, Tooltip, Typography } from '@material-ui/core';
 import { GitHub as GitHubIcon, Twitter as TwitterIcon } from '@material-ui/icons';
 import { graphql, useStaticQuery } from 'gatsby';
 
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       display: 'flex',
       marginTop: theme.spacing(3),
-      marginBottom: theme.spacing(9),
+      marginBottom: theme.spacing(10),
       [theme.breakpoints.down('xs')]: {
         flexDirection: 'column',
         textAlign: 'center',
@@ -48,15 +48,21 @@ export const Profile: React.FC<ProfileProps> = () => {
         <Typography variant="caption">{description}</Typography>
       </div>
       <div className={classes.flex}>
-        <IconButton aria-label="twitter" component="a" href={links?.twitter ?? ''}>
-          <TwitterIcon />
-        </IconButton>
-        <IconButton aria-label="github" component="a" href={links?.github ?? ''}>
-          <GitHubIcon />
-        </IconButton>
-        <IconButton aria-label="steam" component="a" href={links?.steam ?? ''}>
-          <SteamIcon />
-        </IconButton>
+        <Tooltip title="Twitter" placement="bottom">
+          <IconButton aria-label="twitter" component="a" href={links?.twitter ?? ''}>
+            <TwitterIcon />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="GitHub" placement="bottom">
+          <IconButton aria-label="github" component="a" href={links?.github ?? ''}>
+            <GitHubIcon />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Steam" placement="bottom">
+          <IconButton aria-label="steam" component="a" href={links?.steam ?? ''}>
+            <SteamIcon />
+          </IconButton>
+        </Tooltip>
       </div>
     </Container>
   );
