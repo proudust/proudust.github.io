@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginBottom: theme.spacing(9),
       [theme.breakpoints.down('xs')]: {
         flexDirection: 'column',
+        textAlign: 'center',
       },
     },
     flex: {
@@ -41,12 +42,10 @@ export const Profile: React.FC<ProfileProps> = () => {
 
   return (
     <Container component="footer" maxWidth="md" classes={{ root: classes.root }}>
-      <div className={classes.flex}>
-        <Avatar alt={name ?? ''} src={avatar ?? ''} />
-        <div className={classes.name}>
-          <Typography variant="subtitle1">{name}</Typography>
-          <Typography variant="caption">{description}</Typography>
-        </div>
+      <Avatar alt={name ?? ''} src={avatar ?? ''} />
+      <div className={classes.name}>
+        <Typography variant="subtitle1">{name}</Typography>
+        <Typography variant="caption">{description}</Typography>
       </div>
       <div className={classes.flex}>
         <IconButton aria-label="twitter" component="a" href={links?.twitter ?? ''}>
