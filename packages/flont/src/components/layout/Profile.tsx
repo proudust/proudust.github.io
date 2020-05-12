@@ -1,10 +1,11 @@
 import React from 'react';
+import { faSteamSymbol } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { Avatar, Container, IconButton, Tooltip, Typography } from '@material-ui/core';
 import { GitHub as GitHubIcon, Twitter as TwitterIcon } from '@material-ui/icons';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { SteamIcon } from '../SteamIcon';
 import type { ProfileQuery } from '../../../types/query';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -60,7 +61,7 @@ export const Profile: React.FC<ProfileProps> = () => {
         </Tooltip>
         <Tooltip title="Steam" placement="bottom">
           <IconButton aria-label="steam" component="a" href={links?.steam ?? ''}>
-            <SteamIcon />
+            <FontAwesomeIcon icon={faSteamSymbol} />
           </IconButton>
         </Tooltip>
       </div>

@@ -1,9 +1,10 @@
 import React from 'react';
+import { faSteamSymbol } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Card, CardContent, CardHeader, CardMedia, Typography } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 
 import { CardActionAreaLink } from './Link';
-import { SteamIcon } from './SteamIcon';
 
 interface PostListProps {
   children?: never;
@@ -54,7 +55,7 @@ export const PostCard: React.FC<PostListProps> = ({
   const classes = useStyles();
   const icon = {
     inside: undefined,
-    'steam-guide': <SteamIcon />,
+    'steam-guide': <FontAwesomeIcon icon={faSteamSymbol} size="2x" />,
   }[type];
 
   return (
