@@ -2,11 +2,11 @@
   "name": "proudust.github.io",
   "private": true,
   "scripts": {
-    "start": "yarn workspace flont start",
-    "build": "yarn workspace flont build",
-    "lint": "yarn workspace flont lint && yarn workspace posts lint",
-    "lint:ci": "yarn workspace flont lint:ci && yarn workspace posts lint:ci",
-    "deploy": "yarn workspace flont deploy"
+    "start": "yarn workspace front start",
+    "build": "yarn workspace front build",
+    "lint": "yarn workspace front lint && yarn workspace posts lint",
+    "lint:ci": "yarn workspace front lint:ci && yarn workspace posts lint:ci",
+    "deploy": "yarn workspace front deploy"
   },
   "workspaces": [
     "packages/*"
