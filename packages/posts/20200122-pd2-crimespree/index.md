@@ -1,5 +1,6 @@
 ---
 title: PAYDAY2 CRIME SPREE メモ
+tags: [PAYDAY2]
 createat: "2020-01-22"
 updateat: "2020-03-27"
 thumbnail: screenshots.jpg

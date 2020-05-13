@@ -1,5 +1,6 @@
 ---
 title: GitLab.com から Docker イメージを GoogleContainerRegistry に Push する
+tags: [GitLab, GitLab CI]
 createat: "2019-02-01T22:55:14+09:00"
 updateat: "2019-03-03T18:50:29+09:00"
 thumbnail: 1-0.png
@@ -39,10 +40,10 @@ Project > 参照者, Cloud Build > Cloud Build 編集者, ストレージ > ス�
 GitLab のプロジェクト > 設定 > CI/CD > 変数から CI で利用する環境変数を設定します。
 設定する変数は以下の 2 つです。
 
-| 変数名                | 内容                               |
-| :-------------------- | :--------------------------------- |
+| 変数名                | 内容                                 |
+| :-------------------- | :----------------------------------- |
 | GCLOUD_SERVICE_KEY    | 1.で取得した JSON キーの内容をコピペ |
-| PROJECT_ID_PRODUCTION | GCP のプロジェクト名                |
+| PROJECT_ID_PRODUCTION | GCP のプロジェクト名                 |
 
 ## 3. [GitLab].gitlab-ci.ymlの記述
 

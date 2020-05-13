@@ -1,5 +1,6 @@
 ---
 title: Ren'Py の実行中に rpa を削除する
+tags: [Ren'Py]
 createat: "2019-07-09T13:11:38+09:00"
 updateat: "2019-07-09T13:11:38+09:00"
 qiita: https://qiita.com/proudust/items/ac70cd6ae523e0fd9acf

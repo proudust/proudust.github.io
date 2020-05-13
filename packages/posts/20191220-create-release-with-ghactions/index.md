@@ -1,5 +1,6 @@
 ---
 title: タグを push したら GitHub Actions でリリースの下書きを作成+α
+tags: [GitHub, GitHub Actions]
 createat: "2019-12-20T18:35:27+09:00"
 updateat: "2020-04-01"
 thumbnail: 1.png

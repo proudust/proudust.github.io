@@ -1,5 +1,6 @@
 ---
 title: GitHub Actions で手動トリガーのワークフローを作る
+tags: [GitHub, GitHub Actions]
 createat: "2019-11-26T14:58:06+09:00"
 updateat: "2020-02-17T10:05:20+09:00"
 qiita: https://qiita.com/proudust/items/51599abd2b107b708e1e
@@ -12,7 +13,7 @@ GitHub Actions は GitHub 内の様々なイベントをトリガーとして実
 
 | event               | 権限            | 発火ブランチ | 備考                          |
 | ------------------- | --------------- | ------------ | ----------------------------- |
-| repository_dispatch | public_repo     | master のみ  | `types:`による絞り込みが可能 |
+| repository_dispatch | public_repo     | master のみ  | `types:`による絞り込みが可能  |
 | deployment          | repo_deployment | 指定ブランチ | GitHub Pages などとの併用不可 |
 
 ## `repository_dispatch`の場合

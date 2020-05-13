@@ -1,5 +1,6 @@
 ---
 title: Context を受け取ってファイルを読み書きするクラスをテストする
+tags: [Android]
 createat: "2019-04-14T09:34:26+09:00"
 updateat: "2019-06-18T15:46:51+09:00"
 qiita: https://qiita.com/proudust/items/cf8488e676cc892e9514

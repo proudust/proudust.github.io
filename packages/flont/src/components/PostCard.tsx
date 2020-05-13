@@ -23,6 +23,7 @@ const useStyles = makeStyles(theme =>
       margin: theme.spacing(1, 0),
     },
     media: {
+      backgroundColor: 'dimgray',
       width: 151,
     },
     detail: {

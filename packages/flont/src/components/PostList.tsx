@@ -13,6 +13,9 @@ export const PostList: React.FC<PostListProps> = props => {
   const data = useStaticQuery<PostListQuery>(query);
 
   const posts = (() => {
+    const thumbnails = new Map(
+      data.allFile.edges.map(({ node }) => [node.name, node.childImageSharp?.fluid?.src]),
+    );
     const selfposts = data.allMarkdownRemark?.edges.map(
       ({ node }) =>
         ({
@@ -20,7 +23,10 @@ export const PostList: React.FC<PostListProps> = props => {
           title: node.frontmatter?.title ?? '',
           excerpt: node.excerpt ?? '',
           createat: node.frontmatter?.createat ?? '',
-          thumbnail: node.frontmatter?.thumbnail?.childImageSharp?.fluid?.src ?? '',
+          thumbnail:
+            node.frontmatter?.thumbnail?.childImageSharp?.fluid?.src ??
+            thumbnails.get(node.frontmatter?.tags?.[0] ?? '') ??
+            '',
           url: node.fields?.slug ?? '',
         } as const),
     );
@@ -64,6 +70,7 @@ const query = graphql`
           }
           frontmatter {
             title
+            tags
             createat
             thumbnail {
               childImageSharp {
@@ -83,6 +90,18 @@ const query = graphql`
         excerpt
         url
         thumbnail
+      }
+    }
+    allFile(filter: { relativePath: { glob: "thumbnail/**" } }) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            fluid(maxHeight: 200) {
+              src
+            }
+          }
+        }
       }
     }
   }

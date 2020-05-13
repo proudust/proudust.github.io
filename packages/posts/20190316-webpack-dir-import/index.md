@@ -1,5 +1,6 @@
 ---
 title: webpack で特定ディレクトリ以下のファイルを全てインポートして配列にする
+tags: [JavaScript, Webpack]
 createat: "2019-03-16T22:17:43+09:00"
 updateat: "2019-06-12T15:22:15+09:00"
 qiita: https://qiita.com/proudust/items/d716957e243f9e019fda

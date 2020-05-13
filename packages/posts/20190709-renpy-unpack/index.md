@@ -1,5 +1,6 @@
 ---
 title: Ren'Py 製ゲームのソースコードを覗く
+tags: [Ren'Py]
 createat: "2019-07-09T09:59:38+09:00"
 updateat: "2019-11-26T01:36:27+09:00"
 qiita: https://qiita.com/proudust/items/0f7aa74ade8f7f946223

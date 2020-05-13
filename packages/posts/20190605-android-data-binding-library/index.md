@@ -1,5 +1,6 @@
 ---
 title: DataBindingLibrary でソースコードから findViewById を一掃する
+tags: [Android]
 createat: "2019-06-05T15:14:40+09:00"
 updateat: "2019-07-06T07:27:17+09:00"
 qiita: https://qiita.com/proudust/items/cf66592296814e55c5b6

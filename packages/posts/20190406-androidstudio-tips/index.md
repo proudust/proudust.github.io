@@ -1,5 +1,6 @@
 ---
 title: VisualStudio ユーザー向け AndroidStudio 小ネタ集
+tags: [Android]
 createat: "2019-04-06T11:18:18+09:00"
 updateat: "2019-07-03T15:15:15+09:00"
 thumbnail: color-themes.png
