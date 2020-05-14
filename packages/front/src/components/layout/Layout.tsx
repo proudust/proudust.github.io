@@ -1,11 +1,10 @@
 import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
 import { makeStyles, Theme, createStyles, useTheme } from '@material-ui/core/styles';
-import { Container, CssBaseline, Divider } from '@material-ui/core';
+import { Container, Divider } from '@material-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { DefaultAppBar } from './AppBar';
-import { ApplyTheme } from './ApplyTheme';
 import { Profile } from './Profile';
 import type { LayoutQuery } from '../../../types/query';
 
@@ -32,12 +31,10 @@ export const Layout: React.FC<LayoutProps> = props => {
   const title = props.title ? `${props.title} - ${siteTitle}` : siteTitle;
 
   return (
-    <ApplyTheme>
+    <>
       <Helmet>
-        <html lang="ja" />
         <title>{title}</title>
       </Helmet>
-      <CssBaseline />
       <DefaultAppBar title={title} backref={props.backref} />
       <div className={classes.toolbar} />
       <Container component="main" maxWidth="md" style={{ marginTop: theme.spacing(3) }}>
@@ -47,7 +44,7 @@ export const Layout: React.FC<LayoutProps> = props => {
         <Divider />
         <Profile />
       </div>
-    </ApplyTheme>
+    </>
   );
 };
 
