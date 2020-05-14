@@ -34,8 +34,7 @@ export const Layout: React.FC<LayoutProps> = props => {
   return (
     <ApplyTheme>
       <Helmet>
-        <html lang="jp" />
-        <meta charSet="utf-8" />
+        <html lang="ja" />
         <title>{title}</title>
       </Helmet>
       <CssBaseline />
