@@ -2,7 +2,7 @@
 title: Ren'Py のかなりマニアックな小ネタ集
 tags: [Ren'Py]
 createat: "2020-05-12"
-updateat: "2020-05-12"
+updateat: "2020-05-17"
 qrunch: https://proudust.qrunch.io/entries/ef5dqZWYJhfbwPLs
 ---
 
@@ -77,6 +77,34 @@ init python:
 
 また同様に renpy の関数のいくつかも上書きが可能です。  
 但し不具合を作り込む原因になりやすいので、可能な限り標準の callback などを用いて実装するようにしましょう。  
+
+## ドキュメントに載っていないコールバック
+
+Ren'Py にはドキュメントに載っていない謎コールバックが眠っています。  
+私の知ってるものを挙げておきます。  
+
+### 特定の言語に切り替えた後に呼ばれるコールバック `renpy.config.language_callbacks`
+
+`dict` 型で、引数なしで呼ばれます。  
+`translate [言語名] python:` ブロックと異なり、その言語**から**切り替える時にも発火します。  
+なお呼ばれた時点で `renpy.game.preferences.language` の値が変更後の言語に変更されており、`translate [言語名] python:` ブロックも実行されています。  
+
+``` py
+def callback():
+    pass
+renpy.config.language_callbacks["Japanese"] = callback
+```
+
+### 言語を切り替えた後に呼ばれるコールバック `renpy.config.change_language_callbacks`
+
+`list` 型で、引数なしで呼ばれます。  
+`renpy.config.language_callbacks` に比べれば使い道がありそうですが、何故か載っていません。  
+
+``` py
+def callback():
+    pass
+renpy.config.change_language_callbacks.append(callback)
+```
 
 ## 台詞とキャラクターを同時に取得する
 
