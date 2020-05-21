@@ -1,10 +1,16 @@
 import React from 'react';
 import { faSteamSymbol } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Card, CardContent, CardHeader, CardMedia, Typography } from '@material-ui/core';
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardHeader,
+  CardMedia,
+  Typography,
+} from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-
-import { CardActionAreaLink } from './Link';
+import { Link } from 'gatsby';
 
 interface PostListProps {
   children?: never;
@@ -60,7 +66,7 @@ export const PostCard: React.FC<PostListProps> = ({
   }[type];
 
   return (
-    <CardActionAreaLink href={url}>
+    <CardActionArea component={Link} to={url}>
       <Card className={classes.root}>
         {thumbnail ? (
           <CardMedia className={classes.media} image={thumbnail} title={title} />
@@ -86,6 +92,6 @@ export const PostCard: React.FC<PostListProps> = ({
           </CardContent>
         </div>
       </Card>
-    </CardActionAreaLink>
+    </CardActionArea>
   );
 };

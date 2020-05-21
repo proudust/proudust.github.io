@@ -41,14 +41,12 @@ const SectionHeader: React.FC<SectionHeaderProps> = props => {
   const classes = useStyles();
 
   return (
-    <Link to={props.href} className={classes.headerLink}>
-      <Button className={classes.headerButton} component="div" style={{}}>
-        <Typography variant="h5" color="textPrimary">
-          {props.children}
-        </Typography>
-        <ArrowForwardIcon className={classes.headerIcon} />
-      </Button>
-    </Link>
+    <Button className={classes.headerButton} component={Link} to={props.href}>
+      <Typography variant="h5" color="textPrimary">
+        {props.children}
+      </Typography>
+      <ArrowForwardIcon className={classes.headerIcon} />
+    </Button>
   );
 };
 
