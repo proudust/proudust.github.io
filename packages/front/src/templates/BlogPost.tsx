@@ -17,18 +17,25 @@ const useStyles = makeStyles(theme =>
       '& a': {
         color: theme.palette.secondary.light,
       },
-      '& a:visited': {
-        color: theme.palette.secondary.dark,
+      '& h2': {
+        marginTop: theme.spacing(6),
+        borderBottomStyle: 'solid',
+        borderBottomColor: theme.palette.divider,
+        borderBottomWidth: 1,
       },
       '& th': {
         ...theme.typography.body2,
-        borderBottom: `1px solid ${theme.palette.divider}`,
-        padding: 8,
+        borderBottomStyle: 'solid',
+        borderBottomColor: theme.palette.divider,
+        borderBottomWidth: 1,
+        padding: theme.spacing(1),
       },
       '& td': {
         ...theme.typography.body2,
-        borderBottom: `1px solid ${theme.palette.divider}`,
-        padding: 8,
+        borderBottomStyle: 'solid',
+        borderBottomColor: theme.palette.divider,
+        borderBottomWidth: 1,
+        padding: theme.spacing(1),
       },
     },
   }),
