@@ -33,15 +33,17 @@ interface DefaultAppBarProps {
   children?: never;
   title: string;
   backref?: string;
+  actions?: React.ReactNode;
 }
 
-export const DefaultAppBar: React.FC<DefaultAppBarProps> = ({ title, backref }) => (
+export const DefaultAppBar: React.FC<DefaultAppBarProps> = ({ title, backref, actions }) => (
   <AppBar color="inherit" position="fixed">
-    <Toolbar style={{ minHeight: 58 }}>
+    <Toolbar style={{ minHeight: 58, display: 'flex' }}>
       {backref && <BackButton href={backref} />}
-      <Typography variant="h6" noWrap>
+      <Typography style={{ flexGrow: 1 }} variant="h6" noWrap>
         {title}
       </Typography>
+      {actions}
     </Toolbar>
   </AppBar>
 );

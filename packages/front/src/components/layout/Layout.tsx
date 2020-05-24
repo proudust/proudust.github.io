@@ -21,6 +21,7 @@ interface LayoutProps {
   children: ReactNode;
   title?: string;
   backref?: string;
+  actions?: React.ReactNode;
 }
 
 export const Layout: React.FC<LayoutProps> = props => {
@@ -35,7 +36,7 @@ export const Layout: React.FC<LayoutProps> = props => {
       <Helmet>
         <title>{title}</title>
       </Helmet>
-      <DefaultAppBar title={title} backref={props.backref} />
+      <DefaultAppBar title={title} backref={props.backref} actions={props.actions} />
       <div className={classes.toolbar} />
       <Container component="main" maxWidth="md" style={{ marginTop: theme.spacing(3) }}>
         {props.children}
