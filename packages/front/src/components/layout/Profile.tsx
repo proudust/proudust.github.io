@@ -48,7 +48,7 @@ export const Profile: React.FC<ProfileProps> = () => {
         <Typography variant="subtitle1">{name}</Typography>
         <Typography variant="caption">{description}</Typography>
       </div>
-      <div className={classes.flex}>
+      <address className={classes.flex}>
         <Tooltip title="Twitter" placement="bottom">
           <IconButton aria-label="twitter" component="a" href={links?.twitter ?? ''}>
             <TwitterIcon />
@@ -64,7 +64,7 @@ export const Profile: React.FC<ProfileProps> = () => {
             <FontAwesomeIcon icon={faSteamSymbol} />
           </IconButton>
         </Tooltip>
-      </div>
+      </address>
     </Container>
   );
 };

@@ -9,17 +9,22 @@ import type { BlogPostBySlugQuery } from '../../types/query';
 
 const useStyles = makeStyles(theme =>
   createStyles({
+    paper: {
+      padding: theme.spacing(3),
+    },
     header: {
       display: 'flex',
       flexDirection: 'column-reverse',
     },
-    paper: {
-      padding: theme.spacing(3),
+    content: {
       '& a': {
+        color: theme.palette.secondary.main,
+      },
+      '& a:hover': {
         color: theme.palette.secondary.light,
       },
       '& h2': {
-        marginTop: theme.spacing(6),
+        marginTop: theme.spacing(8),
         borderBottomStyle: 'solid',
         borderBottomColor: theme.palette.divider,
         borderBottomWidth: 1,
@@ -55,13 +60,14 @@ const BlogPost: React.FC<BlogPostProps> = props => {
   return (
     <Layout backref="/" title={post.frontmatter?.title ?? ''}>
       <Paper component="article" className={classes.paper}>
-        <hgroup className={classes.header}>
+        <header className={classes.header}>
           <Typography variant="h1" style={{ fontSize: '2.5rem' }}>
             {post.frontmatter?.title}
           </Typography>
           <Typography variant="subtitle1">{post.frontmatter?.createat}</Typography>
-        </hgroup>
+        </header>
         <Typography
+          className={classes.content}
           component="div"
           variant="body1"
           dangerouslySetInnerHTML={{ __html: post.html ?? '' }}
