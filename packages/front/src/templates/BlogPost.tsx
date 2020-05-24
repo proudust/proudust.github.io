@@ -124,7 +124,7 @@ const BlogPost: React.FC<BlogPostProps> = props => {
         </Typography>
         <Typography
           className={classes.nav}
-          component="nav"
+          component="div"
           variant="subtitle1"
           onClick={() => setOpenNav(false)}
           dangerouslySetInnerHTML={{ __html: post.tableOfContents ?? '' }}
