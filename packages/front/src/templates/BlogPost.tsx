@@ -1,6 +1,7 @@
 import React from 'react';
-import { Typography, Paper } from '@material-ui/core';
+import { Drawer, Typography, Paper, IconButton } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { Toc as TocIcon } from '@material-ui/icons';
 import { graphql, PageRendererProps } from 'gatsby';
 import 'prismjs/themes/prism-tomorrow.css';
 
@@ -15,6 +16,41 @@ const useStyles = makeStyles(theme =>
     header: {
       display: 'flex',
       flexDirection: 'column-reverse',
+    },
+    nav: {
+      width: 300,
+      '& ul': {
+        listStyle: 'none',
+        margin: 0,
+        paddingLeft: theme.spacing(2),
+      },
+      '& li': {
+        padding: theme.spacing(1),
+        paddingLeft: theme.spacing(2),
+      },
+      '& > ul > li': {
+        borderLeftStyle: 'solid',
+        borderLeftColor: theme.palette.divider,
+        borderLeftWidth: 2,
+      },
+      '& ul ul li:last-child': {
+        paddingBottom: 0,
+      },
+      '& a': {
+        color: theme.palette.text.secondary,
+        display: '-webkit-box',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        WebkitLineClamp: 1,
+        WebkitBoxOrient: 'vertical',
+      },
+      '& a:hover': {
+        color: theme.palette.text.primary,
+      },
+      '& p': {
+        margin: 0,
+        paddingBottom: theme.spacing(1),
+      },
     },
     content: {
       '& a': {
@@ -54,11 +90,20 @@ interface BlogPostProps extends PageRendererProps {
 
 const BlogPost: React.FC<BlogPostProps> = props => {
   const classes = useStyles();
+  const [openNav, setOpenNav] = React.useState(false);
   const post = props.data?.markdownRemark;
   if (!post) throw Error('post is not found.');
 
   return (
-    <Layout backref="/" title={post.frontmatter?.title ?? ''}>
+    <Layout
+      backref="/"
+      title={post.frontmatter?.title ?? ''}
+      actions={
+        <IconButton onClick={() => setOpenNav(true)}>
+          <TocIcon />
+        </IconButton>
+      }
+    >
       <Paper component="article" className={classes.paper}>
         <header className={classes.header}>
           <Typography variant="h1" style={{ fontSize: '2.5rem' }}>
@@ -73,6 +118,18 @@ const BlogPost: React.FC<BlogPostProps> = props => {
           dangerouslySetInnerHTML={{ __html: post.html ?? '' }}
         />
       </Paper>
+      <Drawer anchor="right" open={openNav} onClose={() => setOpenNav(false)}>
+        <Typography component="h6" style={{ padding: 16 }}>
+          目次
+        </Typography>
+        <Typography
+          className={classes.nav}
+          component="nav"
+          variant="subtitle1"
+          onClick={() => setOpenNav(false)}
+          dangerouslySetInnerHTML={{ __html: post.tableOfContents ?? '' }}
+        />
+      </Drawer>
     </Layout>
   );
 };
@@ -84,6 +141,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
+      tableOfContents(absolute: false)
       frontmatter {
         title
         createat(formatString: "YYYY/MM/DD")
