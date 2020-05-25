@@ -1,6 +1,6 @@
 import React from 'react';
-import { Drawer, Typography, Paper, IconButton } from '@material-ui/core';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { Drawer, Typography, Paper, IconButton, useMediaQuery } from '@material-ui/core';
+import { makeStyles, createStyles, useTheme } from '@material-ui/core/styles';
 import { Toc as TocIcon } from '@material-ui/icons';
 import { graphql, PageRendererProps } from 'gatsby';
 import 'prismjs/themes/prism-tomorrow.css';
@@ -12,6 +12,7 @@ const useStyles = makeStyles(theme =>
   createStyles({
     paper: {
       padding: theme.spacing(3),
+      maxWidth: 800,
     },
     header: {
       display: 'flex',
@@ -83,25 +84,60 @@ const useStyles = makeStyles(theme =>
   }),
 );
 
+interface TocProps {
+  children?: never;
+  tableOfContents?: string | null;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+}
+
+const Toc: React.FC<TocProps> = ({ tableOfContents, onClick }) => {
+  const classes = useStyles();
+
+  return (
+    <>
+      <Typography component="h6" style={{ padding: 16 }}>
+        目次
+      </Typography>
+      <Typography
+        className={classes.nav}
+        component="div"
+        variant="subtitle1"
+        onClick={onClick}
+        dangerouslySetInnerHTML={{ __html: tableOfContents ?? '' }}
+      />
+    </>
+  );
+};
+
 interface BlogPostProps extends PageRendererProps {
   children?: never;
   data: BlogPostBySlugQuery;
 }
 
 const BlogPost: React.FC<BlogPostProps> = props => {
+  const theme = useTheme();
   const classes = useStyles();
+  const matches = useMediaQuery(theme.breakpoints.up('lg'));
   const [openNav, setOpenNav] = React.useState(false);
   const post = props.data?.markdownRemark;
   if (!post) throw Error('post is not found.');
+
+  React.useEffect(() => {
+    if (matches) setOpenNav(false);
+  }, [matches]);
 
   return (
     <Layout
       backref="/"
       title={post.frontmatter?.title ?? ''}
+      flex={matches}
+      width={matches ? 'lg' : undefined}
       actions={
-        <IconButton onClick={() => setOpenNav(true)}>
-          <TocIcon />
-        </IconButton>
+        matches ? undefined : (
+          <IconButton onClick={() => setOpenNav(true)}>
+            <TocIcon />
+          </IconButton>
+        )
       }
     >
       <Paper component="article" className={classes.paper}>
@@ -118,18 +154,17 @@ const BlogPost: React.FC<BlogPostProps> = props => {
           dangerouslySetInnerHTML={{ __html: post.html ?? '' }}
         />
       </Paper>
-      <Drawer anchor="right" open={openNav} onClose={() => setOpenNav(false)}>
-        <Typography component="h6" style={{ padding: 16 }}>
-          目次
-        </Typography>
-        <Typography
-          className={classes.nav}
-          component="div"
-          variant="subtitle1"
-          onClick={() => setOpenNav(false)}
-          dangerouslySetInnerHTML={{ __html: post.tableOfContents ?? '' }}
-        />
-      </Drawer>
+      {matches ? (
+        <nav style={{ position: 'sticky', top: theme.spacing(9) }}>
+          <Toc onClick={() => setOpenNav(false)} tableOfContents={post.tableOfContents} />
+        </nav>
+      ) : (
+        <Drawer anchor="right" open={openNav} onClose={() => setOpenNav(false)}>
+          <nav>
+            <Toc onClick={() => setOpenNav(false)} tableOfContents={post.tableOfContents} />
+          </nav>
+        </Drawer>
+      )}
     </Layout>
   );
 };

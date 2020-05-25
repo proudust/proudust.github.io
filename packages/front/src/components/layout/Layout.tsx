@@ -13,10 +13,13 @@ interface LayoutProps {
   title?: string;
   backref?: string;
   actions?: React.ReactNode;
+  flex?: boolean;
+  width?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false;
 }
 
 export const Layout: React.FC<LayoutProps> = props => {
   const theme = useTheme();
+  const flexStyle = props.flex ? { display: 'flex', alignItems: 'flex-start' } : {};
 
   const { site } = useStaticQuery<LayoutQuery>(query);
   const siteTitle = site?.siteMetadata?.title ?? '';
@@ -28,7 +31,11 @@ export const Layout: React.FC<LayoutProps> = props => {
         <title>{title}</title>
       </Helmet>
       <DefaultAppBar title={title} backref={props.backref} actions={props.actions} />
-      <Container component="main" maxWidth="md" style={{ marginTop: theme.spacing(9) }}>
+      <Container
+        component="main"
+        maxWidth={props.width || 'md'}
+        style={{ marginTop: theme.spacing(9), ...flexStyle }}
+      >
         {props.children}
       </Container>
       <div style={{ marginTop: theme.spacing(3) }}>
