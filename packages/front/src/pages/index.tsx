@@ -10,20 +10,11 @@ import { ProductList } from '../components/ProductList';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    headerLink: {
-      textDecoration: 'none',
-    },
     headerButton: {
       width: '100%',
       display: 'flex',
       justifyContent: 'space-between',
       margin: theme.spacing(1, 0),
-      padding: theme.spacing(1, 0),
-    },
-    headerText: {
-      width: '100%',
-      display: 'flex',
-      justifyContent: 'space-between',
       padding: theme.spacing(1, 0),
     },
     headerIcon: {
