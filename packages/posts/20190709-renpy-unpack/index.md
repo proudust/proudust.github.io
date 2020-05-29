@@ -10,33 +10,35 @@ qiita: https://qiita.com/proudust/items/0f7aa74ade8f7f946223
 
 ## Ren'Py 製ゲームであることの確認方法
 
-PC 版の場合、`exe`と同じ階層に `renpy` フォルダがあります。
+PC 版の場合、`exe` と同じ階層に `renpy` フォルダがあります。
 
-```sh
+```
 [Ren'Py Game]
-+ game/
-+ lib/
-+ renpy/
-+ [Ren'Py Game].exe
-+ [Ren'Py Game].sh
+├ game/
+├ lib/
+│ └ windows-i686/
+│   └ python.exe
+├ renpy/
+├ [Ren'Py Game].exe
+└ [Ren'Py Game].sh
 ```
 
 ## Windows の場合
 
 ### 1. UnRen.bat を配置
 
-[UnRen.bat](https://f95zone.to/threads/unren-bat-v0-7-rpa-extractor-rpyc-decompiler-console-developer-menu-enabler.3083/) をダウンロードし、 `game`フォルダに配置します。
-この時、PowerShell が無い、または `..\lib\windows-i686\python.exe` が存在しない場合、エラーとなるので注意してください。
+[UnRen.bat](https://f95zone.to/threads/unren-bat-v0-7-rpa-extractor-rpyc-decompiler-console-developer-menu-enabler.3083/) をダウンロードし、 `game` フォルダに配置します。  
+この時、PowerShell が無い、または `../lib/windows-i686/python.exe` が存在しない場合、エラーとなるので注意してください。  
 
 ### 2. `Extract RPA packages` を実行
 
-UnRen.bat を起動し、`Enter a number:`が表示されたら、`1`を入力して `Enter` を押します。
-すると `game` フォルダ内の `.rpa` ファイルがアンパックされ、中の `.rpyc` ファイルやリソースファイルが展開されます。
+UnRen.bat を起動し、`Enter a number:`が表示されたら、`1`を入力して `Enter` を押します。  
+すると `game` フォルダ内の `.rpa` ファイルがアンパックされ、中の `.rpyc` ファイルやリソースファイルが展開されます。  
 
 ### 3. `Decompile rpyc files` を実行
 
-続けて `key to exit:` で `1` を入力し、`Enter a number:`が表示されたら、`2`を入力して `Enter` を押します。
-すると `game` フォルダ内の `.rpyc` ファイルがデコンパイルされ、`.rpy`ファイルが展開されます。
+続けて `key to exit:` で `1` を入力し、`Enter a number:`が表示されたら、`2`を入力して `Enter` を押します。  
+すると `game` フォルダ内の `.rpyc` ファイルがデコンパイルされ、`.rpy`ファイルが展開されます。  
 
 ## Mac/Linux の場合
 
@@ -49,7 +51,7 @@ UnRen.bat を起動し、`Enter a number:`が表示されたら、`1`を入力�
 以下のようなコマンドで rpatool を実行します。
 
 ```bash
-python rpatool -x アンパックするrpaファイル
+python rpatool -x "アンパックするrpaファイル"
 ```
 
 ### 3. `.rpyc`ファイルをデコンパイル
@@ -57,7 +59,7 @@ python rpatool -x アンパックするrpaファイル
 同様に unrpyc も実行します。
 
 ```bash
-python un.rpyc [デコンパイルしたいrpycファイル]
+python un.rpyc "デコンパイルしたいrpycファイル"
 ```
 
 ### 注意点
@@ -68,7 +70,7 @@ python un.rpyc [デコンパイルしたいrpycファイル]
 
 ## ソースコードを覗く
 
-`.rpy`ファイルは普通のテキストファイルなので、好きなエディタで編集できます。
+`.rpy` ファイルは普通のテキストファイルなので、好きなエディタで編集できます。
  Ren'Py 用の拡張機能がある以下のエディタがおすすめです。
 
 - [Atom](https://atom.io/) - [language-renpy](https://atom.io/packages/language-renpy)
