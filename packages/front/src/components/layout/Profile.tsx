@@ -50,17 +50,17 @@ export const Profile: React.FC<ProfileProps> = () => {
       </div>
       <address className={classes.flex}>
         <Tooltip title="Twitter" placement="bottom">
-          <IconButton aria-label="twitter" component="a" href={links?.twitter ?? ''}>
+          <IconButton aria-label="twitter" href={links?.twitter ?? ''}>
             <TwitterIcon />
           </IconButton>
         </Tooltip>
         <Tooltip title="GitHub" placement="bottom">
-          <IconButton aria-label="github" component="a" href={links?.github ?? ''}>
+          <IconButton aria-label="github" href={links?.github ?? ''}>
             <GitHubIcon />
           </IconButton>
         </Tooltip>
         <Tooltip title="Steam" placement="bottom">
-          <IconButton aria-label="steam" component="a" href={links?.steam ?? ''}>
+          <IconButton aria-label="steam" href={links?.steam ?? ''}>
             <FontAwesomeIcon icon={faSteamSymbol} />
           </IconButton>
         </Tooltip>
