@@ -1,9 +1,7 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
-
-import { IconLink } from '../Link';
 
 // BackButton
 
@@ -16,14 +14,14 @@ export const BackButton: React.FC<BackButtonProps> = ({ href }) => {
   const theme = useTheme();
 
   return (
-    <IconLink
+    <IconButton
       edge="start"
       aria-label="back"
       style={{ color: 'inherit', marginRight: theme.spacing(2) }}
       href={href}
     >
       <ArrowBackIcon color="inherit" />
-    </IconLink>
+    </IconButton>
   );
 };
 

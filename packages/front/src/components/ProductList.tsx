@@ -1,5 +1,14 @@
 import React from 'react';
-import { Card, CardActions, CardHeader, CardMedia, Grid, Tooltip } from '@material-ui/core';
+import {
+  Card,
+  CardActionArea,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  Grid,
+  IconButton,
+  Tooltip,
+} from '@material-ui/core';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import {
   GetApp as GetAppIcon,
@@ -8,7 +17,6 @@ import {
 } from '@material-ui/icons';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { CardActionAreaLink, IconLink } from './Link';
 import type { ProductListQuery } from '../../types/query';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -33,7 +41,7 @@ export const ProductList: React.FC<ProductListProps> = () => {
       {products.map((node, index) => (
         <Grid item sm={6} xs={12} key={index}>
           <Card>
-            <CardActionAreaLink href={node?.links?.[0]?.href ?? ''}>
+            <CardActionArea href={node?.links?.[0]?.href ?? ''}>
               <CardMedia
                 className={classes.media}
                 image={node?.image?.childImageSharp?.fluid?.src ?? ''}
@@ -45,21 +53,19 @@ export const ProductList: React.FC<ProductListProps> = () => {
                 subheader={node?.description}
                 subheaderTypographyProps={{ variant: 'body2' }}
               />
-            </CardActionAreaLink>
+            </CardActionArea>
             <CardActions>
               {node?.links?.map((link, index) => (
-                <Tooltip title={link?.name} aria-label={link?.name ?? ''} key={index}>
-                  <div>
-                    <IconLink href={link?.href ?? ''}>
-                      {
-                        ({
-                          Download: <GetAppIcon />,
-                          GitHub: <GitHubIcon />,
-                          Link: <LaunchIcon />,
-                        } as { [key: string]: React.ReactNode | undefined })[link?.name ?? '']
-                      }
-                    </IconLink>
-                  </div>
+                <Tooltip title={link?.name ?? ''} aria-label={link?.name ?? ''} key={index}>
+                  <IconButton href={link?.href ?? ''}>
+                    {
+                      ({
+                        Download: <GetAppIcon />,
+                        GitHub: <GitHubIcon />,
+                        Link: <LaunchIcon />,
+                      } as { [key: string]: React.ReactNode | undefined })[link?.name ?? '']
+                    }
+                  </IconButton>
                 </Tooltip>
               ))}
             </CardActions>
