@@ -12,21 +12,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          ssh-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
 
       - name: Use yarn cache
         uses: actions/cache@v1
         with:
           path: ~/.cache/yarn
-          key: ${{ runner.os }}-node-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
+            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+            ${{ runner.os }}-yarn-
             ${{ runner.os }}-
-
-      - name: Setup Node.js 13
-        uses: actions/setup-node@v1
-        with:
-          node-version: "13.x"
 
       - name: Restore node modules
         run: yarn --frozen-lockfile
@@ -36,19 +33,7 @@ jobs:
 
       - name: Build
         run: yarn build
-        env:
-          QIITA_ACCESS_TOKEN: ${{ secrets.QIITA_ACCESS_TOKEN }}
-
-      - name: Setup SSH
-        if: github.ref == 'refs/heads/master-src'
-        uses: shimataro/ssh-key-action@v1
-        with:
-          private-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
 
       - name: Deploy
         if: github.ref == 'refs/heads/master-src'
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git config --global url.ssh://git@github.com/.insteadOf https://github.com/
-          yarn deploy
+        run: yarn deploy
