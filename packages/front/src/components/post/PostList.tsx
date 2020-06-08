@@ -11,6 +11,7 @@ import {
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Link } from 'gatsby';
 
+import { PostIcon } from './PostIcon';
 import { usePostData } from './usePostData';
 
 interface PostListProps {
@@ -21,6 +22,7 @@ interface PostListProps {
 const useStyles = makeStyles(theme =>
   createStyles({
     icon: {
+      color: theme.palette.text.secondary,
       height: theme.spacing(6),
       width: theme.spacing(6),
       marginRight: theme.spacing(2),
@@ -47,7 +49,9 @@ export const PostList: React.FC<PostListProps> = props => {
           <li>
             <ListItem button component={Link} to={post.url}>
               <ListItemAvatar>
-                <Avatar className={classes.icon} src={post.thumbnail} />
+                <Avatar className={classes.icon}>
+                  <PostIcon tag={post.tags[0]} />
+                </Avatar>
               </ListItemAvatar>
               <ListItemText
                 primary={`${post.title} — ${post.createat.slice(0, 10)}`}

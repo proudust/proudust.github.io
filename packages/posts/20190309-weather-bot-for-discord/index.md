@@ -3,7 +3,6 @@ title: GoogleAppScript を使って Discord に朝と夕方に天気予報を流
 tags: [Google Apps Script]
 createat: "2019-03-09T19:18:58+09:00"
 updateat: "2019-03-09T19:18:58+09:00"
-thumbnail: preview.png
 qiita: https://qiita.com/proudust/items/516c142655aec63c4ea4
 ---
 

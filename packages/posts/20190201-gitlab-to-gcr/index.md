@@ -3,7 +3,6 @@ title: GitLab.com から Docker イメージを GoogleContainerRegistry に Push
 tags: [GitLab, GitLab CI]
 createat: "2019-02-01T22:55:14+09:00"
 updateat: "2019-03-03T18:50:29+09:00"
-thumbnail: 1-0.png
 qiita: https://qiita.com/proudust/items/d94c60ec69dead927954
 ---
 

@@ -3,7 +3,6 @@ title: PAYDAY2 CRIME SPREE メモ
 tags: [PAYDAY2]
 createat: "2020-01-22"
 updateat: "2020-03-27"
-thumbnail: screenshots.jpg
 ---
 
 ![THE SEARCH で事故死して失敗した後のスクショ](screenshots.jpg)

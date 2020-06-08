@@ -6,25 +6,19 @@ interface PostData {
   title: string;
   excerpt: string;
   createat: string;
-  thumbnail: string;
+  tags: string[];
   url: string;
 }
 
 export function usePostData(): PostData[] {
   const result = useStaticQuery<UsePostDataQuery>(query);
-  const thumbnails = new Map(
-    result.allFile.nodes.map(node => [node.name, node.childImageSharp?.fluid?.src]),
-  );
 
   const selfposts: PostData[] = result.allMarkdownRemark?.nodes.map(node => ({
     type: 'inside',
     title: node.frontmatter?.title ?? '',
     excerpt: node.excerpt ?? '',
     createat: node.frontmatter?.createat ?? '',
-    thumbnail:
-      node.frontmatter?.thumbnail?.childImageSharp?.fluid?.src ??
-      thumbnails.get(node.frontmatter?.tags?.[0] ?? '') ??
-      '',
+    tags: node.frontmatter?.tags?.filter(<T>(x: T | null | undefined): x is T => !!x) ?? [],
     url: node.fields?.slug ?? '',
   }));
 
@@ -35,7 +29,7 @@ export function usePostData(): PostData[] {
         title: node.title ?? '',
         excerpt: node.excerpt ?? '',
         createat: node.createat ?? '',
-        thumbnail: node.thumbnail ?? '',
+        tags: ['Steam'] as string[],
         url: node.url ?? '',
       } as const),
   );
@@ -55,13 +49,6 @@ const query = graphql`
           title
           tags
           createat
-          thumbnail {
-            childImageSharp {
-              fluid(maxHeight: 200) {
-                src
-              }
-            }
-          }
         }
       }
     }
@@ -71,17 +58,6 @@ const query = graphql`
         createat
         excerpt
         url
-        thumbnail
-      }
-    }
-    allFile(filter: { relativePath: { glob: "thumbnail/**" } }) {
-      nodes {
-        name
-        childImageSharp {
-          fluid(maxHeight: 200) {
-            src
-          }
-        }
       }
     }
   }
