@@ -5,7 +5,7 @@ import { ArrowForward as ArrowForwardIcon } from '@material-ui/icons';
 import { Link } from 'gatsby';
 
 import { Layout } from '../components/layout';
-import { PostList } from '../components/PostList';
+import { PostList } from '../components/post';
 import { ProductList } from '../components/ProductList';
 
 const useStyles = makeStyles((theme: Theme) =>
