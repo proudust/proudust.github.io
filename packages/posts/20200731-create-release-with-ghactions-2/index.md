@@ -44,3 +44,35 @@ jobs:
 [ソースコード全文](https://github.com/proudust/example-github-actions-release/blob/6/.github/workflows/release.yml)
 
 このワークフローにより、手動作成したリリースにビルドの成果物が自動で添付されます。
+
+## ex. タグにリリースがあれば取得、なければリリースを作成するアクション
+
+自分で使おうと思って書いたけれども、結局使わなかったスクリプト。
+一応動作確認はしましたが、自分で修正できる人向けです。
+
+``` yml
+      - name: Get or create Release
+        id: create_release
+        uses: actions/github-script@v2
+        env:
+          tag_name: ${{ github.ref }}
+          draft: true
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const tag = context.ref.replace('refs/tags/', '');
+            let release;
+            try {
+              release = await github.repos.getReleaseByTag({ owner, repo, tag });
+              core.debug('Found published release with the specified tag.');
+            } catch {
+              const draft = process.env.draft.toLowerCase() === "true";
+              release = await github.repos.createRelease({ owner, repo, tag_name: tag, draft });
+              core.debug('Created new release.');
+            }
+            const { id, html_url, upload_url } = release.data;
+            core.setOutput('id', id);
+            core.setOutput('html_url', html_url);
+            core.setOutput('upload_url', upload_url);
+            core.setOutput('tag', tag);
+```
