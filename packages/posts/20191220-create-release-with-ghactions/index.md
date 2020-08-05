@@ -2,7 +2,7 @@
 title: タグを push したら GitHub Actions でリリースの下書きを作成+α
 tags: [GitHub, GitHub Actions]
 createat: "2019-12-20T18:35:27+09:00"
-updateat: "2020-04-01"
+updateat: "2020-08-05"
 qiita: https://qiita.com/proudust/items/a9e02b14acf51b64d172
 qrunch: https://proudust.qrunch.io/entries/GiLGtTVf5bFYFw3O
 ---
@@ -17,7 +17,7 @@ qrunch: https://proudust.qrunch.io/entries/GiLGtTVf5bFYFw3O
 `${{ github.ref }}` は厳密には `refs/tags/(タグ名)` が入りますが、アクション側で `refs/tags/` は取り除かれるので問題ありません。
 
 ``` yml
-- uses: actions/create-release@master
+- uses: actions/create-release@v1
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   with:
@@ -55,10 +55,10 @@ actions/create-release のステップに id を振り、outputs の upload_url 
     touch artifact
     zip artifact.zip artifact
 
-- uses: actions/create-release@master
+- uses: actions/create-release@v1
   id: create_release # ファイルアップロードに outputs の値を使用するため ID が必要
 
-- uses: actions/upload-release-asset@master
+- uses: actions/upload-release-asset@v1
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   with:
@@ -95,12 +95,12 @@ actions/create-release のステップに id を振り、outputs の upload_url 
 - # 略
 
 # タグが push された場合のみ実行される
-- uses: actions/create-release@master
+- uses: actions/create-release@v1
   if: startsWith(github.ref, 'refs/tags/')
   # 略
 
 # タグが push された場合のみ実行される
-- uses: actions/upload-release-asset@master
+- uses: actions/upload-release-asset@v1
   if: startsWith(github.ref, 'refs/tags/')
   # 略
 ```
