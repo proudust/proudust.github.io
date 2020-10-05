@@ -6,7 +6,6 @@ import { graphql, PageRendererProps } from 'gatsby';
 import 'prismjs/themes/prism-tomorrow.css';
 
 import { Layout } from '../components/layout';
-import type { BlogPostBySlugQuery } from '../../types/query';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -111,7 +110,7 @@ const Toc: React.FC<TocProps> = ({ tableOfContents, onClick }) => {
 
 interface BlogPostProps extends PageRendererProps {
   children?: never;
-  data: BlogPostBySlugQuery;
+  data: GatsbyTypes.BlogPostBySlugQuery;
 }
 
 const BlogPost: React.FC<BlogPostProps> = props => {

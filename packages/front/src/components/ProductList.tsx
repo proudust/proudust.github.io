@@ -17,8 +17,6 @@ import {
 } from '@material-ui/icons';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import type { ProductListQuery } from '../../types/query';
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     media: {
@@ -33,7 +31,7 @@ interface ProductListProps {
 
 export const ProductList: React.FC<ProductListProps> = () => {
   const classes = useStyles();
-  const data = useStaticQuery<ProductListQuery>(query);
+  const data = useStaticQuery<GatsbyTypes.ProductListQuery>(query);
   const products = data.profileYaml?.products ?? [];
 
   return (

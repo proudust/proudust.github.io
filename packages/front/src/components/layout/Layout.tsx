@@ -6,7 +6,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 import { DefaultAppBar } from './AppBar';
 import { Profile } from './Profile';
-import type { LayoutQuery } from '../../../types/query';
 
 interface LayoutProps {
   children: ReactNode;
@@ -21,7 +20,7 @@ export const Layout: React.FC<LayoutProps> = props => {
   const theme = useTheme();
   const flexStyle = props.flex ? { display: 'flex', alignItems: 'flex-start' } : {};
 
-  const { site } = useStaticQuery<LayoutQuery>(query);
+  const { site } = useStaticQuery<GatsbyTypes.LayoutQuery>(query);
   const siteTitle = site?.siteMetadata?.title ?? '';
   const title = props.title ? `${props.title} - ${siteTitle}` : siteTitle;
 

@@ -6,8 +6,6 @@ import { Avatar, Container, IconButton, Tooltip, Typography } from '@material-ui
 import { GitHub as GitHubIcon, Twitter as TwitterIcon } from '@material-ui/icons';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import type { ProfileQuery } from '../../../types/query';
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -38,7 +36,7 @@ interface ProfileProps {
 
 export const Profile: React.FC<ProfileProps> = () => {
   const classes = useStyles();
-  const { profileYaml } = useStaticQuery<ProfileQuery>(query);
+  const { profileYaml } = useStaticQuery<GatsbyTypes.ProfileQuery>(query);
   const { name, avatar, description, links } = profileYaml ?? {};
 
   return (

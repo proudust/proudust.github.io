@@ -1,5 +1,4 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import type { UsePostDataQuery } from '../../../types/query';
 
 interface PostData {
   type: 'inside' | 'steam-guide';
@@ -11,7 +10,7 @@ interface PostData {
 }
 
 export function usePostData(): PostData[] {
-  const result = useStaticQuery<UsePostDataQuery>(query);
+  const result = useStaticQuery<GatsbyTypes.UsePostDataQuery>(query);
 
   const selfposts: PostData[] = result.allMarkdownRemark?.nodes.map(node => ({
     type: 'inside',

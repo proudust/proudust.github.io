@@ -108,5 +108,5 @@ public/
 
 # End of https://www.gitignore.io/api/node,visualstudiocode
 
-# gatsby-plugin-graphql-codegen
-types/
+# gatsby-plugin-typegen
+__generated__/
