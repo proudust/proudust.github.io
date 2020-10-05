@@ -1,2 +1,2 @@
 (window.webpackJsonp=window.webpackJsonp||[]).push([[7],{PJ8K:function(e,n,t){"use strict";t.r(n),t.d(n,"Posts",(function(){return o}));var a=t("ERkP"),c=t.n(a),r=t("C5yf"),i=t("fnNF"),o=function(){return c.a.createElement(r.a,{title:"投稿",backref:"/"},c.a.createElement("section",null,c.a.createElement(i.a,{limit:0})))};n.default=o}}]);
-//# sourceMappingURL=component---src-pages-posts-tsx-2ad99c2d7ce29cf1b9d0.js.map
+//# sourceMappingURL=component---src-pages-posts-tsx-07a833214f971525110d.js.map
