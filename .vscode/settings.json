@@ -1,3 +1,4 @@
 {
-    "textlint.configPath": "packages/posts/.textlintrc.yml"
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "textlint.configPath": "packages/posts/.textlintrc.yml",
 }
