@@ -2,7 +2,6 @@
 title: タグを push したら GitHub Actions でリリースの下書きを作成+α
 tags: [GitHub, GitHub Actions]
 createat: "2019-12-20T18:35:27+09:00"
-updateat: "2020-08-05"
 qiita: https://qiita.com/proudust/items/a9e02b14acf51b64d172
 qrunch: https://proudust.qrunch.io/entries/GiLGtTVf5bFYFw3O
 ---

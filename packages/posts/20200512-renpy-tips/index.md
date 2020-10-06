@@ -1,8 +1,6 @@
 ---
 title: Ren'Py のかなりマニアックな小ネタ集
 tags: [Ren'Py]
-createat: "2020-05-12"
-updateat: "2020-05-17"
 qrunch: https://proudust.qrunch.io/entries/ef5dqZWYJhfbwPLs
 ---
 

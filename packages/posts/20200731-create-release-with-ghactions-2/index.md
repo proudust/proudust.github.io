@@ -1,8 +1,6 @@
 ---
 title: 手動作成したリリースにビルドの成果物を添付する
 tags: [GitHub, GitHub Actions]
-createat: "2020-08-03"
-updateat: "2020-08-03"
 qrunch:
 ---
 

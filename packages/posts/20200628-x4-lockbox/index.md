@@ -1,8 +1,6 @@
 ---
 title: X4 序盤金策メモ ロックボックス編
 tags: [X4]
-createat: "2020-06-28"
-updateat: "2020-06-28"
 ---
 
 最近 [X4: Foundations](https://store.steampowered.com/app/392160) とかいうめちゃくちゃプレイヤーに不親切なゲームをプレイしているので色々やり方をメモしておく。  

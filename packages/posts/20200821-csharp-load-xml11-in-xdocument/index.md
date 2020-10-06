@@ -1,8 +1,6 @@
 ---
 title: XDocument で XML 1.1 を読み込む
 tags: [C#]
-createat: "2020-08-21"
-updateat: "2020-08-21"
 qrunch:
 ---
 

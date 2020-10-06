@@ -1,8 +1,6 @@
 ---
 title: winget で vscode をインストールする
 tags: [Windows]
-createat: "2020-07-26"
-updateat: "2020-07-26"
 ---
 
 ## 普通にインストール

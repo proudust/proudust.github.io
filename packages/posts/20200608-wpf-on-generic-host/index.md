@@ -1,7 +1,6 @@
 ---
 title: WPF アプリケーションに .Net Generic Host 使ってみる
 tags: [C#]
-createat: "2020-06-08"
 qrunch: https://proudust.qrunch.io/entries/0b9bWiudpmPy8bpC
 ---
 

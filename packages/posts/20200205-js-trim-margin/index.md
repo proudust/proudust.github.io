@@ -2,7 +2,6 @@
 title: JavaScript でも Kotlin の trimMargin と trimIndent を使いたい
 tags: [JavaScript]
 createat: "2020-02-05T15:02:41+09:00"
-updateat: "2020-05-16"
 qiita: https://qiita.com/proudust/items/98c50480fc7d39845a69
 ---
 
