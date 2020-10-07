@@ -1,11 +1,13 @@
 import React from 'react';
 import { Drawer, IconButton, Paper, Tooltip, Typography, useMediaQuery } from '@material-ui/core';
 import { makeStyles, createStyles, useTheme } from '@material-ui/core/styles';
-import { Toc as TocIcon } from '@material-ui/icons';
-import { graphql, PageRendererProps } from 'gatsby';
+import { GitHub as GitHubIcon, Toc as TocIcon } from '@material-ui/icons';
+import { graphql } from 'gatsby';
 import 'prismjs/themes/prism-tomorrow.css';
 
 import { Layout } from '../components/layout';
+
+import type { PageProps } from 'gatsby';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -108,6 +110,22 @@ const Toc: React.FC<TocProps> = ({ tableOfContents, onClick }) => {
   );
 };
 
+interface ShowByGithubButtonProps {
+  children?: never;
+  slug: string;
+}
+
+const ViewOnGithubButton: React.FC<ShowByGithubButtonProps> = ({ slug }) => (
+  <Tooltip title="GitHub で表示" placement="bottom">
+    <IconButton
+      component="a"
+      href={`https://github.com/proudust/proudust.github.io/blob/master-src/packages/posts${slug}index.md`}
+    >
+      <GitHubIcon />
+    </IconButton>
+  </Tooltip>
+);
+
 interface TocButtonProps {
   children?: never;
   visible: boolean;
@@ -126,10 +144,11 @@ const TocButton: React.FC<TocButtonProps> = ({ visible, onClick }) => {
   );
 };
 
-interface BlogPostProps extends PageRendererProps {
-  children?: never;
-  data: GatsbyTypes.BlogPostBySlugQuery;
+interface BlogPostContextType {
+  slug: string;
 }
+
+type BlogPostProps = PageProps<GatsbyTypes.BlogPostBySlugQuery, BlogPostContextType>;
 
 const BlogPost: React.FC<BlogPostProps> = props => {
   const theme = useTheme();
@@ -149,7 +168,12 @@ const BlogPost: React.FC<BlogPostProps> = props => {
       title={post.frontmatter?.title ?? ''}
       flex={matches}
       width={matches ? 'lg' : undefined}
-      actions={<TocButton visible={!matches} onClick={() => setOpenNav(true)} />}
+      actions={
+        <>
+          <ViewOnGithubButton slug={props.pageContext.slug} />
+          <TocButton visible={!matches} onClick={() => setOpenNav(true)} />
+        </>
+      }
     >
       <Paper component="article" className={classes.paper}>
         <header className={classes.header}>
