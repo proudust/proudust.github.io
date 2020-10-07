@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme: Theme) =>
         textAlign: 'center',
       },
     },
+    avatar: {
+      margin: theme.spacing(1),
+    },
     flex: {
       display: 'flex',
       alignItems: 'center',
@@ -41,7 +44,7 @@ export const Profile: React.FC<ProfileProps> = () => {
 
   return (
     <Container component="footer" maxWidth="md" classes={{ root: classes.root }}>
-      <Avatar alt={name ?? ''} src={avatar ?? ''} />
+      <Avatar alt={name ?? ''} src={avatar ?? ''} classes={{ root: classes.avatar }} />
       <div className={classes.name}>
         <Typography variant="subtitle1">{name}</Typography>
         <Typography variant="caption">{description}</Typography>
