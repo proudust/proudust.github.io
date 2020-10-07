@@ -1,5 +1,5 @@
 import React from 'react';
-import { Drawer, Typography, Paper, IconButton, useMediaQuery } from '@material-ui/core';
+import { Drawer, IconButton, Paper, Tooltip, Typography, useMediaQuery } from '@material-ui/core';
 import { makeStyles, createStyles, useTheme } from '@material-ui/core/styles';
 import { Toc as TocIcon } from '@material-ui/icons';
 import { graphql, PageRendererProps } from 'gatsby';
@@ -108,6 +108,24 @@ const Toc: React.FC<TocProps> = ({ tableOfContents, onClick }) => {
   );
 };
 
+interface TocButtonProps {
+  children?: never;
+  visible: boolean;
+  onClick: () => void;
+}
+
+const TocButton: React.FC<TocButtonProps> = ({ visible, onClick }) => {
+  if (!visible) return <></>;
+
+  return (
+    <Tooltip title="目次を表示" placement="bottom">
+      <IconButton onClick={onClick}>
+        <TocIcon />
+      </IconButton>
+    </Tooltip>
+  );
+};
+
 interface BlogPostProps extends PageRendererProps {
   children?: never;
   data: GatsbyTypes.BlogPostBySlugQuery;
@@ -131,13 +149,7 @@ const BlogPost: React.FC<BlogPostProps> = props => {
       title={post.frontmatter?.title ?? ''}
       flex={matches}
       width={matches ? 'lg' : undefined}
-      actions={
-        matches ? undefined : (
-          <IconButton onClick={() => setOpenNav(true)}>
-            <TocIcon />
-          </IconButton>
-        )
-      }
+      actions={<TocButton visible={!matches} onClick={() => setOpenNav(true)} />}
     >
       <Paper component="article" className={classes.paper}>
         <header className={classes.header}>
