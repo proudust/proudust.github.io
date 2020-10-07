@@ -27,12 +27,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface ProductListProps {
   children?: never;
+  limit?: number;
 }
 
-export const ProductList: React.FC<ProductListProps> = () => {
+export const ProductList: React.FC<ProductListProps> = ({ limit }) => {
   const classes = useStyles();
   const data = useStaticQuery<GatsbyTypes.ProductListQuery>(query);
-  const products = data.profileYaml?.products ?? [];
+  limit ??= Number.MAX_VALUE;
+  const products = (data.profileYaml?.products ?? []).slice(0, limit);
 
   return (
     <Grid container spacing={2}>

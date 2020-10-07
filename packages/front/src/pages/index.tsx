@@ -53,7 +53,7 @@ export const Index: React.FC<IndexProps> = () => (
     </section>
     <section>
       <SectionHeader href="/products">制作物</SectionHeader>
-      <ProductList />
+      <ProductList limit={4} />
     </section>
   </Layout>
 );
