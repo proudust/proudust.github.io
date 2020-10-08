@@ -37,12 +37,14 @@ const useStyles = makeStyles(theme =>
   }),
 );
 
+const ListPaper: typeof Paper = props => <Paper component="ul" {...props} />;
+
 export const PostList: React.FC<PostListProps> = props => {
   const classes = useStyles();
   const posts = usePostData().slice(0, props.limit === 0 ? Number.MAX_VALUE : props.limit);
 
   return (
-    <List component={Paper} style={{ padding: 0 }}>
+    <List component={ListPaper} style={{ padding: 0 }}>
       {posts.slice().map((post, index) => (
         <React.Fragment key={index}>
           {index !== 0 ? <Divider component="li" variant="inset" /> : undefined}
