@@ -16,7 +16,7 @@ export function usePostData(): PostData[] {
     type: 'inside',
     title: node.frontmatter?.title ?? '',
     excerpt: node.excerpt ?? '',
-    createat: node.frontmatter?.createat ?? node.fields?.slug,
+    createat: node.frontmatter?.createat ?? node.fields?.createat ?? '',
     tags: node.frontmatter?.tags?.filter(<T>(x: T | null | undefined): x is T => !!x) ?? [],
     url: node.fields?.slug ?? '',
   }));
