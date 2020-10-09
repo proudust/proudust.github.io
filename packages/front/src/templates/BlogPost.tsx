@@ -180,7 +180,9 @@ const BlogPost: React.FC<BlogPostProps> = props => {
           <Typography variant="h1" style={{ fontSize: '2.5rem' }}>
             {post.frontmatter?.title}
           </Typography>
-          <Typography variant="subtitle1">{post.frontmatter?.createat}</Typography>
+          <Typography variant="subtitle1">
+            {post.frontmatter?.createat ?? post.fields?.createat}
+          </Typography>
         </header>
         <Typography
           className={classes.content}
@@ -212,6 +214,9 @@ export const pageQuery = graphql`
       id
       html
       tableOfContents(absolute: false)
+      fields {
+        createat(formatString: "YYYY/MM/DD")
+      }
       frontmatter {
         title
         createat(formatString: "YYYY/MM/DD")
