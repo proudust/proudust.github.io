@@ -81,6 +81,15 @@ const useStyles = makeStyles(theme =>
         borderBottomWidth: 1,
         padding: theme.spacing(1),
       },
+      '& hr': {
+        marginTop: theme.spacing(8),
+        borderStyle: 'none',
+        backgroundColor: theme.palette.divider,
+        height: 1,
+      },
+      '& .footnotes p': {
+        display: 'inline',
+      },
     },
   }),
 );
