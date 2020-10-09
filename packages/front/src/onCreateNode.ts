@@ -14,10 +14,12 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = async ({ node, actions, 
 
   if (node.internal.type === `MarkdownRemark`) {
     const absolutePath = node.fileAbsolutePath as string;
-    const slug = absolutePath.endsWith('index.md')
-      ? createFilePath({ node, getNode })
-      : getSlug(absolutePath);
+    const isInside = absolutePath.endsWith('index.md');
+    const slug = isInside ? createFilePath({ node, getNode }) : getSlug(absolutePath);
     createNodeField({ name: `slug`, node, value: slug });
+
+    const source = isInside ? 'inside' : 'zenn';
+    createNodeField({ name: `source`, node, value: source });
 
     let dirPath = dirname(absolutePath);
     while (true) {

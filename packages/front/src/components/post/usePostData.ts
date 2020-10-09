@@ -15,7 +15,7 @@ export function usePostData(): PostData[] {
   const result = useStaticQuery<GatsbyTypes.UsePostDataQuery>(query);
 
   const selfposts: PostData[] = result.allMarkdownRemark?.nodes.map(node => ({
-    type: 'inside',
+    type: node.frontmatter?.source ?? 'inside',
     title: node.frontmatter?.title ?? '',
     excerpt: node.excerpt ?? '',
     createat: node.frontmatter?.createat ?? node.fields?.createat ?? '',
@@ -45,6 +45,7 @@ const query = graphql`
         excerpt
         fields {
           slug
+          source
           createat
         }
         frontmatter {

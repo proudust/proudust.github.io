@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Drawer, IconButton, Paper, Tooltip, Typography, useMediaQuery } from '@material-ui/core';
 import { makeStyles, createStyles, useTheme } from '@material-ui/core/styles';
 import { GitHub as GitHubIcon, Toc as TocIcon } from '@material-ui/icons';
@@ -6,6 +7,7 @@ import { graphql } from 'gatsby';
 import 'prismjs/themes/prism-tomorrow.css';
 
 import { Layout } from '../components/layout';
+import { ZennIcon } from '../components/ZennIcon';
 
 import type { PageProps } from 'gatsby';
 
@@ -119,6 +121,30 @@ const Toc: React.FC<TocProps> = ({ tableOfContents, onClick }) => {
   );
 };
 
+interface ShowByZennProps {
+  children?: never;
+  visible: boolean;
+  slug: string;
+}
+
+const ShowByZennButton: React.FC<ShowByZennProps> = ({ visible, slug }) => {
+  if (!visible) return <></>;
+
+  const zennUrl = `https://zenn.dev/proudust/articles${slug.substring(0, slug.length - 1)}`;
+  return (
+    <>
+      <Helmet>
+        <link rel="canonical" href={zennUrl} />
+      </Helmet>
+      <Tooltip title="Zenn で表示" placement="bottom">
+        <IconButton component="a" href={zennUrl}>
+          <ZennIcon />
+        </IconButton>
+      </Tooltip>
+    </>
+  );
+};
+
 interface ShowByGithubButtonProps {
   children?: never;
   slug: string;
@@ -179,6 +205,10 @@ const BlogPost: React.FC<BlogPostProps> = props => {
       width={matches ? 'lg' : undefined}
       actions={
         <>
+          <ShowByZennButton
+            visible={post.fields?.source === 'zenn'}
+            slug={props.pageContext.slug}
+          />
           <ViewOnGithubButton slug={props.pageContext.slug} />
           <TocButton visible={!matches} onClick={() => setOpenNav(true)} />
         </>
@@ -224,6 +254,7 @@ export const pageQuery = graphql`
       html
       tableOfContents(absolute: false)
       fields {
+        source
         createat(formatString: "YYYY/MM/DD")
       }
       frontmatter {
