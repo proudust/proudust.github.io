@@ -19,6 +19,7 @@ interface PostIconProps {
 const Icons: Map<string, React.ReactElement> = new Map();
 Icons.set('Android', <AndroidIcon fontSize="large" />);
 Icons.set('C#', <Typography component="span" variant="h5">C#</Typography>); // prettier-ignore
+Icons.set('csharp', <Typography component="span" variant="h5">C#</Typography>); // prettier-ignore
 Icons.set('Git', <FontAwesomeIcon icon={faGitAlt} size="2x" />);
 Icons.set('GitHub', <GitHubIcon fontSize="large" />);
 Icons.set('GitLab', <FontAwesomeIcon icon={faGitlab} size="2x" style={{ marginTop: 5 }} />);
