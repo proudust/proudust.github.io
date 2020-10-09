@@ -9,6 +9,8 @@ interface PostData {
   url: string;
 }
 
+const NonNull = <T>(x: T | null | undefined): x is T => !!x;
+
 export function usePostData(): PostData[] {
   const result = useStaticQuery<GatsbyTypes.UsePostDataQuery>(query);
 
@@ -17,7 +19,7 @@ export function usePostData(): PostData[] {
     title: node.frontmatter?.title ?? '',
     excerpt: node.excerpt ?? '',
     createat: node.frontmatter?.createat ?? node.fields?.createat ?? '',
-    tags: node.frontmatter?.tags?.filter(<T>(x: T | null | undefined): x is T => !!x) ?? [],
+    tags: (node.frontmatter?.tags ?? node.frontmatter?.topics)?.filter(NonNull) ?? [],
     url: node.fields?.slug ?? '',
   }));
 
@@ -48,6 +50,7 @@ const query = graphql`
         frontmatter {
           title
           tags
+          topics
           createat
         }
       }

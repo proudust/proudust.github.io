@@ -1,17 +1,24 @@
-import { dirname, relative, resolve } from 'path';
+import { basename, dirname, posix, relative, resolve, sep } from 'path';
 import { createFilePath } from 'gatsby-source-filesystem';
 import simpleGit from 'simple-git';
 
 import type { GatsbyNode } from 'gatsby';
 
+function getSlug(path: string): string {
+  const fileName = basename(path);
+  return posix.join('/', fileName.substr(0, fileName.length - 3), '/');
+}
+
 export const onCreateNode: GatsbyNode['onCreateNode'] = async ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode });
+    const absolutePath = node.fileAbsolutePath as string;
+    const slug = absolutePath.endsWith('index.md')
+      ? createFilePath({ node, getNode })
+      : getSlug(absolutePath);
     createNodeField({ name: `slug`, node, value: slug });
 
-    const absolutePath = node.fileAbsolutePath as string;
     let dirPath = dirname(absolutePath);
     while (true) {
       const git = simpleGit(dirPath);

@@ -23,6 +23,15 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `zenn`,
+        remote: `https://github.com/proudust/zenn-contents.git`,
+        branch: `master`,
+        patterns: `articles/**`,
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
