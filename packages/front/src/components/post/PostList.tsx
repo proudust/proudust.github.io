@@ -7,6 +7,7 @@ import {
   ListItemAvatar,
   ListItemText,
   Paper,
+  Typography,
 } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Link } from 'gatsby';
@@ -27,7 +28,14 @@ const useStyles = makeStyles(theme =>
       width: theme.spacing(6),
       marginRight: theme.spacing(2),
     },
-    omitMoreThenTwoLine: {
+    header: {
+      display: 'flex',
+      justifyContent: 'space-between',
+    },
+    title: {
+      flex: 1,
+    },
+    excerpt: {
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       display: '-webkit-box',
@@ -56,9 +64,18 @@ export const PostList: React.FC<PostListProps> = props => {
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
-                primary={`${post.title} — ${post.createat.slice(0, 10)}`}
+                primary={
+                  <>
+                    <Typography align="left" classes={{ root: classes.title }}>
+                      {post.title}
+                    </Typography>
+                    <Typography align="right" color="textSecondary">
+                      {post.createat.slice(0, 10)}
+                    </Typography>
+                  </>
+                }
                 secondary={post.excerpt}
-                classes={{ secondary: classes.omitMoreThenTwoLine }}
+                classes={{ primary: classes.header, secondary: classes.excerpt }}
               />
             </ListItem>
           </li>
