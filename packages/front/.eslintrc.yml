@@ -4,8 +4,8 @@ env:
   node: true
 
 extends:
-  - plugin:prettier/recommended
   - plugin:react/recommended
+  - prettier
   - react-app
 
 plugins:
