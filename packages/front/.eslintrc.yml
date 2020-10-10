@@ -9,16 +9,9 @@ extends:
   - react-app
 
 plugins:
-  - prettier
   - react
 
 rules:
-  prettier/prettier:
-    - error
-    - arrowParens: avoid
-      printWidth: 100
-      singleQuote: true
-      trailingComma: all
   react/prop-types:
     - off
 

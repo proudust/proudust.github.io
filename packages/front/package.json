@@ -58,8 +58,8 @@
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build",
-    "lint": "eslint --fix --ignore-path ../../.gitignore .",
-    "lint:ci": "eslint --ignore-path ../../.gitignore .",
+    "lint": "prettier --write --ignore-path ../../.gitignore . && eslint --fix --ignore-path ../../.gitignore .",
+    "lint:ci": "prettier --check --ignore-path ../../.gitignore . && eslint --ignore-path ../../.gitignore .",
     "deploy": "gh-pages -d public -b master"
   },
   "browserslist": {
