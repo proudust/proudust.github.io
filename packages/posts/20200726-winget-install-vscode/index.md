@@ -5,23 +5,23 @@ tags: [Windows]
 
 ## 普通にインストール
 
-``` batch
-winget install -e vscode
+```batch
+winget install vscode
 ```
 
 ## インストーラを表示すらしない
 
-``` batch
-winget install -e vscode --override /verysilent
+```batch
+winget install vscode --override /verysilent
 ```
 
 ## カスタムインストール
 
-``` batch
-winget install -e vscode --override "/silent /mergetasks=\"パラメータ\""
+```batch
+winget install vscode --override "/silent /mergetasks=""パラメータ"""
 
 REM [Code で開く] を追加する場合
-winget install -e vscode --override "/silent /mergetasks=\"addcontextmenufiles,addcontextmenufolders\""
+winget install vscode --override "/silent /mergetasks=""addcontextmenufiles,addcontextmenufolders"""
 ```
 
 ### パラメータ
