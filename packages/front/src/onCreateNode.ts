@@ -6,7 +6,10 @@ import type { GatsbyNode } from 'gatsby';
 
 function getSlug(path: string): string {
   const fileName = basename(path);
-  return posix.join('/', fileName.substr(0, fileName.length - 3), '/');
+  const slug = fileName
+    .substring(0, fileName.length - 3)
+    .replace(/^(\d{4})-(\d{2})-(\d{2})-/, '$1$2$3-');
+  return posix.join('/', slug, '/');
 }
 
 export const onCreateNode: GatsbyNode['onCreateNode'] = async ({ node, actions, getNode }) => {
