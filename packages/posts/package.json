@@ -10,9 +10,14 @@
     "textlint-rule-no-mix-dearu-desumasu": "^4.0.1",
     "textlint-rule-preset-ja-spacing": "^2.0.2"
   },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  },
   "scripts": {
-    "lint": "yarn lint:txtlint --fix && yarn lint:mdlint --fix",
-    "lint:ci": "yarn lint:txtlint && yarn lint:mdlint",
+    "fix": "run-p fix:*",
+    "fix:txtlint": "yarn lint:txtlint --fix",
+    "fix:mdlint": "yarn lint:mdlint --fix",
+    "lint": "run-p lint:*",
     "lint:txtlint": "textlint .",
     "lint:mdlint": "markdownlint ."
   }
