@@ -26,12 +26,13 @@ jobs:
             ${{ runner.os }}-yarn-
             ${{ runner.os }}-
 
-      - name: Run npm-check-updates
+      - name: Run npm-check-updates and yarn-deduplicate
         run: |
-          yarn global add npm-check-updates
+          yarn global add npm-check-updates yarn-deduplicate
           `yarn global bin`/ncu -u --packageFile packages/front/package.json
           `yarn global bin`/ncu -u --packageFile packages/posts/package.json
           yarn
+          `yarn global bin`/yarn-deduplicate yarn.lock
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
