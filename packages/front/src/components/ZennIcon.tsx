@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import Img, { FixedObject } from 'gatsby-image';
+import Img from 'gatsby-image';
 
 interface IconProps {
   children?: never;
@@ -8,8 +8,8 @@ interface IconProps {
 
 export const ZennIcon: React.FC<IconProps> = () => {
   const { file } = useStaticQuery<GatsbyTypes.ZennIconQuery>(query);
-  const fixed = file?.childImageSharp?.fixed as FixedObject | undefined;
-  return <Img alt="zenn" fixed={fixed} />;
+  const fixed = file?.childImageSharp?.fixed;
+  return <Img alt="zenn" fixed={fixed!} />;
 };
 
 export const query = graphql`
