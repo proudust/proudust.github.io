@@ -6,8 +6,8 @@ import { GitHub as GitHubIcon, Toc as TocIcon } from '@material-ui/icons';
 import { graphql } from 'gatsby';
 import 'prismjs/themes/prism-tomorrow.css';
 
-import { Layout } from '../components/layout';
-import { ZennIcon } from '../components/ZennIcon';
+import { Layout } from '../../components/layout';
+import { ZennIcon } from '../../components/ZennIcon';
 
 import type { PageProps } from 'gatsby';
 

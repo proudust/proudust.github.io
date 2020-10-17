@@ -40,7 +40,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   const result = await graphql<Restlt>(query);
   if (result.errors) throw result.errors;
 
-  const template = path.resolve(`src/templates/BlogPost.tsx`);
+  const template = path.resolve(`src/templates/blog-post/index.tsx`);
   const posts = result.data?.allMarkdownRemark.edges ?? [];
   posts.forEach(post => {
     createPage({
