@@ -13,7 +13,7 @@ interface ViewOnZennProps {
 export const ViewOnZennButton: React.FC<ViewOnZennProps> = ({ visible, slug }) => {
   if (!visible) return <></>;
 
-  const zennSlug = slug.substring(0, slug.length - 1);
+  const zennSlug = slug.replace('/', '').replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3');
   const zennUrl = `https://zenn.dev/proudust/articles/${zennSlug}`;
   return (
     <>
