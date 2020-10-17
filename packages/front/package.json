@@ -65,6 +65,7 @@
     "lint": "run-p lint:*",
     "lint:eslint": "eslint --ignore-path ../../.gitignore .",
     "lint:prettier": "prettier --check --ignore-path ../../.gitignore .",
+    "tsc": "tsc",
     "deploy": "gh-pages -d public -b master"
   },
   "browserslist": {
