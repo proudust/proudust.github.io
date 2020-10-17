@@ -46,8 +46,12 @@ export const Profile: React.FC<ProfileProps> = () => {
     <Container component="footer" maxWidth="md" classes={{ root: classes.root }}>
       <Avatar alt={name ?? ''} src={avatar ?? ''} classes={{ root: classes.avatar }} />
       <div className={classes.name}>
-        <Typography variant="subtitle1">{name}</Typography>
-        <Typography variant="caption">{description}</Typography>
+        <Typography component="p" variant="subtitle1">
+          {name}
+        </Typography>
+        <Typography component="p" variant="caption">
+          {description}
+        </Typography>
       </div>
       <address className={classes.flex}>
         <Tooltip title="Twitter" placement="bottom">
