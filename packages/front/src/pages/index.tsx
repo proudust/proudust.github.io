@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 
 import { Layout } from '../components/layout';
 import { PostList } from '../components/post';
-import { ProductList } from '../components/ProductList';
+import { ProductList } from '../components/product-list';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
