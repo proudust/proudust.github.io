@@ -15,9 +15,9 @@ export const ProductList: React.FC<ProductListProps> = ({ limit }) => {
   const products = (data.profileYaml?.products ?? []).slice(0, limit);
 
   return (
-    <Grid container spacing={2}>
+    <Grid component="ul" container spacing={2} style={{ listStyle: 'none', padding: 0 }}>
       {products.map((node, index) => (
-        <Grid item sm={6} xs={12} key={index}>
+        <Grid component="li" item sm={6} xs={12} key={index}>
           <ProductListItem
             title={node?.title}
             description={node?.description}
