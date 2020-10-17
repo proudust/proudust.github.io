@@ -80,7 +80,12 @@ const BlogPost: React.FC<BlogPostProps> = props => {
           <Typography variant="h1" style={{ fontSize: '2.5rem' }}>
             {post.frontmatter?.title}
           </Typography>
-          <Typography variant="subtitle1">
+          <Typography
+            component="time"
+            property="schema:datePublished"
+            dateTime={post.frontmatter?.createatRaw ?? post.fields?.createatRaw}
+            variant="subtitle1"
+          >
             {post.frontmatter?.createat ?? post.fields?.createat}
           </Typography>
         </header>
@@ -107,10 +112,12 @@ export const pageQuery = graphql`
       fields {
         source
         createat(formatString: "YYYY/MM/DD")
+        createatRaw: createat
       }
       frontmatter {
         title
         createat(formatString: "YYYY/MM/DD")
+        createatRaw: createat
       }
     }
   }
