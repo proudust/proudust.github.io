@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{nPCk:function(n,c,t){"use strict";t.r(c),t.d(c,"Products",(function(){return s}));var e=t("jg1C"),r=(t("ERkP"),t("C5yf")),i=t("SVcu"),s=function(){return Object(e.jsx)(r.a,{title:"制作物",backref:"/",children:Object(e.jsx)("section",{children:Object(e.jsx)(i.a,{})})})};c.default=s}}]);
+//# sourceMappingURL=component---src-pages-products-tsx-e0fc7a24c79ee4a7dd34.js.map
