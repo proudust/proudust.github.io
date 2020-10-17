@@ -2,11 +2,13 @@ import React from 'react';
 import { Button, Typography } from '@material-ui/core';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { ArrowForward as ArrowForwardIcon } from '@material-ui/icons';
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
 import { Layout } from '../components/layout';
 import { PostList } from '../components/post';
 import { ProductList } from '../components/product-list';
+
+import type { PageProps } from 'gatsby';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -41,11 +43,9 @@ const SectionHeader: React.FC<SectionHeaderProps> = props => {
   );
 };
 
-interface IndexProps {
-  children?: never;
-}
+type IndexProps = PageProps<GatsbyTypes.IndexQuery, GatsbyTypes.IndexQueryVariables>;
 
-export const Index: React.FC<IndexProps> = () => (
+export const Index: React.FC<IndexProps> = ({ data }) => (
   <Layout>
     <section>
       <SectionHeader href="/posts">投稿</SectionHeader>
@@ -53,9 +53,31 @@ export const Index: React.FC<IndexProps> = () => (
     </section>
     <section>
       <SectionHeader href="/products">制作物</SectionHeader>
-      <ProductList limit={4} />
+      <ProductList products={data.profileYaml?.products?.slice(0, 4)} />
     </section>
   </Layout>
 );
 
 export default Index;
+
+export const pageQuery = graphql`
+  query Index {
+    profileYaml {
+      products {
+        title
+        description
+        image {
+          childImageSharp {
+            fluid(maxHeight: 200) {
+              src
+            }
+          }
+        }
+        links {
+          name
+          href
+        }
+      }
+    }
+  }
+`;

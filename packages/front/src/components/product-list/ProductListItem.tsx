@@ -14,12 +14,12 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface ProductListItemProps {
   children?: never;
-  title: string;
-  description: string;
-  image: string;
-  links: {
-    name: string;
-    href: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  links?: readonly {
+    name?: string;
+    href?: string;
   }[];
 }
 
@@ -27,7 +27,7 @@ export const ProductListItem: React.FC<ProductListItemProps> = props => {
   const classes = useStyles();
   return (
     <Card>
-      <CardActionArea href={props.links[0].href}>
+      <CardActionArea href={props.links?.[0].href ?? ''}>
         <CardMedia className={classes.media} image={props.image} title={props.title} />
         <CardHeader
           title={props.title}
@@ -37,7 +37,7 @@ export const ProductListItem: React.FC<ProductListItemProps> = props => {
         />
       </CardActionArea>
       <CardActions>
-        {props.links.map((link, index) => (
+        {props.links?.map((link, index) => (
           <ProductLinkButton key={index} {...link} />
         ))}
       </CardActions>
