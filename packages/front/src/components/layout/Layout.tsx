@@ -37,10 +37,8 @@ export const Layout: React.FC<LayoutProps> = props => {
       >
         {props.children}
       </Container>
-      <div style={{ marginTop: theme.spacing(3) }}>
-        <Divider />
-        <Profile />
-      </div>
+      <Divider style={{ marginTop: theme.spacing(3) }} />
+      <Profile />
     </>
   );
 };
