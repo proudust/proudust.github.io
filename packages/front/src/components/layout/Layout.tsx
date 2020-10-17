@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useTheme } from '@material-ui/core/styles';
 import { Container, Divider } from '@material-ui/core';
@@ -8,7 +8,7 @@ import { DefaultAppBar } from './AppBar';
 import { Profile } from './Profile';
 
 interface LayoutProps {
-  children: ReactNode;
+  children: NonNullable<React.ReactNode>;
   title?: string;
   backref?: string;
   actions?: React.ReactNode;

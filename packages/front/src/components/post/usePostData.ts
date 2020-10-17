@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
 interface PostData {
-  type: 'inside' | 'steam-guide';
+  type: 'inside' | 'steam-guide' | 'zenn';
   title: string;
   excerpt: string;
   createat: string;
@@ -15,7 +15,7 @@ export function usePostData(): PostData[] {
   const result = useStaticQuery<GatsbyTypes.UsePostDataQuery>(query);
 
   const selfposts: PostData[] = result.allMarkdownRemark?.nodes.map(node => ({
-    type: node.frontmatter?.source ?? 'inside',
+    type: node.fields?.source !== 'zenn' ? 'inside' : 'zenn',
     title: node.frontmatter?.title ?? '',
     excerpt: node.excerpt ?? '',
     createat: node.frontmatter?.createat ?? node.fields?.createat ?? '',
