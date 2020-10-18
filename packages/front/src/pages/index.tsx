@@ -35,7 +35,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = props => {
 
   return (
     <Button className={classes.headerButton} component={Link} to={props.href}>
-      <Typography variant="h5" color="textPrimary">
+      <Typography component="h2" variant="h5" color="textPrimary">
         {props.children}
       </Typography>
       <ArrowForwardIcon className={classes.headerIcon} />

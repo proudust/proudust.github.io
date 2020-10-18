@@ -31,9 +31,9 @@ export const ProductListItem: React.FC<ProductListItemProps> = props => {
         <CardMedia className={classes.media} image={props.image} title={props.title} />
         <CardHeader
           title={props.title}
-          titleTypographyProps={{ variant: 'h6' }}
+          titleTypographyProps={{ component: 'h3', variant: 'h6' }}
           subheader={props.description}
-          subheaderTypographyProps={{ variant: 'body2' }}
+          subheaderTypographyProps={{ component: 'p', variant: 'body2' }}
         />
       </CardActionArea>
       <CardActions>

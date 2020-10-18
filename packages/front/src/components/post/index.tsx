@@ -72,7 +72,7 @@ export const PostList: React.FC<PostListProps> = ({ posts }) => {
               <ListItemText
                 primary={
                   <>
-                    <Typography align="left" classes={{ root: classes.title }}>
+                    <Typography component="h3" align="left" classes={{ root: classes.title }}>
                       {post.frontmatter?.title}
                     </Typography>
                     <Typography

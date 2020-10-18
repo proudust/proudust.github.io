@@ -53,7 +53,7 @@ const TocBody: React.FC<TocBodyProps> = ({ tableOfContents, close }) => {
 
   return (
     <>
-      <Typography component="h6" style={{ padding: 16 }}>
+      <Typography component="span" style={{ padding: 16 }}>
         目次
       </Typography>
       <Typography
