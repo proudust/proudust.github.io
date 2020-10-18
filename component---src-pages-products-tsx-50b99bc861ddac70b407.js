@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{nPCk:function(n,t,r){"use strict";r.r(t),r.d(t,"Products",(function(){return o})),r.d(t,"pageQuery",(function(){return i}));var c=r("jg1C"),e=(r("ERkP"),r("C5yf")),u=r("SVcu"),o=function(n){var t,r=n.data;return Object(c.jsx)(e.a,{title:"制作物",backref:"/",children:Object(c.jsx)("section",{children:Object(c.jsx)(u.a,{products:null===(t=r.profileYaml)||void 0===t?void 0:t.products})})})};t.default=o;var i="4020995690"}}]);
+//# sourceMappingURL=component---src-pages-products-tsx-50b99bc861ddac70b407.js.map
