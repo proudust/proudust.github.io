@@ -21,8 +21,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'data',
-        path: path.join(__dirname, 'content'),
+        name: 'product',
+        path: path.join(__dirname, 'content', 'product'),
       },
     },
     {
@@ -56,7 +56,13 @@ module.exports = {
       },
     },
     'gatsby-transformer-sharp',
-    'gatsby-transformer-yaml',
+    {
+      resolve: `gatsby-transformer-yaml`,
+      options: {
+        typeName: `Product`,
+        path: `./content/product/`,
+      },
+    },
     'gatsby-plugin-layout',
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',

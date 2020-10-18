@@ -11,7 +11,7 @@ type ProductsProps = PageProps<GatsbyTypes.ProductsQuery, GatsbyTypes.ProductsQu
 export const Products: React.FC<ProductsProps> = ({ data }) => (
   <Layout title="制作物" backref="/">
     <section>
-      <ProductList products={data.profileYaml?.products} />
+      <ProductList products={data.allProduct?.nodes} />
     </section>
   </Layout>
 );
@@ -20,8 +20,10 @@ export default Products;
 
 export const pageQuery = graphql`
   query Products {
-    profileYaml {
-      ...ProductList
+    allProduct {
+      nodes {
+        ...ProductList
+      }
     }
   }
 `;

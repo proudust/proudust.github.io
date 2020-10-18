@@ -10,7 +10,7 @@ function nonNull<T>(x: T | undefined): x is T {
 
 interface ProductListProps {
   children?: never;
-  products: GatsbyTypes.ProductListFragment['products'];
+  products: readonly GatsbyTypes.ProductListFragment[];
 }
 
 export const ProductList: React.FC<ProductListProps> = ({ products }) => (
@@ -29,21 +29,19 @@ export const ProductList: React.FC<ProductListProps> = ({ products }) => (
 );
 
 export const query = graphql`
-  fragment ProductList on ProfileYaml {
-    products {
-      title
-      description
-      image {
-        childImageSharp {
-          fluid(maxHeight: 200) {
-            src
-          }
+  fragment ProductList on Product {
+    title
+    description
+    image {
+      childImageSharp {
+        fluid(maxHeight: 200) {
+          src
         }
       }
-      links {
-        name
-        href
-      }
+    }
+    links {
+      name
+      href
     }
   }
 `;

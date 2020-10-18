@@ -53,7 +53,7 @@ export const Index: React.FC<IndexProps> = ({ data }) => (
     </section>
     <section>
       <SectionHeader href="/products">制作物</SectionHeader>
-      <ProductList products={data.profileYaml?.products?.slice(0, 4)} />
+      <ProductList products={data.allProduct?.nodes} />
     </section>
   </Layout>
 );
@@ -67,8 +67,13 @@ export const pageQuery = graphql`
         ...PostList
       }
     }
-    profileYaml {
-      ...ProductList
+    allProduct(
+      limit: 4
+      filter: { title: { regex: "/((DDLC|MAS|Dweller's Empty Path) 日本語化|OneShot)/" } }
+    ) {
+      nodes {
+        ...ProductList
+      }
     }
   }
 `;
