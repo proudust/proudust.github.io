@@ -6,32 +6,43 @@ import type { CreateNodeArgs, GatsbyNode } from 'gatsby';
 
 interface MarkdownRemark {
   readonly fileAbsolutePath: string;
+  readonly fields?: {
+    readonly sourceFileType?: 'posts' | 'zenn';
+  };
 }
 
 function isMarkdownRemarkNode(x: CreateNodeArgs): x is CreateNodeArgs<MarkdownRemark> {
   return x.node.internal.type === 'MarkdownRemark';
 }
 
+function appendSourceFileType(args: CreateNodeArgs): void {
+  if (!isMarkdownRemarkNode(args)) return;
+
+  const { node, actions, getNode } = args;
+  if (node.fields?.sourceFileType) return;
+
+  const { sourceInstanceName } = getNode(node.parent);
+  actions.createNodeField({ name: 'sourceFileType', node, value: sourceInstanceName });
+}
+
 function appendSlug(args: CreateNodeArgs): void {
   if (!isMarkdownRemarkNode(args)) return;
 
   const { node, actions } = args;
-  const absolutePath = node.fileAbsolutePath;
-  if (!absolutePath) return;
-  const isInside = absolutePath.endsWith('index.md');
-  const slug = isInside ? createFilePath(args) : getSlugFromZennArticles(absolutePath);
+  if (node.fields?.sourceFileType !== 'posts') return;
+  const slug = createFilePath(args);
   actions.createNodeField({ name: 'slug', node, value: slug });
-
-  const source = isInside ? 'inside' : 'zenn';
-  actions.createNodeField({ name: 'source', node, value: source });
 }
 
-function getSlugFromZennArticles(path: string): string {
-  const fileName = basename(path);
-  const slug = fileName
-    .substring(0, fileName.length - 3)
-    .replace(/^(\d{4})-(\d{2})-(\d{2})-/, '$1$2$3-');
-  return posix.join('/', slug, '/');
+function appendZennUrl(args: CreateNodeArgs): void {
+  if (!isMarkdownRemarkNode(args)) return;
+
+  const { node, actions, getNode } = args;
+  if (node.fields?.sourceFileType !== 'zenn') return;
+
+  const { relativePath } = getNode(node.parent);
+  const zennUrl = `https://zenn.dev/proudust/${relativePath}`;
+  actions.createNodeField({ name: 'zenn', node, value: zennUrl });
 }
 
 async function appendGitInfo(args: CreateNodeArgs): Promise<void> {
@@ -57,9 +68,10 @@ async function appendGitInfo(args: CreateNodeArgs): Promise<void> {
   }
 }
 
-export const onCreateNode: GatsbyNode['onCreateNode'] = async args => {
-  const promises: Promise<void>[] = [];
-  promises.push(appendGitInfo(args));
-  appendSlug(args);
-  return Promise.all(promises);
-};
+export const onCreateNode: GatsbyNode['onCreateNode'] = async args =>
+  Promise.all([
+    appendSourceFileType(args),
+    appendGitInfo(args),
+    appendSlug(args),
+    appendZennUrl(args),
+  ]);

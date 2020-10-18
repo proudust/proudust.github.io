@@ -6,7 +6,6 @@ import { graphql } from 'gatsby';
 
 import { Layout } from '../../components/layout';
 import { Article } from './Article';
-import { ViewOnZennButton } from './ViewOnZennButton';
 import { ViewOnGithubButton } from './ViewOnGithubButton';
 import { Toc } from './Toc';
 
@@ -66,10 +65,6 @@ const BlogPost: React.FC<BlogPostProps> = props => {
       width={matches ? 'lg' : undefined}
       actions={
         <>
-          <ViewOnZennButton
-            visible={post.fields?.source === 'zenn'}
-            slug={props.pageContext.slug}
-          />
           <ViewOnGithubButton slug={props.pageContext.slug} />
           <TocButton visible={!matches} onClick={() => setOpenNav(true)} />
         </>
@@ -110,7 +105,6 @@ export const pageQuery = graphql`
       html
       tableOfContents(absolute: false)
       fields {
-        source
         createat(formatString: "YYYY/MM/DD")
         createatRaw: createat
       }

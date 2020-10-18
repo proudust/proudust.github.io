@@ -15,12 +15,12 @@ export function usePostData(): PostData[] {
   const result = useStaticQuery<GatsbyTypes.UsePostDataQuery>(query);
 
   const selfposts: PostData[] = result.allMarkdownRemark?.nodes.map(node => ({
-    type: node.fields?.source !== 'zenn' ? 'inside' : 'zenn',
+    type: node.fields?.sourceFileType !== 'zenn' ? 'inside' : 'zenn',
     title: node.frontmatter?.title ?? '',
     excerpt: node.excerpt ?? '',
     createat: node.frontmatter?.createat ?? node.fields?.createat ?? '',
     tags: (node.frontmatter?.tags ?? node.frontmatter?.topics)?.filter(NonNull) ?? [],
-    url: node.fields?.slug ?? '',
+    url: node.fields?.zenn ?? node.fields?.slug ?? '',
   }));
 
   const guides: PostData[] = result.allSteamGuidesYaml?.nodes.map(
@@ -45,7 +45,8 @@ const query = graphql`
         excerpt
         fields {
           slug
-          source
+          sourceFileType
+          zenn
           createat
         }
         frontmatter {

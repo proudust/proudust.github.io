@@ -19,7 +19,7 @@ interface Restlt {
 
 const query = `
   query BlogPosts {
-    allMarkdownRemark {
+    allMarkdownRemark(filter: { fields: { sourceFileType: { eq: "posts" } } }) {
       edges {
         node {
           fields {
