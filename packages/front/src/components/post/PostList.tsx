@@ -75,8 +75,13 @@ export const PostList: React.FC<PostListProps> = ({ posts }) => {
                     <Typography align="left" classes={{ root: classes.title }}>
                       {post.frontmatter?.title}
                     </Typography>
-                    <Typography align="right" color="textSecondary">
-                      {post.fields?.createat?.slice(0, 10)}
+                    <Typography
+                      component="time"
+                      dateTime={post.fields?.createatRaw}
+                      align="right"
+                      color="textSecondary"
+                    >
+                      {post.fields?.createat}
                     </Typography>
                   </>
                 }
@@ -98,7 +103,8 @@ export const query = graphql`
       slug
       sourceFileType
       zenn
-      createat
+      createat(formatString: "YYYY/MM/DD")
+      createatRaw: createat
     }
     frontmatter {
       title
