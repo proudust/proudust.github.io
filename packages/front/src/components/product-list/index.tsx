@@ -20,7 +20,8 @@ export const ProductList: React.FC<ProductListProps> = ({ products }) => (
         <ProductListItem
           title={node?.title}
           description={node?.description}
-          image={node?.image?.childImageSharp?.fluid?.src}
+          imageSrc={node?.image?.childImageSharp?.fluid?.src}
+          imageSrcSet={node?.image?.childImageSharp?.fluid?.srcSet}
           links={node?.links?.filter(nonNull)}
         />
       </Grid>
@@ -36,6 +37,7 @@ export const query = graphql`
       childImageSharp {
         fluid(maxHeight: 200) {
           src
+          srcSet
         }
       }
     }

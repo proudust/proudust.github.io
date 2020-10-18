@@ -16,7 +16,8 @@ interface ProductListItemProps {
   children?: never;
   title?: string;
   description?: string;
-  image?: string;
+  imageSrc?: string;
+  imageSrcSet?: string;
   links?: readonly {
     name?: string;
     href?: string;
@@ -28,7 +29,13 @@ export const ProductListItem: React.FC<ProductListItemProps> = props => {
   return (
     <Card>
       <CardActionArea href={props.links?.[0].href ?? ''}>
-        <CardMedia className={classes.media} image={props.image} title={props.title} />
+        <CardMedia
+          component="img"
+          className={classes.media}
+          src={props.imageSrc}
+          srcSet={props.imageSrcSet}
+          title={props.title}
+        />
         <CardHeader
           title={props.title}
           titleTypographyProps={{ component: 'h3', variant: 'h6' }}
