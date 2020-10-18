@@ -1,8 +1,11 @@
 import React from 'react';
 import { Card, CardActionArea, CardActions, CardHeader, CardMedia } from '@material-ui/core';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import Img from 'gatsby-image';
 
 import { ProductLinkButton } from './ProductLinkButton';
+
+import type { FluidObject } from 'gatsby-image';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -16,8 +19,7 @@ interface ProductListItemProps {
   children?: never;
   title?: string;
   description?: string;
-  imageSrc?: string;
-  imageSrcSet?: string;
+  image?: FluidObject | FluidObject[];
   links?: readonly {
     name?: string;
     href?: string;
@@ -29,13 +31,7 @@ export const ProductListItem: React.FC<ProductListItemProps> = props => {
   return (
     <Card>
       <CardActionArea href={props.links?.[0].href ?? ''}>
-        <CardMedia
-          component="img"
-          className={classes.media}
-          src={props.imageSrc}
-          srcSet={props.imageSrcSet}
-          title={props.title}
-        />
+        {props.image && <CardMedia component={Img} className={classes.media} fluid={props.image} />}
         <CardHeader
           title={props.title}
           titleTypographyProps={{ component: 'h3', variant: 'h6' }}

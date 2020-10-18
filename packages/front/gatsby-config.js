@@ -50,7 +50,10 @@ module.exports = {
             resolve: 'gatsby-remark-autolink-headers',
             options: { offsetY: 100 },
           },
-          'gatsby-remark-images',
+          {
+            resolve: 'gatsby-remark-images',
+            options: { withWebp: true },
+          },
           'gatsby-remark-prismjs',
         ],
       },
