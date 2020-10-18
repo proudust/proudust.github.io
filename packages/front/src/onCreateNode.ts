@@ -10,6 +10,7 @@ interface MarkdownRemark {
     readonly sourceFileType?: 'posts' | 'zenn';
   };
   readonly frontmatter: {
+    readonly createat?: string;
     readonly steam?: string;
   };
 }
@@ -63,7 +64,7 @@ async function appendGitInfo(args: CreateNodeArgs): Promise<void> {
       dirPath = resolve(dirPath, '..');
       continue;
     }
-    const createAt = commits.all[commits.total - 1]?.date;
+    const createAt = node.frontmatter.createat ?? commits.all[commits.total - 1]?.date;
     const updateAt = commits.latest?.date;
     actions.createNodeField({ name: `createat`, node, value: createAt });
     actions.createNodeField({ name: `updateat`, node, value: updateAt });

@@ -18,17 +18,17 @@ export function usePostData(): PostData[] {
     type: node.fields?.sourceFileType !== 'zenn' ? 'inside' : 'zenn',
     title: node.frontmatter?.title ?? '',
     excerpt: node.excerpt ?? '',
-    createat: node.frontmatter?.createat ?? node.fields?.createat ?? '',
+    createat: node.fields?.createat ?? '',
     tags: (node.frontmatter?.tags ?? node.frontmatter?.topics)?.filter(NonNull) ?? [],
     url: node.frontmatter?.steam ?? node.fields?.zenn ?? node.fields?.slug ?? '',
   }));
 
-  return [...selfposts].sort((a, b) => Date.parse(b.createat) - Date.parse(a.createat));
+  return selfposts;
 }
 
 const query = graphql`
   query UsePostData {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: fields___createat, order: DESC }) {
       nodes {
         excerpt
         fields {
@@ -41,7 +41,6 @@ const query = graphql`
           title
           tags
           topics
-          createat
           steam
         }
       }
