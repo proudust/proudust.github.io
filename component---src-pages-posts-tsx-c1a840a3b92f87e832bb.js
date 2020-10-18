@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{PJ8K:function(n,e,t){"use strict";t.r(e),t.d(e,"Posts",(function(){return s})),t.d(e,"pageQuery",(function(){return o}));var r=t("jg1C"),a=(t("ERkP"),t("C5yf")),c=t("fnNF"),s=function(n){var e=n.data;return Object(r.jsx)(a.a,{title:"投稿",backref:"/",children:Object(r.jsx)("section",{children:Object(r.jsx)(c.a,{posts:e.allMarkdownRemark.nodes})})})};e.default=s;var o="3500101095"}}]);
-//# sourceMappingURL=component---src-pages-posts-tsx-c1a840a3b92f87e832bb.js.map
