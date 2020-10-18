@@ -6,6 +6,7 @@
     "posts": "yarn workspace posts",
     "----": "",
     "build": "yarn front build",
+    "clean": "yarn front clean",
     "deploy": "yarn front deploy",
     "fix": "run-p fix:*",
     "fix:front": "yarn front fix",
