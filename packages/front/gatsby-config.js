@@ -5,6 +5,17 @@ module.exports = {
   siteMetadata: {
     title: 'proudust.github.io',
     siteUrl: 'https://proudust.github.io',
+    repo: 'https://github.com/proudust/proudust.github.io',
+    author: {
+      name: 'Proudust',
+      summary: 'Virtual cockadoodledoo',
+      avatar: 'https://secure.gravatar.com/avatar/7c5f546f80eeb2c158c8699d2f8bbc4f',
+      social: {
+        twitter: `proudust`,
+        github: 'proudust',
+        steam: 'proudust',
+      },
+    },
   },
   plugins: [
     {

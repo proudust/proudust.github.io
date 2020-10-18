@@ -1,12 +1,3 @@
-name: Proudust
-avatar: https://secure.gravatar.com/avatar/7c5f546f80eeb2c158c8699d2f8bbc4f
-description: C#(WPF, WinForms, ASP. NET), TypeScript(React, GAS), Python2(Ren'Py), Kotlin(Android)な無職鶏
-links:
-  twitter: https://twitter.com/proudust
-  github: https://github.com/proudust
-  qiita: https://qiita.com/proudust
-  steam: https://steamcommunity.com/id/proudust/
-
 products:
   - title: DDLC 日本語化パッチ (DDLC翻訳部)
     description: ゲーム Doki Doki Literature Club! (邦題：ドキドキ文芸部) を日本語化する非公式パッチ。翻訳所とパッチの作成・配布を担当。

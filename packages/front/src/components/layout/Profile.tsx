@@ -39,8 +39,8 @@ interface ProfileProps {
 
 export const Profile: React.FC<ProfileProps> = () => {
   const classes = useStyles();
-  const { profileYaml } = useStaticQuery<GatsbyTypes.ProfileQuery>(query);
-  const { name, avatar, description, links } = profileYaml ?? {};
+  const result = useStaticQuery<GatsbyTypes.ProfileQuery>(query);
+  const { name, summary, avatar, social } = result?.site?.siteMetadata?.author ?? {};
 
   return (
     <Container component="footer" maxWidth="md" classes={{ root: classes.root }}>
@@ -50,22 +50,22 @@ export const Profile: React.FC<ProfileProps> = () => {
           {name}
         </Typography>
         <Typography component="p" variant="caption">
-          {description}
+          {summary}
         </Typography>
       </div>
       <address className={classes.flex}>
         <Tooltip title="Twitter" placement="bottom">
-          <IconButton aria-label="twitter" href={links?.twitter ?? ''}>
+          <IconButton aria-label="twitter" href={`https://twitter.com/${social?.twitter}`}>
             <TwitterIcon />
           </IconButton>
         </Tooltip>
         <Tooltip title="GitHub" placement="bottom">
-          <IconButton aria-label="github" href={links?.github ?? ''}>
+          <IconButton aria-label="github" href={`https://github.com/${social?.github}`}>
             <GitHubIcon />
           </IconButton>
         </Tooltip>
         <Tooltip title="Steam" placement="bottom">
-          <IconButton aria-label="steam" href={links?.steam ?? ''}>
+          <IconButton aria-label="steam" href={`https://steamcommunity.com/id/${social?.steam}/`}>
             <SteamSymbolIcon />
           </IconButton>
         </Tooltip>
@@ -76,14 +76,18 @@ export const Profile: React.FC<ProfileProps> = () => {
 
 export const query = graphql`
   query Profile {
-    profileYaml {
-      name
-      avatar
-      description
-      links {
-        twitter
-        github
-        steam
+    site {
+      siteMetadata {
+        author {
+          name
+          summary
+          avatar
+          social {
+            twitter
+            github
+            steam
+          }
+        }
       }
     }
   }
