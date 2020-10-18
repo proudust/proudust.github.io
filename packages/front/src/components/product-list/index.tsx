@@ -1,23 +1,16 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
+import { graphql } from 'gatsby';
 
 import { ProductListItem } from './ProductListItem';
 
-interface ProductLink {
-  name?: string;
-  href?: string;
-}
-
-interface Product {
-  title?: string;
-  description?: string;
-  image?: { childImageSharp?: { fluid?: { src?: string } } };
-  links?: readonly (ProductLink | undefined)[];
+function nonNull<T>(x: T | undefined): x is T {
+  return Boolean(x);
 }
 
 interface ProductListProps {
   children?: never;
-  products: readonly (Product | undefined)[] | undefined;
+  products: GatsbyTypes.ProductListFragment['products'];
 }
 
 export const ProductList: React.FC<ProductListProps> = ({ products }) => (
@@ -28,9 +21,29 @@ export const ProductList: React.FC<ProductListProps> = ({ products }) => (
           title={node?.title}
           description={node?.description}
           image={node?.image?.childImageSharp?.fluid?.src}
-          links={node?.links?.filter(Boolean) as ProductLink[]}
+          links={node?.links?.filter(nonNull)}
         />
       </Grid>
     ))}
   </Grid>
 );
+
+export const query = graphql`
+  fragment ProductList on ProfileYaml {
+    products {
+      title
+      description
+      image {
+        childImageSharp {
+          fluid(maxHeight: 200) {
+            src
+          }
+        }
+      }
+      links {
+        name
+        href
+      }
+    }
+  }
+`;

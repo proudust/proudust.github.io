@@ -64,37 +64,11 @@ export const pageQuery = graphql`
   query Index {
     allMarkdownRemark(sort: { fields: fields___createat, order: DESC }, limit: 5) {
       nodes {
-        excerpt
-        fields {
-          slug
-          sourceFileType
-          zenn
-          createat
-        }
-        frontmatter {
-          title
-          tags
-          topics
-          steam
-        }
+        ...PostList
       }
     }
     profileYaml {
-      products {
-        title
-        description
-        image {
-          childImageSharp {
-            fluid(maxHeight: 200) {
-              src
-            }
-          }
-        }
-        links {
-          name
-          href
-        }
-      }
+      ...ProductList
     }
   }
 `;

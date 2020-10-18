@@ -22,19 +22,7 @@ export const pageQuery = graphql`
   query Posts {
     allMarkdownRemark(sort: { fields: fields___createat, order: DESC }) {
       nodes {
-        excerpt
-        fields {
-          slug
-          sourceFileType
-          zenn
-          createat
-        }
-        frontmatter {
-          title
-          tags
-          topics
-          steam
-        }
+        ...PostList
       }
     }
   }

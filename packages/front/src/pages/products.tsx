@@ -21,21 +21,7 @@ export default Products;
 export const pageQuery = graphql`
   query Products {
     profileYaml {
-      products {
-        title
-        description
-        image {
-          childImageSharp {
-            fluid(maxHeight: 200) {
-              src
-            }
-          }
-        }
-        links {
-          name
-          href
-        }
-      }
+      ...ProductList
     }
   }
 `;

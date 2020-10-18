@@ -10,28 +10,13 @@ import {
   Typography,
 } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
 import { PostIcon } from './PostIcon';
 
-interface Post {
-  readonly excerpt?: string;
-  readonly fields?: {
-    readonly createat?: string;
-    readonly slug?: string;
-    readonly zenn?: string;
-  };
-  readonly frontmatter?: {
-    readonly title?: string;
-    readonly tags?: readonly (string | undefined)[];
-    readonly topics?: readonly (string | undefined)[];
-    readonly steam?: string;
-  };
-}
-
 interface PostListProps {
   readonly children?: never;
-  readonly posts: readonly (Post | undefined)[] | undefined;
+  readonly posts: readonly GatsbyTypes.PostListFragment[];
 }
 
 const useStyles = makeStyles(theme =>
@@ -105,3 +90,21 @@ export const PostList: React.FC<PostListProps> = ({ posts }) => {
     </List>
   );
 };
+
+export const query = graphql`
+  fragment PostList on MarkdownRemark {
+    excerpt
+    fields {
+      slug
+      sourceFileType
+      zenn
+      createat
+    }
+    frontmatter {
+      title
+      tags
+      topics
+      steam
+    }
+  }
+`;
