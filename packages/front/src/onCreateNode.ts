@@ -1,4 +1,4 @@
-import { basename, dirname, posix, relative, resolve } from 'path';
+import { dirname, relative, resolve } from 'path';
 import { createFilePath } from 'gatsby-source-filesystem';
 import simpleGit from 'simple-git';
 
