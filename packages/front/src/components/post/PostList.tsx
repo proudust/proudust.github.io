@@ -13,11 +13,25 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Link } from 'gatsby';
 
 import { PostIcon } from './PostIcon';
-import { usePostData } from './usePostData';
+
+interface Post {
+  readonly excerpt?: string;
+  readonly fields?: {
+    readonly createat?: string;
+    readonly slug?: string;
+    readonly zenn?: string;
+  };
+  readonly frontmatter?: {
+    readonly title?: string;
+    readonly tags?: readonly (string | undefined)[];
+    readonly topics?: readonly (string | undefined)[];
+    readonly steam?: string;
+  };
+}
 
 interface PostListProps {
-  children?: never;
-  limit: number;
+  readonly children?: never;
+  readonly posts: readonly (Post | undefined)[] | undefined;
 }
 
 const useStyles = makeStyles(theme =>
@@ -47,30 +61,37 @@ const useStyles = makeStyles(theme =>
 
 const ListPaper: typeof Paper = props => <Paper component="ul" {...props} />;
 
-export const PostList: React.FC<PostListProps> = props => {
+function nonNull<T>(x: T | undefined): x is T {
+  return Boolean(x);
+}
+
+export const PostList: React.FC<PostListProps> = ({ posts }) => {
   const classes = useStyles();
-  const posts = usePostData().slice(0, props.limit === 0 ? Number.MAX_VALUE : props.limit);
 
   return (
     <List component={ListPaper} style={{ padding: 0 }}>
-      {posts.slice().map((post, index) => (
+      {posts?.filter(nonNull)?.map((post, index) => (
         <React.Fragment key={index}>
           {index !== 0 ? <Divider component="li" variant="inset" /> : undefined}
           <li>
-            <ListItem button component={Link} to={post.url}>
+            <ListItem
+              button
+              component={Link}
+              to={post.frontmatter?.steam ?? post.fields?.zenn ?? post.fields?.slug ?? ''}
+            >
               <ListItemAvatar>
                 <Avatar className={classes.icon}>
-                  <PostIcon tag={post.tags[0]} />
+                  <PostIcon tag={post.frontmatter?.tags?.[0] ?? post.frontmatter?.topics?.[0]} />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
                 primary={
                   <>
                     <Typography align="left" classes={{ root: classes.title }}>
-                      {post.title}
+                      {post.frontmatter?.title}
                     </Typography>
                     <Typography align="right" color="textSecondary">
-                      {post.createat.slice(0, 10)}
+                      {post.fields?.createat?.slice(0, 10)}
                     </Typography>
                   </>
                 }

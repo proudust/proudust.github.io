@@ -49,7 +49,7 @@ export const Index: React.FC<IndexProps> = ({ data }) => (
   <Layout>
     <section>
       <SectionHeader href="/posts">投稿</SectionHeader>
-      <PostList limit={5} />
+      <PostList posts={data.allMarkdownRemark.nodes} />
     </section>
     <section>
       <SectionHeader href="/products">制作物</SectionHeader>
@@ -62,6 +62,23 @@ export default Index;
 
 export const pageQuery = graphql`
   query Index {
+    allMarkdownRemark(sort: { fields: fields___createat, order: DESC }, limit: 5) {
+      nodes {
+        excerpt
+        fields {
+          slug
+          sourceFileType
+          zenn
+          createat
+        }
+        frontmatter {
+          title
+          tags
+          topics
+          steam
+        }
+      }
+    }
     profileYaml {
       products {
         title
