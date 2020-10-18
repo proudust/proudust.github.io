@@ -20,22 +20,10 @@ export function usePostData(): PostData[] {
     excerpt: node.excerpt ?? '',
     createat: node.frontmatter?.createat ?? node.fields?.createat ?? '',
     tags: (node.frontmatter?.tags ?? node.frontmatter?.topics)?.filter(NonNull) ?? [],
-    url: node.fields?.zenn ?? node.fields?.slug ?? '',
+    url: node.frontmatter?.steam ?? node.fields?.zenn ?? node.fields?.slug ?? '',
   }));
 
-  const guides: PostData[] = result.allSteamGuidesYaml?.nodes.map(
-    node =>
-      ({
-        type: 'steam-guide',
-        title: node.title ?? '',
-        excerpt: node.excerpt ?? '',
-        createat: node.createat ?? '',
-        tags: ['Steam'] as string[],
-        url: node.url ?? '',
-      } as const),
-  );
-
-  return [...selfposts, ...guides].sort((a, b) => Date.parse(b.createat) - Date.parse(a.createat));
+  return [...selfposts].sort((a, b) => Date.parse(b.createat) - Date.parse(a.createat));
 }
 
 const query = graphql`
@@ -54,15 +42,8 @@ const query = graphql`
           tags
           topics
           createat
+          steam
         }
-      }
-    }
-    allSteamGuidesYaml {
-      nodes {
-        title
-        createat
-        excerpt
-        url
       }
     }
   }

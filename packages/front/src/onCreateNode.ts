@@ -9,6 +9,9 @@ interface MarkdownRemark {
   readonly fields?: {
     readonly sourceFileType?: 'posts' | 'zenn';
   };
+  readonly frontmatter: {
+    readonly steam?: string;
+  };
 }
 
 function isMarkdownRemarkNode(x: CreateNodeArgs): x is CreateNodeArgs<MarkdownRemark> {
@@ -21,8 +24,8 @@ function appendSourceFileType(args: CreateNodeArgs): void {
   const { node, actions, getNode } = args;
   if (node.fields?.sourceFileType) return;
 
-  const { sourceInstanceName } = getNode(node.parent);
-  actions.createNodeField({ name: 'sourceFileType', node, value: sourceInstanceName });
+  const sourceFileType = node.frontmatter.steam ? 'steam' : getNode(node.parent).sourceInstanceName;
+  actions.createNodeField({ name: 'sourceFileType', node, value: sourceFileType });
 }
 
 function appendSlug(args: CreateNodeArgs): void {
@@ -60,8 +63,8 @@ async function appendGitInfo(args: CreateNodeArgs): Promise<void> {
       dirPath = resolve(dirPath, '..');
       continue;
     }
-    const createAt = commits.all[commits.total - 1].date;
-    const updateAt = commits.latest.date;
+    const createAt = commits.all[commits.total - 1]?.date;
+    const updateAt = commits.latest?.date;
     actions.createNodeField({ name: `createat`, node, value: createAt });
     actions.createNodeField({ name: `updateat`, node, value: updateAt });
     break;
