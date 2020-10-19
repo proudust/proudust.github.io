@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{nPCk:function(e,n,t){"use strict";t.r(n),t.d(n,"Products",(function(){return o})),t.d(n,"pageQuery",(function(){return d}));var a=t("ERkP"),r=t.n(a),c=t("Ac47"),u=t("SVcu"),o=function(e){var n,t=e.data;return r.a.createElement(c.a,{title:"制作物",backref:"/"},r.a.createElement("section",null,r.a.createElement(u.a,{products:null===(n=t.allProduct)||void 0===n?void 0:n.nodes})))};n.default=o;var d="1838223070"}}]);
+//# sourceMappingURL=component---src-pages-products-tsx-ab5872fda5fbad5bc838.js.map
