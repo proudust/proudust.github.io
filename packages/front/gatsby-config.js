@@ -58,6 +58,65 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
+              allMarkdownRemark.nodes.map(node => ({
+                date: node.fields.createat,
+                title: node.frontmatter.title,
+                description: node.excerpt,
+                url:
+                  node.frontmatter.steam ||
+                  node.fields.zenn ||
+                  site.siteMetadata.siteUrl + node.fields.slug,
+                guid:
+                  node.frontmatter.steam ||
+                  node.fields.zenn ||
+                  site.siteMetadata.siteUrl + node.fields.slug,
+                custom_elements: [{ 'content:encoded': node.html }],
+              })),
+            query: `
+              {
+                allMarkdownRemark(sort: { fields: fields___createat, order: DESC }) {
+                  nodes {
+                    excerpt
+                    html
+                    fields {
+                      slug
+                      sourceFileType
+                      zenn
+                      createat
+                    }
+                    frontmatter {
+                      title
+                      tags
+                      topics
+                      steam
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'proudust.github.io RSS Feed',
+          },
+        ],
+      },
+    },
     'gatsby-transformer-sharp',
     {
       resolve: `gatsby-transformer-yaml`,
