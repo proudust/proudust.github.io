@@ -44,8 +44,8 @@ function appendZennUrl(args: CreateNodeArgs): void {
   const { node, actions, getNode } = args;
   if (node.fields?.sourceFileType !== 'zenn') return;
 
-  const { relativePath } = getNode(node.parent);
-  const zennUrl = `https://zenn.dev/proudust/${relativePath}`;
+  const slug = (getNode(node.parent).relativePath as string).replace('.md', '');
+  const zennUrl = `https://zenn.dev/proudust/${slug}`;
   actions.createNodeField({ name: 'zenn', node, value: zennUrl });
 }
 
