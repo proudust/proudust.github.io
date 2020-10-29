@@ -80,13 +80,13 @@ module.exports = {
                 title: node.frontmatter.title,
                 description: node.excerpt,
                 url:
-                  node.frontmatter.steam ||
-                  node.fields.zenn ||
-                  site.siteMetadata.siteUrl + node.fields.slug,
+                  node.fields.sourceFileType === 'posts'
+                    ? site.siteMetadata.siteUrl + node.fields.slug
+                    : node.fields.externalUrl,
                 guid:
-                  node.frontmatter.steam ||
-                  node.fields.zenn ||
-                  site.siteMetadata.siteUrl + node.fields.slug,
+                  node.fields.sourceFileType === 'posts'
+                    ? site.siteMetadata.siteUrl + node.fields.slug
+                    : node.fields.externalUrl,
                 custom_elements: [{ 'content:encoded': node.html }],
               })),
             query: `
@@ -98,14 +98,11 @@ module.exports = {
                     fields {
                       slug
                       sourceFileType
-                      zenn
+                      externalUrl
                       createat
                     }
                     frontmatter {
                       title
-                      tags
-                      topics
-                      steam
                     }
                   }
                 }

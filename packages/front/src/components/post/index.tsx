@@ -62,7 +62,11 @@ export const PostList: React.FC<PostListProps> = ({ posts }) => {
             <ListItem
               button
               component={Link}
-              to={post.frontmatter?.steam ?? post.fields?.zenn ?? post.fields?.slug ?? ''}
+              to={
+                (post.fields?.sourceFileType === 'posts'
+                  ? post.fields?.slug
+                  : post.fields?.externalUrl) ?? ''
+              }
             >
               <ListItemAvatar>
                 <Avatar className={classes.icon}>
@@ -102,7 +106,7 @@ export const query = graphql`
     fields {
       slug
       sourceFileType
-      zenn
+      externalUrl
       createat(formatString: "YYYY/MM/DD")
       createatRaw: createat
     }
@@ -110,7 +114,6 @@ export const query = graphql`
       title
       tags
       topics
-      steam
     }
   }
 `;

@@ -7,7 +7,7 @@ import type { CreateNodeArgs, GatsbyNode } from 'gatsby';
 interface MarkdownRemark {
   readonly fileAbsolutePath: string;
   readonly fields?: {
-    readonly sourceFileType?: 'posts' | 'zenn';
+    readonly sourceFileType?: 'posts' | 'steam' | 'zenn';
   };
   readonly frontmatter: {
     readonly createat?: string;
@@ -46,7 +46,17 @@ function appendZennUrl(args: CreateNodeArgs): void {
 
   const path = (getNode(node.parent).relativePath as string).replace('.md', '');
   const zennUrl = `https://zenn.dev/proudust/${path}`;
-  actions.createNodeField({ name: 'zenn', node, value: zennUrl });
+  actions.createNodeField({ name: 'externalUrl', node, value: zennUrl });
+}
+
+function appendSteamUrl(args: CreateNodeArgs): void {
+  if (!isMarkdownRemarkNode(args)) return;
+
+  const { node, actions } = args;
+  if (node.fields?.sourceFileType !== 'steam') return;
+
+  const externalUrl = node.frontmatter?.steam;
+  actions.createNodeField({ name: 'externalUrl', node, value: externalUrl });
 }
 
 async function appendGitInfo(args: CreateNodeArgs): Promise<void> {
@@ -77,5 +87,6 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = async args =>
     appendSourceFileType(args),
     appendGitInfo(args),
     appendSlug(args),
+    appendSteamUrl(args),
     appendZennUrl(args),
   ]);
