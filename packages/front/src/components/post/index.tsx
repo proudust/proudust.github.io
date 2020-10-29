@@ -70,7 +70,7 @@ export const PostList: React.FC<PostListProps> = ({ posts }) => {
             >
               <ListItemAvatar>
                 <Avatar className={classes.icon}>
-                  <PostIcon tag={post.frontmatter?.tags?.[0] ?? post.frontmatter?.topics?.[0]} />
+                  <PostIcon tag={post.fields?.tags?.[0]} />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
@@ -107,13 +107,12 @@ export const query = graphql`
       slug
       sourceFileType
       externalUrl
+      tags
       createat(formatString: "YYYY/MM/DD")
       createatRaw: createat
     }
     frontmatter {
       title
-      tags
-      topics
     }
   }
 `;
