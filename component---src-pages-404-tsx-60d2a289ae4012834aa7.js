@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{"i6+/":function(e,n,t){"use strict";t.r(n),t.d(n,"NotFound",(function(){return p}));var a=t("ERkP"),c=t.n(a),o=t("TuTm"),r=t("yUsM"),i=t("Ep2I"),u=t("Ac47"),p=function(){var e=Object(i.a)();return c.a.createElement(u.a,{title:"404: Not Found",backref:"/"},c.a.createElement(o.a,{style:{padding:e.spacing(3)}},c.a.createElement(r.a,{component:"h2",variant:"h5"},"ページが見つかりません")))};n.default=p}}]);
-//# sourceMappingURL=component---src-pages-404-tsx-60d2a289ae4012834aa7.js.map

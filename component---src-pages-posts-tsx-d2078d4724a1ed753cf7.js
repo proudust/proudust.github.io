@@ -1,0 +1,2 @@
+(self.webpackChunkfront=self.webpackChunkfront||[]).push([[754],{6692:function(e,t,n){"use strict";n.r(t),n.d(t,{Posts:function(){return l}});var r=n(2784),a=n(6100),c=n(195),l=function(e){var t=e.data;return r.createElement(a.A,{title:"投稿",backref:"/"},r.createElement("section",null,r.createElement(c.p,{posts:t.allMarkdownRemark.nodes})))};t.default=l}}]);
+//# sourceMappingURL=component---src-pages-posts-tsx-d2078d4724a1ed753cf7.js.map

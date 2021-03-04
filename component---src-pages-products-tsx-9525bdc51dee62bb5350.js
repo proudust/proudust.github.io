@@ -1,0 +1,2 @@
+(self.webpackChunkfront=self.webpackChunkfront||[]).push([[473],{5300:function(e,t,n){"use strict";n.r(t),n.d(t,{Products:function(){return l}});var r=n(2784),c=n(6100),u=n(3226),l=function(e){var t,n=e.data;return r.createElement(c.A,{title:"制作物",backref:"/"},r.createElement("section",null,r.createElement(u.c,{products:null===(t=n.allProduct)||void 0===t?void 0:t.nodes})))};t.default=l}}]);
+//# sourceMappingURL=component---src-pages-products-tsx-9525bdc51dee62bb5350.js.map
