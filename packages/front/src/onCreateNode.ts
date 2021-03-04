@@ -27,7 +27,9 @@ function appendSourceFileType(args: CreateNodeArgs): void {
   const { node, actions, getNode } = args;
   if (node.fields?.sourceFileType) return;
 
-  const sourceFileType = node.frontmatter.steam ? 'steam' : getNode(node.parent).sourceInstanceName;
+  const sourceFileType = node.frontmatter.steam
+    ? 'steam'
+    : getNode(node.parent!).sourceInstanceName;
   actions.createNodeField({ name: 'sourceFileType', node, value: sourceFileType });
 }
 
@@ -46,7 +48,7 @@ function appendZennUrl(args: CreateNodeArgs): void {
   const { node, actions, getNode } = args;
   if (node.fields?.sourceFileType !== 'zenn') return;
 
-  const path = (getNode(node.parent).relativePath as string).replace('.md', '');
+  const path = (getNode(node.parent!).relativePath as string).replace('.md', '');
   const zennUrl = `https://zenn.dev/proudust/${path}`;
   actions.createNodeField({ name: 'externalUrl', node, value: zennUrl });
 }
