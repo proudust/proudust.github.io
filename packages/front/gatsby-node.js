@@ -7,4 +7,3 @@ require('ts-node').register({
 });
 
 exports.onCreateNode = require('./src/onCreateNode').onCreateNode;
-exports.createPages = require('./src/createPages').createPages;

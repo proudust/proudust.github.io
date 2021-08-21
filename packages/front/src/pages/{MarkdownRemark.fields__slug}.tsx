@@ -4,10 +4,10 @@ import { makeStyles, createStyles, useTheme } from '@material-ui/core/styles';
 import { Toc as TocIcon } from '@material-ui/icons';
 import { graphql } from 'gatsby';
 
-import { Layout } from '../../components/layout';
-import { Article } from './Article';
-import { ViewOnGithubButton } from './ViewOnGithubButton';
-import { Toc } from './Toc';
+import { Layout } from '../components/layout';
+import { Article } from '../components/post/Article';
+import { ViewOnGithubButton } from '../components/post/ViewOnGithubButton';
+import { Toc } from '../components/post/Toc';
 
 import type { PageProps } from 'gatsby';
 
@@ -65,7 +65,7 @@ const BlogPost: React.FC<BlogPostProps> = props => {
       width={matches ? 'lg' : undefined}
       actions={
         <>
-          <ViewOnGithubButton slug={props.pageContext.slug} />
+          <ViewOnGithubButton slug={post.fields?.slug ?? ''} />
           <TocButton visible={!matches} onClick={() => setOpenNav(true)} />
         </>
       }
@@ -99,12 +99,13 @@ const BlogPost: React.FC<BlogPostProps> = props => {
 export default BlogPost;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query BlogPostBySlug($id: String) {
+    markdownRemark(id: { eq: $id }) {
       id
       html
       tableOfContents(absolute: false)
       fields {
+        slug
         createat(formatString: "YYYY/MM/DD")
         createatRaw: createat
       }
