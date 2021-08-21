@@ -23,7 +23,7 @@
     "gatsby-plugin-react-helmet": "^4.0.0",
     "gatsby-plugin-sharp": "^3.0.0",
     "gatsby-plugin-typegen": "^2.2.4",
-    "gatsby-plugin-typescript": "^3.0.0",
+    "gatsby-plugin-typescript": "^3.12.0",
     "gatsby-remark-autolink-headers": "^3.0.0",
     "gatsby-remark-images": "^4.0.0",
     "gatsby-remark-prismjs": "^4.0.0",
