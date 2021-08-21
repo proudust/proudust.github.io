@@ -20,16 +20,7 @@ jobs:
         uses: actions/setup-node@v2.4.0
         with:
           node-version: 14
-
-      - name: Use yarn cache
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/yarn
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-${{ env.cache-name }}-
-            ${{ runner.os }}-yarn-
-            ${{ runner.os }}-
+          cache: yarn
 
       - name: Restore node modules
         run: yarn --frozen-lockfile
