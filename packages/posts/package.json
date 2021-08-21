@@ -15,8 +15,8 @@
   },
   "scripts": {
     "fix": "run-p fix:*",
-    "fix:txtlint": "yarn lint:txtlint --fix",
-    "fix:mdlint": "yarn lint:mdlint --fix",
+    "fix:txtlint": "npm run lint:txtlint --fix",
+    "fix:mdlint": "npm run lint:mdlint --fix",
     "lint": "run-p lint:*",
     "lint:txtlint": "textlint .",
     "lint:mdlint": "markdownlint ."

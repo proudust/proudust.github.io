@@ -20,19 +20,19 @@ jobs:
         uses: actions/setup-node@v2.4.0
         with:
           node-version: 14
-          cache: yarn
+          cache: npm
 
       - name: Restore node modules
-        run: yarn --frozen-lockfile
+        run: npm ci
 
       - name: Lint
-        run: yarn lint
+        run: npm run lint
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Type Check
-        run: yarn front tsc
+        run: npm run tsc --workspace=front
 
       - name: Deploy
         if: github.ref == 'refs/heads/master-src'

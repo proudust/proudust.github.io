@@ -62,7 +62,7 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "fix": "run-s fix:*",
-    "fix:eslint": "yarn lint:eslint --fix",
+    "fix:eslint": "npm run lint:eslint --fix",
     "fix:prettier": "prettier --write --ignore-path ../../.gitignore .",
     "lint": "run-p lint:*",
     "lint:eslint": "eslint --ignore-path ../../.gitignore .",

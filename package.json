@@ -2,19 +2,16 @@
   "name": "proudust.github.io",
   "private": true,
   "scripts": {
-    "front": "yarn workspace front",
-    "posts": "yarn workspace posts",
-    "----": "",
-    "build": "yarn front build",
-    "clean": "yarn front clean",
-    "deploy": "yarn front deploy",
+    "build": "npm run build --workspace=front",
+    "clean": "npm run clean --workspace=front",
+    "deploy": "npm run deploy --workspace=front",
     "fix": "run-p fix:*",
-    "fix:front": "yarn front fix",
-    "fix:posts": "yarn posts fix",
+    "fix:front": "npm run fix --workspace=front",
+    "fix:posts": "npm run fix --workspace=posts",
     "lint": "run-p lint:*",
-    "lint:front": "yarn front lint",
-    "lint:posts": "yarn posts lint",
-    "start": "yarn front start"
+    "lint:front": "npm run lint --workspace=front",
+    "lint:posts": "npm run lint --workspace=posts",
+    "start": "npm run start --workspace=front"
   },
   "workspaces": [
     "packages/*"
