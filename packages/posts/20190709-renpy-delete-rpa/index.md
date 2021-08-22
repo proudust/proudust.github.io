@@ -10,7 +10,7 @@ qiita: https://qiita.com/proudust/items/ac70cd6ae523e0fd9acf
 
 ## 結論
 
-### `init python`ブロックで削除する
+### `init python` ブロックで削除する
 
 この場合 rpa 内のスクリプトが読み込まれてしまっているので、再起動または終了する必要がある。
 
@@ -22,7 +22,7 @@ renpy.save_persistent()
 renpy.utter_restart()
 ```
 
-**2.** `init python`ブロックで persistent の削除フラグが立っていたら、 rpa と persistent の削除フラグを削除
+**2.** `init python` ブロックで persistent の削除フラグが立っていたら、 rpa と persistent の削除フラグを削除
 
 ```py
 import os
@@ -40,34 +40,34 @@ renpy.save_persistent()
 
 ### 起動時
 
-- `python early`ブロック config は使える
-- `init * python`ブロック (* の数値が小さい順)
-- `translate * python`ブロック (* は現在の言語)
+- `python early` ブロック config は使える
+- `init * python` ブロック (* の数値が小さい順)
+- `translate * python` ブロック (* は現在の言語)
   - リソースがロードされ、以降リソース入り rpa はロックされて削除できない
 
 ### タイトルへ戻った時
 
-- `translate * python`ブロック (* は現在の言語)
+- `translate * python` ブロック (* は現在の言語)
 
-### `renpy.change_language(*)`時
+### `renpy.change_language(*)` 時
 
-- `translate * python`ブロック (* は変更後の言語)
+- `translate * python` ブロック (* は変更後の言語)
 
-### `renpy.utter_restart()`時
+### `renpy.utter_restart()` 時
 
 起動時と同じ
-※ `renpy.utter_restart()`はタイトル前に実行すると無言で落ちる
+※ `renpy.utter_restart()` はタイトル前に実行すると無言で落ちる
 
-### `renpy.reload_script()`時
+### `renpy.reload_script()` 時
 
-起動時と同じだが、`translate * python`ブロックがなぜか 3 回くらい呼ばれる
+起動時と同じだが、`translate * python` ブロックがなぜか 3 回くらい呼ばれる
 あと画面にリロード中であることがデカデカと表示される
-※ `renpy.reload_script()`はタイトル前に実行すると無言で落ちる
+※ `renpy.reload_script()` はタイトル前に実行すると無言で落ちる
 
-### `renpy.full_restart()`時
+### `renpy.full_restart()` 時
 
 タイトルへ戻った時と同じ
-※ `renpy.full_restart()`は `python early` ブロック、`init * python`ブロックで実行すると落ちる。`translate * python`ブロックでは落ちない。
+※ `renpy.full_restart()` は `python early` ブロック、`init * python` ブロックで実行すると落ちる。`translate * python` ブロックでは落ちない。
 
 ### `renpy.quit(relaunch=True)`
 

@@ -32,13 +32,13 @@ PC 版の場合、`exe` と同じ階層に `renpy` フォルダがあります�
 
 ### 2. `Extract RPA packages` を実行
 
-UnRen.bat を起動し、`Enter a number:`が表示されたら、`1`を入力して `Enter` を押します。  
+UnRen.bat を起動し、`Enter a number:` が表示されたら、`1` を入力して `Enter` を押します。  
 すると `game` フォルダ内の `.rpa` ファイルがアンパックされ、中の `.rpyc` ファイルやリソースファイルが展開されます。  
 
 ### 3. `Decompile rpyc files` を実行
 
-続けて `key to exit:` で `1` を入力し、`Enter a number:`が表示されたら、`2`を入力して `Enter` を押します。  
-すると `game` フォルダ内の `.rpyc` ファイルがデコンパイルされ、`.rpy`ファイルが展開されます。  
+続けて `key to exit:` で `1` を入力し、`Enter a number:` が表示されたら、`2` を入力して `Enter` を押します。  
+すると `game` フォルダ内の `.rpyc` ファイルがデコンパイルされ、`.rpy` ファイルが展開されます。  
 
 ## Mac/Linux の場合
 
@@ -46,7 +46,7 @@ UnRen.bat を起動し、`Enter a number:`が表示されたら、`1`を入力�
 
 [Shizmob/rpatool](https://github.com/Shizmob/rpatool) と [CensoredUsername/unrpyc](https://github.com/CensoredUsername/unrpyc) をダウンロードします。
 
-### 2. `.rpa`ファイルをアンパック
+### 2. `.rpa` ファイルをアンパック
 
 以下のようなコマンドで rpatool を実行します。
 
@@ -54,7 +54,7 @@ UnRen.bat を起動し、`Enter a number:`が表示されたら、`1`を入力�
 python rpatool -x "アンパックするrpaファイル"
 ```
 
-### 3. `.rpyc`ファイルをデコンパイル
+### 3. `.rpyc` ファイルをデコンパイル
 
 同様に unrpyc も実行します。
 

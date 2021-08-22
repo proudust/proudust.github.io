@@ -146,11 +146,11 @@ but was absent
 - 指定の範囲内 (`isIn(Range)`)
 - 指定の範囲外 (`isNotIn(Range)`)
   - 引数には *Google Guava* の `com.google.common.collect.Range` を渡す
-- `Comparable#compareTo`で指定値と等しい (`isEquivalentAccordingToCompareTo(T)`)
-- `Comparable#compareTo`で指定値より大きい (`isGreaterThan(T)`)
-- `Comparable#compareTo`で指定値より小さい (`isLessThan(T)`)
-- `Comparable#compareTo`で指定値以上 (`isAtLeast(T)`)
-- `Comparable#compareTo`で指定値以下 (`isAtMost(T)`)
+- `Comparable#compareTo` で指定値と等しい (`isEquivalentAccordingToCompareTo(T)`)
+- `Comparable#compareTo` で指定値より大きい (`isGreaterThan(T)`)
+- `Comparable#compareTo` で指定値より小さい (`isLessThan(T)`)
+- `Comparable#compareTo` で指定値以上 (`isAtLeast(T)`)
+- `Comparable#compareTo` で指定値以下 (`isAtMost(T)`)
 
 ### 真偽値
 

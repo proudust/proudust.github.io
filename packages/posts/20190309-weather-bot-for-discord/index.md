@@ -72,11 +72,11 @@ curl --request GET \
 
 ### パラメータの意味
 
-- `$KEY`アカウント登録後に表示される Secret Key
-- `$LATITUDE,$LONGITUDE`緯度、経度
-- `?exclude=currently,minutely,hourly,flags`レスポンスから除外する情報を指定する（これらを除外すると 1 週間分の天気予報だけが残る）
-- `&lang=ja`解説などに使用される言語を日本語に設定
-- `&units=si`単位を摂氏・メートル法に設定
+- `$KEY` アカウント登録後に表示される Secret Key
+- `$LATITUDE,$LONGITUDE` 緯度、経度
+- `?exclude=currently,minutely,hourly,flags` レスポンスから除外する情報を指定する（これらを除外すると 1 週間分の天気予報だけが残る）
+- `&lang=ja` 解説などに使用される言語を日本語に設定
+- `&units=si` 単位を摂氏・メートル法に設定
 
 ### 型定義の作成
 
@@ -246,8 +246,8 @@ const payload: Discord.DiscordWebhookPayload = {
 ```
 
 変換したデータをで Webhook に POST する。Webhook の URL もスクリプトのプロパティから読み込む。
-`URLFetchRequestOptions.payload`は `object` も入れられるが、勝手に json に変換してくれるわけではないので変換してから渡す。
-また、`content-type`の設定を間違えると意味不明なエラーしか返してくれないので要注意。
+`URLFetchRequestOptions.payload` は `object` も入れられるが、勝手に json に変換してくれるわけではないので変換してから渡す。
+また、`content-type` の設定を間違えると意味不明なエラーしか返してくれないので要注意。
 
 ``` ts
   const url = PropertiesService.getScriptProperties().getProperty('WEBHOOK');
@@ -267,7 +267,7 @@ const payload: Discord.DiscordWebhookPayload = {
 ## GASにソースコードをアップロード
 
 [G Suite Developer Hub](https://script.google.com/home)にアクセスし、新しいスクリプトを作成する。
-`UrlFetchApp.fetch`には `https://www.googleapis.com/auth/script.external_request` の権限が必要なので `appsscript.json` に追記しておく。
+`UrlFetchApp.fetch` には `https://www.googleapis.com/auth/script.external_request` の権限が必要なので `appsscript.json` に追記しておく。
 clasp の扱いは[Google Apps Script をローカル環境で快適に開発するためのテンプレートを作りました](https://qiita.com/howdy39/items/0e799a9bfc1d3bccf6e5)を参考にした。
 
 ```json:appsscript.json

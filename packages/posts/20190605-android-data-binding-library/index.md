@@ -27,7 +27,7 @@ android {
 
 ## 2. レイアウトを `<layout></layout>` で囲う
 
-`layout/*.xml` の頭と尻に `<layout></layout>` を書き加え、`xmlns:*`だけ `<layout>` に移動する。
+`layout/*.xml` の頭と尻に `<layout></layout>` を書き加え、`xmlns:*` だけ `<layout>` に移動する。
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>

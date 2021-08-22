@@ -49,7 +49,7 @@ src
 npm i -D raw-loader @types/webpack-env
 ```
 
-### 2. `webpack.config.js`に `raw-loader` を設定
+### 2. `webpack.config.js` に `raw-loader` を設定
 
 読み込ませたい拡張子が複数ある場合は `/\.txt$/` のところを変更する。
 この方法で読み込む場合、TypeScript では必要だった `declare module '*.txt'` のような宣言も必要無さそう。
@@ -77,8 +77,8 @@ module.exports = {
 
 ### 3. 読み込み処理の記述
 
-`require.context()`に読み込むフォルダへの相対パスを渡す。
-`context.keys()`でそのフォルダ以下のファイルの相対パスが配列で渡されるので、`Array.map()`で欲しい形に変える。
+`require.context()` に読み込むフォルダへの相対パスを渡す。
+`context.keys()` でそのフォルダ以下のファイルの相対パスが配列で渡されるので、`Array.map()` で欲しい形に変える。
 
 ```templates.ts
 interface Files {

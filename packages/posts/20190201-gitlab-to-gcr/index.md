@@ -74,8 +74,8 @@ build:
     - master
 ```
 
-`before_script`で gcloud の認証を行い、`stage: build`で Cloud Build を起動しています。
-`gcloud config set project`を忘れると、権限が足りないというエラーが出るので気をつけましょう。(1 敗)
+`before_script` で gcloud の認証を行い、`stage: build` で Cloud Build を起動しています。
+`gcloud config set project` を忘れると、権限が足りないというエラーが出るので気をつけましょう。(1 敗)
 
 ### 3-2. docker push コマンドを使用する場合
 
@@ -114,7 +114,7 @@ build:
     - master
 ```
 
-`google/cloud-sdk:alpine`イメージで `docker build` を動かすほうが早いと思われますが、うまく動いてくれなかったため仕方なく `docker:latest` で `gcloud` をダウンロードしています。
+`google/cloud-sdk:alpine` イメージで `docker build` を動かすほうが早いと思われますが、うまく動いてくれなかったため仕方なく `docker:latest` で `gcloud` をダウンロードしています。
 
 ### 参考
 
