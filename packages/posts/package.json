@@ -19,6 +19,6 @@
     "fix:mdlint": "npm run lint:mdlint --fix",
     "lint": "run-p lint:*",
     "lint:txtlint": "textlint .",
-    "lint:mdlint": "markdownlint ."
+    "lint:mdlint": "markdownlint . -i node_modules"
   }
 }
