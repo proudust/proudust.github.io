@@ -31,8 +31,8 @@ winget install vscode --override "/silent /mergetasks=""addcontextmenufiles,addc
 | パラメータ            | 説明                                                                                     |
 | --------------------- | ---------------------------------------------------------------------------------------- |
 | desktopicon           | デスクトップ上にアイコンを作成する                                                       |
-| addcontextmenufiles   | エクスプローラーのファイル コンテキストメニューに [Code で開く] アクションを追加する     |
-| addcontextmenufolders | エクスプローラーのディレクトリ コンテキストメニューに [Code で開く] アクションを追加する |
+| addcontextmenufiles   | エクスプローラーのファイル コンテキストメニューに[Code で開く]アクションを追加する     |
+| addcontextmenufolders | エクスプローラーのディレクトリ コンテキストメニューに[Code で開く]アクションを追加する |
 | associatewithfiles    | サポートされているファイルの種類のエディタとして、Code を登録する                        |
 | addtopath             | PATH への追加（再起動後に使用可能）                                                      |
 

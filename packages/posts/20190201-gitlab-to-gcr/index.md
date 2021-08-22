@@ -10,7 +10,7 @@ qiita: https://qiita.com/proudust/items/d94c60ec69dead927954
 
 GitLab.com で作成したプロジェクトの Docker イメージを GCP で使用するため、Google Container Registry に push します。
 
-## 1. [GCP]アービスアカウントの取得
+## 1. 【GCP】アービスアカウントの取得
 
 GitLab から GCR にアクセスするためのサービスアカウントを発行します。
 GCP のプロジェクト > IAM と管理 > サービス アカウント > サービスアカウントを発行 から発行します。
@@ -34,7 +34,7 @@ Project > 参照者, Cloud Build > Cloud Build 編集者, ストレージ > ス�
 アクセス権を付与は無視し、GitLab からサービスアカウントへログインするためのキーの作成を行います。
 種類に JSON を選び作成を押すと、JSON キーがダウンロードされます。
 
-## 2. [GitLab]環境変数の設定
+## 2. 【GitLab】環境変数の設定
 
 GitLab のプロジェクト > 設定 > CI/CD > 変数から CI で利用する環境変数を設定します。
 設定する変数は以下の 2 つです。
@@ -44,7 +44,7 @@ GitLab のプロジェクト > 設定 > CI/CD > 変数から CI で利用する�
 | GCLOUD_SERVICE_KEY    | 1.で取得した JSON キーの内容をコピペ |
 | PROJECT_ID_PRODUCTION | GCP のプロジェクト名                 |
 
-## 3. [GitLab].gitlab-ci.ymlの記述
+## 3. 【GitLab】.gitlab-ci.ymlの記述
 
 ### 3-1. Cloud Buildを使用する場合
 
