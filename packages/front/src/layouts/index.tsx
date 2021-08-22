@@ -1,10 +1,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { CssBaseline, createMuiTheme } from '@material-ui/core';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { CssBaseline } from '@material-ui/core';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
