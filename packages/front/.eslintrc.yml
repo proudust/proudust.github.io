@@ -4,8 +4,8 @@ env:
   node: true
 
 extends:
+  - plugin:@typescript-eslint/recommended
   - plugin:react/recommended
-  - prettier
   - react-app
 
 parserOptions:
@@ -16,18 +16,13 @@ plugins:
   - react
 
 rules:
-  react/prop-types:
-    - off
+  react/prop-types: off
+
+  '@typescript-eslint/explicit-function-return-type':
+    - warn
+    - allowExpressions: true
 
 overrides:
-  - files: ['**/*.ts']
-    parser: '@typescript-eslint/parser'
-    extends:
-      - plugin:@typescript-eslint/recommended
-    plugins:
-      - '@typescript-eslint'
-
+  - files: ['**/*.js']
     rules:
-      '@typescript-eslint/explicit-function-return-type':
-        - warn
-        - allowExpressions: true
+      '@typescript-eslint/no-var-requires': off
