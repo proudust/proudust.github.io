@@ -8,6 +8,7 @@ import { Layout } from '../components/layout';
 import { Article } from '../components/post/Article';
 import { ViewOnGithubButton } from '../components/post/ViewOnGithubButton';
 import { Toc } from '../components/post/Toc';
+import NotFound from './404';
 
 import type { PageProps } from 'gatsby';
 
@@ -55,7 +56,7 @@ const BlogPost: React.FC<BlogPostProps> = props => {
   const [openNav, setOpenNav] = React.useState(false);
 
   const post = props.data?.markdownRemark;
-  if (!post) throw Error('post is not found.');
+  if (!post) return <NotFound />;
 
   return (
     <Layout
@@ -100,7 +101,7 @@ export default BlogPost;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($id: String) {
-    markdownRemark(id: { eq: $id }) {
+    markdownRemark(id: { eq: $id }, fields: { slug: { ne: null } }) {
       id
       html
       tableOfContents(absolute: false)
