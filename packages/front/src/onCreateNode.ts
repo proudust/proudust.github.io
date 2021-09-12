@@ -4,7 +4,7 @@ import simpleGit from 'simple-git';
 
 import type { CreateNodeArgs, GatsbyNode } from 'gatsby';
 
-interface MarkdownRemark {
+interface MarkdownRemark extends Record<string, unknown> {
   readonly fileAbsolutePath: string;
   readonly fields?: {
     readonly sourceFileType?: 'posts' | 'steam' | 'zenn';
@@ -94,7 +94,7 @@ async function appendGitInfo(args: CreateNodeArgs): Promise<void> {
 }
 
 export const onCreateNode: GatsbyNode['onCreateNode'] = async args =>
-  Promise.all([
+  void Promise.all([
     appendSourceFileType(args),
     appendGitInfo(args),
     appendTopics(args),
