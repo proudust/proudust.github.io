@@ -1,6 +1,10 @@
 ---
 title: Ren'Py製ゲームの翻訳パッチ作成方法
-tags: [Steam]
+emoji: 🌐
+topics: [steam]
+type: tech
+published: true
+
 createat: "2017-11-13T01:26:00+09:00"
 updateat: "2019-09-01T12:32:00+09:00"
 steam: https://steamcommunity.com/sharedfiles/filedetails/?id=1198526520

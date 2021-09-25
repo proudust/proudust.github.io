@@ -1,6 +1,10 @@
 ---
 title: 手動作成したリリースにビルドの成果物を添付する
-tags: [GitHub, GitHub Actions]
+emoji: 🔖
+topics: [github, githubactions]
+type: tech
+published: true
+
 qrunch:
 ---
 

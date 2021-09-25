@@ -1,6 +1,10 @@
 ---
 title: Doki Doki Mod Manager と DDLC MOD の紹介
-tags: [Steam]
+emoji: 🛠️
+topics: [steam]
+type:
+published: true
+
 createat: "2019-09-09T15:59:00+09:00"
 updateat: "2019-11-26T01:03:00+09:00"
 steam: https://steamcommunity.com/sharedfiles/filedetails/?id=1657324261

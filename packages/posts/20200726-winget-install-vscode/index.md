@@ -1,6 +1,9 @@
 ---
 title: winget で vscode をインストールする
-tags: [Windows]
+emoji: 🪟
+topics: [windows]
+type: tech
+published: true
 ---
 
 ## 普通にインストール

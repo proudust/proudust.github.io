@@ -1,6 +1,10 @@
 ---
 title: 作詞による DDLC のルート分岐まとめ
-tags: [Steam]
+emoji: 💚
+topics: [steam]
+type:
+published: true
+
 createat: "2019-08-21T15:21:00+09:00"
 updateat: "2019-08-22T12:47:00+09:00"
 steam: https://steamcommunity.com/sharedfiles/filedetails/?id=1840974176

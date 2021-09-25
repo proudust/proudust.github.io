@@ -1,7 +1,11 @@
 ---
 title: Ren'Py のかなりマニアックな小ネタ集
-tags: [Ren'Py]
-qrunch: https://proudust.qrunch.io/entries/ef5dqZWYJhfbwPLs
+emoji: ⚠️
+topics: [renpy]
+type: tech
+published: true
+
+qrunch:
 ---
 
 なにか思いつく度に書き足していきます。

@@ -1,6 +1,10 @@
 ---
 title: PAYDAY2 CRIME SPREE メモ
-tags: [PAYDAY2]
+emoji: 🔫
+topics: [payday2]
+type:
+published: true
+
 ---
 
 ![THE SEARCH で事故死して失敗した後のスクショ](screenshots.jpg)

@@ -1,6 +1,10 @@
 ---
 title: Context を受け取ってファイルを読み書きするクラスをテストする
-tags: [Android]
+emoji: ☑️
+topics: [android]
+type: tech
+published: true
+
 createat: "2019-04-14T09:34:26+09:00"
 updateat: "2019-06-18T15:46:51+09:00"
 qiita: https://qiita.com/proudust/items/cf8488e676cc892e9514
@@ -10,7 +14,8 @@ qiita: https://qiita.com/proudust/items/cf8488e676cc892e9514
 
 ## テスト対象のクラス
 
-```BooleanRepository.java
+```java
+// BooleanRepository.java
 public class BooleanRepository {
     static final String FILE_NAME = "BOOLEAN.txt";
 
@@ -40,7 +45,8 @@ public class BooleanRepository {
 
 *Robolectric*を使うことで、Android に依存するテストも JVM 上で実行することができます。
 
-``` build.gradle
+```groovy
+// build.gradle
 android {
     compileSdkVersion 28
     ...
@@ -58,7 +64,8 @@ dependencies {
 
 ```
 
-``` BooleanRepositorySpec.java
+```java
+// BooleanRepositorySpec.java
 @RunWith(RobolectricTestRunner.class)
 public class MemoRepositorySpec {
     private static final boolean INPUT_BOOL = true;
@@ -114,7 +121,8 @@ public class MemoRepositorySpec {
 
 `InputStream`、`OutputStream` を返すメソッドを作って、
 
-```BooleanRepository.java
+```java
+// BooleanRepository.java
     InputStream getInputStream() throws FileNotFoundException {
         return context.openFileInput(FILE_NAME);
     }
@@ -126,7 +134,8 @@ public class MemoRepositorySpec {
 
 テスト対象のメソッドをそこから読み取るように変更する。
 
-```BooleanRepository.java
+```java
+// BooleanRepository.java
         try (final InputStream is = getInputStream();
         /* ... */
         try (final OutputStream os = getOutputStream();
@@ -136,7 +145,8 @@ public class MemoRepositorySpec {
 `ByteArrayInputStream` にはファイルの内容の byte 配列をコンストラクタに渡せる。
 `ByteArrayOutputStream` なら `.toByteArray()` すると出力内容を byte[]で読み取れる。
 
-```BooleanRepositorySpec.java
+```java
+// BooleanRepositorySpec.java
 public class MemoRepositorySpec {
     private static final boolean INPUT_BOOL = true;
     private static final byte[] INPUT_BYTES = String.valueOf(INPUT_BOOL).getBypes(StandardCharsets.UTF_8);

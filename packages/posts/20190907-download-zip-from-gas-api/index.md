@@ -1,6 +1,10 @@
 ---
 title: GAS で zip を返す API を作りたかった
-tags: [Google Apps Script]
+emoji: 📦
+topics: [googleappsscript]
+type: tech
+published: true
+
 createat: "2019-09-07T15:22:25+09:00"
 updateat: "2019-09-13T16:53:39+09:00"
 qiita: https://qiita.com/proudust/items/5f19501ccb12b7dd0cba

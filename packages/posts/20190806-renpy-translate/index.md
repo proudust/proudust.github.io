@@ -1,6 +1,10 @@
 ---
 title: Ren’Py の多言語対応について
-tags: [Ren'Py]
+emoji: 🌐
+topics: [renpy]
+type:
+published: true
+
 createat: "2019-08-06T12:03:25+09:00"
 updateat: "2019-10-23T09:56:07+09:00"
 qiita: https://qiita.com/proudust/items/e59a2ea833187d67e704

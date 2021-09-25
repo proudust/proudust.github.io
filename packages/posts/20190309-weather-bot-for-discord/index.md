@@ -1,6 +1,10 @@
 ---
 title: GoogleAppScript を使って Discord に朝と夕方に天気予報を流す
-tags: [Google Apps Script]
+emoji: 🌦️
+topics: [googleappsscript]
+type: tech
+published: true
+
 createat: "2019-03-09T19:18:58+09:00"
 updateat: "2019-03-09T19:18:58+09:00"
 qiita: https://qiita.com/proudust/items/516c142655aec63c4ea4
@@ -24,7 +28,7 @@ npm uninstall tslint tslint-config-prettier tslint-plugin-prettier
 npm i --save-dev eslint eslint-config-prettier eslint-plugin-prettier @typescript-eslint/eslint-plugin eslint-plugin-googleappsscript
 ```
 
-```json:.eslintrc.json
+```json
 {
   "extends": [
     "eslint:recommended",
@@ -84,7 +88,7 @@ curl --request GET \
 当然リテラル型は認識してくれないので自分で書く。
 それぞれの値の意味は[公式](https://darksky.net/dev/docs)や[Dark Sky APIを使ってみました！](https://knowledge.moshimore.jp/entry/dark_sky_api)を参考にした。
 
-``` ts:darksky.ts
+``` ts
 type DarkSkyIcon =
   | 'clear-day'
   | 'clear-night'
@@ -153,7 +157,7 @@ interface DarkSkyApiResponse {
 GAS で RESTAPI を叩く場合は `UrlFetchApp.fetch()` を用いる。
 SECRETKEY はソースコードに含めず、スクリプトのプロパティから読み込む。
 
-``` ts:darksky.ts
+``` ts
 const key = PropertiesService.getScriptProperties().getProperty('SECRETKEY');
 const apiurl = `https://api.darksky.net/forecast/${key}/${latitude},${longitude}?exclude=currently,minutely,hourly,flags&lang=ja&units=si`;
 try {
@@ -270,7 +274,7 @@ const payload: Discord.DiscordWebhookPayload = {
 `UrlFetchApp.fetch` には `https://www.googleapis.com/auth/script.external_request` の権限が必要なので `appsscript.json` に追記しておく。
 clasp の扱いは[Google Apps Script をローカル環境で快適に開発するためのテンプレートを作りました](https://qiita.com/howdy39/items/0e799a9bfc1d3bccf6e5)を参考にした。
 
-```json:appsscript.json
+```json
 {
   "timeZone": "Asia/Tokyo",
   "dependencies": {},

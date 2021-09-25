@@ -1,6 +1,9 @@
 ---
 title: X4 序盤金策メモ ロックボックス編
-tags: [X4]
+emoji: 🎁
+topics: [x4foundations]
+type:
+published: true
 ---
 
 最近 [X4: Foundations](https://store.steampowered.com/app/392160) とかいうめちゃくちゃプレイヤーに不親切なゲームをプレイしているので色々やり方をメモしておく。  

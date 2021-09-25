@@ -1,6 +1,10 @@
 ---
 title: GitHub Actions で手動トリガーのワークフローを作る
-tags: [GitHub, GitHub Actions]
+emoji: 👷
+topics: [github, githubactions]
+type: tech
+published: true
+
 createat: "2019-11-26T14:58:06+09:00"
 updateat: "2020-02-17T10:05:20+09:00"
 qiita: https://qiita.com/proudust/items/51599abd2b107b708e1e

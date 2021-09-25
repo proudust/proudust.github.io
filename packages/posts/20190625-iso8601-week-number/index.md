@@ -1,6 +1,10 @@
 ---
 title: JavaScript で ISO 8601 に準拠した週番号を計算する
-tags: [JavaScript]
+emoji: 📅
+topics: [javascript]
+type: tech
+published: true
+
 createat: "2019-06-25T11:02:03+09:00"
 updateat: "2019-06-25T11:03:45+09:00"
 qiita: https://qiita.com/proudust/items/a85b386b9899356b4c9c

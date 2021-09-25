@@ -1,6 +1,10 @@
 ---
 title: GitLab.com から Docker イメージを GoogleContainerRegistry に Push する
-tags: [GitLab, GitLab CI]
+emoji: 📮
+topics: [gitlab, gitlabci]
+type: tech
+published: true
+
 createat: "2019-02-01T22:55:14+09:00"
 updateat: "2019-03-03T18:50:29+09:00"
 qiita: https://qiita.com/proudust/items/d94c60ec69dead927954
@@ -48,7 +52,7 @@ GitLab のプロジェクト > 設定 > CI/CD > 変数から CI で利用する�
 
 ### 3-1. Cloud Buildを使用する場合
 
-``` yaml:.gitlab-ci.yml
+``` yaml
 image: google/cloud-sdk:alpine
 
 services:
@@ -79,7 +83,7 @@ build:
 
 ### 3-2. docker push コマンドを使用する場合
 
-``` yaml:.gitlab-ci.yml
+``` yaml
 image: docker:latest
 
 variables:

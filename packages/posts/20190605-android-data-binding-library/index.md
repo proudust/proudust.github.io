@@ -1,6 +1,10 @@
 ---
 title: DataBindingLibrary でソースコードから findViewById を一掃する
-tags: [Android]
+emoji: 🧹
+topics: [android]
+type: tech
+published: true
+
 createat: "2019-06-05T15:14:40+09:00"
 updateat: "2019-07-06T07:27:17+09:00"
 qiita: https://qiita.com/proudust/items/cf66592296814e55c5b6
@@ -14,7 +18,7 @@ qiita: https://qiita.com/proudust/items/cf66592296814e55c5b6
 
 `app/build.gradle` に `dataBinding.enabled = true` を追加する。
 
-``` gradle
+```groovy
 android {
     // 中略
     dataBinding {
@@ -79,7 +83,7 @@ android {
 `Fragment.java` を下記のように編集する。  
 Binding クラスから View を生成するパターン。フィールドに Binding クラスを持つ必要があるのがイマイチか。  
 
-``` diff:Fragment.java
+``` diff
 +private FragmentBinding binding;
 
  @Override
@@ -127,7 +131,7 @@ View を先に生成し、それを元に Binding インスタンスを生成す
 
 *RecyclerView.Adapter* に使うなら、*groupie*か*epoxy*使ったほうが *RecyclerView.ViewHolder* が不要になって良いと思う。
 
-``` diff:RecyclerView.Adapter.java
+``` diff
  @NonNull
  @Override
  public MainViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

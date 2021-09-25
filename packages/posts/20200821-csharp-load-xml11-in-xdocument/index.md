@@ -1,6 +1,10 @@
 ---
 title: XDocument で XML 1.1 を読み込む
-tags: [C#]
+emoji: 🤫
+topics: [csharp]
+type: tech
+published: true
+
 qrunch:
 ---
 

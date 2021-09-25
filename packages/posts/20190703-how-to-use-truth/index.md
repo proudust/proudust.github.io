@@ -1,9 +1,13 @@
 ---
 title: Truth (Java / Android 用アサーションライブラリ) の使い方
-tags: [Android, Java, Kotlin]
+emoji: 📚
+topics: [android, java, kotlin]
+type: tech
+published: true
+
 createat: "2019-07-03T12:15:46+09:00"
 qiita: https://qiita.com/proudust/items/8af4677a9986ed51f77f
-qrunch: https://proudust.qrunch.io/entries/NFxB9Bfd3VXNsgoG
+qrunch:
 ---
 
 ## [*Truth*](https://truth.dev/) とは

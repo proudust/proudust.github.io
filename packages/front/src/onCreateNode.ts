@@ -12,7 +12,6 @@ interface MarkdownRemark {
   readonly frontmatter: {
     readonly createat?: string;
     readonly steam?: string;
-    readonly tags?: readonly string[];
     readonly topics?: readonly string[];
   };
 }
@@ -63,13 +62,12 @@ function appendSteamUrl(args: CreateNodeArgs): void {
   actions.createNodeField({ name: 'externalUrl', node, value: externalUrl });
 }
 
-function appendTags(args: CreateNodeArgs): void {
+function appendTopics(args: CreateNodeArgs): void {
   if (!isMarkdownRemarkNode(args)) return;
 
   const { node, actions } = args;
-  const tags =
-    node.fields?.sourceFileType === 'zenn' ? node.frontmatter.topics : node.frontmatter.tags;
-  actions.createNodeField({ name: 'tags', node, value: tags });
+  const { topics } = node.frontmatter;
+  actions.createNodeField({ name: 'topics', node, value: topics });
 }
 
 async function appendGitInfo(args: CreateNodeArgs): Promise<void> {
@@ -99,7 +97,7 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = async args =>
   Promise.all([
     appendSourceFileType(args),
     appendGitInfo(args),
-    appendTags(args),
+    appendTopics(args),
     appendSlug(args),
     appendSteamUrl(args),
     appendZennUrl(args),

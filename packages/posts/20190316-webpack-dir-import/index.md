@@ -1,6 +1,10 @@
 ---
 title: webpack で特定ディレクトリ以下のファイルを全てインポートして配列にする
-tags: [JavaScript, Webpack]
+emoji: 📦
+topics: [javascript, webpack]
+type: tech
+published: true
+
 createat: "2019-03-16T22:17:43+09:00"
 updateat: "2019-06-12T15:22:15+09:00"
 qiita: https://qiita.com/proudust/items/d716957e243f9e019fda
@@ -8,7 +12,7 @@ qiita: https://qiita.com/proudust/items/d716957e243f9e019fda
 
 ## やりたいこと
 
-```sh
+```bash
 src
 ├─ template
 |  ├─ a.txt
@@ -54,7 +58,8 @@ npm i -D raw-loader @types/webpack-env
 読み込ませたい拡張子が複数ある場合は `/\.txt$/` のところを変更する。
 この方法で読み込む場合、TypeScript では必要だった `declare module '*.txt'` のような宣言も必要無さそう。
 
-```webpack.config.js
+```js
+// webpack.config.js
 module.exports = {
   /* 略 */
   module: {
@@ -80,7 +85,8 @@ module.exports = {
 `require.context()` に読み込むフォルダへの相対パスを渡す。
 `context.keys()` でそのフォルダ以下のファイルの相対パスが配列で渡されるので、`Array.map()` で欲しい形に変える。
 
-```templates.ts
+```ts
+// templates.ts
 interface Files {
   name: string;
   value: string;
