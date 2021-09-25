@@ -62,7 +62,11 @@ export default Index;
 
 export const pageQuery = graphql`
   query Index {
-    allMarkdownRemark(sort: { fields: fields___createat, order: DESC }, limit: 5) {
+    allMarkdownRemark(
+      filter: { frontmatter: { published: { eq: true } } }
+      sort: { fields: fields___createat, order: DESC }
+      limit: 5
+    ) {
       nodes {
         ...PostList
       }

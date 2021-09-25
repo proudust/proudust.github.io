@@ -20,7 +20,10 @@ export default Posts;
 
 export const pageQuery = graphql`
   query Posts {
-    allMarkdownRemark(sort: { fields: fields___createat, order: DESC }) {
+    allMarkdownRemark(
+      filter: { frontmatter: { published: { eq: true } } }
+      sort: { fields: fields___createat, order: DESC }
+    ) {
       nodes {
         ...PostList
       }
