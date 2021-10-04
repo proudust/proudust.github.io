@@ -17,7 +17,7 @@ jobs:
           ssh-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2.4.0
+        uses: actions/setup-node@v2.4.1
         with:
           node-version: 16
           cache: npm
