@@ -7,6 +7,7 @@ import {
   ListItemAvatar,
   ListItemText,
   Paper,
+  PaperProps,
   Typography,
 } from '@mui/material';
 import createStyles from '@mui/styles/createStyles';
@@ -45,7 +46,7 @@ const useStyles = makeStyles(theme =>
   }),
 );
 
-const ListPaper: typeof Paper = props => <Paper component="ul" {...props} />;
+const ListPaper: React.FC<PaperProps<'ul'>> = props => <Paper component="ul" {...props} />;
 
 function nonNull<T>(x: T | undefined): x is T {
   return Boolean(x);
