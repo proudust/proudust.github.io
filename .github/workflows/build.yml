@@ -20,22 +20,22 @@ jobs:
         uses: actions/setup-node@v2.4.1
         with:
           node-version: 16
-          cache: npm
+          cache: yarn
 
       - name: Use textlint problem matcher
         run: echo "::add-matcher::.github/textlint-matcher.json"
 
       - name: Restore node modules
-        run: npm ci
+        run: yarn --frozen-lockfile
 
       - name: Lint
-        run: npm run lint
+        run: yarn lint
 
       - name: Build
-        run: npm run build
+        run: yarn build
 
       - name: Type Check
-        run: npm run tsc --workspace=front
+        run: yarn workspace front tsc
 
       - name: Deploy
         if: github.ref == 'refs/heads/master-src'
