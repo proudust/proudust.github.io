@@ -1,49 +1,47 @@
 import React from 'react';
-import { Drawer, Typography } from '@mui/material';
+import styled from '@mui/styled-engine';
+import { Drawer, Typography, TypographyProps } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
-import makeStyles from '@mui/styles/makeStyles';
-import createStyles from '@mui/styles/createStyles';
-
-const useStyles = makeStyles(theme =>
-  createStyles({
-    nav: {
-      width: 300,
-      '& ul': {
-        listStyle: 'none',
-        margin: 0,
-        paddingLeft: theme.spacing(2),
-      },
-      '& li': {
-        padding: theme.spacing(1),
-        paddingLeft: theme.spacing(2),
-      },
-      '& > ul > li': {
-        borderLeftStyle: 'solid',
-        borderLeftColor: theme.palette.divider,
-        borderLeftWidth: 2,
-      },
-      '& ul ul li:last-child': {
-        paddingBottom: 0,
-      },
-      '& a': {
-        color: theme.palette.text.secondary,
-        display: '-webkit-box',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        WebkitLineClamp: 1,
-        WebkitBoxOrient: 'vertical',
-      },
-      '& a:hover': {
-        color: theme.palette.text.primary,
-      },
-      '& p': {
-        margin: 0,
-        paddingBottom: theme.spacing(1),
-      },
-    },
-  }),
+const TypographyDiv: React.FC<TypographyProps<'div'>> = props => (
+  <Typography component="div" {...props} />
 );
+
+const TypographyToc = styled(TypographyDiv)(({ theme }) => ({
+  width: 300,
+  '& ul': {
+    listStyle: 'none',
+    margin: 0,
+    paddingLeft: theme.spacing(2),
+  },
+  '& li': {
+    padding: theme.spacing(1),
+    paddingLeft: theme.spacing(2),
+  },
+  '& > ul > li': {
+    borderLeftStyle: 'solid',
+    borderLeftColor: theme.palette.divider,
+    borderLeftWidth: 2,
+  },
+  '& ul ul li:last-child': {
+    paddingBottom: 0,
+  },
+  '& a': {
+    color: theme.palette.text.secondary,
+    display: '-webkit-box',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    WebkitLineClamp: 1,
+    WebkitBoxOrient: 'vertical',
+  },
+  '& a:hover': {
+    color: theme.palette.text.primary,
+  },
+  '& p': {
+    margin: 0,
+    paddingBottom: theme.spacing(1),
+  },
+}));
 
 interface TocBodyProps {
   children?: never;
@@ -51,24 +49,18 @@ interface TocBodyProps {
   close?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const TocBody: React.FC<TocBodyProps> = ({ tableOfContents, close }) => {
-  const classes = useStyles();
-
-  return (
-    <>
-      <Typography component="span" style={{ padding: 16 }}>
-        目次
-      </Typography>
-      <Typography
-        className={classes.nav}
-        component="div"
-        variant="subtitle1"
-        onClick={close}
-        dangerouslySetInnerHTML={{ __html: tableOfContents ?? '' }}
-      />
-    </>
-  );
-};
+const TocBody: React.FC<TocBodyProps> = ({ tableOfContents, close }) => (
+  <>
+    <Typography component="span" style={{ padding: 16 }}>
+      目次
+    </Typography>
+    <TypographyToc
+      variant="subtitle1"
+      onClick={close}
+      dangerouslySetInnerHTML={{ __html: tableOfContents ?? '' }}
+    />
+  </>
+);
 
 const SideToc: React.FC<TocBodyProps> = props => {
   const theme = useTheme();

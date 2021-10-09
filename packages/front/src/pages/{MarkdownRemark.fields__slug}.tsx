@@ -1,8 +1,7 @@
 import React from 'react';
-import { IconButton, Paper, Tooltip, Typography, useMediaQuery } from '@mui/material';
+import styled from '@mui/styled-engine';
+import { IconButton, Paper, PaperProps, Tooltip, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
-import createStyles from '@mui/styles/createStyles';
 import { Toc as TocIcon } from '@mui/icons-material';
 import { graphql } from 'gatsby';
 
@@ -14,18 +13,19 @@ import NotFound from './404';
 
 import type { PageProps } from 'gatsby';
 
-const useStyles = makeStyles(theme =>
-  createStyles({
-    paper: {
-      padding: theme.spacing(3),
-      maxWidth: 800,
-    },
-    header: {
-      display: 'flex',
-      flexDirection: 'column-reverse',
-    },
-  }),
+const PaperArticleStyleLess: React.FC<PaperProps<'article'>> = props => (
+  <Paper component="article" {...props} />
 );
+
+const PaperArticle = styled(PaperArticleStyleLess)(({ theme }) => ({
+  padding: theme.spacing(3),
+  maxWidth: 800,
+}));
+
+const ArticleHeader = styled('header')({
+  display: 'flex',
+  flexDirection: 'column-reverse',
+});
 
 interface TocButtonProps {
   children?: never;
@@ -51,8 +51,6 @@ type BlogPostProps = PageProps<
 >;
 
 const BlogPost: React.FC<BlogPostProps> = props => {
-  const classes = useStyles();
-
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('lg'));
   const [openNav, setOpenNav] = React.useState(false);
@@ -73,8 +71,8 @@ const BlogPost: React.FC<BlogPostProps> = props => {
         </>
       }
     >
-      <Paper component="article" className={classes.paper}>
-        <header className={classes.header}>
+      <PaperArticle>
+        <ArticleHeader>
           <Typography variant="h1" style={{ fontSize: '2.5rem' }}>
             {post.frontmatter?.title}
           </Typography>
@@ -86,9 +84,9 @@ const BlogPost: React.FC<BlogPostProps> = props => {
           >
             {post.frontmatter?.createat ?? post.fields?.createat}
           </Typography>
-        </header>
+        </ArticleHeader>
         <Article html={post.html} />
-      </Paper>
+      </PaperArticle>
       <Toc
         mode={matches ? 'side' : 'drawer'}
         tableOfContents={post.tableOfContents}

@@ -1,9 +1,7 @@
 import React from 'react';
-import { Button, Typography } from '@mui/material';
-import { Theme } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
-import createStyles from '@mui/styles/createStyles';
-import { ArrowForward as ArrowForwardIcon } from '@mui/icons-material';
+import styled from '@mui/styled-engine';
+import { Button, ButtonProps, Typography } from '@mui/material';
+import { ArrowForward as MuiArrowForwardIcon } from '@mui/icons-material';
 import { graphql, Link } from 'gatsby';
 
 import { Layout } from '../components/layout';
@@ -12,38 +10,35 @@ import { ProductList } from '../components/product-list';
 
 import type { PageProps } from 'gatsby';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    headerButton: {
-      width: '100%',
-      display: 'flex',
-      justifyContent: 'space-between',
-      margin: theme.spacing(1, 0),
-      padding: theme.spacing(1, 0),
-    },
-    headerIcon: {
-      margin: theme.spacing(1),
-    },
-  }),
+const LinkButtonStyleLess: React.FC<ButtonProps<typeof Link>> = props => (
+  <Button component={Link} {...props} />
 );
+
+const LinkButton = styled(LinkButtonStyleLess)(({ theme }) => ({
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'space-between',
+  margin: theme.spacing(1, 0),
+  padding: theme.spacing(1, 0),
+}));
+
+const ArrowForwardIcon = styled(MuiArrowForwardIcon)(({ theme }) => ({
+  margin: theme.spacing(1),
+}));
 
 interface SectionHeaderProps {
   children: string;
   href: string;
 }
 
-const SectionHeader: React.FC<SectionHeaderProps> = props => {
-  const classes = useStyles();
-
-  return (
-    <Button className={classes.headerButton} component={Link} to={props.href}>
-      <Typography component="h2" variant="h5" color="textPrimary">
-        {props.children}
-      </Typography>
-      <ArrowForwardIcon className={classes.headerIcon} />
-    </Button>
-  );
-};
+const SectionHeader: React.FC<SectionHeaderProps> = props => (
+  <LinkButton to={props.href}>
+    <Typography component="h2" variant="h5" color="textPrimary">
+      {props.children}
+    </Typography>
+    <ArrowForwardIcon />
+  </LinkButton>
+);
 
 type IndexProps = PageProps<GatsbyTypes.IndexQuery, GatsbyTypes.IndexQueryVariables>;
 
