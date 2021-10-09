@@ -8,8 +8,9 @@ import {
   ListItemText,
   Paper,
   Typography,
-} from '@material-ui/core';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
+} from '@mui/material';
+import createStyles from '@mui/styles/createStyles';
+import makeStyles from '@mui/styles/makeStyles';
 import { graphql, Link } from 'gatsby';
 
 import { PostIcon } from './PostIcon';

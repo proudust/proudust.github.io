@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
-import { Android as AndroidIcon, GitHub as GitHubIcon } from '@material-ui/icons';
+import { Typography } from '@mui/material';
+import { Android as AndroidIcon, GitHub as GitHubIcon } from '@mui/icons-material';
 
 import {
   GitIcon,

@@ -1,6 +1,6 @@
 import React from 'react';
-import { IconButton, Tooltip } from '@material-ui/core';
-import { GitHub as GitHubIcon } from '@material-ui/icons';
+import { IconButton, Tooltip } from '@mui/material';
+import { GitHub as GitHubIcon } from '@mui/icons-material';
 
 interface ShowByGithubButtonProps {
   children?: never;
@@ -12,6 +12,7 @@ export const ViewOnGithubButton: React.FC<ShowByGithubButtonProps> = ({ slug }) 
     <IconButton
       component="a"
       href={`https://github.com/proudust/proudust.github.io/blob/master-src/packages/posts${slug}index.md`}
+      size="large"
     >
       <GitHubIcon />
     </IconButton>

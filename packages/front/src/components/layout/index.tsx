@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { useTheme } from '@material-ui/core/styles';
-import { Container, Divider } from '@material-ui/core';
+import { useTheme } from '@mui/material/styles';
+import { Container, Divider } from '@mui/material';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { DefaultAppBar } from './AppBar';

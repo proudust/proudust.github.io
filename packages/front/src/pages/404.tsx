@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography, Paper } from '@material-ui/core';
-import { useTheme } from '@material-ui/core/styles';
+import { Typography, Paper } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 import { Layout } from '../components/layout';
 

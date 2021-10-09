@@ -1,7 +1,9 @@
 import React from 'react';
-import { IconButton, Paper, Tooltip, Typography, useMediaQuery } from '@material-ui/core';
-import { makeStyles, createStyles, useTheme } from '@material-ui/core/styles';
-import { Toc as TocIcon } from '@material-ui/icons';
+import { IconButton, Paper, Tooltip, Typography, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import createStyles from '@mui/styles/createStyles';
+import { Toc as TocIcon } from '@mui/icons-material';
 import { graphql } from 'gatsby';
 
 import { Layout } from '../components/layout';
@@ -36,7 +38,7 @@ const TocButton: React.FC<TocButtonProps> = ({ visible, onClick }) => {
 
   return (
     <Tooltip title="目次を表示" placement="bottom">
-      <IconButton onClick={onClick}>
+      <IconButton onClick={onClick} size="large">
         <TocIcon />
       </IconButton>
     </Tooltip>

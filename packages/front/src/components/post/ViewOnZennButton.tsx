@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { IconButton, Tooltip } from '@material-ui/core';
+import { IconButton, Tooltip } from '@mui/material';
 
 import { ZennIcon } from '../../components/ZennIcon';
 
@@ -21,7 +21,7 @@ export const ViewOnZennButton: React.FC<ViewOnZennProps> = ({ visible, slug }) =
         <link rel="canonical" href={zennUrl} />
       </Helmet>
       <Tooltip title="Zenn で表示" placement="bottom">
-        <IconButton component="a" href={zennUrl}>
+        <IconButton component="a" href={zennUrl} size="large">
           <ZennIcon />
         </IconButton>
       </Tooltip>

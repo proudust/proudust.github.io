@@ -1,34 +1,43 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { CssBaseline } from '@material-ui/core';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
-import { green } from '@material-ui/core/colors';
+import { CssBaseline, adaptV4Theme } from '@mui/material';
+import { createTheme, ThemeProvider, Theme, StyledEngineProvider } from '@mui/material/styles';
+import { green } from '@mui/material/colors';
 
-const theme = createTheme({
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 540, // default: 600,
-      md: 864, // default: 960,
-      lg: 1152, // default: 1280,
-      xl: 1728, // default: 1920,
+declare module '@mui/styles/defaultTheme' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface DefaultTheme extends Theme {}
+}
+
+const theme = createTheme(
+  adaptV4Theme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 540, // default: 600,
+        md: 864, // default: 960,
+        lg: 1152, // default: 1280,
+        xl: 1728, // default: 1920,
+      },
     },
-  },
-  palette: { type: 'dark', secondary: green },
-});
+    palette: { mode: 'dark', secondary: green },
+  }),
+);
 
 interface LayoutsProps {
   children: React.ReactNode;
 }
 
 const Layouts: React.FC<LayoutsProps> = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <Helmet>
-      <html lang="ja" />
-    </Helmet>
-    <CssBaseline />
-    {children}
-  </ThemeProvider>
+  <StyledEngineProvider injectFirst>
+    <ThemeProvider theme={theme}>
+      <Helmet>
+        <html lang="ja" />
+      </Helmet>
+      <CssBaseline />
+      {children}
+    </ThemeProvider>
+  </StyledEngineProvider>
 );
 
 export default Layouts;

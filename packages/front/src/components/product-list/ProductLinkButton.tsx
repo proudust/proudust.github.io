@@ -1,10 +1,10 @@
 import React from 'react';
-import { IconButton, Tooltip } from '@material-ui/core';
+import { IconButton, Tooltip } from '@mui/material';
 import {
   GetApp as GetAppIcon,
   GitHub as GitHubIcon,
   Launch as LaunchIcon,
-} from '@material-ui/icons';
+} from '@mui/icons-material';
 
 const icons = new Map<string, React.ReactElement>();
 icons.set('Download', <GetAppIcon />);
@@ -22,7 +22,9 @@ export const ProductLinkButton: React.FC<ProductLinkButtonProps> = ({ name, href
   href ??= '';
   return (
     <Tooltip title={name} aria-label={name}>
-      <IconButton href={href}>{icons.get(name)}</IconButton>
+      <IconButton href={href} size="large">
+        {icons.get(name)}
+      </IconButton>
     </Tooltip>
   );
 };

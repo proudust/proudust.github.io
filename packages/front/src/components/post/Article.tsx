@@ -1,6 +1,7 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import createStyles from '@mui/styles/createStyles';
 import 'prismjs/themes/prism-tomorrow.css';
 
 const useStyles = makeStyles(theme =>

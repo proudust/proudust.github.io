@@ -1,6 +1,8 @@
 import React from 'react';
-import { Card, CardActionArea, CardActions, CardHeader, CardMedia } from '@material-ui/core';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { Card, CardActionArea, CardActions, CardHeader, CardMedia } from '@mui/material';
+import { Theme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import createStyles from '@mui/styles/createStyles';
 import Img from 'gatsby-image';
 
 import { ProductLinkButton } from './ProductLinkButton';
