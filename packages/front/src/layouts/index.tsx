@@ -14,11 +14,6 @@ declare module '@emotion/react' {
   interface Theme extends MuiTheme {}
 }
 
-declare module '@mui/styles/defaultTheme' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends MuiTheme {}
-}
-
 const theme = createTheme(
   adaptV4Theme({
     breakpoints: {
