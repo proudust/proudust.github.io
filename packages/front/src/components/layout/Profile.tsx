@@ -3,8 +3,7 @@ import styled from '@mui/styled-engine';
 import { Avatar, Container, ContainerProps, IconButton, Tooltip, Typography } from '@mui/material';
 import { GitHub as GitHubIcon, Twitter as TwitterIcon } from '@mui/icons-material';
 import { graphql, useStaticQuery } from 'gatsby';
-
-import { SteamSymbolIcon } from '../FontAwesomeIcons';
+import { FaSteamSymbol } from 'react-icons/fa';
 
 const ProfileContainerStyleLess: React.FC<ContainerProps<'footer'>> = props => (
   <Container component="footer" {...props} />
@@ -82,7 +81,7 @@ export const Profile: React.FC<ProfileProps> = () => {
             href={`https://steamcommunity.com/id/${social?.steam}/`}
             size="large"
           >
-            <SteamSymbolIcon />
+            <FaSteamSymbol />
           </IconButton>
         </Tooltip>
       </ProfileAddress>
