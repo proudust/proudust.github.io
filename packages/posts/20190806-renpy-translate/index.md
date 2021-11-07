@@ -6,7 +6,6 @@ type:
 published: true
 
 createat: "2019-08-06T12:03:25+09:00"
-updateat: "2019-10-23T09:56:07+09:00"
 qiita: https://qiita.com/proudust/items/e59a2ea833187d67e704
 ---
 
@@ -69,7 +68,9 @@ label hoge:
 
 - **MD5 の頭 8 文字**
 
-台詞から余計な空白を削除し、省略された属性や改行 (`\n\r`) を加えた文字列の MD5 ハッシュの頭 8 文字のみを取り出したものになります。
+台詞から余計な空白を削除し、省略された属性や改行 (`\r\n`) を加えた文字列の MD5 ハッシュの頭 8 文字のみを取り出したものになります。[^1]
+
+[^1]: https://github.com/renpy/renpy/blob/09cd83bb7d6daa178fbd8cd7eacb2d1de39f3c12/renpy/translation/__init__.py#L265-L271
 
 ``` renpy
 label hoge
@@ -79,7 +80,7 @@ label hoge
 例えば上記のコードの場合、台詞の行のみを取り出し、文頭の空白を削除し、改行を加えた
 
 ``` py
-"e \"hoge label\"\n\r"
+"e \"hoge label\"\r\n"
 ```
 
 の MD5 ハッシュ `b4d70893d07c7ce0c24ddfa74f0612b8` の頭 8 文字を取り出して `b4d70893` となります。  
@@ -98,7 +99,7 @@ menu
 この場合は文頭の空白を削除と改行に加え、省略されている `nointeract` を加えた
 
 ``` py
-"e \"Okey?\" nointeract\n\r"
+"e \"Okey?\" nointeract\r\n"
 ```
 
 の MD5 ハッシュ `deb0e85395ca2a578d34919945c586fd` の頭 8 文字を取り出して `deb0e853` となります。
