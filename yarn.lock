@@ -11822,14 +11822,14 @@ simple-git@^1.105.0:
   dependencies:
     debug "^4.0.1"
 
-simple-git@^2.46.0:
-  version "2.46.0"
-  resolved "https://registry.yarnpkg.com/simple-git/-/simple-git-2.46.0.tgz#d564856705cee9d2ef1d1f98c7143e2bc00e7c3e"
-  integrity sha512-6eumII1vfP4NpRqxZcVWCcIT5xHH6dRyvBZSjkH4dJRDRpv+0f75hrN5ysp++y23Mfr3AbRC/dO2NDbfj1lJpQ==
+simple-git@^2.48.0:
+  version "2.48.0"
+  resolved "https://registry.yarnpkg.com/simple-git/-/simple-git-2.48.0.tgz#87c262dba8f84d7b96bb3a713e9e34701c1f6e3b"
+  integrity sha512-z4qtrRuaAFJS4PUd0g+xy7aN4y+RvEt/QTJpR184lhJguBA1S/LsVlvE/CM95RsYMOFJG3NGGDjqFCzKU19S/A==
   dependencies:
     "@kwsites/file-exists" "^1.1.1"
     "@kwsites/promise-deferred" "^1.1.1"
-    debug "^4.3.1"
+    debug "^4.3.2"
 
 simple-swizzle@^0.2.2:
   version "0.2.2"
