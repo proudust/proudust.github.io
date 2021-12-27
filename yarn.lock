@@ -1136,18 +1136,7 @@
     source-map "^0.5.7"
     stylis "^4.0.3"
 
-"@emotion/cache@^11.4.0", "@emotion/cache@^11.5.0":
-  version "11.5.0"
-  resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-11.5.0.tgz#a5eb78cbef8163939ee345e3ddf0af217b845e62"
-  integrity sha512-mAZ5QRpLriBtaj/k2qyrXwck6yeoz1V5lMt/jfj6igWU35yYlNKs2LziXVgvH81gnJZ+9QQNGelSsnuoAy6uIw==
-  dependencies:
-    "@emotion/memoize" "^0.7.4"
-    "@emotion/sheet" "^1.0.3"
-    "@emotion/utils" "^1.0.0"
-    "@emotion/weak-memoize" "^0.2.5"
-    stylis "^4.0.10"
-
-"@emotion/cache@^11.6.0":
+"@emotion/cache@^11.4.0", "@emotion/cache@^11.5.0", "@emotion/cache@^11.6.0":
   version "11.7.1"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-11.7.1.tgz#08d080e396a42e0037848214e8aa7bf879065539"
   integrity sha512-r65Zy4Iljb8oyjtLeCuBH8Qjiy107dOYC6SJq7g7GV5UCQWMObY4SJDPGFjiiVpPrOJ2hmJOoBiYTC7hwx9E2A==
@@ -6233,10 +6222,10 @@ gatsby-plugin-layout@^2.14.0:
   dependencies:
     "@babel/runtime" "^7.15.4"
 
-gatsby-plugin-material-ui@^4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-material-ui/-/gatsby-plugin-material-ui-4.0.3.tgz#f0d3fc589852c15197ff84b077c517aa14108d4f"
-  integrity sha512-sUqxoQnEN/a2oi67JTR6vU7I0ucICYk2J/H4NWIBJAWZrKsVI+NiiESacqu0pbNGQ4h63RnRLtXTgD9b/1mbdQ==
+gatsby-plugin-material-ui@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-material-ui/-/gatsby-plugin-material-ui-4.1.0.tgz#068b3c9318fd0539d647a55e5108377695e8a602"
+  integrity sha512-g43jWiH/05tqdeCXVzPSe/L/98nPYfVANGmdilSTvfLshNPTppnls/Zs98TXmhbdHV/Bgov0hQsYIrBgcKWHbQ==
   dependencies:
     "@emotion/cache" "^11.4.0"
     "@emotion/server" "^11.4.0"
@@ -6265,10 +6254,10 @@ gatsby-plugin-react-helmet@^4.14.0:
   dependencies:
     "@babel/runtime" "^7.15.4"
 
-gatsby-plugin-sharp@^3.14.0:
-  version "3.14.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-3.14.1.tgz#4521d1ca7fe643eae743cae71621a8bb170a57dd"
-  integrity sha512-eLRoxLTrn5QCerIl/zaUTzJCBfPaaOZdVPhO6QUOd1o2qni6AR9QkeAw3He2e/1mnkB9wWGwJUdPiCfvUSE/pQ==
+gatsby-plugin-sharp@^3.14.3:
+  version "3.14.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-3.14.3.tgz#3db33ddfb2b83365ee2314eaaee6d1ceed046032"
+  integrity sha512-96H2HxJe4EHjnwp3Qn2LoKoPwciMf5TXwir9h9QR/+fTqld0OhU5Q4PjWciELmGXW7AzXKpSoTvRmA322kgPhg==
   dependencies:
     "@babel/runtime" "^7.15.4"
     async "^3.2.1"
@@ -12364,7 +12353,7 @@ stylis@4.0.13:
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.0.13.tgz#f5db332e376d13cc84ecfe5dace9a2a51d954c91"
   integrity sha512-xGPXiFVl4YED9Jh7Euv2V220mriG9u4B2TA6Ybjc1catrstKD2PpIdU3U0RKpkVBC2EhmL/F0sPCr9vrFTNRag==
 
-stylis@^4.0.10, stylis@^4.0.3:
+stylis@^4.0.3:
   version "4.0.10"
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.0.10.tgz#446512d1097197ab3f02fb3c258358c3f7a14240"
   integrity sha512-m3k+dk7QeJw660eIKRRn3xPF6uuvHs/FFzjX3HQ5ove0qYsiygoAhwn5a3IYKaZPo5LrYD0rfVmtv1gNY1uYwg==
