@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { CssBaseline, adaptV4Theme } from '@mui/material';
+import { CssBaseline } from '@mui/material';
 import {
   createTheme,
   ThemeProvider,
