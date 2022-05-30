@@ -7100,10 +7100,10 @@ gatsby-plugin-feed@^4.13.0:
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
-gatsby-plugin-layout@^3.14.0:
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-3.14.0.tgz#f5cd000f5bbca2bd0326ea2e9256bd3485499133"
-  integrity sha512-+ycQNFsdWa1GMjIGrjoxSNw+bi8UjvSmC2TqmPzYO3UwlHUceK8NStWJRMttY/N3zLtAEakYP7xpn2rWiS0TUw==
+gatsby-plugin-layout@^3.15.0:
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-3.15.0.tgz#5e8856bcd86c23c0502fcc80851bbf6de8ade967"
+  integrity sha512-1dhJpZXRjSDDfUwpiZ6aZbp7Ezc04A8zHaOaiHLK/JkJ44YND2FfDuXZTF9Cba5GTsja8zYuzO8k/e5HLsfpHw==
   dependencies:
     "@babel/runtime" "^7.15.4"
 
