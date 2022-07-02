@@ -59,10 +59,10 @@
     "clean": "gatsby clean",
     "fix": "run-s fix:*",
     "fix:eslint": "yarn lint:eslint --fix",
-    "fix:prettier": "prettier --write --ignore-path ../../.gitignore .",
+    "fix:prettier": "prettier --write .",
     "lint": "run-p lint:*",
     "lint:eslint": "eslint --ignore-path ../../.gitignore .",
-    "lint:prettier": "prettier --check --ignore-path ../../.gitignore .",
+    "lint:prettier": "prettier --check .",
     "tsc": "tsc",
     "deploy": "gh-pages -d public -b master"
   },
