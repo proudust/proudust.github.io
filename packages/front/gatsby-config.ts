@@ -123,6 +123,7 @@ const config: GatsbyConfig = {
         path: `./content/product/`,
       },
     },
+    `gatsby-plugin-image`,
     'gatsby-plugin-layout',
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
