@@ -8,17 +8,23 @@ import {
   CardMedia,
   CardMediaProps,
 } from '@mui/material';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { ProductLinkButton } from './ProductLinkButton';
 
-import type { FluidObject } from 'gatsby-image';
+import type { GatsbyImageProps, IGatsbyImageData } from 'gatsby-plugin-image';
 
-const CardMediaImageStyleLess: React.FC<CardMediaProps<typeof Img>> = props => (
-  <CardMedia component={Img} {...props} />
+type AltGatsbyImageProps = Omit<GatsbyImageProps, 'image'> & { gatsbyImageData: IGatsbyImageData };
+
+const AltGatsbyImage: React.FC<AltGatsbyImageProps> = ({ gatsbyImageData, ...props }) => (
+  <GatsbyImage image={gatsbyImageData} {...props} />
 );
 
-const CardMediaImage = styled(CardMediaImageStyleLess)({
+type CardMediaImageProps = Omit<CardMediaProps, 'image'> & AltGatsbyImageProps;
+
+const CardMediaImage = styled((props: CardMediaImageProps) => (
+  <CardMedia component={AltGatsbyImage} {...props} />
+))({
   height: 200,
 });
 
@@ -26,7 +32,7 @@ interface ProductListItemProps {
   children?: never;
   title?: string;
   description?: string;
-  image?: FluidObject | FluidObject[];
+  image?: IGatsbyImageData;
   links?: readonly {
     name?: string | null;
     href?: string | null;
@@ -36,7 +42,7 @@ interface ProductListItemProps {
 export const ProductListItem: React.FC<ProductListItemProps> = props => (
   <Card>
     <CardActionArea href={props.links?.[0].href ?? ''}>
-      {props.image && <CardMediaImage fluid={props.image} />}
+      {props.image && <CardMediaImage alt={props.title ?? ''} gatsbyImageData={props.image} />}
       <CardHeader
         title={props.title}
         titleTypographyProps={{ component: 'h3', variant: 'h6' }}

@@ -1451,6 +1451,25 @@ type GatsbyImageDataQueryOperatorInput = {
   readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['GatsbyImageData']>>>;
 };
 
+type GatsbyImageFormat =
+  | 'auto'
+  | 'avif'
+  | 'jpg'
+  | 'NO_CHANGE'
+  | 'png'
+  | 'webp';
+
+type GatsbyImageLayout =
+  | 'constrained'
+  | 'fixed'
+  | 'fullWidth';
+
+type GatsbyImagePlaceholder =
+  | 'blurred'
+  | 'dominantColor'
+  | 'none'
+  | 'tracedSVG';
+
 type GitRemote = Node & {
   readonly children: ReadonlyArray<Node>;
   readonly filepath: Maybe<Scalars['String']>;
@@ -4880,7 +4899,7 @@ type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: 
 type IndexQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type IndexQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly excerpt: string | null, readonly fields: { readonly slug: string | null, readonly sourceFileType: string | null, readonly externalUrl: string | null, readonly topics: ReadonlyArray<string | null> | null, readonly createat: string | null, readonly createatRaw: string | null } | null, readonly frontmatter: { readonly title: string | null } | null }> }, readonly allProduct: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly image: { readonly childImageSharp: { readonly fluid: { readonly base64: string | null, readonly aspectRatio: number, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string } | null } | null } | null, readonly links: ReadonlyArray<{ readonly name: string | null, readonly href: string | null } | null> | null }> } };
+type IndexQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly excerpt: string | null, readonly fields: { readonly slug: string | null, readonly sourceFileType: string | null, readonly externalUrl: string | null, readonly topics: ReadonlyArray<string | null> | null, readonly createat: string | null, readonly createatRaw: string | null } | null, readonly frontmatter: { readonly title: string | null } | null }> }, readonly allProduct: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly links: ReadonlyArray<{ readonly name: string | null, readonly href: string | null } | null> | null }> } };
 
 type LayoutQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4894,12 +4913,12 @@ type PostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 type PostsQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly excerpt: string | null, readonly fields: { readonly slug: string | null, readonly sourceFileType: string | null, readonly externalUrl: string | null, readonly topics: ReadonlyArray<string | null> | null, readonly createat: string | null, readonly createatRaw: string | null } | null, readonly frontmatter: { readonly title: string | null } | null }> } };
 
-type ProductListFragment = { readonly title: string | null, readonly description: string | null, readonly image: { readonly childImageSharp: { readonly fluid: { readonly base64: string | null, readonly aspectRatio: number, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string } | null } | null } | null, readonly links: ReadonlyArray<{ readonly name: string | null, readonly href: string | null } | null> | null };
+type ProductListFragment = { readonly title: string | null, readonly description: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly links: ReadonlyArray<{ readonly name: string | null, readonly href: string | null } | null> | null };
 
 type ProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type ProductsQuery = { readonly allProduct: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly image: { readonly childImageSharp: { readonly fluid: { readonly base64: string | null, readonly aspectRatio: number, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string } | null } | null } | null, readonly links: ReadonlyArray<{ readonly name: string | null, readonly href: string | null } | null> | null }> } };
+type ProductsQuery = { readonly allProduct: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly links: ReadonlyArray<{ readonly name: string | null, readonly href: string | null } | null> | null }> } };
 
 type ProfileQueryVariables = Exact<{ [key: string]: never; }>;
 

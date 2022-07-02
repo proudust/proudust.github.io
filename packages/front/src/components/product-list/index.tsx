@@ -4,8 +4,6 @@ import { graphql } from 'gatsby';
 
 import { ProductListItem } from './ProductListItem';
 
-import type { FluidObject } from 'gatsby-image';
-
 function nonNull<T>(x: T | null | undefined): x is T {
   return Boolean(x);
 }
@@ -22,7 +20,7 @@ export const ProductList: React.FC<ProductListProps> = ({ products }) => (
         <ProductListItem
           title={node?.title ?? undefined}
           description={node?.description ?? undefined}
-          image={(node?.image?.childImageSharp?.fluid as FluidObject) ?? undefined}
+          image={node?.image?.childImageSharp?.gatsbyImageData ?? undefined}
           links={node?.links?.filter(nonNull) ?? undefined}
         />
       </Grid>
@@ -36,9 +34,7 @@ export const query = graphql`
     description
     image {
       childImageSharp {
-        fluid(maxHeight: 200) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
     links {
