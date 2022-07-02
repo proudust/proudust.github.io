@@ -1,7 +1,7 @@
-const path = require('path');
+import path from 'path';
+import type { GatsbyConfig } from 'gatsby';
 
-/** @type import('gatsby').GatsbyConfig */
-module.exports = {
+const config: GatsbyConfig = {
   siteMetadata: {
     title: 'proudust.github.io',
     siteUrl: 'https://proudust.github.io',
@@ -136,3 +136,5 @@ module.exports = {
     'gatsby-plugin-material-ui',
   ],
 };
+
+export default config;
