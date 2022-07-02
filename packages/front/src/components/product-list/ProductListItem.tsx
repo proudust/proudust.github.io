@@ -28,8 +28,8 @@ interface ProductListItemProps {
   description?: string;
   image?: FluidObject | FluidObject[];
   links?: readonly {
-    name?: string;
-    href?: string;
+    name?: string | null;
+    href?: string | null;
   }[];
 }
 

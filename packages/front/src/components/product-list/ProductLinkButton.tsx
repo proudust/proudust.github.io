@@ -13,8 +13,8 @@ icons.set('Link', <LaunchIcon />);
 
 interface ProductLinkButtonProps {
   children?: never;
-  name?: string;
-  href?: string;
+  name?: string | null;
+  href?: string | null;
 }
 
 export const ProductLinkButton: React.FC<ProductLinkButtonProps> = ({ name, href }) => {

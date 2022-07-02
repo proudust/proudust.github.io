@@ -1,0 +1,14 @@
+{
+  "schema": "./packages/front/.cache/typegen/schema.graphql",
+  "documents": [
+    "./packages/front/src/**/**.{ts,js,tsx,jsx}",
+    "./packages/front/.cache/typegen/fragments.graphql"
+  ],
+  "extensions": {
+    "endpoints": {
+      "default": {
+        "url": "http://localhost:8000/___graphql"
+      }
+    }
+  }
+}

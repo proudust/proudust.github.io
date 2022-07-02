@@ -4,7 +4,9 @@ import { graphql } from 'gatsby';
 
 import { ProductListItem } from './ProductListItem';
 
-function nonNull<T>(x: T | undefined): x is T {
+import type { FluidObject } from 'gatsby-image';
+
+function nonNull<T>(x: T | null | undefined): x is T {
   return Boolean(x);
 }
 
@@ -18,10 +20,10 @@ export const ProductList: React.FC<ProductListProps> = ({ products }) => (
     {products?.map((node, index) => (
       <Grid component="li" item sm={6} xs={12} key={index}>
         <ProductListItem
-          title={node?.title}
-          description={node?.description}
-          image={node?.image?.childImageSharp?.fluid}
-          links={node?.links?.filter(nonNull)}
+          title={node?.title ?? undefined}
+          description={node?.description ?? undefined}
+          image={(node?.image?.childImageSharp?.fluid as FluidObject) ?? undefined}
+          links={node?.links?.filter(nonNull) ?? undefined}
         />
       </Grid>
     ))}
