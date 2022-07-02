@@ -34,9 +34,6 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Type Check
-        run: yarn workspace front tsc
-
       - name: Deploy
         if: github.ref == 'refs/heads/master-src'
         uses: peaceiris/actions-gh-pages@v3
