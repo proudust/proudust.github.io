@@ -2,6 +2,7 @@ import path from 'path';
 import type { GatsbyConfig } from 'gatsby';
 
 const config: GatsbyConfig = {
+  graphqlTypegen: true,
   siteMetadata: {
     title: 'proudust.github.io',
     siteUrl: 'https://proudust.github.io',
@@ -126,7 +127,6 @@ const config: GatsbyConfig = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
-    'gatsby-plugin-typegen',
     {
       resolve: 'gatsby-plugin-catch-links',
       options: {

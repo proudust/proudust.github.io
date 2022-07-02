@@ -6,7 +6,7 @@ import { PostList } from '../components/post';
 
 import type { PageProps } from 'gatsby';
 
-type PostListProps = PageProps<GatsbyTypes.PostsQuery, GatsbyTypes.PostsQueryVariables>;
+type PostListProps = PageProps<Queries.PostsQuery, Queries.PostsQueryVariables>;
 
 export const Posts: React.FC<PostListProps> = ({ data }) => (
   <Layout title="投稿" backref="/">

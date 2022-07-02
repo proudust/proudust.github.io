@@ -45,10 +45,7 @@ const TocButton: React.FC<TocButtonProps> = ({ visible, onClick }) => {
   );
 };
 
-type BlogPostProps = PageProps<
-  GatsbyTypes.BlogPostBySlugQuery,
-  GatsbyTypes.BlogPostBySlugQueryVariables
->;
+type BlogPostProps = PageProps<Queries.BlogPostBySlugQuery, Queries.BlogPostBySlugQueryVariables>;
 
 const BlogPost: React.FC<BlogPostProps> = props => {
   const theme = useTheme();
@@ -79,17 +76,17 @@ const BlogPost: React.FC<BlogPostProps> = props => {
           <Typography
             component="time"
             property="schema:datePublished"
-            dateTime={post.frontmatter?.createatRaw ?? post.fields?.createatRaw}
+            dateTime={post.frontmatter?.createatRaw ?? post.fields?.createatRaw ?? undefined}
             variant="subtitle1"
           >
             {post.frontmatter?.createat ?? post.fields?.createat}
           </Typography>
         </ArticleHeader>
-        <Article html={post.html} />
+        <Article html={post.html || undefined} />
       </PaperArticle>
       <Toc
         mode={matches ? 'side' : 'drawer'}
-        tableOfContents={post.tableOfContents}
+        tableOfContents={post.tableOfContents || undefined}
         isOpen={openNav}
         close={() => setOpenNav(false)}
       />

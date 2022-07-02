@@ -42,7 +42,7 @@ interface ProfileProps {
 }
 
 export const Profile: React.FC<ProfileProps> = () => {
-  const result = useStaticQuery<GatsbyTypes.ProfileQuery>(query);
+  const result = useStaticQuery<Queries.ProfileQuery>(query);
   const { name, summary, avatar, social } = result?.site?.siteMetadata?.author ?? {};
 
   return (

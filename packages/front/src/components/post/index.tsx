@@ -17,7 +17,7 @@ import { PostIcon } from './PostIcon';
 
 interface PostListProps {
   readonly children?: never;
-  readonly posts: readonly GatsbyTypes.PostListFragment[];
+  readonly posts: readonly Queries.PostListFragment[];
 }
 
 const PostAvatar = styled(Avatar)(({ theme }) => ({
@@ -64,7 +64,7 @@ export const PostList: React.FC<PostListProps> = ({ posts }) => (
           >
             <ListItemAvatar>
               <PostAvatar>
-                <PostIcon topic={post.fields?.topics?.[0]} />
+                <PostIcon topic={post.fields?.topics?.[0] || undefined} />
               </PostAvatar>
             </ListItemAvatar>
             <ListItemContent
@@ -75,7 +75,7 @@ export const PostList: React.FC<PostListProps> = ({ posts }) => (
                   </Typography>
                   <Typography
                     component="time"
-                    dateTime={post.fields?.createatRaw}
+                    dateTime={post.fields?.createatRaw || undefined}
                     align="right"
                     color="textSecondary"
                   >

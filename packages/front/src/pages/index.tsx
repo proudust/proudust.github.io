@@ -40,7 +40,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = props => (
   </LinkButton>
 );
 
-type IndexProps = PageProps<GatsbyTypes.IndexQuery, GatsbyTypes.IndexQueryVariables>;
+type IndexProps = PageProps<Queries.IndexQuery, Queries.IndexQueryVariables>;
 
 export const Index: React.FC<IndexProps> = ({ data }) => (
   <Layout>

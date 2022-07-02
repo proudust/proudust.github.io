@@ -6,7 +6,7 @@ import { ProductList } from '../components/product-list';
 
 import type { PageProps } from 'gatsby';
 
-type ProductsProps = PageProps<GatsbyTypes.ProductsQuery, GatsbyTypes.ProductsQueryVariables>;
+type ProductsProps = PageProps<Queries.ProductsQuery, Queries.ProductsQueryVariables>;
 
 export const Products: React.FC<ProductsProps> = ({ data }) => (
   <Layout title="制作物" backref="/">

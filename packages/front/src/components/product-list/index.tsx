@@ -10,7 +10,7 @@ function nonNull<T>(x: T | undefined): x is T {
 
 interface ProductListProps {
   children?: never;
-  products: readonly GatsbyTypes.ProductListFragment[];
+  products: readonly Queries.ProductListFragment[];
 }
 
 export const ProductList: React.FC<ProductListProps> = ({ products }) => (

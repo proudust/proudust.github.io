@@ -108,5 +108,5 @@ public/
 
 # End of https://www.gitignore.io/api/node,visualstudiocode
 
-# gatsby-plugin-typegen
-__generated__/
+# gatsby
+gatsby-types.d.ts
