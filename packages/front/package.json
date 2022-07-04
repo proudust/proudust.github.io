@@ -10,7 +10,7 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.5",
     "@types/jest": "^28.1.4",
-    "@types/node": "^18.0.0",
+    "@types/node": "^18.0.1",
     "@types/react-helmet": "^6.1.5",
     "gatsby": "^4.17.2",
     "gatsby-plugin-catch-links": "^4.16.0",
