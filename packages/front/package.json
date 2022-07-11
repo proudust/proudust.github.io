@@ -22,7 +22,7 @@
     "gatsby-plugin-sharp": "^4.17.0",
     "gatsby-plugin-typescript": "^4.16.0",
     "gatsby-remark-autolink-headers": "^5.17.0",
-    "gatsby-remark-images": "^6.17.0",
+    "gatsby-remark-images": "^6.18.0",
     "gatsby-remark-prismjs": "^6.17.0",
     "gatsby-source-filesystem": "^4.17.0",
     "gatsby-source-git": "^1.1.0",
