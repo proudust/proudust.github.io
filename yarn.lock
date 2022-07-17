@@ -1392,10 +1392,10 @@
     parse-filepath "^1.0.2"
     tslib "~2.4.0"
 
-"@graphql-eslint/eslint-plugin@^3.10.5":
-  version "3.10.5"
-  resolved "https://registry.yarnpkg.com/@graphql-eslint/eslint-plugin/-/eslint-plugin-3.10.5.tgz#a5d26fe95b52d5fbd02a4c122ca0bc1b2d62fcb2"
-  integrity sha512-rMsuoXA9ldD5IU+3sv9BqDb9SmP+BJFtzF8Y4bV1Pj5O3SROkVDHk/dbN4pv5uFu+Az/AM1BkwVbSzz9CvP5Sw==
+"@graphql-eslint/eslint-plugin@^3.10.6":
+  version "3.10.6"
+  resolved "https://registry.yarnpkg.com/@graphql-eslint/eslint-plugin/-/eslint-plugin-3.10.6.tgz#4d5748fade6c11d74aeff9a99d6e38d2ed8f6310"
+  integrity sha512-rxGSrKVsDHCuZRvP81ElgtCs0sikdhcHqQySiyhir4G+VhiNlPZ7SQJWrXm9JJEAeB0wQ50kabvse5NRk0hqog==
   dependencies:
     "@babel/code-frame" "^7.16.7"
     "@graphql-tools/code-file-loader" "^7.2.14"
@@ -7169,27 +7169,6 @@ gatsby-core-utils@^1.10.1:
     xdg-basedir "^4.0.0"
 
 gatsby-core-utils@^3.17.0, gatsby-core-utils@^3.18.0, gatsby-core-utils@^3.18.1:
-  version "3.18.1"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.18.1.tgz#7a9451ad1802a6489d24d5b52176720345e1b967"
-  integrity sha512-sJTxRqizLxYy/tSFk0ydfqEZ3ek1So9HDVUa39F6Oi8XuPCBTFzaAooUvowKGneI5YUbdk5y4VO4ybwVUynntw==
-  dependencies:
-    "@babel/runtime" "^7.15.4"
-    ci-info "2.0.0"
-    configstore "^5.0.1"
-    fastq "^1.13.0"
-    file-type "^16.5.3"
-    fs-extra "^10.1.0"
-    got "^11.8.5"
-    import-from "^4.0.0"
-    lmdb "2.5.3"
-    lock "^1.1.0"
-    node-object-hash "^2.3.10"
-    proper-lockfile "^4.1.2"
-    resolve-from "^5.0.0"
-    tmp "^0.2.1"
-    xdg-basedir "^4.0.0"
-
-gatsby-core-utils@^3.18.1:
   version "3.18.1"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.18.1.tgz#7a9451ad1802a6489d24d5b52176720345e1b967"
   integrity sha512-sJTxRqizLxYy/tSFk0ydfqEZ3ek1So9HDVUa39F6Oi8XuPCBTFzaAooUvowKGneI5YUbdk5y4VO4ybwVUynntw==
