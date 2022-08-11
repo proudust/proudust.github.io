@@ -7175,7 +7175,7 @@ gatsby-core-utils@^1.10.1:
     tmp "^0.2.1"
     xdg-basedir "^4.0.0"
 
-gatsby-core-utils@^3.18.1, gatsby-core-utils@^3.19.0, gatsby-core-utils@^3.20.0:
+gatsby-core-utils@^3.19.0, gatsby-core-utils@^3.20.0:
   version "3.20.0"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.20.0.tgz#5f9f1b1777fdf61479f79eb9cf18a72af424c856"
   integrity sha512-D3DIulUFoPvexwsGYFkfESL1Dd3qsxBfj8OBi8vsd6BuXrA6MbLtX3j5+BLVxfKkN2wF7XN6b3/DH+JGNuhh2A==
@@ -7412,16 +7412,16 @@ gatsby-remark-autolink-headers@^5.19.0:
     mdast-util-to-string "^2.0.0"
     unist-util-visit "^2.0.3"
 
-gatsby-remark-images@^6.18.1:
-  version "6.18.1"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-images/-/gatsby-remark-images-6.18.1.tgz#f130d01afce882b9d5e4781c3be96b122ec872f2"
-  integrity sha512-QgXVWTcgunNOSCX7B1vbGonRjamvnzwOcTC0yDYBRfOI56PListQAntE7gQE7K3CHTvRYvI+aB/VXf3MMbPDaQ==
+gatsby-remark-images@^6.20.0:
+  version "6.20.0"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-images/-/gatsby-remark-images-6.20.0.tgz#d642b196516e8e3aa95e269ce0cc89c0ed9d51d4"
+  integrity sha512-7mTCX6c10RollnCn4obyyk8dbdtTPa9UwsVp1L2jbFgw0XvSR783jM54XLzMz5YAbSiHKPkXbu6LwaqVm4RoeA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@gatsbyjs/potrace" "^2.2.0"
     chalk "^4.1.2"
     cheerio "^1.0.0-rc.10"
-    gatsby-core-utils "^3.18.1"
+    gatsby-core-utils "^3.20.0"
     is-relative-url "^3.0.0"
     lodash "^4.17.21"
     mdast-util-definitions "^4.0.0"
