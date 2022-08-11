@@ -14,7 +14,7 @@
     "@types/react-helmet": "^6.1.5",
     "gatsby": "^4.20.0",
     "gatsby-plugin-catch-links": "^4.19.0",
-    "gatsby-plugin-feed": "^4.18.1",
+    "gatsby-plugin-feed": "^4.20.0",
     "gatsby-plugin-image": "^2.19.0",
     "gatsby-plugin-layout": "^3.20.0",
     "gatsby-plugin-material-ui": "^4.1.0",
@@ -38,9 +38,9 @@
     "typescript": "^4.7.4"
   },
   "devDependencies": {
-    "@graphql-eslint/eslint-plugin": "^3.10.6",
+    "@graphql-eslint/eslint-plugin": "^3.10.7",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
-    "@typescript-eslint/parser": "^5.31.0",
+    "@typescript-eslint/parser": "^5.33.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.21.0",
     "eslint-config-react-app": "^7.0.1",
