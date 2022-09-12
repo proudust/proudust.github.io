@@ -12,7 +12,7 @@
     "@types/jest": "^28.1.6",
     "@types/node": "^18.7.4",
     "@types/react-helmet": "^6.1.5",
-    "gatsby": "^4.21.1",
+    "gatsby": "^4.22.1",
     "gatsby-plugin-catch-links": "^4.20.0",
     "gatsby-plugin-feed": "^4.21.0",
     "gatsby-plugin-image": "^2.22.0",
