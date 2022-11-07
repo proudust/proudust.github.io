@@ -13,7 +13,7 @@
     "@types/node": "^18.11.8",
     "@types/react-helmet": "^6.1.5",
     "gatsby": "^4.24.7",
-    "gatsby-plugin-catch-links": "^4.20.0",
+    "gatsby-plugin-catch-links": "^4.24.0",
     "gatsby-plugin-feed": "^4.24.0",
     "gatsby-plugin-image": "^2.24.0",
     "gatsby-plugin-layout": "^3.24.0",
