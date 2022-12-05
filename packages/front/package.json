@@ -11,7 +11,7 @@
     "@mui/material": "^5.10.16",
     "@types/jest": "^29.2.3",
     "@types/node": "^18.11.10",
-    "@types/react-helmet": "^6.1.5",
+    "@types/react-helmet": "^6.1.6",
     "gatsby": "^4.24.8",
     "gatsby-plugin-catch-links": "^4.24.0",
     "gatsby-plugin-feed": "^4.24.0",
