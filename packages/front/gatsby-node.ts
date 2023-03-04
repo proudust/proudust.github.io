@@ -1,4 +1,5 @@
-import { dirname, relative, resolve } from 'path';
+import { access } from 'fs/promises';
+import { dirname, join, relative, resolve } from 'path';
 import { createFilePath } from 'gatsby-source-filesystem';
 import simpleGit from 'simple-git';
 
@@ -77,20 +78,25 @@ async function appendGitInfo(args: CreateNodeArgs): Promise<void> {
   const absolutePath = node.fileAbsolutePath;
   if (!absolutePath) return;
   let dirPath = dirname(absolutePath);
-  while (true) {
-    const git = simpleGit(dirPath);
-    const relativePath = relative(dirPath, absolutePath);
-    const commits = await git.log({ file: relativePath }).catch(() => undefined);
-    if (!commits) {
-      dirPath = resolve(dirPath, '..');
-      continue;
-    }
-    const createAt = node.frontmatter.createat ?? commits.all[commits.total - 1]?.date;
-    const updateAt = commits.latest?.date;
-    actions.createNodeField({ name: `createat`, node, value: createAt });
-    actions.createNodeField({ name: `updateat`, node, value: updateAt });
-    break;
+
+  // search .git
+  while (await access(join(dirPath, '.git')).catch(() => true)) {
+    dirPath = resolve(dirPath, '..');
   }
+
+  // unshallow if needs
+  const git = simpleGit(dirPath);
+  if ((await git.revparse(['--is-shallow-repository'])) === 'true') {
+    await git.fetch(['--unshallow']).catch(() => undefined);
+  }
+
+  const relativePath = relative(dirPath, absolutePath);
+  const commits = await git.log({ file: relativePath }).catch(() => undefined);
+
+  const createAt = node.frontmatter.createat ?? commits?.latest?.date;
+  const updateAt = commits?.latest?.date;
+  actions.createNodeField({ name: `createat`, node, value: createAt });
+  actions.createNodeField({ name: `updateat`, node, value: updateAt });
 }
 
 export const onCreateNode: GatsbyNode['onCreateNode'] = async args =>
