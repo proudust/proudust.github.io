@@ -33,7 +33,7 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.8.0",
-    "simple-git": "^3.17.0",
+    "simple-git": "^3.18.0",
     "typescript": "^5.0.4"
   },
   "devDependencies": {
