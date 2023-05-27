@@ -92,7 +92,7 @@ const config: GatsbyConfig = {
               })),
             query: `
               {
-                allMarkdownRemark(sort: { fields: fields___createat, order: DESC }) {
+                allMarkdownRemark(sort: {fields: {createat: DESC}}) {
                   nodes {
                     excerpt
                     html
@@ -107,8 +107,7 @@ const config: GatsbyConfig = {
                     }
                   }
                 }
-              }
-            `,
+              }`,
             output: '/rss.xml',
             title: 'proudust.github.io RSS Feed',
           },

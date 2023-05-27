@@ -61,7 +61,7 @@ export const pageQuery = graphql`
   query Index {
     allMarkdownRemark(
       filter: { frontmatter: { published: { eq: true } } }
-      sort: { fields: fields___createat, order: DESC }
+      sort: { fields: { createat: DESC } }
       limit: 5
     ) {
       nodes {
