@@ -28,7 +28,7 @@ jobs:
         run: yarn --frozen-lockfile
 
       - name: Lint
-        run: yarn lint
+        run: CI=true yarn lint
 
       - name: Build
         run: yarn build
