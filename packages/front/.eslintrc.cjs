@@ -12,7 +12,26 @@ module.exports = {
   plugins: ['react'],
   ...(!process.env.CI && { processor: '@graphql-eslint/graphql' }),
   rules: {
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object'],
+        pathGroups: [
+          {
+            pattern: 'react',
+            group: 'builtin',
+            position: 'before',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['builtin'],
+        alphabetize: {
+          order: 'asc',
+        },
+        'newlines-between': 'always',
+      },
+    ],
     'react/prop-types': 'off',
+    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
     '@typescript-eslint/explicit-function-return-type': ['warn', { allowExpressions: true }],
   },
   overrides: [

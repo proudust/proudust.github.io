@@ -1,17 +1,19 @@
 import React from 'react';
-import styled from '@mui/styled-engine';
-import { IconButton, Paper, PaperProps, Tooltip, Typography, useMediaQuery } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+
 import { Toc as TocIcon } from '@mui/icons-material';
+import type { PaperProps } from '@mui/material';
+import { IconButton, Paper, Tooltip, Typography, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import styled from '@mui/styled-engine';
 import { graphql } from 'gatsby';
+import type { PageProps } from 'gatsby';
 
 import { Layout } from '../components/layout';
 import { Article } from '../components/post/Article';
-import { ViewOnGithubButton } from '../components/post/ViewOnGithubButton';
 import { Toc } from '../components/post/Toc';
-import NotFound from './404';
+import { ViewOnGithubButton } from '../components/post/ViewOnGithubButton';
 
-import type { PageProps } from 'gatsby';
+import NotFound from './404';
 
 const PaperArticleStyleLess: React.FC<PaperProps<'article'>> = props => (
   <Paper component="article" {...props} />

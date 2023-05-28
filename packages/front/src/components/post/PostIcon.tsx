@@ -1,6 +1,7 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+
 import { Android as AndroidIcon, GitHub as GitHubIcon } from '@mui/icons-material';
+import { Typography } from '@mui/material';
 import { FaGitAlt, FaGitlab, FaGoogleDrive, FaJsSquare, FaPython, FaSteam } from 'react-icons/fa';
 
 interface PostIconProps {

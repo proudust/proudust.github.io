@@ -1,10 +1,12 @@
 import React from 'react';
-import styled from '@mui/styled-engine';
-import { Avatar, Container, ContainerProps, IconButton, Tooltip, Typography } from '@mui/material';
+
 import { GitHub as GitHubIcon, Twitter as TwitterIcon } from '@mui/icons-material';
+import type { ContainerProps } from '@mui/material';
+import { Avatar, Container, IconButton, Tooltip, Typography } from '@mui/material';
+import styled from '@mui/styled-engine';
 import { graphql, useStaticQuery } from 'gatsby';
-import { FaSteamSymbol } from 'react-icons/fa';
 import { StaticImage } from 'gatsby-plugin-image';
+import { FaSteamSymbol } from 'react-icons/fa';
 
 const ProfileContainerStyleLess: React.FC<ContainerProps<'footer'>> = props => (
   <Container component="footer" {...props} />

@@ -1,10 +1,11 @@
 import React from 'react';
-import { IconButton, Tooltip } from '@mui/material';
+
 import {
   GetApp as GetAppIcon,
   GitHub as GitHubIcon,
   Launch as LaunchIcon,
 } from '@mui/icons-material';
+import { IconButton, Tooltip } from '@mui/material';
 
 const icons = new Map<string, React.ReactElement>();
 icons.set('Download', <GetAppIcon />);

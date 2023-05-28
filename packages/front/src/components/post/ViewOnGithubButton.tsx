@@ -1,6 +1,7 @@
 import React from 'react';
-import { IconButton, Tooltip } from '@mui/material';
+
 import { GitHub as GitHubIcon } from '@mui/icons-material';
+import { IconButton, Tooltip } from '@mui/material';
 
 interface ShowByGithubButtonProps {
   children?: never;

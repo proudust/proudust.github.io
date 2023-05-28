@@ -1,14 +1,15 @@
 import React from 'react';
-import styled from '@mui/styled-engine';
-import { Button, ButtonProps, Typography } from '@mui/material';
+
 import { ArrowForward as MuiArrowForwardIcon } from '@mui/icons-material';
+import type { ButtonProps } from '@mui/material';
+import { Button, Typography } from '@mui/material';
+import styled from '@mui/styled-engine';
 import { graphql, Link } from 'gatsby';
+import type { PageProps } from 'gatsby';
 
 import { Layout } from '../components/layout';
 import { PostList } from '../components/post';
 import { ProductList } from '../components/product-list';
-
-import type { PageProps } from 'gatsby';
 
 const LinkButtonStyleLess: React.FC<ButtonProps<typeof Link>> = props => (
   <Button component={Link} {...props} />

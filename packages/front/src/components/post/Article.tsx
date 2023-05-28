@@ -1,6 +1,8 @@
 import React from 'react';
+
+import type { TypographyProps } from '@mui/material';
+import { Typography } from '@mui/material';
 import styled from '@mui/styled-engine';
-import { Typography, TypographyProps } from '@mui/material';
 import 'prismjs/themes/prism-tomorrow.css';
 
 const TypographyDiv: React.FC<TypographyProps<'div'>> = props => (

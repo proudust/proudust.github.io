@@ -1,18 +1,12 @@
 import React from 'react';
+
+import type { CardMediaProps } from '@mui/material';
+import { Card, CardActionArea, CardActions, CardHeader, CardMedia } from '@mui/material';
 import styled from '@mui/styled-engine';
-import {
-  Card,
-  CardActionArea,
-  CardActions,
-  CardHeader,
-  CardMedia,
-  CardMediaProps,
-} from '@mui/material';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import type { GatsbyImageProps, IGatsbyImageData } from 'gatsby-plugin-image';
 
 import { ProductLinkButton } from './ProductLinkButton';
-
-import type { GatsbyImageProps, IGatsbyImageData } from 'gatsby-plugin-image';
 
 type AltGatsbyImageProps = Omit<GatsbyImageProps, 'image'> & { gatsbyImageData: IGatsbyImageData };
 

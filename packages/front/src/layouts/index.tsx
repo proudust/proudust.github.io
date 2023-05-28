@@ -1,13 +1,10 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+
 import { CssBaseline } from '@mui/material';
-import {
-  createTheme,
-  ThemeProvider,
-  Theme as MuiTheme,
-  StyledEngineProvider,
-} from '@mui/material/styles';
 import { green } from '@mui/material/colors';
+import type { Theme as MuiTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
+import { Helmet } from 'react-helmet';
 
 declare module '@emotion/react' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface

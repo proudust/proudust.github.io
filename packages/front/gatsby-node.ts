@@ -1,9 +1,9 @@
 import { access } from 'fs/promises';
 import { dirname, join, relative, resolve } from 'path';
-import { createFilePath } from 'gatsby-source-filesystem';
-import simpleGit from 'simple-git';
 
 import type { CreateNodeArgs, GatsbyNode } from 'gatsby';
+import { createFilePath } from 'gatsby-source-filesystem';
+import simpleGit from 'simple-git';
 
 interface MarkdownRemark extends Record<string, unknown> {
   readonly fileAbsolutePath: string;

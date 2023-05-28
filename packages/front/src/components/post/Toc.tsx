@@ -1,7 +1,9 @@
 import React from 'react';
-import styled from '@mui/styled-engine';
-import { Drawer, Typography, TypographyProps } from '@mui/material';
+
+import type { TypographyProps } from '@mui/material';
+import { Drawer, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import styled from '@mui/styled-engine';
 
 const TypographyDiv: React.FC<TypographyProps<'div'>> = props => (
   <Typography component="div" {...props} />

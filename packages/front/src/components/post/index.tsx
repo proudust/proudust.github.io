@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from '@mui/styled-engine';
+
+import type { PaperProps } from '@mui/material';
 import {
   Avatar,
   Divider,
@@ -8,9 +9,9 @@ import {
   ListItemAvatar,
   ListItemText,
   Paper,
-  PaperProps,
   Typography,
 } from '@mui/material';
+import styled from '@mui/styled-engine';
 import { graphql, Link } from 'gatsby';
 
 import { PostIcon } from './PostIcon';

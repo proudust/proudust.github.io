@@ -1,10 +1,10 @@
 import React from 'react';
+
 import { graphql } from 'gatsby';
+import type { PageProps } from 'gatsby';
 
 import { Layout } from '../components/layout';
 import { ProductList } from '../components/product-list';
-
-import type { PageProps } from 'gatsby';
 
 type ProductsProps = PageProps<Queries.ProductsQuery, Queries.ProductsQueryVariables>;
 
