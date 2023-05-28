@@ -4,6 +4,7 @@ import { Avatar, Container, ContainerProps, IconButton, Tooltip, Typography } fr
 import { GitHub as GitHubIcon, Twitter as TwitterIcon } from '@mui/icons-material';
 import { graphql, useStaticQuery } from 'gatsby';
 import { FaSteamSymbol } from 'react-icons/fa';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const ProfileContainerStyleLess: React.FC<ContainerProps<'footer'>> = props => (
   <Container component="footer" {...props} />
@@ -43,11 +44,13 @@ interface ProfileProps {
 
 export const Profile: React.FC<ProfileProps> = () => {
   const result = useStaticQuery<Queries.ProfileQuery>(query);
-  const { name, summary, avatar, social } = result?.site?.siteMetadata?.author ?? {};
+  const { name, summary, social } = result?.site?.siteMetadata?.author ?? {};
 
   return (
     <ProfileContainer maxWidth="md">
-      <ProfileIcon alt={name ?? ''} src={avatar ?? ''} />
+      <ProfileIcon>
+        <StaticImage alt={name ?? ''} src="../../../content/avatar.jpg"></StaticImage>
+      </ProfileIcon>
       <ProfileName>
         <Typography component="p" variant="subtitle1">
           {name}
@@ -96,7 +99,6 @@ export const query = graphql`
         author {
           name
           summary
-          avatar
           social {
             twitter
             github
