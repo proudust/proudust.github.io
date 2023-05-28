@@ -9,7 +9,7 @@ import type { PageProps } from 'gatsby';
 
 import { Layout } from '../components/layout';
 import { PostList } from '../components/post';
-import { ProductList } from '../components/product-list';
+import { ProductGrid } from '../components/products/ProductGrid';
 
 const LinkButtonStyleLess: React.FC<ButtonProps<typeof Link>> = props => (
   <Button component={Link} {...props} />
@@ -51,7 +51,7 @@ export const Index: React.FC<IndexProps> = ({ data }) => (
     </section>
     <section>
       <SectionHeader href="/products">制作物</SectionHeader>
-      <ProductList products={data.allProduct?.nodes} />
+      <ProductGrid products={data.allProduct?.nodes} />
     </section>
   </Layout>
 );
@@ -74,7 +74,7 @@ export const pageQuery = graphql`
       filter: { title: { regex: "/((DDLC|MAS|Dweller's Empty Path) 日本語化|OneShot)/" } }
     ) {
       nodes {
-        ...ProductList
+        ...ProductGrid
       }
     }
   }

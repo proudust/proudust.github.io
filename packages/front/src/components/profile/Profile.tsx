@@ -3,7 +3,7 @@ import * as React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import { FaGithub, FaSteamSymbol, FaTwitter } from 'react-icons/fa';
 
-import { IconLink } from './IconLink';
+import { IconLink } from '../icon-link/IconLink';
 
 export const Profile: React.FC = () => {
   return (
