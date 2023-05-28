@@ -124,6 +124,7 @@ const config: GatsbyConfig = {
     },
     `gatsby-plugin-image`,
     'gatsby-plugin-layout',
+    'gatsby-plugin-postcss',
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
