@@ -5,8 +5,9 @@ import { useTheme } from '@mui/material/styles';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
+import { Profile } from '../profile/Profile';
+
 import { DefaultAppBar } from './AppBar';
-import { Profile } from './Profile';
 
 interface LayoutProps {
   children: NonNullable<React.ReactNode>;

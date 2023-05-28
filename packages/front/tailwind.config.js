@@ -9,7 +9,10 @@ module.exports = {
     container: {
       center: true,
     },
-    extend: {},
+    screens: {
+      sm: '640px',
+      lg: '1024px',
+    },
   },
   plugins: [require('daisyui')],
 };

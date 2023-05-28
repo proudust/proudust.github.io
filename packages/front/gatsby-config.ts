@@ -7,16 +7,6 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: 'proudust.github.io',
     siteUrl: 'https://proudust.github.io',
-    repo: 'https://github.com/proudust/proudust.github.io',
-    author: {
-      name: 'Proudust',
-      summary: 'Virtual cockadoodledoo',
-      social: {
-        twitter: `proudust`,
-        github: 'proudust',
-        steam: 'proudust',
-      },
-    },
   },
   plugins: [
     {
