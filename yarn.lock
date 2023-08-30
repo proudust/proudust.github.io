@@ -6790,28 +6790,6 @@ gatsby-core-utils@^4.11.0, gatsby-core-utils@^4.12.0:
     tmp "^0.2.1"
     xdg-basedir "^4.0.0"
 
-gatsby-core-utils@^4.12.0:
-  version "4.12.0"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-4.12.0.tgz#1ee4ced94cf2c7b2139d8d3ea6321391ce3ffdea"
-  integrity sha512-1vK0cmL8FNHAddQ5WZt0yTPdFSZuMPNUSsHckM+ZdVmRxyif3aZYSi7ofj6sJo/UvhKj7fBqJv/smZYpp2PRqg==
-  dependencies:
-    "@babel/runtime" "^7.20.13"
-    ci-info "2.0.0"
-    configstore "^5.0.1"
-    fastq "^1.15.0"
-    file-type "^16.5.4"
-    fs-extra "^11.1.1"
-    got "^11.8.6"
-    hash-wasm "^4.9.0"
-    import-from "^4.0.0"
-    lmdb "2.5.3"
-    lock "^1.1.0"
-    node-object-hash "^2.3.10"
-    proper-lockfile "^4.1.2"
-    resolve-from "^5.0.0"
-    tmp "^0.2.1"
-    xdg-basedir "^4.0.0"
-
 gatsby-graphiql-explorer@^3.11.0:
   version "3.11.0"
   resolved "https://registry.yarnpkg.com/gatsby-graphiql-explorer/-/gatsby-graphiql-explorer-3.11.0.tgz#c49f3ddc623259f313085bd6190bf2e36b89860e"
@@ -6906,10 +6884,10 @@ gatsby-plugin-image@^3.11.0:
     objectFitPolyfill "^2.3.5"
     prop-types "^15.8.1"
 
-gatsby-plugin-layout@^4.11.0:
-  version "4.11.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-4.11.0.tgz#d6292b7a4a93b98c34110fe884fe0b18953eecfc"
-  integrity sha512-+UGVeMfGpGzpnVm8iqig6I4gVu5drdASKw6VqYtn8SH/lCreTdG0wf9yRJvmXqACtSeMkBE97h8bycScOfW2Dg==
+gatsby-plugin-layout@^4.12.0:
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-4.12.0.tgz#eb2760fd0304a84d19315b9e0405130b9bcd84c3"
+  integrity sha512-MTLmay29gGvRu/v/6dNhD7tg2T6AMaUE1HAOGnCFo+oHZFRh7CMdte3RoGZUYi2NT49VPsADsDWI4a0JyI+oRw==
   dependencies:
     "@babel/runtime" "^7.20.13"
 
