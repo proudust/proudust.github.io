@@ -6978,10 +6978,10 @@ gatsby-react-router-scroll@^6.11.0:
     "@babel/runtime" "^7.20.13"
     prop-types "^15.8.1"
 
-gatsby-remark-autolink-headers@^6.11.0:
-  version "6.11.0"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-autolink-headers/-/gatsby-remark-autolink-headers-6.11.0.tgz#60369aac5cc2c561b0d9387a0949b84b737d74a2"
-  integrity sha512-0j7nginUZuFOysyJhbSBsjJDyrPotOkwdoUSC5co7VpsTb/iDsdczX4Biza/dn40lIbcy3ZLy1b/yq4tQo8mmg==
+gatsby-remark-autolink-headers@^6.12.0:
+  version "6.12.0"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-autolink-headers/-/gatsby-remark-autolink-headers-6.12.0.tgz#0c1287417ffa44db9b71416832a38227ceefb43b"
+  integrity sha512-c+zXq+frX7TCFoGPig4H4zn5RqsV2pduO/jF/NQLtnH2D5JnaDT0rPwiTzUi+9soyZpAenuV8Sprv6JFELPW+w==
   dependencies:
     "@babel/runtime" "^7.20.13"
     github-slugger "^1.5.0"
