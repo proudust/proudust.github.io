@@ -4,7 +4,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "markdownlint-cli": "^0.38.0",
+    "markdownlint-cli": "^0.39.0",
     "textlint": "^14.0.1",
     "textlint-rule-max-ten": "^5.0.0",
     "textlint-rule-no-mix-dearu-desumasu": "^6.0.2",
