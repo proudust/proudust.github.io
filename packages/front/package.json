@@ -9,7 +9,7 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.18",
     "@mui/material": "^5.15.17",
-    "@types/node": "^20.12.8",
+    "@types/node": "^20.12.12",
     "@types/react-helmet": "^6.1.11",
     "gatsby": "^5.13.4",
     "gatsby-plugin-catch-links": "^5.13.1",
