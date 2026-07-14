@@ -19,6 +19,7 @@ const config: GatsbyConfig = {
     },
   },
   plugins: [
+    'gatsby-plugin-postcss',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

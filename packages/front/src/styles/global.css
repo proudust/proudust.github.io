@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+
+/*
+ * Base colors equivalent to the MUI dark theme.
+ * Tokens intended to maintain visual consistency while gradually phasing out MUI.
+ */
+@theme {
+  --color-background: #121212;
+  --color-surface: #1e1e1e;
+  --color-primary: #66bb6a;
+  --color-on-background: rgba(255, 255, 255, 0.87);
+  --color-on-surface: rgba(255, 255, 255, 0.87);
+  --color-on-surface-muted: rgba(255, 255, 255, 0.6);
+
+  --breakpoint-sm: 540px;
+  --breakpoint-md: 864px;
+  --breakpoint-lg: 1152px;
+  --breakpoint-xl: 1728px;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-background antialiased;
+  }
+}
