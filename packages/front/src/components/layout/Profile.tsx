@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { GitHub as GitHubIcon, Twitter as TwitterIcon } from '@mui/icons-material';
 import type { ContainerProps } from '@mui/material';
 import { Avatar, Container, IconButton, Tooltip, Typography } from '@mui/material';
 import styled from '@mui/styled-engine';
 import { graphql, useStaticQuery } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import { FaSteamSymbol } from 'react-icons/fa';
+import { FaGithub, FaSteamSymbol } from 'react-icons/fa';
+import { FaTwitter } from 'react-icons/fa6';
 
 const ProfileContainerStyleLess: React.FC<ContainerProps<'footer'>> = props => (
   <Container component="footer" {...props} />
@@ -68,7 +68,7 @@ export const Profile: React.FC<ProfileProps> = () => {
             href={`https://twitter.com/${social?.twitter}`}
             size="large"
           >
-            <TwitterIcon />
+            <FaTwitter />
           </IconButton>
         </Tooltip>
         <Tooltip title="GitHub" placement="bottom">
@@ -77,7 +77,7 @@ export const Profile: React.FC<ProfileProps> = () => {
             href={`https://github.com/${social?.github}`}
             size="large"
           >
-            <GitHubIcon />
+            <FaGithub />
           </IconButton>
         </Tooltip>
         <Tooltip title="Steam" placement="bottom">

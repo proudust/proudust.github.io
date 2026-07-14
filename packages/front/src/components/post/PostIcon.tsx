@@ -1,8 +1,16 @@
 import React from 'react';
 
-import { Android as AndroidIcon, GitHub as GitHubIcon } from '@mui/icons-material';
 import { Typography } from '@mui/material';
-import { FaGitAlt, FaGitlab, FaGoogleDrive, FaJsSquare, FaPython, FaSteam } from 'react-icons/fa';
+import {
+  FaAndroid,
+  FaGithub,
+  FaGitAlt,
+  FaGitlab,
+  FaGoogleDrive,
+  FaJsSquare,
+  FaPython,
+  FaSteam,
+} from 'react-icons/fa';
 
 interface PostIconProps {
   readonly children?: never;
@@ -10,15 +18,15 @@ interface PostIconProps {
 }
 
 const Icons: Map<string, React.ReactElement> = new Map();
-Icons.set('android', <AndroidIcon fontSize="large" />);
+Icons.set('android', <FaAndroid size="2em" />);
 Icons.set('csharp', <Typography component="span" variant="h5">C#</Typography>); // prettier-ignore
-Icons.set('git', <FaGitAlt size="2x" />);
-Icons.set('github', <GitHubIcon fontSize="large" />);
-Icons.set('gitlab', <FaGitlab size="2x" style={{ marginTop: 5 }} />);
-Icons.set('googleappsscript', <FaGoogleDrive size="2x" style={{ marginBottom: 2 }} />);
-Icons.set('javascript', <FaJsSquare size="2x" />);
-Icons.set('renpy', <FaPython size="2x" />);
-Icons.set('steam', <FaSteam size="2x" />);
+Icons.set('git', <FaGitAlt size="2em" />);
+Icons.set('github', <FaGithub size="2em" />);
+Icons.set('gitlab', <FaGitlab size="2em" style={{ marginTop: 5 }} />);
+Icons.set('googleappsscript', <FaGoogleDrive size="2em" style={{ marginBottom: 2 }} />);
+Icons.set('javascript', <FaJsSquare size="2em" />);
+Icons.set('renpy', <FaPython size="2em" />);
+Icons.set('steam', <FaSteam size="2em" />);
 
 const DefaultIcon: React.FC<PostIconProps> = ({ topic }) => (
   <Typography component="span" variant="h5">

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { ArrowForward as MuiArrowForwardIcon } from '@mui/icons-material';
 import type { ButtonProps } from '@mui/material';
 import { Button, Typography } from '@mui/material';
 import styled from '@mui/styled-engine';
 import { graphql, Link } from 'gatsby';
 import type { PageProps } from 'gatsby';
+import { MdArrowForward } from 'react-icons/md';
 
 import { Layout } from '../components/layout';
 import { PostList } from '../components/post';
@@ -23,7 +23,7 @@ const LinkButton = styled(LinkButtonStyleLess)(({ theme }) => ({
   padding: theme.spacing(1, 0),
 }));
 
-const ArrowForwardIcon = styled(MuiArrowForwardIcon)(({ theme }) => ({
+const ArrowForwardIcon = styled(MdArrowForward)(({ theme }) => ({
   margin: theme.spacing(1),
 }));
 

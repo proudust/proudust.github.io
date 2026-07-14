@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { ArrowBack as ArrowBackIcon } from '@mui/icons-material';
 import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { MdArrowBack } from 'react-icons/md';
 
 // BackButton
 
@@ -22,7 +22,7 @@ export const BackButton: React.FC<BackButtonProps> = ({ href }) => {
       href={href}
       size="large"
     >
-      <ArrowBackIcon color="inherit" />
+      <MdArrowBack />
     </IconButton>
   );
 };

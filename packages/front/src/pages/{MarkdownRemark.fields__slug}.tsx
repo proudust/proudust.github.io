@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Toc as TocIcon } from '@mui/icons-material';
 import type { PaperProps } from '@mui/material';
 import { IconButton, Paper, Tooltip, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import styled from '@mui/styled-engine';
 import { graphql } from 'gatsby';
 import type { PageProps } from 'gatsby';
+import { MdToc } from 'react-icons/md';
 
 import { Layout } from '../components/layout';
 import { Article } from '../components/post/Article';
@@ -41,7 +41,7 @@ const TocButton: React.FC<TocButtonProps> = ({ visible, onClick }) => {
   return (
     <Tooltip title="目次を表示" placement="bottom">
       <IconButton onClick={onClick} size="large">
-        <TocIcon />
+        <MdToc />
       </IconButton>
     </Tooltip>
   );
