@@ -7,10 +7,18 @@
 @theme {
   --color-background: #121212;
   --color-surface: #1e1e1e;
-  --color-primary: #66bb6a;
+  --color-secondary: #00e676;
+  --color-secondary-light: #69f0ae;
+  --color-divider: rgba(255, 255, 255, 0.12);
   --color-on-background: rgba(255, 255, 255, 0.87);
   --color-on-surface: rgba(255, 255, 255, 0.87);
-  --color-on-surface-muted: rgba(255, 255, 255, 0.6);
+  --color-on-surface-muted: rgba(255, 255, 255, 0.7);
+
+  --shadow-elevation-1:
+    0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+
+  --spacing-app-bar: 72px;
 
   --breakpoint-sm: 540px;
   --breakpoint-md: 864px;
@@ -21,5 +29,93 @@
 @layer base {
   body {
     @apply bg-background text-on-background antialiased;
+  }
+}
+
+@layer components {
+  .article-content {
+    & a {
+      color: var(--color-secondary);
+    }
+
+    & a:hover {
+      color: var(--color-secondary-light);
+    }
+
+    & h2 {
+      margin-top: 4rem;
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    & th,
+    & td {
+      border-bottom: 1px solid var(--color-divider);
+      padding: 0.5rem;
+    }
+
+    & hr {
+      margin-top: 4rem;
+      border-style: none;
+      background-color: var(--color-divider);
+      height: 1px;
+    }
+
+    & .footnotes p {
+      display: inline;
+    }
+  }
+
+  .toc-content {
+    width: 300px;
+
+    & ul {
+      list-style: none;
+      margin: 0;
+      padding-left: 1rem;
+    }
+
+    & li {
+      padding: 0.5rem;
+      padding-left: 1rem;
+    }
+
+    & > ul > li {
+      border-left: 2px solid var(--color-divider);
+    }
+
+    & ul ul li:last-child {
+      padding-bottom: 0;
+    }
+
+    & a {
+      color: var(--color-on-surface-muted);
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+
+    & a:hover {
+      color: var(--color-on-surface);
+    }
+
+    & p {
+      margin: 0;
+      padding-bottom: 0.5rem;
+    }
+  }
+
+  .post-list-item-content .MuiListItemText-primary {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .post-list-item-content .MuiListItemText-secondary {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 }

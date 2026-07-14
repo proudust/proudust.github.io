@@ -1,8 +1,6 @@
 import React from 'react';
 
-import type { CardMediaProps } from '@mui/material';
 import { Card, CardActionArea, CardActions, CardHeader, CardMedia } from '@mui/material';
-import styled from '@mui/styled-engine';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import type { GatsbyImageProps, IGatsbyImageData } from 'gatsby-plugin-image';
 
@@ -13,14 +11,6 @@ type AltGatsbyImageProps = Omit<GatsbyImageProps, 'image'> & { gatsbyImageData: 
 const AltGatsbyImage: React.FC<AltGatsbyImageProps> = ({ gatsbyImageData, ...props }) => (
   <GatsbyImage image={gatsbyImageData} {...props} />
 );
-
-type CardMediaImageProps = Omit<CardMediaProps, 'image'> & AltGatsbyImageProps;
-
-const CardMediaImage = styled((props: CardMediaImageProps) => (
-  <CardMedia component={AltGatsbyImage} {...props} />
-))({
-  height: 200,
-});
 
 interface ProductListItemProps {
   children?: never;
@@ -36,7 +26,14 @@ interface ProductListItemProps {
 export const ProductListItem: React.FC<ProductListItemProps> = props => (
   <Card>
     <CardActionArea href={props.links?.[0].href ?? ''}>
-      {props.image && <CardMediaImage alt={props.title ?? ''} gatsbyImageData={props.image} />}
+      {props.image && (
+        <CardMedia
+          component={AltGatsbyImage}
+          className="h-[200px]"
+          alt={props.title ?? ''}
+          gatsbyImageData={props.image}
+        />
+      )}
       <CardHeader
         title={props.title}
         titleTypographyProps={{ component: 'h3', variant: 'h6' }}

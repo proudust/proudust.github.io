@@ -1,10 +1,8 @@
 import React from 'react';
 
 import { Toc as TocIcon } from '@mui/icons-material';
-import type { PaperProps } from '@mui/material';
 import { IconButton, Paper, Tooltip, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import styled from '@mui/styled-engine';
 import { graphql } from 'gatsby';
 import type { PageProps } from 'gatsby';
 
@@ -14,20 +12,6 @@ import { Toc } from '../components/post/Toc';
 import { ViewOnGithubButton } from '../components/post/ViewOnGithubButton';
 
 import NotFound from './404';
-
-const PaperArticleStyleLess: React.FC<PaperProps<'article'>> = props => (
-  <Paper component="article" {...props} />
-);
-
-const PaperArticle = styled(PaperArticleStyleLess)(({ theme }) => ({
-  padding: theme.spacing(3),
-  maxWidth: 800,
-}));
-
-const ArticleHeader = styled('header')({
-  display: 'flex',
-  flexDirection: 'column-reverse',
-});
 
 interface TocButtonProps {
   children?: never;
@@ -70,8 +54,8 @@ const BlogPost: React.FC<BlogPostProps> = props => {
         </>
       }
     >
-      <PaperArticle>
-        <ArticleHeader>
+      <Paper component="article" className="p-6 max-w-[800px]">
+        <header className="flex flex-col-reverse">
           <Typography variant="h1" style={{ fontSize: '2.5rem' }}>
             {post.frontmatter?.title}
           </Typography>
@@ -83,9 +67,9 @@ const BlogPost: React.FC<BlogPostProps> = props => {
           >
             {post.frontmatter?.createat ?? post.fields?.createat}
           </Typography>
-        </ArticleHeader>
+        </header>
         <Article html={post.html || undefined} />
-      </PaperArticle>
+      </Paper>
       <Toc
         mode={matches ? 'side' : 'drawer'}
         tableOfContents={post.tableOfContents || undefined}

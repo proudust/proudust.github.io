@@ -11,7 +11,6 @@ import {
   Paper,
   Typography,
 } from '@mui/material';
-import styled from '@mui/styled-engine';
 import { graphql, Link } from 'gatsby';
 
 import { PostIcon } from './PostIcon';
@@ -21,28 +20,7 @@ interface PostListProps {
   readonly posts: readonly Queries.PostListFragment[];
 }
 
-const PostAvatar = styled(Avatar)(({ theme }) => ({
-  color: theme.palette.text.secondary,
-  height: theme.spacing(6),
-  width: theme.spacing(6),
-  marginRight: theme.spacing(2),
-}));
-
 const ListPaper: React.FC<PaperProps<'ul'>> = props => <Paper component="ul" {...props} />;
-
-const ListItemContent = styled(ListItemText)({
-  '& .MuiListItemText-primary': {
-    display: 'flex',
-    justifyContent: 'space-between',
-  },
-  '& .MuiListItemText-secondary': {
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    display: '-webkit-box',
-    WebkitLineClamp: 2,
-    WebkitBoxOrient: 'vertical',
-  },
-});
 
 function nonNull<T>(x: T | undefined): x is T {
   return Boolean(x);
@@ -64,11 +42,12 @@ export const PostList: React.FC<PostListProps> = ({ posts }) => (
             }
           >
             <ListItemAvatar>
-              <PostAvatar>
+              <Avatar className="text-on-surface-muted h-12 w-12 mr-4">
                 <PostIcon topic={post.fields?.topics?.[0] || undefined} />
-              </PostAvatar>
+              </Avatar>
             </ListItemAvatar>
-            <ListItemContent
+            <ListItemText
+              className="post-list-item-content"
               primary={
                 <>
                   <Typography component="h3" align="left">

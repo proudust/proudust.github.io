@@ -1,9 +1,7 @@
 import React from 'react';
 
 import { ArrowForward as MuiArrowForwardIcon } from '@mui/icons-material';
-import type { ButtonProps } from '@mui/material';
 import { Button, Typography } from '@mui/material';
-import styled from '@mui/styled-engine';
 import { graphql, Link } from 'gatsby';
 import type { PageProps } from 'gatsby';
 
@@ -11,34 +9,18 @@ import { Layout } from '../components/layout';
 import { PostList } from '../components/post';
 import { ProductList } from '../components/product-list';
 
-const LinkButtonStyleLess: React.FC<ButtonProps<typeof Link>> = props => (
-  <Button component={Link} {...props} />
-);
-
-const LinkButton = styled(LinkButtonStyleLess)(({ theme }) => ({
-  width: '100%',
-  display: 'flex',
-  justifyContent: 'space-between',
-  margin: theme.spacing(1, 0),
-  padding: theme.spacing(1, 0),
-}));
-
-const ArrowForwardIcon = styled(MuiArrowForwardIcon)(({ theme }) => ({
-  margin: theme.spacing(1),
-}));
-
 interface SectionHeaderProps {
   children: string;
   href: string;
 }
 
 const SectionHeader: React.FC<SectionHeaderProps> = props => (
-  <LinkButton to={props.href}>
+  <Button component={Link} to={props.href} className="flex w-full justify-between my-2 py-2">
     <Typography component="h2" variant="h5" color="textPrimary">
       {props.children}
     </Typography>
-    <ArrowForwardIcon />
-  </LinkButton>
+    <MuiArrowForwardIcon className="m-2" />
+  </Button>
 );
 
 type IndexProps = PageProps<Queries.IndexQuery, Queries.IndexQueryVariables>;
