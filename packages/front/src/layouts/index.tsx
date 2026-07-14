@@ -7,7 +7,6 @@ import { createTheme, ThemeProvider, StyledEngineProvider } from '@mui/material/
 import { Helmet } from 'react-helmet';
 
 declare module '@emotion/react' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface Theme extends MuiTheme {}
 }
 
