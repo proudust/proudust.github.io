@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { ArrowForward as MuiArrowForwardIcon } from '@mui/icons-material';
 import { Button, Typography } from '@mui/material';
 import { graphql, Link } from 'gatsby';
 import type { PageProps } from 'gatsby';
+import { MdArrowForward } from 'react-icons/md';
 
 import { Layout } from '../components/layout';
 import { PostList } from '../components/post';
@@ -19,7 +19,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = props => (
     <Typography component="h2" variant="h5" color="textPrimary">
       {props.children}
     </Typography>
-    <MuiArrowForwardIcon className="m-2" />
+    <MdArrowForward className="m-2" />
   </Button>
 );
 
