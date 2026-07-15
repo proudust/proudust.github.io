@@ -1,9 +1,5 @@
 import React from 'react';
 
-import type { PaperProps } from '@mui/material';
-import { IconButton, Paper, Tooltip, Typography, useMediaQuery } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import styled from '@mui/styled-engine';
 import { graphql } from 'gatsby';
 import type { PageProps } from 'gatsby';
 import { MdToc } from 'react-icons/md';
@@ -12,46 +8,28 @@ import { Layout } from '../components/layout';
 import { Article } from '../components/post/Article';
 import { Toc } from '../components/post/Toc';
 import { ViewOnGithubButton } from '../components/post/ViewOnGithubButton';
+import { IconButton, Paper, Tooltip, Typography } from '../components/ui';
 
 import NotFound from './404';
 
-const PaperArticleStyleLess: React.FC<PaperProps<'article'>> = props => (
-  <Paper component="article" {...props} />
-);
-
-const PaperArticle = styled(PaperArticleStyleLess)(({ theme }) => ({
-  padding: theme.spacing(3),
-  maxWidth: 800,
-}));
-
-const ArticleHeader = styled('header')({
-  display: 'flex',
-  flexDirection: 'column-reverse',
-});
-
 interface TocButtonProps {
   children?: never;
-  visible: boolean;
   onClick: () => void;
 }
 
-const TocButton: React.FC<TocButtonProps> = ({ visible, onClick }) => {
-  if (!visible) return <></>;
-
-  return (
+const TocButton: React.FC<TocButtonProps> = ({ onClick }) => (
+  <span className="lg:hidden">
     <Tooltip title="目次を表示" placement="bottom">
       <IconButton onClick={onClick} size="large">
         <MdToc />
       </IconButton>
     </Tooltip>
-  );
-};
+  </span>
+);
 
 type BlogPostProps = PageProps<Queries.BlogPostBySlugQuery, Queries.BlogPostBySlugQueryVariables>;
 
 const BlogPost: React.FC<BlogPostProps> = props => {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up('lg'));
   const [openNav, setOpenNav] = React.useState(false);
 
   const post = props.data?.markdownRemark;
@@ -61,17 +39,16 @@ const BlogPost: React.FC<BlogPostProps> = props => {
     <Layout
       backref="/"
       title={post.frontmatter?.title ?? ''}
-      flex={matches}
-      width={matches ? 'lg' : undefined}
+      mainClassName="lg:flex lg:items-start lg:max-w-[1152px]"
       actions={
         <>
           <ViewOnGithubButton slug={post.fields?.slug ?? ''} />
-          <TocButton visible={!matches} onClick={() => setOpenNav(true)} />
+          <TocButton onClick={() => setOpenNav(true)} />
         </>
       }
     >
-      <PaperArticle>
-        <ArticleHeader>
+      <Paper component="article" className="w-full max-w-200 p-6 lg:min-w-0 lg:flex-1">
+        <header className="flex flex-col-reverse">
           <Typography variant="h1" style={{ fontSize: '2.5rem' }}>
             {post.frontmatter?.title}
           </Typography>
@@ -83,11 +60,10 @@ const BlogPost: React.FC<BlogPostProps> = props => {
           >
             {post.frontmatter?.createat ?? post.fields?.createat}
           </Typography>
-        </ArticleHeader>
+        </header>
         <Article html={post.html || undefined} />
-      </PaperArticle>
+      </Paper>
       <Toc
-        mode={matches ? 'side' : 'drawer'}
         tableOfContents={post.tableOfContents || undefined}
         isOpen={openNav}
         close={() => setOpenNav(false)}

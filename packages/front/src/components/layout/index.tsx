@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Container, Divider } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Helmet } from 'react-helmet';
+
+import { Divider } from '../ui';
 
 import { DefaultAppBar } from './AppBar';
 import { Profile } from './Profile';
@@ -13,17 +13,20 @@ interface LayoutProps {
   title?: string;
   backref?: string;
   actions?: React.ReactNode;
-  flex?: boolean;
-  width?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false;
+  mainClassName?: string;
 }
 
 export const Layout: React.FC<LayoutProps> = props => {
-  const theme = useTheme();
-  const flexStyle = props.flex ? { display: 'flex', alignItems: 'flex-start' } : {};
-
   const { site } = useStaticQuery<Queries.LayoutQuery>(query);
   const siteTitle = site?.siteMetadata?.title ?? '';
   const title = props.title ? `${props.title} - ${siteTitle}` : siteTitle;
+
+  const mainClassName = [
+    'mx-auto px-6 max-w-[864px] mt-[var(--spacing-app-bar)] mb-6',
+    props.mainClassName,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <>
@@ -31,14 +34,8 @@ export const Layout: React.FC<LayoutProps> = props => {
         <title>{title}</title>
       </Helmet>
       <DefaultAppBar title={title} backref={props.backref} actions={props.actions} />
-      <Container
-        component="main"
-        maxWidth={props.width || 'md'}
-        style={{ marginTop: theme.spacing(9), ...flexStyle }}
-      >
-        {props.children}
-      </Container>
-      <Divider style={{ marginTop: theme.spacing(3) }} />
+      <main className={mainClassName}>{props.children}</main>
+      <Divider />
       <Profile />
     </>
   );

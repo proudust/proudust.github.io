@@ -19,6 +19,7 @@ const config: GatsbyConfig = {
     },
   },
   plugins: [
+    'gatsby-plugin-postcss',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -133,7 +134,6 @@ const config: GatsbyConfig = {
         excludePattern: /^\/payday2-bigoil\/$/,
       },
     },
-    'gatsby-plugin-material-ui',
   ],
 };
 
