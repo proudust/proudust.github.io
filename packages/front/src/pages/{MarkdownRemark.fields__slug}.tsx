@@ -47,7 +47,7 @@ const BlogPost: React.FC<BlogPostProps> = props => {
         </>
       }
     >
-      <Paper component="article" className="p-6 w-full max-w-[800px] lg:min-w-0 lg:flex-1">
+      <Paper component="article" className="w-full max-w-200 p-6 lg:min-w-0 lg:flex-1">
         <header className="flex flex-col-reverse">
           <Typography variant="h1" style={{ fontSize: '2.5rem' }}>
             {post.frontmatter?.title}

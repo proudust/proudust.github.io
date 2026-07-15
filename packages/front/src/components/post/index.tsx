@@ -21,7 +21,7 @@ interface PostListProps {
   readonly posts: readonly Queries.PostListFragment[];
 }
 
-const ListPaper: React.FC<PaperProps<'ul'>> = props => <Paper component="ul" {...props} />;
+const ListPaper: React.FC<PaperProps> = props => <Paper component="ul" {...props} />;
 
 function nonNull<T>(x: T | undefined): x is T {
   return Boolean(x);
@@ -43,12 +43,12 @@ export const PostList: React.FC<PostListProps> = ({ posts }) => (
             }
           >
             <ListItemAvatar>
-              <Avatar className="text-on-surface-muted h-12 w-12 mr-4">
+              <Avatar className="text-on-surface-muted mr-4 h-12 w-12 bg-[#757575]">
                 <PostIcon topic={post.fields?.topics?.[0] || undefined} />
               </Avatar>
             </ListItemAvatar>
             <ListItemText
-              className="post-list-item-content"
+              className="post-list-item-content my-1.5"
               primary={
                 <>
                   <Typography component="h3" align="left">

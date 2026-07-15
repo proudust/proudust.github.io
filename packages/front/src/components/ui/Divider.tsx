@@ -1,11 +1,23 @@
-import type React from 'react';
+import React from 'react';
 
-import MuiDivider from '@mui/material/Divider';
-import type { DividerProps as MuiDividerProps } from '@mui/material/Divider';
+import { cn } from './utils';
 
-export type DividerProps = Pick<MuiDividerProps, 'style'> & {
+export type DividerProps = {
+  style?: React.CSSProperties;
   component?: 'li';
   variant?: 'inset';
 };
 
-export const Divider = MuiDivider as React.FC<DividerProps>;
+export const Divider: React.FC<DividerProps> = ({
+  component: Component = 'hr',
+  variant,
+  style,
+}) => {
+  const classes = cn(
+    'border-0 border-t border-divider',
+    variant === 'inset' && 'ml-[72px]',
+    Component === 'li' && 'list-none',
+  );
+
+  return React.createElement(Component, { className: classes, style });
+};

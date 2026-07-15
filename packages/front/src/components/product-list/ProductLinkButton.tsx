@@ -20,7 +20,7 @@ export const ProductLinkButton: React.FC<ProductLinkButtonProps> = ({ name, href
   name ??= '';
   href ??= '';
   return (
-    <Tooltip title={name} aria-label={name}>
+    <Tooltip title={name} aria-label={name} placement="top">
       <IconButton href={href} size="large">
         {icons.get(name)}
       </IconButton>

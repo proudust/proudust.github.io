@@ -1,11 +1,13 @@
-import type React from 'react';
+import React from 'react';
 
-import MuiGrid from '@mui/material/Grid';
-import type { GridProps as MuiGridProps } from '@mui/material/Grid';
+import { cn } from './utils';
 
 type GridComponent = 'ul' | 'li';
 
-export type GridProps = Pick<MuiGridProps, 'children' | 'style'> & {
+export type GridProps = {
+  children?: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
   component?: GridComponent;
   container?: boolean;
   item?: boolean;
@@ -14,4 +16,23 @@ export type GridProps = Pick<MuiGridProps, 'children' | 'style'> & {
   sm?: 6;
 };
 
-export const Grid = MuiGrid as React.FC<GridProps>;
+export const Grid: React.FC<GridProps> = ({
+  component: Component = 'div',
+  className,
+  style,
+  children,
+  container,
+  item,
+  xs,
+  sm,
+}) => {
+  const classes = cn(
+    container && 'grid grid-cols-12 gap-4',
+    item && xs === 12 && 'col-span-12',
+    item && sm === 6 && 'sm:col-span-6',
+    Component === 'ul' && 'list-none',
+    className,
+  );
+
+  return React.createElement(Component, { className: classes, style }, children);
+};

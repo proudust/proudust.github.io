@@ -16,11 +16,11 @@ export const Profile: React.FC<ProfileProps> = () => {
   const { name, summary, social } = result?.site?.siteMetadata?.author ?? {};
 
   return (
-    <footer className="mx-auto px-6 max-w-[864px] flex items-center mt-6 mb-20 max-sm:flex-col max-sm:text-center">
+    <footer className="mx-auto mt-6 mb-20 flex max-w-216 items-center px-6 max-sm:flex-col max-sm:text-center">
       <Avatar className="m-2">
         <StaticImage alt={name ?? ''} src="../../../content/avatar.jpg"></StaticImage>
       </Avatar>
-      <div className="grow mx-2">
+      <div className="mx-2 grow">
         <Typography component="p" variant="subtitle1">
           {name}
         </Typography>

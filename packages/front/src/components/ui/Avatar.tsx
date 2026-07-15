@@ -1,8 +1,19 @@
-import type React from 'react';
+import React from 'react';
 
-import MuiAvatar from '@mui/material/Avatar';
-import type { AvatarProps as MuiAvatarProps } from '@mui/material/Avatar';
+import { cn } from './utils';
 
-export type AvatarProps = Pick<MuiAvatarProps, 'children' | 'className'>;
+export type AvatarProps = {
+  children?: React.ReactNode;
+  className?: string;
+};
 
-export const Avatar = MuiAvatar as React.FC<AvatarProps>;
+export const Avatar: React.FC<AvatarProps> = ({ className, children }) => (
+  <div
+    className={cn(
+      'inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full',
+      className,
+    )}
+  >
+    {children}
+  </div>
+);

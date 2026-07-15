@@ -24,7 +24,7 @@ const TocBody: React.FC<TocBodyProps> = ({ tableOfContents, close }) => (
 );
 
 const SideToc: React.FC<TocBodyProps> = props => (
-  <nav className="hidden lg:block lg:shrink-0 sticky top-[var(--spacing-app-bar)]">
+  <nav className="top-app-bar sticky hidden lg:block lg:shrink-0">
     <TocBody {...props} />
   </nav>
 );

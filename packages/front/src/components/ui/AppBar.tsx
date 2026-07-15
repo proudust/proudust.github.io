@@ -1,16 +1,33 @@
-import type React from 'react';
+import React from 'react';
 
-import MuiAppBar from '@mui/material/AppBar';
-import type { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import MuiToolbar from '@mui/material/Toolbar';
-import type { ToolbarProps as MuiToolbarProps } from '@mui/material/Toolbar';
+import { cn } from './utils';
 
-export type AppBarProps = Pick<MuiAppBarProps, 'children'> & {
+export type AppBarProps = {
+  children?: React.ReactNode;
   color?: 'inherit';
   position?: 'fixed';
 };
 
-export type ToolbarProps = Pick<MuiToolbarProps, 'children' | 'style'>;
+export type ToolbarProps = {
+  children?: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+};
 
-export const AppBar = MuiAppBar as React.FC<AppBarProps>;
-export const Toolbar = MuiToolbar as React.FC<ToolbarProps>;
+export const AppBar: React.FC<AppBarProps> = ({ children, color, position }) => (
+  <header
+    className={cn(
+      'text-on-surface shadow-elevation-1 z-50 bg-[#272727]',
+      color === 'inherit' && 'text-on-surface',
+      position === 'fixed' && 'fixed top-0 right-0 left-0',
+    )}
+  >
+    {children}
+  </header>
+);
+
+export const Toolbar: React.FC<ToolbarProps> = ({ children, className, style }) => (
+  <div className={cn('flex min-h-14.5 items-center px-6', className)} style={style}>
+    {children}
+  </div>
+);

@@ -15,7 +15,7 @@ interface SectionHeaderProps {
 }
 
 const SectionHeader: React.FC<SectionHeaderProps> = props => (
-  <Button component={Link} to={props.href} className="flex w-full justify-between my-2 py-2">
+  <Button component={Link} to={props.href} className="my-2 flex w-full justify-between py-2">
     <Typography component="h2" variant="h5" color="textPrimary">
       {props.children}
     </Typography>
