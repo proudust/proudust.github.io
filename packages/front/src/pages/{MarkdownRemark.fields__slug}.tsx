@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { IconButton, Paper, Tooltip, Typography, useMediaQuery } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import { IconButton, Paper, Tooltip, Typography } from '@mui/material';
 import { graphql } from 'gatsby';
 import type { PageProps } from 'gatsby';
 import { MdToc } from 'react-icons/md';
@@ -15,27 +14,22 @@ import NotFound from './404';
 
 interface TocButtonProps {
   children?: never;
-  visible: boolean;
   onClick: () => void;
 }
 
-const TocButton: React.FC<TocButtonProps> = ({ visible, onClick }) => {
-  if (!visible) return <></>;
-
-  return (
+const TocButton: React.FC<TocButtonProps> = ({ onClick }) => (
+  <span className="lg:hidden">
     <Tooltip title="目次を表示" placement="bottom">
       <IconButton onClick={onClick} size="large">
         <MdToc />
       </IconButton>
     </Tooltip>
-  );
-};
+  </span>
+);
 
 type BlogPostProps = PageProps<Queries.BlogPostBySlugQuery, Queries.BlogPostBySlugQueryVariables>;
 
 const BlogPost: React.FC<BlogPostProps> = props => {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up('lg'));
   const [openNav, setOpenNav] = React.useState(false);
 
   const post = props.data?.markdownRemark;
@@ -45,16 +39,15 @@ const BlogPost: React.FC<BlogPostProps> = props => {
     <Layout
       backref="/"
       title={post.frontmatter?.title ?? ''}
-      flex={matches}
-      width={matches ? 'lg' : undefined}
+      mainClassName="lg:flex lg:items-start lg:max-w-[1152px]"
       actions={
         <>
           <ViewOnGithubButton slug={post.fields?.slug ?? ''} />
-          <TocButton visible={!matches} onClick={() => setOpenNav(true)} />
+          <TocButton onClick={() => setOpenNav(true)} />
         </>
       }
     >
-      <Paper component="article" className="p-6 max-w-[800px]">
+      <Paper component="article" className="p-6 w-full max-w-[800px] lg:min-w-0 lg:flex-1">
         <header className="flex flex-col-reverse">
           <Typography variant="h1" style={{ fontSize: '2.5rem' }}>
             {post.frontmatter?.title}
@@ -71,7 +64,6 @@ const BlogPost: React.FC<BlogPostProps> = props => {
         <Article html={post.html || undefined} />
       </Paper>
       <Toc
-        mode={matches ? 'side' : 'drawer'}
         tableOfContents={post.tableOfContents || undefined}
         isOpen={openNav}
         close={() => setOpenNav(false)}

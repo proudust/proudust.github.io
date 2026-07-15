@@ -24,7 +24,7 @@ const TocBody: React.FC<TocBodyProps> = ({ tableOfContents, close }) => (
 );
 
 const SideToc: React.FC<TocBodyProps> = props => (
-  <nav className="sticky top-[var(--spacing-app-bar)]">
+  <nav className="hidden lg:block lg:shrink-0 sticky top-[var(--spacing-app-bar)]">
     <TocBody {...props} />
   </nav>
 );
@@ -41,11 +41,11 @@ const DrawerToc: React.FC<DrawerTocProps> = ({ isOpen, ...props }) => (
   </Drawer>
 );
 
-interface TocProps extends DrawerTocProps {
-  mode: 'drawer' | 'side';
-}
+type TocProps = DrawerTocProps;
 
-export const Toc: React.FC<TocProps> = ({ mode, ...props }) => {
-  if (mode === 'side') return <SideToc {...props} />;
-  else return <DrawerToc {...props} />;
-};
+export const Toc: React.FC<TocProps> = props => (
+  <>
+    <SideToc {...props} />
+    <DrawerToc {...props} />
+  </>
+);

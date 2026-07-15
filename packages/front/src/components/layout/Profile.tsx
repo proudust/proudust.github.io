@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Avatar, Container, IconButton, Tooltip, Typography } from '@mui/material';
+import { Avatar, IconButton, Tooltip, Typography } from '@mui/material';
 import { graphql, useStaticQuery } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { FaGithub, FaSteamSymbol } from 'react-icons/fa';
@@ -15,11 +15,7 @@ export const Profile: React.FC<ProfileProps> = () => {
   const { name, summary, social } = result?.site?.siteMetadata?.author ?? {};
 
   return (
-    <Container
-      component="footer"
-      maxWidth="md"
-      className="flex items-center mt-6 mb-20 max-sm:flex-col max-sm:text-center"
-    >
+    <footer className="mx-auto px-6 max-w-[864px] flex items-center mt-6 mb-20 max-sm:flex-col max-sm:text-center">
       <Avatar className="m-2">
         <StaticImage alt={name ?? ''} src="../../../content/avatar.jpg"></StaticImage>
       </Avatar>
@@ -60,7 +56,7 @@ export const Profile: React.FC<ProfileProps> = () => {
           </IconButton>
         </Tooltip>
       </address>
-    </Container>
+    </footer>
   );
 };
 
