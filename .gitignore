@@ -83,6 +83,10 @@ typings/
 # react / gatsby
 public/
 
+# astro
+dist/
+.astro/
+
 # vuepress build output
 .vuepress/dist
 

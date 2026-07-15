@@ -1,6 +1,7 @@
 title: PAYDAY2 Big Oil Day2 Calculator
 description: ゲーム PAYDAY2 の Big Oil Day2 で正解の融合炉を探すための計算機。
 image: bigoil.png
+featured: false
 links:
   - name: Link
     href: https://proudust.github.io/payday2-bigoil/
