@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Typography } from '@mui/material';
+import { Typography } from '../ui';
 import 'prismjs/themes/prism-tomorrow.css';
 
 interface ArticleProps {

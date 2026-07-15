@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Typography, Paper } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 import { Layout } from '../components/layout';
+import { Paper, Typography } from '../components/ui';
 
 interface NotFoundProps {
   children?: never;

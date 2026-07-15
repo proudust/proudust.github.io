@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Grid } from '@mui/material';
 import { graphql } from 'gatsby';
+
+import { Grid } from '../ui';
 
 import { ProductListItem } from './ProductListItem';
 

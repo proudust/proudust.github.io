@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Typography } from '@mui/material';
 import {
   FaAndroid,
   FaGithub,
@@ -11,6 +10,8 @@ import {
   FaPython,
   FaSteam,
 } from 'react-icons/fa';
+
+import { Typography } from '../ui';
 
 interface PostIconProps {
   readonly children?: never;

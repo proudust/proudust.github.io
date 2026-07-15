@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Drawer, Typography } from '@mui/material';
+import { Drawer, Typography } from '../ui';
 
 interface TocBodyProps {
   children?: never;

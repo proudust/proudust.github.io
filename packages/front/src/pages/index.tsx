@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Button, Typography } from '@mui/material';
 import { graphql, Link } from 'gatsby';
 import type { PageProps } from 'gatsby';
 import { MdArrowForward } from 'react-icons/md';
@@ -8,6 +7,7 @@ import { MdArrowForward } from 'react-icons/md';
 import { Layout } from '../components/layout';
 import { PostList } from '../components/post';
 import { ProductList } from '../components/product-list';
+import { Button, Typography } from '../components/ui';
 
 interface SectionHeaderProps {
   children: string;

@@ -1,6 +1,8 @@
 import React from 'react';
 
-import type { PaperProps } from '@mui/material';
+import { graphql, Link } from 'gatsby';
+
+import type { PaperProps } from '../ui';
 import {
   Avatar,
   Divider,
@@ -10,8 +12,7 @@ import {
   ListItemText,
   Paper,
   Typography,
-} from '@mui/material';
-import { graphql, Link } from 'gatsby';
+} from '../ui';
 
 import { PostIcon } from './PostIcon';
 

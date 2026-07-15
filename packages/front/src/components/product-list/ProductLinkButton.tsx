@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { IconButton, Tooltip } from '@mui/material';
 import { FaGithub } from 'react-icons/fa';
 import { MdDownload, MdOpenInNew } from 'react-icons/md';
+
+import { IconButton, Tooltip } from '../ui';
 
 const icons = new Map<string, React.ReactElement>();
 icons.set('Download', <MdDownload />);

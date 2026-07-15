@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { IconButton, Tooltip } from '@mui/material';
 import { FaGithub } from 'react-icons/fa';
+
+import { IconButton, Tooltip } from '../ui';
 
 interface ShowByGithubButtonProps {
   children?: never;

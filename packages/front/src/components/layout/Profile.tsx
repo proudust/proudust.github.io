@@ -1,10 +1,11 @@
 import React from 'react';
 
-import { Avatar, IconButton, Tooltip, Typography } from '@mui/material';
 import { graphql, useStaticQuery } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { FaGithub, FaSteamSymbol } from 'react-icons/fa';
 import { FaTwitter } from 'react-icons/fa6';
+
+import { Avatar, IconButton, Tooltip, Typography } from '../ui';
 
 interface ProfileProps {
   children?: never;

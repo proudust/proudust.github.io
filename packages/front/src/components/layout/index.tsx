@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { Divider } from '@mui/material';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Helmet } from 'react-helmet';
+
+import { Divider } from '../ui';
 
 import { DefaultAppBar } from './AppBar';
 import { Profile } from './Profile';

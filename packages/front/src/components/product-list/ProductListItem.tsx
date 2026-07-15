@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { Card, CardActionArea, CardActions, CardHeader, CardMedia } from '@mui/material';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import type { GatsbyImageProps, IGatsbyImageData } from 'gatsby-plugin-image';
+
+import { Card, CardActionArea, CardActions, CardHeader, CardMedia } from '../ui';
 
 import { ProductLinkButton } from './ProductLinkButton';
 

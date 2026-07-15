@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { IconButton, Paper, Tooltip, Typography } from '@mui/material';
 import { graphql } from 'gatsby';
 import type { PageProps } from 'gatsby';
 import { MdToc } from 'react-icons/md';
@@ -9,6 +8,7 @@ import { Layout } from '../components/layout';
 import { Article } from '../components/post/Article';
 import { Toc } from '../components/post/Toc';
 import { ViewOnGithubButton } from '../components/post/ViewOnGithubButton';
+import { IconButton, Paper, Tooltip, Typography } from '../components/ui';
 
 import NotFound from './404';
 
