@@ -1,4 +1,5 @@
 import graphqlPlugin from '@graphql-eslint/eslint-plugin';
+import astro from 'eslint-plugin-astro';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
@@ -7,8 +8,9 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['.cache/', 'public/', 'src/gatsby-types.d.ts'],
+    ignores: ['.cache/', 'public/', 'dist/', '.astro/', 'src/gatsby-types.d.ts'],
   },
+  ...astro.configs.recommended,
   {
     files: ['**/*.{ts,tsx}'],
     extends: [

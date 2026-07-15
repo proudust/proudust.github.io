@@ -1,3 +1,5 @@
 .cache/
 public/
+dist/
+.astro/
 gatsby-types.d.ts
